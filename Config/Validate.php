@@ -25,18 +25,18 @@ class Validate
 //String Validation
 		if (is_string($data)) {
 			trim($data);
-			strip_tags(
+			/*strip_tags(
 				filter_var($data, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
-			);
+			);*/
 			$data = stripslashes($data);
 			return htmlspecialchars($data);
 		}
 //Int Validation
 		if (is_numeric($data)) {
 			trim($data);
-			strip_tags(
+			/*strip_tags(
 				filter_var($data, FILTER_VALIDATE_INT)
-			);
+			);*/
 			$data = stripslashes($data);
 			return htmlspecialchars($data);
 		}

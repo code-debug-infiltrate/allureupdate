@@ -6,11 +6,11 @@ use PDO;
 
 class Db
 {
-	private $server = "mysql:host=localhost;dbname=advance_cv";
+	private $server = "mysql:host=localhost;dbname=byte_code";
 
     private $user = "root";
 
-    private $pass = "1234567890";
+    private $pass = "";
 
     private $options = array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
