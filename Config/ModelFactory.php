@@ -5,6 +5,12 @@ require 'vendor/autoload.php';
 
 require_once 'App/Models/User.php';
 
+
+//Email Alerts
+require_once 'App/Mails/RegisterAlert.php';
+
+
+
 class ModelFactory
 
 {

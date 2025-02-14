@@ -8,6 +8,21 @@ abstract class Controller
 {
 
 
+    /**
+     * Accessing a Controller in model.
+     * 
+     * @param $name The name of Controller should be case sensitive.
+     */
+
+    public static function control($name)
+
+    {
+        $class = '\App\Controllers\\'.$name;
+        return new $class;
+    }
+
+
+
 
     /**
      * Display data to browser from views.

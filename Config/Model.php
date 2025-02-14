@@ -239,6 +239,25 @@ abstract class Model
 
 
 
+
+
+
+//Perform Some Other Actions
+    public function others($query)
+    {
+        try {
+            $stmt = $this->dbcon->prepare($query);
+            $stmt->execute();
+            //$o = $stmt->fetch(PDO::FETCH_NUM);
+            return true;
+        } catch (Exception $e) {
+           return $e;                         
+        }
+    }
+
+
+
+
     /**
      * End Of File
      */
