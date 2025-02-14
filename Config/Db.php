@@ -6,7 +6,7 @@ use PDO;
 
 class Db
 {
-	private $server = "mysql:host=localhost;dbname=byte_code";
+	private $server = "mysql:host=localhost;dbname=alluredating";
 
     private $user = "root";
 

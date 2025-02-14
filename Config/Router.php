@@ -5,6 +5,11 @@ namespace Config;
 require 'vendor/autoload.php';
 
 require_once 'App/Controllers/HomeController.php';
+require_once 'App/Controllers/RegisterController.php';
+require_once 'App/Controllers/LoginController.php';
+require_once 'App/Controllers/UserController.php';
+require_once 'App/Controllers/AdminController.php';
+require_once 'App/Controllers/Paystack.php';
 
 class Router
 
