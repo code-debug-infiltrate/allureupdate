@@ -714,19 +714,19 @@
   }
 
   .main-header.style-two .main-menu .navbar-header .navbar-toggle{
-    background: #fd571c;
+    background: #fbcdfb;
   }
 
   .main-header.style-three .main-menu .navbar-header .navbar-toggle{
-    background: #ff443e;
+    background: #fbcdfb;
   }
 
   .main-header.style-four .main-menu .navbar-header .navbar-toggle{
-    background: #fe2a37;
+    background: #fbcdfb;
   }
 
   .main-header.style-five .main-menu .navbar-header .navbar-toggle{
-    background: #fa903e;
+    background: #7005e3;
   }
 
   .about-style-four .top-content .content-box,
@@ -808,7 +808,7 @@
   }
 
   .main-header.style-six .main-menu .navbar-header .navbar-toggle{
-    background: #fc9a36;
+    background: #7005e3;
   }
 
   .main-header.style-six .header-upper .inner-container .right-content .info-box{
@@ -859,7 +859,7 @@
   }
 
   .main-header.style-seven .main-menu .navbar-header .navbar-toggle{
-    background: #ff5e85;
+    background: #7005e3;
   }
 
   .main-header.style-seven .header-bottom .outer-container .nav-outer{
@@ -969,7 +969,7 @@
   }
 
   .main-header.style-eight .main-menu .navbar-header .navbar-toggle{
-    background: #35a9ad;
+    background: #7005e3;
   }
 
   .fabrics-section.home-8 .content-box{
@@ -1038,7 +1038,7 @@
   }
 
   .main-header.style-nine .main-menu .navbar-header .navbar-toggle{
-    background: #fd571d;
+    background: #7005e3;
   }
 
   .about-style-five .upper-content .content-box{
@@ -1127,7 +1127,7 @@
   }
 
   .our-value .inner-container .inner-box{
-    background: #fd571c;
+    background: #7005e3;
   }
 
   .key-benefits .content-box{
@@ -2114,7 +2114,7 @@
   }
 
   .growth-section .inner-column .inner-content .inner-box{
-    background: #fe2a37;
+    background: #7005e3;
     padding: 50px 30px;
   }
 
@@ -2513,7 +2513,7 @@
     float:none !important;
     margin:0px !important;
     width:100% !important;
-    background: #333333;
+    background: #7005e3;
     border:1px solid #ffffff;
   }  
   .main-menu .navbar-collapse > .navigation > li{
@@ -2553,7 +2553,7 @@
     right:auto !important;
     top:auto !important;
     width:100%;
-    background: #333333;
+    background: #7005e3;
     -webkit-border-radius:0px;
     -ms-border-radius:0px;
     -o-border-radius:0px;
@@ -2579,7 +2579,7 @@
     padding:12px 15px !important;
     line-height:22px;
     color: #fff;
-    background: #333333;
+    background: #7005e3;
     text-align:left;
     min-height:0px;
   }  
@@ -2589,7 +2589,7 @@
   .main-menu .navbar-collapse > .navigation > li.current > a,
   .main-menu .navbar-collapse > .navigation > li.current-menu-item > a{
     color: #ffffff !important;
-    background: #333333;
+    background: #7005e3;
   }  
   .main-menu .navbar-collapse > .navigation li.dropdown .dropdown-btn{
     display:block;

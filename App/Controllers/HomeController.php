@@ -31,7 +31,7 @@ class HomeController extends Controller
             'userProfiles' => $userProfiles['user_profiles'],
         );
 
-        $this->view('Front/index', $data);
+        $this->view('Front/index-page', $data);
     }
 
 
