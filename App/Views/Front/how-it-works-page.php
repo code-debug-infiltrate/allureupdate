@@ -50,9 +50,9 @@ include 'Layout/navbar.php';
                             <div class="left-layer"></div>
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-user"></i></div>
-                            <h3><a href="<?= baseURL('new-member/'); ?>">Profile Setup</a></h3>
+                            <h3><a href="<?= baseURL('login/'); ?>">Profile Setup</a></h3>
                             <div class="text">If You Found Your Welcome Email In Your Inbox Folder, Good, Else Check Your Spam Folder. <br>Login To Your <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Member Dashboard. Your Profile Setup Steps Will Be Waiting. <br>Answer All Questions And You're Already On Your Way To Finding Love. You Don't Need To Do Much, Our Algorithm Will Do The Rest.</div>
-                            <div class="btn-box"><a href="<?= baseURL('new-member/'); ?>">Book Session</a></div>
+                            <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Setup profile</a></div>
                         </div>
                     </div>
                 </div>
