@@ -37,6 +37,37 @@ class HomeController extends Controller
 
 
 
+    /**
+     * Display method for static route
+     */
+    public function about_us()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+     
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/about-us-page', $data);
+    }
+
+
+
+    /**
+     * Display method for static route
+     */
+    public function how_it_works()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+     
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/how-it-works-page', $data);
+    }
+
+
      /**
      * Display method for static route
      */
@@ -65,7 +96,7 @@ class HomeController extends Controller
             'userProfiles' => $userProfiles['user_profiles'],
         );
         
-        $this->view('Front/blog-home', $data);
+        $this->view('Front/blog-home-page', $data);
     }
 
 
@@ -126,7 +157,7 @@ class HomeController extends Controller
             'coyInfo' => $coyInfo, 
         );
 
-        $this->view('Front/contact-us', $data);
+        $this->view('Front/contact-us-page', $data);
     }
 
 
@@ -143,7 +174,7 @@ class HomeController extends Controller
             'coyInfo' => $coyInfo, 
         );
 
-        $this->view('Front/faqs', $data);
+        $this->view('Front/faqs-page', $data);
     }
 
 
@@ -159,8 +190,26 @@ class HomeController extends Controller
             'coyInfo' => $coyInfo, 
         );
 
-        $this->view('Front/privacy-policy', $data);
+        $this->view('Front/privacy-policy-page', $data);
     }
+
+
+
+
+    /**
+     * Display method for static route
+     */
+    public function testimonials()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/testimonials-page', $data);
+    }
+
+
 
 
 
@@ -175,7 +224,7 @@ class HomeController extends Controller
             'coyInfo' => $coyInfo, 
         );
 
-        $this->view('Front/terms-of-service', $data);
+        $this->view('Front/terms-of-service-page', $data);
     }
 
 
@@ -191,7 +240,7 @@ class HomeController extends Controller
             'coyInfo' => $coyInfo, 
         );
 
-        $this->view('Front/private-session', $data);
+        $this->view('Front/private-session-page', $data);
     }
 
 

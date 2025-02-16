@@ -25,7 +25,10 @@ class LoginController extends Controller
     {
         $v = new Validate();
 
-        $data = array( );
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
 
         return $this->view('Front/Auth/index', $data); 
 
@@ -71,7 +74,10 @@ class LoginController extends Controller
     //Forgot Password For Members
     public function forgot_password()
     {           
-        $data = array( );
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
         $this->view('Front/Auth/forgot-password', $data);
     
     }
@@ -107,7 +113,10 @@ class LoginController extends Controller
     //Reset Password For Members
     public function reset_password()
     {           
-        $data = array( );
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
         $this->view('Front/Auth/reset-password', $data);
     
     }
@@ -152,12 +161,13 @@ class LoginController extends Controller
             $email = $v->clean($_POST['email']);
 
             $info = array('code' => trim($code), 'uniqueid' => $uniqueid,);
-
+            $coyInfo = ModelFactory::model('Register')->coy_info();
             $result = ModelFactory::model('Login')->member_unlock($info);
 
            if (isset($result['type'])) {
 
                 $data = array(
+                    'coyInfo' => $coyInfo, 
                     'id' => $uniqueid,
                      'user' => $email,
                     'type' => "error",
@@ -169,7 +179,10 @@ class LoginController extends Controller
 
         } else {
 
-            $data = array( ); 
+            $coyInfo = ModelFactory::model('Register')->coy_info();
+            $data = array(
+                'coyInfo' => $coyInfo, 
+            ); 
 
             $this->view('Front/Auth/unlock', $data);
         }
@@ -191,8 +204,10 @@ class LoginController extends Controller
        $uid = array('uniqueid' => $v->clean($id), );
        
         $result = ModelFactory::model('Login')->end_session($uid);
+        $coyInfo = ModelFactory::model('Register')->coy_info();
        
         $data = array(
+            'coyInfo' => $coyInfo, 
             "type" => $result['result_info']['type'],
             "message" => $result['result_info']['message']
         );

@@ -24,7 +24,10 @@ class RegisterController extends Controller
     public function new_membership()
     {
         $v = new Validate();
-        $data = array(); 
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
         $this->view('Front/Auth/register', $data);
     }
 
@@ -75,9 +78,11 @@ class RegisterController extends Controller
 
             //Call API Function
             $member = ModelFactory::model('Register')->confirm_user($info);
+            $coyInfo = ModelFactory::model('Register')->coy_info();
             $result = json_decode($member, true);
            
             $data = array(
+                'coyInfo' => $coyInfo, 
                 'type' => $result['result_info']['type'],
                 'message' => $result['result_info']['message'],
             ); 

@@ -17,21 +17,8 @@
                                     <ul>
                                         <li><a href="<?= baseURL('index/'); ?>">Home</a></li>
                                         <li><a href="<?= baseURL('about-us/'); ?>">About Us</a></li>
-                                        <li><a href="<?= baseURL('privacy-policy/'); ?>">Privacy Policy</a></li>
-                                        <li><a href="<?= baseURL('terms-of-service/'); ?>">Terms Of Service</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="links-widget footer-widget">
-                                <h4 class="widget-title">Start Your Journey</h4>
-                                <div class="widget-content">
-                                    <ul>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Academy"> Academy </a></li>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Scouting"> Scouting </a></li>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Tournament"> Tournament </a></li>
-                                        <li><a href="<?= baseURL('login/'); ?>">Member Area</a></li>
+                                        <li><a href="<?= baseURL('how-it-works/'); ?>">How It Works</a></li>
+                                        <li><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -43,6 +30,20 @@
                                     <ul>
                                         <li><a href="<?= baseURL('faqs/'); ?>">FAQs</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
+                                        <li><a href="<?= baseURL('privacy-policy/'); ?>">Privacy Policy</a></li>
+                                        <li><a href="<?= baseURL('terms-of-service/'); ?>">Terms Of Service</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="links-widget footer-widget">
+                                <h4 class="widget-title">Member Area</h4>
+                                <div class="widget-content">
+                                    <ul>
+                                        <li><a href="<?= baseURL('new-member/'); ?>"> Find a Match </a></li>
+                                        <li><a href="<?= baseURL('forgot-password/'); ?>"> Forgot Password </a></li>
+                                        <li><a href="<?= baseURL('login/'); ?>">Login to Dashboard</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -156,14 +157,6 @@
     </div>
 </div>
 <!-- END sidebar widget item -->
-
-
-
-
-	
-<!-- Bothelp.io widget -->
-<script type="text/javascript">!function(){var e={"token":"+905060610316","position":"left","bottomSpacing":"150","callToActionMessage":"","displayOn":"everywhere","subtitle":"International Professional Sports Agency!","message":{"name":"Splendid Global Sports","content":"Hello There, How Can We Help You Today? "}},t=document.location.protocol+"//bothelp.io",o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=t+"/widget-folder/widget-whatsapp-chat.js",o.onload=function(){BhWidgetWhatsappChat.init(e)};var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(o,n)}();</script>
-<!-- /Bothelp.io widget -->
 
 
 	

@@ -11,14 +11,14 @@
                         <?php } ?>
                         
                         <div class="top-box">
-                            <h2>Celebrating Years Of Excellence</h2>
-                            <div class="text">As we excitedly head into the future, we thought you might like to see a brief snapshot of important events that together, have helped create the <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> we know today:</div>
-                            <h4>Delivering the very best sports men and supporting them with an unmatched level of quality training and mentoring — <br />that's <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h4>
-                            <a href="<?= baseURL('new-registration/'); ?>?cat=Academy">Start Your Journey</a>
+                            <h2>People Of Value</h2>
+                            <div class="text">Like you, they are tired of dating games. You can have complete confidence that all of your compatible matches are looking for the same thing you are. Love that lasts. </div>
+                            <h4>Quality Singles, Just Like You</h4>
+                            <a href="<?= baseURL('new-member/'); ?>">Join now For Free</a>
                         </div>
                         <div class="lower-box">
-                            <h2>We’ve built a reputation for helping young talents succeed, and we take that seriously.</h2>
-                            <div class="text">We’ll help you find the best placements for international clubs to ensure you get it done correctly, efficiently and on budget.</div>
+                            <h2>We’ve built a reputation for helping singles succeed in relationships, and we take that seriously.</h2>
+                            <div class="text">Dating is a truly joyful experience. Sometimes we lose sight of this truth in our search for the right online dating site. But finding someone special is perhaps the most valuable experience we’ll ever have in life. To meet our best match, find our one true soulmate, and discover each other and all the emotions and precious memories that go with it. That is the greatest aim and we shouldn’t ever lose sight of it.</div>
                         </div>
                     </div>
                 </div>

@@ -71,7 +71,8 @@
 
                     <div class="content-box">
                         <h4>About Us</h4>
-                        <p class="text">Committing to our customers’ success by providing high quality, value-added products, services, and solutions safely and with integrity.</p>
+                        <p class="text"><?= $coyInfo['slogan']; ?></p>
+                        <br>
                         <a href="<?= baseURL('about-us/'); ?>">Learn More</a>
                     </div>
                     <div class="contact-info">

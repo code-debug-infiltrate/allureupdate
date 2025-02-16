@@ -762,7 +762,7 @@ img {
 
 .main-menu .navigation > li.current > a,
 .main-menu .navigation > li:hover > a{
-  color: #fbcdfb;
+  color: #7005e3;
 }
 
 .main-menu .navigation{
@@ -824,7 +824,7 @@ img {
 }
 
 .main-menu .navigation > li > ul > li:hover a{
-  color: #fbcdfb;
+  color: #7005e3;
 }
 
 .main-menu .navigation > li > ul > li:last-child:hover{
@@ -1285,7 +1285,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .sticky-header .main-menu .navigation > li.current > a,
 .sticky-header .main-menu .navigation > li:hover > a{
   background: #fbcdfb;
-  color: #fbcdfb !important;
+  color: #7005e3 !important;
 }
 
 .sticky-header .logo-box{
@@ -4747,7 +4747,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .main-header.style-three .main-menu .navigation > li.current > a, 
 .main-header.style-three .main-menu .navigation > li:hover > a,
 .main-header.style-three .header-bottom .info-box .search-box .header-flyout-searchbar i:hover{
-  color: #fbcdfb;
+  color: #7005e3;
 }
 
 .main-header.style-three .header-bottom .info-box .search-box .header-flyout-searchbar i{

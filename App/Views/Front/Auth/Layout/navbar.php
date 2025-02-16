@@ -104,10 +104,10 @@ $curURL = $tN[1];
                                     <ul class="navigation clearfix">
                                         <li class="<?php if ($curURL == "index" || $curURL == "") {echo "current";}?>"><a href="<?= baseURL('index/'); ?>">Home</a></li>
 
-                                        <li class="<?php if ($curURL == "about-us" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Take a Tour</a>
+                                        <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Who We Are</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('about-us/'); ?>">About Us</a></li>
-                                                <li><a href="<?= baseURL('our-gallery/'); ?>">Our Gallery</a></li>
+                                                <li><a href="<?= baseURL('how-it-works/'); ?>">How It Works</a></li>
                                                 <li class="dropdown"><a href="#">Legal</a>
                                                     <ul>
                                                         <li><a href="<?= baseURL('privacy-policy/')?>">Privacy Policy</a></li>
@@ -117,13 +117,7 @@ $curURL = $tN[1];
                                             </ul>
                                         </li> 
 
-                                        <li class="<?php if ($curURL == "new-registration") {echo "current";}?> dropdown"><a href="#">Start Your Journey</a>
-                                            <ul>
-                                                <li><a href="<?= baseURL('new-registration/'); ?>?cat=Academy">Academy</a></li>
-                                                <li><a href="<?= baseURL('new-registration/'); ?>?cat=Scouting">Scouting</a></li>
-                                                <li><a href="<?= baseURL('new-registration/'); ?>?cat=Tournament">Tournament</a></li>
-                                            </ul>
-                                        </li> 
+                                        <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
                                         <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                             <ul>
@@ -131,18 +125,26 @@ $curURL = $tN[1];
                                                 <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                             </ul>
                                         </li> 
+
+                                        <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
+                                            <ul>
+                                                <li><a href="<?= baseURL('login/'); ?>">Login</a></li>
+                                                <li><a href="<?= baseURL('new-member/'); ?>">Register</a></li>
+                                            </ul>
+                                        </li> 
+
                                     </ul>
                                 </div>
                             </nav>
                         </div>
                         <div class="info-box pull-right clearfix">
-                            <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Member Area<i class="fas fa-arrow-right"></i></a></div>
+                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>">News & Updates<i class="fas fa-arrow-right"></i></a></div>
                             <div class="search-box">
                                 <div class="header-flyout-searchbar">
                                     <i class="fa fa-search"></i>
                                 </div>
                             </div>
-                            <div class="shop-cart"> <!-- <a href="#"> <i class="flaticon-shopping-bag"></i> <span>0</span> </a> --></div>
+                            <div class="shop-cart"> <!-- <a href="#"> <i class="flaticon-shopping-bag"></i> <span>0</span> </a> --> </div>
                             <div class="nav-box">
                                 <div class="nav-btn nav-toggler navSidebar-button clearfix">
                                     <span class="icon"></span>
@@ -174,10 +176,10 @@ $curURL = $tN[1];
                             <ul class="navigation clearfix">
                                 <li class="<?php if ($curURL == "index" || $curURL == "") {echo "current";}?>"><a href="<?= baseURL('index/'); ?>">Home</a></li>
 
-                                <li class="<?php if ($curURL == "about-us" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Take a Tour</a>
+                                <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Who We Are</a>
                                     <ul>
                                         <li><a href="<?= baseURL('about-us/'); ?>">About Us</a></li>
-                                        <li><a href="<?= baseURL('our-gallery/'); ?>">Our Gallery</a></li>
+                                        <li><a href="<?= baseURL('how-it-works/'); ?>">How It Works</a></li>
                                         <li class="dropdown"><a href="#">Legal</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('privacy-policy/')?>">Privacy Policy</a></li>
@@ -185,24 +187,26 @@ $curURL = $tN[1];
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                
-                                <li class="<?php if ($curURL == "new-registration") {echo "current";}?> dropdown"><a href="#">Start Your Journey</a>
-                                    <ul>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Academy">Academy</a></li>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Scouting">Scouting</a></li>
-                                        <li><a href="<?= baseURL('new-registration/'); ?>?cat=Tournament">Tournament</a></li>
-                                    </ul>
                                 </li> 
-                                                           
+
+                                <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
+
                                 <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                     <ul>
                                         <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                     </ul>
                                 </li> 
-                                <li class="<?php if ($curURL == "login") {echo "current";}?>"><a href="<?= baseURL('login/'); ?>">Member Area</a></li>
-                                    
+
+                                <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>">News & Updates</a></li>
+                                 
+                                <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
+                                    <ul>
+                                        <li><a href="<?= baseURL('login/'); ?>">Login</a></li>
+                                        <li><a href="<?= baseURL('new-member/'); ?>">Register</a></li>
+                                    </ul>
+                                </li> 
+
                             </ul>
                         </div>
                     </nav>

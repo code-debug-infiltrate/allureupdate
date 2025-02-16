@@ -12,6 +12,8 @@
 // static routes
 $router->get('/', [HomeController::class, 'index']);
 $router->get('/index', [HomeController::class, 'index']);
+$router->get('/about-us', [HomeController::class, 'about_us']);
+$router->get('/how-it-works', [HomeController::class, 'how_it_works']);
 $router->get('/ajax-subscribe', [HomeController::class, 'ajax_subscribe']);
 
 $router->get('/blog', [HomeController::class, 'blognews_update']);
@@ -22,8 +24,9 @@ $router->get('/ajax-front-search', [HomeController::class, 'ajax_front_search'])
 $router->get('/faqs', [HomeController::class, 'faqs']);
 $router->get('/privacy-policy', [HomeController::class, 'privacy_policy']);
 $router->get('/terms-of-service', [HomeController::class, 'terms_of_service']);
+$router->get('/testimonials', [HomeController::class, 'testimonials']);
 
-$router->get('/contact-us', [HomeController::class, 'contact_us']);
+$router->get('/write-us', [HomeController::class, 'contact_us']);
 $router->get('/ajax-contact', [HomeController::class, 'ajax_contact']);
 
 $router->get('/private-session', [HomeController::class, 'private_session']);
