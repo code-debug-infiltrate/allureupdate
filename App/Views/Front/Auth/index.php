@@ -6,34 +6,43 @@ include 'Layout/navbar.php';
 <title>Member Area | Login Page |  <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></title>
 
 
-    <!-- contact-section -->
-    <section class="contact-section">
+
+    <!-- intro-style-two -->
+    <section class="intro-style-two home-6" style="background-image: url(/Images/Banner/4.jpg);">
         <div class="container">
-            <div class="row" style="margin-top: 50px; padding-top: 100px;">
-                
-                <div class="col-lg-5 col-md-5 col-sm-12 form-column">
-                    <div class="contact-form-area">
-                    <br /><br />
-                        <h2>Welcome Back</h2>
-
-                        <div id="loginForm">
-                            <div class="text" style="font-size: 12px;">
-                                <!-- Not Yet a Member? <a href="<?= baseURL('join-us/'); ?>">Register Here</a>
-                                <br> -->
-                                Fill In Your Member Credentials In The Form Fields Below
+            <div class="row" style="margin-top: 50px; padding-top: 200px;">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div class="content-box">
+                        <h2 class="top-title">Welcome To <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h2>
+                        <h2>Matchmaker And Therapist</h2>
+                        <div class="text">Our mission is to be there for you at all times. Get Expert help, tips and support for a healthier, happier and more fulfilling relationship</div>
+                        <div class="partners-content">
+                            <h3>Socials:</h3>
+                            <div class="partners-carousel owl-carousel owl-theme">
+                                <figure class="slide-item"><a href="https://youtube.com/@allure-dofficial?si=eCmKzc1uX3vcUy9M" target="_blank"><img src="/Images/Socials/youtube.png" alt="youtube"></a></figure>
+                                <figure class="slide-item"><a href="https://tiktok.com/" target="_blank"><img src="/Images/Socials/tiktok.png" alt="tiktok"></a></figure>
+                                <figure class="slide-item"><a href="https://instagram.com/" target="_blank"><img src="/Images/Socials/instagram.png" alt="instagram"></a></figure>
+                                <figure class="slide-item"><a href="https://facebook.com/" target="_blank"><img src="/Images/Socials/facebook.png" alt="facebook"></a></figure>
+                                <figure class="slide-item"><a href="https://whatsapp.com/" target="_blank"><img src="/Images/Socials/whatsapp.png" alt="whatsapp"></a></figure>
                             </div>
-                            <br />
+                            <h3>We’ve built a reputation for helping singles  <br />succeed in <a href="#">Relationships</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                    <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <h3>Welcome Back</h3>
+                        <div class="text"> Fill In Your Member Credentials In The Form Fields Below</div>
+                        <div class="formError_box" style="margin:10px 0px;"></div>
 
-                            <div class="formError_box" style="margin:10px 0px;"></div>
-
-                            <form method="POST" class="default-form"> 
+                            <form method="POST" class="signup-form"> 
                                 <input type="hidden" id="ip" value="<?php echo $ip?>">
                                 <input type="hidden" id="ua" value="<?php echo $user_agent?>">
                                 <input type="hidden" id="url" value="<?= trim(getenv('baseURL'));?>">
                                 <input type="hidden" id="urlLog" value="<?= trim(getenv('baseURL'))."ajax-login/";?>">
                                 
                                 <div class="form-group">
-                                    <input type="text" id="emailLog" placeholder="Email OR Member ID" required>
+                                    <input type="email" id="emailLog" placeholder="Email OR Member ID" required>
                                 </div>
 
                                 <div class="form-group" style="font-size: 12px;">
@@ -46,7 +55,7 @@ include 'Layout/navbar.php';
                                 
                                 <div class="form-group message-btn" style="margin-top: 20px; border-radius: 1px; width: 100%;">
                                     <img src="/Images/green-dots.gif" id="loader" style="display: none"/>
-                                    <button type="submit" id="login">Continue</button>
+                                    <button type="submit" id="login">Login To Dashboard</button>
                                 </div>
                                 
                             </form>
@@ -54,11 +63,7 @@ include 'Layout/navbar.php';
                             <script>
                                 function passwordToggle() {
                                     var x = document.getElementById("password");
-                                    if (x.type === "password") {
-                                        x.type = "text";
-                                    } else {
-                                        x.type = "password";
-                                    }
+                                    if (x.type === "password") { x.type = "text"; } else { x.type = "password"; }
                                 }
                             </script>
                        </div>
@@ -75,21 +80,12 @@ include 'Layout/navbar.php';
                             <p class="notme"></p>
 
                         </div>
-
                     </div>
                 </div>
-
-                <div class="col-lg-7 col-md-7 col-sm-6 agent-column">
-                    <div class="agent-content">
-                        <br><br>
-                        <img src="/Images/Banner/5.png" style="width: 100%; margin-left: 80px;" alt="Member-area-icon">
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    <!-- contact-section end -->
+    <!-- intro-style-two end -->
 
 
 

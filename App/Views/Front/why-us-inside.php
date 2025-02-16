@@ -14,7 +14,7 @@
                             <div class="left-layer"></div>
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-users"></i></div>
-                            <h3><a href="<?= baseURL('new-member/'); ?>">Private Matching</a></h3>
+                            <h3><a href="<?= baseURL('new-member/'); ?>"> Match Making</a></h3>
                             <div class="text">Get matched based on your request. We dont leave this to algorithms, we commit to meet your emotional needs.</div>
                             <div class="btn-box"><a href="<?= baseURL('new-member/'); ?>">Join Free</a></div>
                         </div>

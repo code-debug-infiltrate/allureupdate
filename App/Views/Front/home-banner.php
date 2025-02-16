@@ -6,7 +6,7 @@
                 <div class="content-box">
                     <h5>Welcome To <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h5>
                     <h1>Stop Searching <br/> Start Dating</h1>
-                    <div class="text">Our dating site helps millions find real love.</div>
+                    <div class="text">Our dating site helps genuine singles find real love.</div>
                     <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Login</a></div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                     <h5>Advanced Matching</h5>
                     <h1>Get Who <br/> Gets You</h1>
                     <div class="text">Never been easier with groundbreaking overhaul of <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></div>
-                    <div class="btn-box"><a href="<?= baseURL('testimonials/'); ?>">Love Story</a></div>
+                    <div class="btn-box"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></div>
                 </div>
             </div>
         </div>
