@@ -1,5 +1,5 @@
 <!-- statistics-section -->
-<section class="statistics-section" style="background-image: url(/Images/Body/2.jpg);">
+<section class="statistics-section" style="background-image: url(/Images/Banner/5.jpg);">
     <div class="container">
         <div class="outer-container">
             <div class="row">

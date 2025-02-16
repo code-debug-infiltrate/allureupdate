@@ -5,29 +5,29 @@
             <div class="container">
                 <div class="content-box">
                     <h5>Welcome To <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h5>
-                    <h1>Unlock Your <br/> Potentials</h1>
-                    <div class="text">Train With Professional Coaches and State-Of-The-Art Facilities.</div>
-                    <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Member Area</a></div>
+                    <h1>Stop Searching <br/> Start Dating</h1>
+                    <div class="text">Our dating site helps millions find real love.</div>
+                    <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Login</a></div>
                 </div>
             </div>
         </div>
         <div class="slide" style="background-image:url(/Images/Banner/2.jpg)">
             <div class="container">
                 <div class="content-box">
-                    <h5>Comprehensive Programs</h5>
-                    <h1>Professional Trials <br/> & Scholarships</h1>
-                    <div class="text">Nurturing Young Talents From Grassroots To Advanced Levels.</div>
-                    <div class="btn-box"><a href="<?= baseURL('about-us/'); ?>">Learn More</a></div>
+                    <h5>Advanced Matching</h5>
+                    <h1>Get Who <br/> Gets You</h1>
+                    <div class="text">Never been easier with groundbreaking overhaul of <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></div>
+                    <div class="btn-box"><a href="<?= baseURL('testimonials/'); ?>">Love Story</a></div>
                 </div>
             </div>
         </div>
         <div class="slide" style="background-image:url(/Images/Banner/3.jpg)">
             <div class="container">
                 <div class="content-box">
-                    <h5>Path Way To Success</h5>
-                    <h1>Achieve Your <br/> Sportmanship Goals</h1>
-                    <div class="text">Supportive Community Fostering Growth On And Off The Field.</div>
-                    <div class="btn-box"><a href="<?= baseURL('new-registration/'); ?>?cat=Academy">Get Started</a></div>
+                    <h5>Compatibility Counts</h5>
+                    <h1>Scientific Research <br/> Dating Behavior</h1>
+                    <div class="text">What happens when you apply scientific research to dating behavior? A whole lotta love! But this isn’t destiny, it’s deliberate.</div>
+                    <div class="btn-box"><a href="<?= baseURL('new-member/'); ?>">Get Started</a></div>
                 </div>
             </div>
         </div>

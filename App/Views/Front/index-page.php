@@ -11,20 +11,18 @@ include 'Layout/navbar.php';
 
 <?php include 'why-us-inside.php'; ?>
 
+<?php include 'sign-board-inside.php'; ?>
+
 <?php include 'counter-inside.php'; ?>
 
-<?php include 'sign-board-inside.php'; ?>
+<?php include 'testimonial-inside.php'; ?>
  
 <?php include 'statistics-inside.php'; ?>
 
-<?php include 'channel-links-inside.php'; ?>
-
 <?php include 'blog-posts-inside.php'; ?>
-
-<?php include 'testimonial-inside.php'; ?>
 
 <?php include 'subscribe-inside.php'; ?>
 
-<?php include 'signup-inside.php'; ?>
+<?php include 'join-channel-inside.php'; ?>
 
 <?php include 'Layout/footer.php'; ?>
