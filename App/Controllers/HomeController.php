@@ -68,6 +68,25 @@ class HomeController extends Controller
     }
 
 
+
+
+    /**
+     * Display method for static route
+     */
+    public function safety_security()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+     
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/safety-security-page', $data);
+    }
+
+
+
+
      /**
      * Display method for static route
      */
@@ -210,6 +229,20 @@ class HomeController extends Controller
     }
 
 
+
+
+    /**
+     * Display method for static route
+     */
+    public function love_story()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/love-story-page', $data);
+    }
 
 
 

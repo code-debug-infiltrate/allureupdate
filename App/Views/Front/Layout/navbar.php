@@ -119,9 +119,10 @@ $curURL = $tN[1];
 
                                         <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                        <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                        <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
+                                                <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                                 <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                             </ul>
                                         </li> 
@@ -191,9 +192,10 @@ $curURL = $tN[1];
 
                                 <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                     <ul>
                                         <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
+                                        <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                     </ul>
                                 </li> 

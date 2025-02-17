@@ -14,6 +14,7 @@ $router->get('/', [HomeController::class, 'index']);
 $router->get('/index', [HomeController::class, 'index']);
 $router->get('/about-us', [HomeController::class, 'about_us']);
 $router->get('/how-it-works', [HomeController::class, 'how_it_works']);
+$router->get('/safety-security', [HomeController::class, 'safety_security']);
 $router->get('/ajax-subscribe', [HomeController::class, 'ajax_subscribe']);
 
 $router->get('/blog', [HomeController::class, 'blognews_update']);
@@ -25,6 +26,7 @@ $router->get('/faqs', [HomeController::class, 'faqs']);
 $router->get('/privacy-policy', [HomeController::class, 'privacy_policy']);
 $router->get('/terms-of-service', [HomeController::class, 'terms_of_service']);
 $router->get('/testimonials', [HomeController::class, 'testimonials']);
+$router->get('/love-story', [HomeController::class, 'love_story']);
 
 $router->get('/write-us', [HomeController::class, 'contact_us']);
 $router->get('/ajax-contact', [HomeController::class, 'ajax_contact']);
@@ -38,7 +40,7 @@ $router->get('/mobile-view', [HomeController::class, 'mobile_view']);
 $router->get('/login', [LoginController::class, 'member_area']);
 $router->get('/ajax-login', [LoginController::class, 'ajax_login']);
 
-$router->get('/register', [RegisterController::class, 'new_membership']);
+$router->get('/new-member', [RegisterController::class, 'new_membership']);
 $router->get('/ajax-register', [RegisterController::class, 'ajax_membership']);
 
 $router->get('/forgot-password', [LoginController::class, 'forgot_password']);
