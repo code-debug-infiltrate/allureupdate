@@ -11,28 +11,19 @@ include 'Layout/navbar.php';
     <section class="intro-style-two home-6" style="background-image: url(/Images/Banner/4.jpg);">
         <div class="container">
             <div class="row" style="margin-top: 50px; padding-top: 200px;">
+
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <h2 class="top-title">Welcome To <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h2>
-                        <h2>Matchmaker And Therapist</h2>
-                        <div class="text">Our mission is to be there for you at all times. Get Expert help, tips and support for a healthier, happier and more fulfilling relationship</div>
-                        <div class="partners-content">
-                            <h3>Socials:</h3>
-                            <div class="partners-carousel owl-carousel owl-theme">
-                                <figure class="slide-item"><a href="https://youtube.com/@allure-dofficial?si=eCmKzc1uX3vcUy9M" target="_blank"><img src="/Images/Socials/youtube.png" alt="youtube"></a></figure>
-                                <figure class="slide-item"><a href="https://tiktok.com/" target="_blank"><img src="/Images/Socials/tiktok.png" alt="tiktok"></a></figure>
-                                <figure class="slide-item"><a href="https://instagram.com/" target="_blank"><img src="/Images/Socials/instagram.png" alt="instagram"></a></figure>
-                                <figure class="slide-item"><a href="https://facebook.com/" target="_blank"><img src="/Images/Socials/facebook.png" alt="facebook"></a></figure>
-                                <figure class="slide-item"><a href="https://whatsapp.com/" target="_blank"><img src="/Images/Socials/whatsapp.png" alt="whatsapp"></a></figure>
-                            </div>
-                            <h3>We’ve built a reputation for helping singles  <br />succeed in <a href="#">Relationships</a></h3>
-                        </div>
-                    </div>
+                    <?php include 'auth-side.php'; ?>
                 </div>
+
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <h3>Welcome Back</h3>
-                        <div class="text"> Fill In Your Member Credentials In The Form Fields Below</div>
+                        <h3>Welcome Back, Login</h3>
+                        <div class="text"> 
+                            Fill In Your Member Credentials In The Form Fields Below
+                            <br>
+                            Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>">Create Your Account</a>
+                        </div>
                         <div class="formError_box" style="margin:10px 0px;"></div>
 
                             <form method="POST" class="signup-form"> 
@@ -42,13 +33,15 @@ include 'Layout/navbar.php';
                                 <input type="hidden" id="urlLog" value="<?= trim(getenv('baseURL'))."ajax-login/";?>">
                                 
                                 <div class="form-group">
-                                    <input type="email" id="emailLog" placeholder="Email OR Member ID" required>
+                                    <label class="control-label" for="input">Email OR Member ID</label><i class="mtrl-select"></i>	
+                                    <input type="email" id="emailLog" placeholder="Email OR Member ID" required focus>
                                 </div>
 
-                                <div class="form-group" style="font-size: 12px;">
+                                <div class="form-group">
+                                    <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>	
                                     <input type="password" id="password" placeholder="**********" required>
                                     
-                                    <input type="checkbox" style="margin-top: 10px;" class="select-message" onclick="passwordToggle()"/><i class="check-box" style="margin-right: 8px;"></i> Show Password
+                                    <div class="text"style="font-size: 12px;"> <input type="checkbox" style="margin-top: 10px;" class="select-message" onclick="passwordToggle()"/><i class="check-box" style="margin-right: 8px; font-size: 20px;"></i> Show Password </div>
                                 </div>
 
                                 <div class="text" style="text-align: right; font-size: 12px;">Forgot Password? <a href="<?= baseURL('forgot-password/'); ?>">Reset Now</a></div>

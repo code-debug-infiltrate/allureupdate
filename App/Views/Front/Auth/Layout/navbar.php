@@ -76,7 +76,7 @@ $curURL = $tN[1];
                             <li><a href="https://linkedin.com/<?= $coyInfo['linkedin']; ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                         <?php } ?>
                         <?php if ($coyInfo['phone']) { ?>
-                            <li><a href="https://api.whatsapp.com/send?phone=<?= $coyInfo['phone']; ?>&text=hello, good day! I want to make enquiries about some of your products..." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=<?= $coyInfo['phone']; ?>&text=hello, good day! I want to make enquiries about some of your services..." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                         <?php } ?>
                         </ul>
                     <?php } ?>
@@ -119,9 +119,10 @@ $curURL = $tN[1];
 
                                         <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                        <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                        <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
+                                                <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                                 <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                             </ul>
                                         </li> 
@@ -138,7 +139,7 @@ $curURL = $tN[1];
                             </nav>
                         </div>
                         <div class="info-box pull-right clearfix">
-                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>">News & Updates<i class="fas fa-arrow-right"></i></a></div>
+                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>all/">News & Updates<i class="fas fa-arrow-right"></i></a></div>
                             <div class="search-box">
                                 <div class="header-flyout-searchbar">
                                     <i class="fa fa-search"></i>
@@ -191,14 +192,15 @@ $curURL = $tN[1];
 
                                 <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                <li class="<?php if ($curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                     <ul>
                                         <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
+                                        <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
                                     </ul>
                                 </li> 
 
-                                <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>">News & Updates</a></li>
+                                <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>all/">News & Updates</a></li>
                                  
                                 <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
                                     <ul>

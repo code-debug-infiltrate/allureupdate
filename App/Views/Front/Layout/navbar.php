@@ -76,7 +76,7 @@ $curURL = $tN[1];
                             <li><a href="https://linkedin.com/<?= $coyInfo['linkedin']; ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                         <?php } ?>
                         <?php if ($coyInfo['phone']) { ?>
-                            <li><a href="https://api.whatsapp.com/send?phone=<?= $coyInfo['phone']; ?>&text=hello, good day! I want to make enquiries about some of your products..." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=<?= $coyInfo['phone']; ?>&text=hello, good day! I want to make enquiries about some of your services..." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                         <?php } ?>
                         </ul>
                     <?php } ?>

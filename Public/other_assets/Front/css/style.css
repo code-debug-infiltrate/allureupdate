@@ -9884,7 +9884,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   margin-bottom: 0px;
 }
 
-.intro-style-two.home-6 .inner-box .signup-form .form-group input[type='email'], input[type='text'], input[type='password']{
+.intro-style-two.home-6 .inner-box .signup-form .form-group input[type='email'], input[type='text'], input[type='date'], input[type='password'], select{
   position: relative;
   width: 100%;
   height: 55px;
