@@ -10,7 +10,7 @@ include 'Layout/navbar.php';
 
 
     <!-- case-banner -->
-    <section class="case-banner centred" style="background-image: url(/Images/Body/5.jpg);">
+    <section class="case-banner centred" style="background-image: url(/Images/Banner/5.jpg);">
         <div class="container">
             <div class="content-box" style="margin-top: 150px;">
                 <h1>Search Page</h1>
@@ -59,7 +59,14 @@ include 'Layout/navbar.php';
                 <?php } ?>
 
             <?php } else { ?>	
-                <div class="" style="margin-left: auto; margin-right: auto; text-align: center;"><p style="font-size: 24px; margin: 20px; color: black;"><i class="fa fa-smile-o" style="font-size: 48px; margin: 20px;"></i>  There Are Currently No Published Articles.<br><br>Check Again In a While... <br><br><a href="<?= baseURL('index/')?>" style="color: blueviolet; font-size: 18px;">Go Back to Homepage</a></p></div>
+                <div class="" style="margin-left: auto; margin-right: auto; text-align: center;">
+                    <p style="font-size: 24px; margin: 20px; color: black;"><i class="fa fa-smile-o" style="font-size: 48px; margin: 20px;"></i>  There Are No Results For Your Search Query.<br><br></p>
+                    <div class="search-box">
+                        <div class="header-flyout-searchbar">
+                            <i class="fa fa-search"> Search Again</i>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
                 
             </div>

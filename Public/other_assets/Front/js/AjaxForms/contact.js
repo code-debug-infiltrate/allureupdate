@@ -9,22 +9,8 @@ $(document).ready(function() {
 
       //Process IP 
       var ip = $('#ip').val();
-      if(ip == ''){
-         $('.formError_box').html(
-            '<span style="color:red;">IP Address Missing!</span>'
-         );
-         $('#ip').focus();
-         return false;
-      }
-      //Process User Agent 
       var ua = $('#ua').val();
-      if(ua == ''){
-         $('.formError_box').html(
-            '<span style="color:red;">User Agent Distorted!</span>'
-         );
-         $('#ua').focus();
-         return false;
-      }
+
 
       //Process fname    
       var fname = $('#fname').val();
@@ -35,7 +21,7 @@ $(document).ready(function() {
          $('#fname').focus();
          return false;
       }
-      if(fname.length < 5 || fname.length > 30){
+      if(fname.length < 5 || fname.length > 40){
          $('.formError_box').html(
             '<span style="color:red;">First Name Must Be Between 5 to 40 Characters!</span>'
          );
@@ -52,7 +38,7 @@ $(document).ready(function() {
          $('#lname').focus();
          return false;
       }
-      if(lname.length < 5 || lname.length > 30){
+      if(lname.length < 5 || lname.length > 40){
          $('.formError_box').html(
             '<span style="color:red;">Last Name Must Be Between 5 to 40 Characters!</span>'
          );
@@ -95,39 +81,39 @@ $(document).ready(function() {
          $('#phone').focus();
          return false;
       }
-      if(phone.length < 5 || phone.length > 40){
+      if(phone.length < 5 || phone.length > 15){
          $('.formError_box').html(
-            '<span style="color:red;">Mobile Number Must Be Between 9 to 18 Characters!</span>'
+            '<span style="color:red;">Mobile Number Must Be Between 9 to 15 Characters!</span>'
          );
          $('#phone').focus();
          return false;
       }
 
       //Process Department        
-      var dept = $('#d').val();
-      if(dept == ''){
-         $('.formError_box').html(
-            '<span style="color:red;">Enter Department Here!</span>'
-         );
-         $('#d').focus();
-         return false;
-      } 
+      // var dept = $('#d').val();
+      // if(dept == ''){
+      //    $('.formError_box').html(
+      //       '<span style="color:red;">Select Department!</span>'
+      //    );
+      //    $('#d').focus();
+      //    return false;
+      // } 
 
-      //Process Issue        
-      var issue = $('#i').val();
-      if(issue == ''){
-         $('.formError_box').html(
-            '<span style="color:red;">Enter Issue Here!</span>'
-         );
-         $('#i').focus();
-         return false;
-      } 
+      // //Process Issue        
+      // var issue = $('#i').val();
+      // if(issue == ''){
+      //    $('.formError_box').html(
+      //       '<span style="color:red;">Select Issue!</span>'
+      //    );
+      //    $('#i').focus();
+      //    return false;
+      // } 
 
       //Process subject        
       var subject = $('#s').val();
       if(subject == ''){
          $('.formError_box').html(
-            '<span style="color:red;">Enter Message Subject Here!</span>'
+            '<span style="color:red;">Enter Message Subject!</span>'
          );
          $('#s').focus();
          return false;
@@ -137,58 +123,55 @@ $(document).ready(function() {
       var msg = $('#m').val();
       if(msg == ''){
          $('.formError_box').html(
-            '<span style="color:red;">Enter Your Message Here!</span>'
+            '<span style="color:red;">Enter Detailed Message!</span>'
          );
          $('#m').focus();
          return false;
       }  
 
-      if(msg.length < 100 || msg.length > 15000 ){
+      if(msg.length < 100 || msg.length > 5000 ){
          $('.formError_box').html(
-            '<span style="color:red;">Message Must Be Between 100 to 15,000 Characters!</span>'
+            '<span style="color:red;">Message Must Be Between 100 to 5000 Characters!</span>'
          );
          $('#m').focus();
          return false;
       } 
       
-      var contactURL = $('#urlCon').val();
+      var url = $('#urlCon').val();
+      //var url1 = $('#url1').val();
+      //var contactURL = url+url1;
 
       //Process Ajax Form Submittion Without Page Reload                
       $.ajax
       ({
          type: "POST",
-         url: contactURL,
-         data: "ip="+ip+"&ua="+ua+"&fname="+fname+"&lname="+lname+"&email="+email+"&phone="+phone+"&dept="+dept+"&issue="+issue+"&subject="+subject+"&msg="+msg,
+         url: url,
+         data: "ip="+ip+"&ua="+ua+"&fname="+fname+"&lname="+lname+"&email="+email+"&phone="+phone+"&subject="+subject+"&msg="+msg,
          //Show Message Before Sending
          beforeSend: function() {
             $('.flash-outer').html(
-				    '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait... </div>'
+							'<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait... </div>'
             );
-            $('#loader').show('slow');
+            $('#loader').show();
             $('#send_msg').hide('fast');
          }, 
 
          success: function(data)
          {
-            console.log(data);
+            //console.log(data);
             //Process Data From Controller
             var info = JSON.parse(data);
 
-            if (info.type == "success") {
-               
+            if (info.result_info.type == "success") {
                setTimeout(function() {
-                  $('.flash-outer').html(
-				         '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+                 $('.flash-outer').html(
+							'<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                   );
                }, delay);
-               $('#loader').show('slow');
-               $('#send_msg').hide('fast');
-
             } else {
-
                setTimeout(function() {
                   $('.flash-outer').html(
-				         '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+							'<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                   );
                }, delay);
                $('#loader').hide('slow');

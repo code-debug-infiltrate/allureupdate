@@ -79,12 +79,12 @@ $(document).ready(function() {
                //Process Data From Controller
                var info = JSON.parse(data);
 
-               if (info.type == "success") {
+               if (info.result_info.type == "success") {
                   
-                    if (info.code == "202") {
+                    if (info.result_info.code == "202") {
                         setTimeout(function() {
                             $('.flash-outer').html(
-				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                             );
                         }, delay);
                         $('#loginForm').hide();
@@ -92,20 +92,22 @@ $(document).ready(function() {
                     } else {
                         setTimeout(function() {
                             $('.flash-outer').html(
-				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                             
                             );
                         }, delay);
                         $('#loginForm').hide();
-                        $('.profileimage').html('<div><img src="'+url+''+imgLink+''+info.userInfo.profileimage+'" style="width: 120px; border-radius: 100%;" alt="Profile Image"></div>');
-                        $('.welcome').html('<div style="margin-top: 20px;">'+info.userInfo.fname+' '+info.userInfo.lname+' </div>');
+                        $('.profileimage').html('<div><img src="'+url+''+imgLink+''+info.result_info.userInfo.profileimage+'" style="width: 80px; border-radius: 100%;" alt="Profile Image"></div>');
+                        $('.welcome').html('<div>Welcome '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+' </div>');
                         
-                        if (info.userInfo.profile === "User"){
-                            $('.clickable').html('<div class="btn"><a href="'+url+'us-index/'+info.userInfo.uniqueid+'/?tab=timeline"><b>Continue To Your Dashboard</b></a> </div>');
+                        if (info.result_info.userInfo.profile === "Admin") {
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'ad-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
+                        } else if (info.result_info.userInfo.profile === "User"){
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'us-index/'+info.result_info.userInfo.uniqueid+'/?tab=timeline"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
                         } else {
-                            $('.clickable').html('<div class="btn"><a href="'+url+'ad-index/'+info.userInfo.uniqueid+'/"><b>Continue To Your Dashboard</b></a> </div>');
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'md-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
                         }
-                        $('.notme').html('<div style="margin-top: 5px; float: right; font-size: 12px;">Not '+info.userInfo.fname+' '+info.userInfo.lname+'? <a href="'+url+'logout/'+info.userInfo.uniqueid+'/"><i style="color: blue;">Login as New User</i></a></div>');
+                        $('.notme').html('<div style="margin-top: 20px; float: right;">Not '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+'? <a href="'+url+'logout/'+info.result_info.userInfo.uniqueid+'/"><i style="color: #7005e3;">Login as New User</i></a></div>');
                         $('#dashboardForm').show();
                     }
 
@@ -113,7 +115,7 @@ $(document).ready(function() {
 
                     setTimeout(function() {
                     $('.flash-outer').html(
-				            '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				            '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                         );
                     }, delay);
                     $('#loader').hide();

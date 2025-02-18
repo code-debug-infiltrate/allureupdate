@@ -3,68 +3,69 @@ $(document).ready(function() {
    var delay = 2000;
 
       //Subscribe Form Action
-      $('#subscribe').click(function(e){
+      $('#deleteAccount').click(function(e){
 
          e.preventDefault();
          
-         //Process IP 
-         var ip = $('#ip').val();
-         var ua = $('#ua').val();
-         
-         //Process And Validate EMail    
-         var email = $('#email').val();
-         if(email == ''){
-             $('.formError_box').html(
-               '<span style="color:red;">Enter Valid Email ID!</span>'
-             );
-            $('#email').focus();
+
+         //Process ID 
+         var uniqueid = $('#uniqueid').val();
+         if(uniqueid == ''){
+            $('.deleteAcc_box').html(
+               '<span style="color:red;">Unique ID Cannot Be Empty!</span>'
+            );
+            $('#uniqueid').focus();
             return false;
          }
-         if( $("#email").val()!='' ){
-            if( !isValidEmailAddress( $("#email").val() ) ){
-               $('.formError_box').html(
-                  '<span style="color:red;">Provided email address is incorrect!</span>'
-                );
-               $('#email').focus();
-               return false;
-            }
-         }
 
-         var subURL = $('#urlSub').val();
+
+         //Process Pass 
+         var pass = $('#pass').val();
+         if(pass == ''){
+            $('.deleteAcc_box').html(
+               '<span style="color:red;">Password Cannot Be Empty!</span>'
+            );
+            $('#pass').focus();
+            return false;
+         }
+         	
+
+         var subURL = $('#url').val();
          
+
          //Process Ajax Form Submittion Without Page Reload                
          $.ajax
          ({
+
             type: "POST",
             url: subURL,
-            data: "ip="+ip+"&email="+email+"&ua="+ua,
+            data: "uniqueid="+uniqueid+"&pass="+pass,
             //Show Message Before Sending
             beforeSend: function() {
-               $('.flash-outer').html(
-							'<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait...  </div>'
+               $('.deleteAcc_box').html(
+                  '<div class="alert alert-warning alert-dismissable"> Processing, Please Wait.. </div>'
                );
-               $('#subscribe').hide();
+               $('#emailVerify').hide();
             },	
 
             success: function(data)
             {
-               //console.log(data);
                //Process Data From Controller
           		var info = JSON.parse(data);
 
-   	       	if (info.result_info.type == "success") {
+   	       	if (info.type == "success") {
    	       		setTimeout(function() {
-   			         $('.flash-outer').html(
-							'<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
+   			         $('.deleteAcc_box').html(
+   			       	 '<div class="alert alert-success alert-dismissable">'+info.message+'</div>'
    			       	);
    			      }, delay);
    	       	} else {
    	       		setTimeout(function() {
-   			         $('.flash-outer').html(
-							'<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
+   			         $('.deleteAcc_box').html(
+   			       	 '<div class="alert alert-danger alert-dismissable">'+info.message+'</div>'
    			       	);
    			      }, delay);
-                  $('#subscribe').show('slow');
+                  $('#emailVerify').show('slow');
    	       	}
             }
          });

@@ -18,7 +18,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
         <div class="container">
             <div class="content-box">
                 <h1>We Love To Hear From You</h1>
-                <div class="text">Do you have concerns about any product or service? <br />Fill the form fields below to contact us.</div>
+                <div class="text">Do you have concerns about any services on <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?>? <br />Fill the form fields below to contact us.</div>
             </div>
         </div>
     </section>
@@ -56,30 +56,30 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 <div class="col-lg-7 col-md-12 col-sm-12 form-column" style="background: white; padding: 50px; border-radius: 5px;">
                     <div class="contact-form-area">
 
-                        <h2>Tell Us The Purpose Of This Message</h2>
+                        <h2>Tell Us Whats On Your Mind!</h2>
                         
                         <div class="formError_box" style="margin:10px 0px;"></div>
 
                         <form method="POST" action="" id="contact-form" class="default-form"> 
                             <input type="hidden" name="ip" id="ip" value="<?php echo $ip?>">
 		                	<input type="hidden" name="ua" id="ua" value="<?php echo $user_agent?>">
-                            <input type="hidden" id="urlCon" value="<?= trim(getenv('baseURL'))."ajax-contact-us/";?>">
+                            <input type="hidden" id="urlCon" value="<?= trim(getenv('baseURL'))."ajax-contact/";?>">
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="fname" minlength="5" maxlength="30" placeholder="Your first name" required>
+                                    <input type="text" name="fname" id="fname" minlength="5" maxlength="30" placeholder="Your first name" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="lname" minlength="5" maxlength="30" placeholder="Your last name" required>
+                                    <input type="text" name="lname" id="lname" minlength="5" maxlength="30" placeholder="Your last name" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="email" name="email" minlength="5" maxlength="50" placeholder="Email address" required>
+                                    <input type="email" name="email" id="email" minlength="5" maxlength="50" placeholder="Email address" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="phone" minlength="10" maxlength="18" placeholder="Phone Number" required>
+                                    <input type="text" name="phone" id="phone" minlength="10" maxlength="18" placeholder="Phone Number" required>
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                             </div>
 
                         </form>
-                        
+
                     </div>
                 </div>
 
@@ -170,7 +170,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 
 
 <!-- Include Creator script -->
-<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/contact-us.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/contact.js') ?>"></script>
 
 
 

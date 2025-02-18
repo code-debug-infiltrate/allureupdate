@@ -147,41 +147,51 @@ include 'Layout/navbar.php';
                         </div>
                         
                         <div class="post-share-option clearfix">
-                            <div class="tags pull-left"><a href="#">#industry</a></div>
+						<?php $new = explode(", ", $blogPostDetails['tags']); foreach ($new as $key => $t) { ?> <div class="tags pull-left"><a href="javascript:void(0);" title="tag" style="font-size: 12px; font-weight: 400;"><?= $t; ?></a></div><?php } ?>
                             <ul class="social-links pull-right">
                                 <li>
 									<a href="https://api.whatsapp.com/send?text=<?= $blogPostDetails['url']; ?>" target="_blank">
 										<i class="fab fa-whatsapp" alt="Share On Whatsapp" id="Whatsapp" style="cursor: pointer; font-size: 20px; color: white;"></i>
 									</a>
 								</li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?= $blogPostDetails['url']; ?>" target="_blank">
+										<i class="fab fa-facebook" alt="Share On Facebook" id="Facebook" style="cursor: pointer; font-size: 20px; color: white;"></i>
+									</a>
+								</li>
+                                <li>
+									<a href="https://instagram.com/share?u=<?= $blogPostDetails['url']; ?>&url=<?= $blogPostDetails['url']; ?>" target="_blank">
+										<i class="fab fa-instagram" alt="Share On Instagram" id="Instagram" style="cursor: pointer; font-size: 20px; color: white;"></i>
+									</a>
+								</li>
+                                <li>
+									<a href="https://twitter.com/share?url=<?= $blogPostDetails['url']; ?>" target="_blank">
+										<i class="fab fa-twitter" alt="Share On Twitter" id="Twitter" style="cursor: pointer; font-size: 20px; color: white;"></i>
+									</a>
+								</li>
+                                <li>
+									<a href="mailto:?&subject=<?= $blogPostDetails['title']; ?>&body=<?= $blogPostDetails['url']; ?>" target="_blank">
+										<i class="fab fa-envelope" alt="Share On Email" id="Email" style="cursor: pointer; font-size: 20px; color: white;"></i>
+									</a>
+								</li>
                             </ul>
                         </div>
 
-                        <div class="author-box">
-                            <figure class="author-image"><img src="images/resource/author.png" alt=""></figure>
+                        <div class="author-box" id="writerProfile">
+							<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $blogPostDetails['uniqueid']) { ?>
+                            <figure class="author-image"><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Author-Image"></figure>
                             <div class="author-content">
-                                <h4>Mahfuz Riad</h4>
-                                <div class="post-date">15 August, 2019</div>
-                                <div class="text">Before we begin to build your home, we want to get to know you. Through our design process, we will be asking</div>
-                                <div class="other-links">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                    </ul>
-                                    <div class="link-btn"><a href="#">About me</a></div>
-                                </div>
+                                <h4><?= $user['fname']; ?> <?= $user['lname']; ?></h4>
+                                <div class="post-date"><?= $user['occupation']; ?></div>
+                                <div class="text"><?= $user['details']; ?></div>
                             </div>
+							<?php } } ?>
                         </div>
 
-                        <div class="nav-btn clearfix">
+                        <!-- <div class="nav-btn clearfix">
                             <div class="prev-btn pull-left"><a href="#">Our smart batteries are<br />integrated smart energy<i class="flaticon-slim-left"></i></a></div>
                             <div class="next-btn pull-right"><a href="#"> Electricity bills and achieve<br />greater energy power hit<i class="flaticon-slim-right"></i></a></div>
-                        </div>
+                        </div> -->
 						
                     </div>
                 </div>
@@ -191,17 +201,17 @@ include 'Layout/navbar.php';
                     <div class="sidebar blog-sidebar">
                         <div class="contact-widget sidebar-widget wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="widget-content">
-                                <h4>From upgrades, maintenance and repairs to parts and multi-year agreements</h4>
-                                <div class="text">Our industrial plant services keep your generator up</div>
-                                <div class="btn-box"><a href="#"><i class="fas fa-angle-right"></i>Contact Agent</a></div>
+                                <h4>Need Professional Help On Personal, Marital Or Career Matters?</h4>
+                                <div class="text">Take a bold step by booking a strategic session today.</div>
+                                <div class="btn-box"><a href="<?= baseURL('write-us/'); ?>"><i class="fas fa-angle-right"></i>Contact Us</a></div>
                             </div>
                         </div>
                         <div class="search-widget sidebar-widget">
                             <div class="search-box">
-                                <form action="#" method="post">
+                                <form action="<?= baseURL('search/'); ?>" method="post">
                                     <div class="form-group">
                                         <input type="search" name="search-field" placeholder="Type here" required="">
-                                        <button type="submit">Search</button>
+                                        <button type="submit">Search Blog</button>
                                     </div>
                                 </form>
                             </div>
@@ -209,57 +219,45 @@ include 'Layout/navbar.php';
                         <div class="categories-widget sidebar-widget wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <h3 class="widget-title">News Categories</h3>
                             <ul class="categories-list">
-                                <li><a href="#">Industry</a></li>
-                                <li><a href="#">Industry Machin</a></li>
-                                <li><a href="#">Eco & Bio Power</a></li>
-                                <li><a href="#">Material Engineering</a></li>
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Construcation</a></li>
+                                <li><a href="<?= baseURL('Dating/')?>">Dating</a></li>
+                                <li><a href="<?= baseURL('Relationshhip/')?>">Relationship</a></li>
+                                <li><a href="<?= baseURL('Marriage/')?>">Marriage</a></li>
+                                <li><a href="<?= baseURL('Motivationals/')?>">Motivationals</a></li>
+                                <li><a href="<?= baseURL('Life-Hacks/')?>">Life Hacks</a></li>
+                                <li><a href="<?= baseURL('all/')?>">General News</a></li>
                             </ul>
                         </div>
+
+						<?php if (isset($blogRandomPosts)) { ?>
                         <div class="post-widget sidebar-widget">
                             <h3 class="widget-title">Recent Post</h3>
                             <div class="widget-content">
-                                <div class="post">
-                                    <figure class="post-thumb">
-                                        <a href="blog-single.html"><img src="images/resource/post-5.png" alt=""></a>
-                                        <span>1</span>
-                                    </figure>
-                                    <h5><a href="blog-single.html">When a business can no longer meet the demands</a></h5>
-                                    <div class="text">Our well-intentioned attempts</div>
-                                    <div class="post-info">Jul 16, 2019  Read 4 Min</div>
-                                </div>
-                                <div class="post">
-                                    <figure class="post-thumb">
-                                        <a href="blog-single.html"><img src="images/resource/post-6.png" alt=""></a>
-                                        <span>2</span>
-                                    </figure>
-                                    <h5><a href="blog-single.html">Introducing the High Efficiency (HE) Upgrade</a></h5>
-                                    <div class="text">Our well-intentioned attempts</div>
-                                    <div class="post-info">Jul 15, 2019  Read 5 Min</div>
-                                </div>
-                                <div class="post">
-                                    <figure class="post-thumb">
-                                        <a href="blog-single.html"><img src="images/resource/post-7.png" alt=""></a>
-                                        <span>3</span>
-                                    </figure>
-                                    <h5><a href="blog-single.html">An important moment for our GT26 customers</a></h5>
-                                    <div class="text">Our well-intentioned attempts</div>
-                                    <div class="post-info">Jul 14, 2019  Read 3 Min</div>
-                                </div>
+								<?php $i=0; foreach ($blogRandomPosts as $key => $post) { ?>
+									<?php if ($i <= 4) {  ?>
+									<div class="post">
+										<figure class="post-thumb">
+											<a href="<?= $post['url']; ?>"><img src="/Images/Blog/<?= $post['file']; ?>" alt="Post-Image"></a>
+											<span><?= $i; ?></span>
+										</figure>
+										<h5><a href="<?= $post['url']; ?>"><?= substr($post['title'], 0, 25); ?>...</a></h5>
+										<div class="text"><?= substr($post['introduction'], 0, 65); ?>...</div>
+										<div class="post-info"><?php echo(''.timeAgo(date('Y/m/d', strtotime($post['created']))).''); ?></div>
+									</div>
+									<?php } ?>
+								<?php $i++; } ?>
                             </div>
                         </div>
+						<?php } ?>
                         <div class="tags-widget sidebar-widget sidebar-widget wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <h3 class="widget-title">Tags</h3>
                             <div class="widget-content">
                                 <ul class="clearfix">
-                                    <li><a href="#">#industry</a></li>
-                                    <li><a href="#">#industrymachin</a></li>
-                                    <li><a href="#">#growth</a></li>
-                                    <li><a href="#">#energy</a></li>
-                                    <li><a href="#">#auto</a></li>
-                                    <li><a href="#">#environment</a></li>
-                                    <li><a href="#">#power</a></li>
+								<li><a href="<?= baseURL('Dating/')?>">#Dating</a></li>
+                                <li><a href="<?= baseURL('Relationshhip/')?>">#Relationship</a></li>
+                                <li><a href="<?= baseURL('Marriage/')?>">#Marriage</a></li>
+                                <li><a href="<?= baseURL('Motivationals/')?>">#Motivationals</a></li>
+                                <li><a href="<?= baseURL('Life-Hacks/')?>">#Life Hacks</a></li>
+                                <li><a href="<?= baseURL('all/')?>">#General News</a></li>
                                 </ul>
                             </div>
                         </div>

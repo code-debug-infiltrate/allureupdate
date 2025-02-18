@@ -11,7 +11,7 @@ $(document).ready(function() {
          //Process And Validate EMail    
          var email = $('#email').val();
          if(email == ''){
-             $('.formError_box').html(
+             $('.emailError_box').html(
                '<span style="color:red;">Enter Your Registered Email ID!</span>'
              );
             $('#email').focus();
@@ -19,7 +19,7 @@ $(document).ready(function() {
          }
          if( $("#email").val()!='' ){
             if( !isValidEmailAddress( $("#email").val() ) ){
-               $('.formError_box').html(
+               $('.emailError_box').html(
                   '<span style="color:red;">Provided Email ID Is Incorrect!</span>'
                 );
                $('#email').focus();
@@ -33,7 +33,7 @@ $(document).ready(function() {
          var url = $('#url').val();
          var url1 = $('#url1').val();
 
-         var loginURL = url1;
+         var loginURL = url+url1;
          
 
          //Process Ajax Form Submittion Without Page Reload                
@@ -46,7 +46,7 @@ $(document).ready(function() {
             //Show Message Before Sending
             beforeSend: function() {
                $('.flash-outer').html(
-				      '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait.. </div>'
+				    '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait.. </div>'
                );
                $('#loader').show();
                $('#forgot').hide('fast');
@@ -58,11 +58,11 @@ $(document).ready(function() {
                //Process Data From Controller
                var info = JSON.parse(data);
 
-               if (info.type == "success") {
+               if (info.result_info.type == "success") {
                   
                   setTimeout(function() {
                      $('.flash-outer').html(
-				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				    '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                      );
                   }, delay);
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
 
                   setTimeout(function() {
                      $('.flash-outer').html(
-				            '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				    '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                      );
                   }, delay);
                   $('#loader').hide();

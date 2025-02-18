@@ -41,6 +41,29 @@ $(document).ready(function() {
          return false;
       }
 
+
+      //Process Gender       
+      var gender = $('#gender').val();
+      if(!gender){
+         $('.formError_box').html(
+            '<span style="color:red;">Select Your Gender</span>'
+         );
+         $('#gender').focus();
+         return false;
+      }  
+
+
+
+      //Process DOB       
+      var dob = $('#dob').val();
+      if(dob == ''){
+         $('.formError_box').html(
+            '<span style="color:red;">Enter Your Date Of Birth</span>'
+         );
+         $('#dob').focus();
+         return false;
+      }  
+
       //Process And Validate EMail    
       var email = $('#email').val();
       if(email == ''){
@@ -67,26 +90,7 @@ $(document).ready(function() {
          return false;
       }
 
-
-      //Process Password       
-      var password = $('#password').val();
-      if(password == ''){
-         $('.formError_box').html(
-            '<span style="color:red;">Enter Your Password!</span>'
-         );
-         $('#password').focus();
-         return false;
-      } 
-
-      if(password.length < 5 || password.length > 50 ){
-         $('.formError_box').html(
-            '<span style="color:red;">Password Is Too Short!</span>'
-         );
-         $('#password').focus();
-         return false;
-      }
-
-      //Process Accept       
+      //Process Gender       
       var accept = $('#accept').is(":checked");
       if(accept == ''){
          $('.formError_box').html(
@@ -107,7 +111,7 @@ $(document).ready(function() {
       ({
          type: "POST",
          url: loginURL,
-         data: "ip="+ip+"&ua="+ua+"&fname="+fname+"&lname="+lname+"&email="+email+"&password="+password,
+         data: "ip="+ip+"&ua="+ua+"&dob="+dob+"&fname="+fname+"&lname="+lname+"&email="+email+"&gender="+gender,
          //Show Message Before Sending
          beforeSend: function() {
             $('.flash-outer').html(
@@ -123,20 +127,18 @@ $(document).ready(function() {
             //Process Data From Controller
             var info = JSON.parse(data);
 
-            if (info.type == "success") {
+            if (info.result_info.type == "success") {
                setTimeout(function() {
                   $('.flash-outer').html(
-				         '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				    '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                   );
                }, delay);
-               $('#loader').show();
-               $('#register').hide('fast');
-               $('#registerForm').hide('fast');
-               $('#loginForm').show('fast');
+               $('#registerForm').hide();
+               $('#loginForm').show();
             } else {
                setTimeout(function() {
                   $('.flash-outer').html(
-				         '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.message+'</div>'
+				    '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                   );
                }, delay);
                $('#loader').hide();
