@@ -139,7 +139,7 @@ $curURL = $tN[1];
                             </nav>
                         </div>
                         <div class="info-box pull-right clearfix">
-                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>">News & Updates<i class="fas fa-arrow-right"></i></a></div>
+                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>all/">News & Updates<i class="fas fa-arrow-right"></i></a></div>
                             <div class="search-box">
                                 <div class="header-flyout-searchbar">
                                     <i class="fa fa-search"></i>
@@ -200,7 +200,7 @@ $curURL = $tN[1];
                                     </ul>
                                 </li> 
 
-                                <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>">News & Updates</a></li>
+                                <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>all/">News & Updates</a></li>
                                  
                                 <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
                                     <ul>

@@ -44,11 +44,14 @@ include 'Layout/navbar.php';
                             <p>We got to know each other better, including what his ideal girl or wife would be like, and more. It felt very natural to be myself around him because we enjoy the same types of sports and share similar silly interests.</p>
 
                             <p>Finally, we met up. Our conversations were always about food, people, beaches, and the beautiful places he had visited. I was overwhelmed by the good times we spent together and the conversations we had.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
                         </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Richy_And_Anj"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
+                        </div>
+
                         <?php } ?>
 
 
@@ -65,10 +68,12 @@ include 'Layout/navbar.php';
                             <p>We got to know each other better, including what his ideal girl or wife would be like, and more. It felt very natural to be myself around him because we enjoy the same types of sports and share similar silly interests.</p>
 
                             <p>Finally, we met up. Our conversations were always about food, people, beaches, and the beautiful places he had visited. I was overwhelmed by the good times we spent together and the conversations we had.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Morayo_And_Cole"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -79,17 +84,19 @@ include 'Layout/navbar.php';
                             <div class="text">
                                 <p>we talked for two hours, sharing stories about our lives. I grew to admire him more and more, and I especially liked his beautiful voice.</p>
 
-                                <p>On another occasion, Manfred asked again if I wanted coffee, tea, or juice, and this time, he took me out for my favorite Chinese tea. We had another long conversation, talking for two hours, and I felt a deeper connection with him. I fell in love with his beautiful voice—he is so talented and always makes me laugh.</p>
+                                <p>On another occasion, Cole asked again if I wanted coffee, tea, or juice, and this time, he took me out for my favorite Chinese tea. We had another long conversation, talking for two hours, and I felt a deeper connection with him. I fell in love with his beautiful voice—he is so talented and always makes me laugh.</p>
                             </div>
                             <figure class="image-box"><img src="/Images/Testimonials/stewardandapril.jpg" alt=""></figure>
                             <br><br>
-                            <p>He sent me red roses through a website for Valentine’s Day and pink roses on my birthday. We couldn’t wait to meet in person, so Manfred flew to China, and that’s when our relationship truly began.</p>
+                            <p>He sent me red roses through a website for Valentine’s Day and pink roses on my birthday. We couldn’t wait to meet in person, so Cole flew to Nigeria, and that’s when our relationship truly began.</p>
 
                             <p>Lastly, I would like to thank this site for bringing such a wonderful man into my life. I can hardly believe that this perfect gentleman from Germany is mine.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Anny_And_Fred"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -107,10 +114,11 @@ include 'Layout/navbar.php';
                             <p>He invited me to Germany. And despite all the difficulties that arose, I have found a way to be with him. Now my son and I live with Fred. We are a starting good friendly family, we have an incredible amount of joint plans. </p>
 
                             <p>Finally, I don't regret that I took a chance, because we're making each other happy.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Odette_And_James"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -125,27 +133,14 @@ include 'Layout/navbar.php';
                             </div>
                             <figure class="image-box"><img src="/Images/Testimonials/odetteandjames.jpg" alt=""></figure>
                             <br><br>
-                            <p>The moment I saw her at the
+                            <p>The moment I saw her at the airport, her smile mirroring the one in her pictures, the nerves melted away. She was even more captivating in person. The following days were a blur of laughter, shared adventures, and a deepening connection. Her voice, heard in person, was even more beautiful. We spent hours gazing at the sunset in Negros Oriental, the playlist we'd created playing softly in the background.</p>
 
-airport, her smile mirroring the one in her pictures, the nerves melted away. She was
+                            <p>It was a testament to the power of music, the power of connection, and the power of taking a chance on a dating app on the verge of deletion. At that moment, I knew this girl was worth the flight, worth everything.</p>
+                        </div>
 
-even more captivating in person. The following days were a blur of laughter, shared
-
-adventures, and a deepening connection. Her voice, heard in person, was even more
-
-beautiful. We spent hours gazing at the sunset in Negros Oriental, the playlist we'd
-
-created playing softly in the background.</p>
-
-                            <p>It was a testament to the power of music, the
-
-power of connection, and the power of taking a chance on a dating app on the verge of
-
-deletion. At that moment, I knew this girl was worth the flight, worth everything.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Antonin_and_Deji"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -154,22 +149,24 @@ deletion. At that moment, I knew this girl was worth the flight, worth everythin
                         <div class="content-style-one">
                             <h2 class="group-title"><?= str_replace('_', ' ', $_GET['match']); ?>'s Love Spark</h2>
                             <div class="text">
-                                <p>My name is Antonina and I always had a preconceived opinion concerning dating sites, but I tried a chance and got a registered profile on <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?>. Once in the evening, may be in about a month after my registration, I received a message via the Live Chat service from a man with a name Michael and he proposed to get acquainted and to communicate further. I checked his profile and liked what he had written there about himself very much. We started to communicate, we told each other about our lives, about work, family, kids and so on.</p>
+                                <p>My name is Antonina and I always had a preconceived opinion concerning dating sites, but I tried a chance and got a registered profile on <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?>. Once in the evening, may be in about a month after my registration, I received a message via the Live Chat service from a man with a name Deji and he proposed to get acquainted and to communicate further. I checked his profile and liked what he had written there about himself very much. We started to communicate, we told each other about our lives, about work, family, kids and so on.</p>
 
-                                <p>We had been chatting for hours and it was amazing and very interesting! Michael is a very kind-hearted, thoughtful, well-mannered man, who takes care about kids, his parents, is very sensitive, very smart, man of a big heart and kind soul.</p>
+                                <p>We had been chatting for hours and it was amazing and very interesting! Deji is a very kind-hearted, thoughtful, well-mannered man, who takes care about kids, his parents, is very sensitive, very smart, man of a big heart and kind soul.</p>
                             </div>
                             <figure class="image-box"><img src="/Images/Testimonials/antoninanddeji.jpg" alt=""></figure>
                             <br><br>
-                            <p>I invited Michael to Ukraine to meet me in my native city in order to know each other even better. The agency organised everything like the renting of apartment, transfer, interpreter - everything to make his staying comfortable and our meeting wonderful.</p>
+                            <p>I invited Deji to Ukraine to meet me in my native city in order to know each other even better. The agency organised everything like the renting of apartment, transfer, interpreter - everything to make his staying comfortable and our meeting wonderful.</p>
 
-                            <p>Our meeting in my city went very good - the communication was easy, we laughed a lot together, walked much together. I showed Michael my city, architecture, my culture, my national traditions, presented gifts to him and his kids.</p>
+                            <p>Our meeting in my city went very good - the communication was easy, we laughed a lot together, walked much together. I showed Deji my city, architecture, my culture, my national traditions, presented gifts to him and his kids.</p>
                             <p>We communicate very often, we are interested in each other`s life, congratulate each other with all the holidays, find out the details about work, family and so on.</p>
 
-                            <p>I am very happy to get to know such a great man as Michael from <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> dating site.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            <p>I am very happy to get to know such a great man as Deji from <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> dating site.</p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Fabian_and_Maria"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -187,10 +184,12 @@ deletion. At that moment, I knew this girl was worth the flight, worth everythin
                             <p>We also talk about our careers. I run my own company, which takes me to meetings all over the country, while Fabian mentors people in Spain, helping them achieve their goals. We discovered that, despite our different occupations, we share a strong work ethic and a desire to grow professionally. </p>
 
                             <p>What started as a simple online conversation has turned into an exciting story full of potential. Each new plan and shared laugh brings us closer together, consolidating the spark we ignited at that first meeting.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Diego_and_Iryada"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -206,10 +205,12 @@ deletion. At that moment, I knew this girl was worth the flight, worth everythin
                             <figure class="image-box"><img src="/Images/Testimonials/diegoandiryada.jpg" alt=""></figure>
                             <br><br>
                             <p>I would love to say to a person who is reading about our story to make a first step to find your love and enjoy the application <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> as we did. We are absolutely grateful because we found our love on <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?>.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Karll_and_Kristen"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -228,10 +229,12 @@ deletion. At that moment, I knew this girl was worth the flight, worth everythin
                             <p>When the day of reunion finally arrived, Manila became the stage for our long-awaited embrace. Amidst the hustle and bustle of the city, we found each other, and in that moment, the world around us faded into insignificance, leaving only the echo of our beating hearts and the promise of a future entwined.</p>
 
                             <p>Here's to a lifetime of cherished memories and adventures yet to come. Cheers to the love that binds us and the journey that lies ahead.</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Tatyana_and_Edward"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div>
                         </div>
                         <?php } ?>
 
@@ -277,12 +280,18 @@ deletion. At that moment, I knew this girl was worth the flight, worth everythin
 
                             <p>So I wish everyone to find their love, because when there is love there is a reason to live. That's why only love solves all the problems in the world...
                                 <br>We are very grateful to the Dating Group! You are the best!!!</p>
-                            <br>
-                            <div class="text">Do You Want To Tell Us Yours? Send Your Story To <?= $coyInfo['email']; ?>.</div>
-                            <br><br>
-                            <p>Back To <a href="<?= baseURL('testimonials/'); ?>">Testimonials</a></p>
+                            
+                        </div>
+
+                        <div class="nav-btn clearfix">
+                            <div class="prev-btn pull-left"><a href="<?= baseURL('testimonials/'); ?>">Go Back To<br />Testimonials<i class="flaticon-slim-left"></i></a></div>
+                            <!-- <div class="next-btn pull-right"><a href="<?= baseURL('love-story/'); ?>?match=Tatyana_and_Edward"> Read Next<br />Love Story<i class="flaticon-slim-right"></i></a></div> -->
                         </div>
                         <?php } ?>
+
+                        <br><br><hr>
+                        <h1> Submit Your Love Story</h1>
+                        <p>Want to share with others how you met your ideal partner on <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?>, the world is waiting to hear your unique story, please <a href="<?= baseURL('write-us/')?>">contact us</a> </p>
                         
                     </div>
                 </div>

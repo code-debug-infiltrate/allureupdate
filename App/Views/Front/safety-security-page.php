@@ -27,11 +27,41 @@ include 'Layout/navbar.php';
         <div class="container">
             <div class="sec-title">
                 <div class="top-text">Safety Tips</div>
-                <h1>NOTE! We strongly recommend our members to follow NJ Rev Stat § 56:8–171 (2017):</h1>
+                <h1>We strongly recommend our members follow these tips:</h1>
             </div>
 
             <div class="inner-box">
-                <div class="text">"On Allure-D I met Richy, a man whose kindness and warmth captivated me from our first conversations. After weeks of laughter and confidence, I traveled to Bogota for work and we took the opportunity to meet in person. Our first meeting was in a park, where we walked, laughed and enjoyed a..."</div>
+                <div class="text" style="text-align: left; font-size: 20px;">● Never send any money to another member. </div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Clearly state your expectations to avoid misunderstanding.</div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Conduct video chats with your partner once in a while</div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Don’t share your password, access to your account or any official identity document with anyone.</div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Refrain from sharing sensitive information such as home addresses, financial details, or private identification documents. </div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Avoid meeting someone in person without proper precautions, such as informing a trusted friend, meeting in a public space, and ensuring safe transportation arrangements.</div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● We give this advice because no member can be completely sure how serious their partner is, and if communication happens outside of our system, we will not be capable of helping members who get into trouble.</div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● We prioritize user privacy by restricting unauthorized data collection or sharing of personal information </div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Our platform is committed to fostering a safe, respectful, and trustworthy community. </div>
+                
+                <br>
+                <div class="text" style="text-align: left; font-size: 20px;">● Violations of these policies will result in immediate account suspension and potential legal action.</div>
+                <br><br><hr>
+                <h1> Contact Information</h1>
+                <p>If you have any issues, concerns or reports about these safety and security tips, please <a href="<?= baseURL('write-us/')?>">contact us</a> </p>
             </div>
 
         </div>

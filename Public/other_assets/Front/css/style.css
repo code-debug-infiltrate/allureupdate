@@ -18767,13 +18767,13 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
   position: absolute;
   left: 0px;
   top: -18px;
-  font-size: 15px;
+  font-size: 18px;
   color: #fbcdfb;
   height: 35px;
   width: 100px;
   text-align: center;
   line-height: 35px;
-  background: #4fd63c;
+  background: #7005e3;
 }
 
 .news-block-four .inner-box .lower-content .post-date{
@@ -18979,12 +18979,12 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .blog-single .blog-single-content .content-style-two .text blockquote{
   position: relative;
   display: block;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 26px;
+  line-height: 38px;
   color: #0c0d24;
   font-style: italic;
   margin-bottom: 30px;
-  padding: 0px 60px;
+  padding: 40px 60px;
   text-align: center;
 }
 

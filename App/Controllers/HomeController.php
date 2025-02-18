@@ -87,6 +87,24 @@ class HomeController extends Controller
 
 
 
+    /**
+     * Display method for static route
+     */
+    public function search()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+     
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/search-page', $data);
+    }
+
+
+
+
+
      /**
      * Display method for static route
      */

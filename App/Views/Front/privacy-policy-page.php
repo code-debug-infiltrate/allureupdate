@@ -111,6 +111,9 @@ include 'Layout/navbar.php';
                         <br /><br />
                     </p>
                 </div>
+
+                <h1> Contact Information</h1>
+                <p>If you have any questions about these Policy, please <a href="<?= baseURL('write-us/')?>">contact us</a> </p>
             </div>
 
         </div>

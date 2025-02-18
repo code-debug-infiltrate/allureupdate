@@ -56,8 +56,6 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 <div class="col-lg-7 col-md-12 col-sm-12 form-column" style="background: white; padding: 50px; border-radius: 5px;">
                     <div class="contact-form-area">
 
-                    <?php if (isset($contactInfo)) { ?>
-
                         <h2>Tell Us The Purpose Of This Message</h2>
                         
                         <div class="formError_box" style="margin:10px 0px;"></div>
@@ -69,36 +67,19 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="fname" id="fname" placeholder="Your first name" value="<?= $contactInfo['fname']; ?>" required>
+                                    <input type="text" name="fname" minlength="5" maxlength="30" placeholder="Your first name" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" name="lname" id="lname" placeholder="Your last name" value="<?= $contactInfo['lname']; ?>" required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <input type="email" name="email" id="email" placeholder="Email address" value="<?= $contactInfo['email']; ?>" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" name="phone" id="phone" placeholder="Phone Number" value="<?= $contactInfo['phone']; ?>" required>
+                                    <input type="text" name="lname" minlength="5" maxlength="30" placeholder="Your last name" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <select name="dept" id="d" required>
-                                        <option value="<?= $contactInfo['dept']; ?>"><?= $contactInfo['dept']; ?></option>
-                                        <option value="Academic">Academic</option>
-                                        <option value="Support">Support</option>
-                                    </select>
+                                    <input type="email" name="email" minlength="5" maxlength="50" placeholder="Email address" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <select name="issue" id="i" required>
-                                        <option value="<?= $contactInfo['issue']; ?>"><?= $contactInfo['issue']; ?></option>
-                                        <option value="Enquiry">Enquiry</option>
-                                        <option value="Report">Report</option>
-                                    </select>
+                                    <input type="text" name="phone" minlength="10" maxlength="18" placeholder="Phone Number" required>
                                 </div>
                             </div>
 
@@ -116,53 +97,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                             </div>
 
                         </form>
-
-                    <?php } else { ?>
-
-                            <h2>Tell Us About Yourself</h2>
-                            <form method="POST" action="" id="contact-form" class="default-form"> 
-
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="fname" minlength="5" maxlength="30" placeholder="Your first name" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="lname" minlength="5" maxlength="30" placeholder="Your last name" required>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <input type="email" name="email" minlength="5" maxlength="50" placeholder="Email address" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="phone" minlength="10" maxlength="18" placeholder="Phone Number" required>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <select name="dept"  required>
-                                            <option value="" disabled="" selected=""> --Department --</option>
-                                            <option value="Academic">Academic</option>
-                                            <option value="Support">Support</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <select name="issue" required>
-                                            <option value="" disabled="" selected=""> --Issue --</option>
-                                            <option value="Enquiry">Enquiry</option>
-                                            <option value="Report">Report</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group message-btn" style="margin-top: 20px;">
-                                    <button type="submit" class="theme-btn" name="cont">Continue</button>
-                                </div>
-                            </form>
-
-                        <?php } ?>
+                        
                     </div>
                 </div>
 

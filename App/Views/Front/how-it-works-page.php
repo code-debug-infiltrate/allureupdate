@@ -29,7 +29,7 @@ include 'Layout/navbar.php';
             <div class="title-box">
                 <div class="top-text">At <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></div>
                 <h1>Finding Your Ideal Match is Guaranteed</h1>
-                <h3>Here Are Step By STep Guides On How We Serve You!</h3>
+                <h3>Here Are Step By Step Guides To Get You Started!</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 service-block">
@@ -39,7 +39,7 @@ include 'Layout/navbar.php';
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-edit"></i></div>
                             <h3><a href="<?= baseURL('new-member/'); ?>">Registration</a></h3>
-                            <div class="text"> Your Ideal Match Might Just Be a Profile Away. Register Your Details. <br>Your Welcome Message Will Includes Password Will Be Sent To Your Email Inbox Or SPam Folder.<br>Find Your Welcome Message And Follow The Instructions In The Email To Login To Your Dashboard.</div>
+                            <div class="text"> Your Ideal Match Might Just Be a Profile Away. <a href="<?= baseURL('new-member/'); ?>">Register</a> Your Details. <br>Your Welcome Message Will Includes Password Will Be Sent To Your Email Inbox Or SPam Folder.<br>Find Your Welcome Message And Follow The Instructions In The Email To <a href="<?= baseURL('login/'); ?>">Login</a> To Your Dashboard.</div>
                             <div class="btn-box"><a href="<?= baseURL('new-member/'); ?>">Join Free</a></div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ include 'Layout/navbar.php';
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-user"></i></div>
                             <h3><a href="<?= baseURL('login/'); ?>">Profile Setup</a></h3>
-                            <div class="text">If You Found Your Welcome Email In Your Inbox Folder, Good, Else Check Your Spam Folder. <br>Login To Your <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Member Dashboard. Your Profile Setup Steps Will Be Waiting. <br>Answer All Questions And You're Already On Your Way To Finding Love. You Don't Need To Do Much, Our Algorithm Will Do The Rest.</div>
+                            <div class="text">If You Found Your Welcome Email In Your Inbox Folder, Good, Else Check Your Spam Folder. <br><a href="<?= baseURL('login/'); ?>">Login</a> To Your <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Member Dashboard. Your Profile Setup Steps Will Be Waiting. <br>Answer All Questions And You're Already On Your Way To Finding Love. You Don't Need To Do Much, Our Algorithm Will Do The Rest.</div>
                             <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Setup profile</a></div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ include 'Layout/navbar.php';
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-heartbeat"></i></div>
                             <h3><a href="<?= baseURL('blog/'); ?>">Therapy Services</a></h3>
-                            <div class="text">If You Want Private Session Theraphy As Individuals, Couples Or Group, We Have You Covered. <br> Just Select Therapy Option, Schedule Your Time, Make Payment And You Will Be Booked Immediately. <br>Remember To Follow All Instructions Or Chat One Of Our Representatives Using Our <a href="<?= baseURL('contact-us/')?>">Contact Us</a> Page. </div>
+                            <div class="text">If You Want Private Session Theraphy As Individuals, Couples Or Group, We Got You Covered. <br> Just Select Therapy Option, Schedule Your Time, Make Payment And You Will Be Booked Immediately. <br>Remember To Follow All Instructions Or Chat One Of Our Representatives Using Our <a href="<?= baseURL('write-us/')?>">Contact Us</a> Page. </div>
                             <div class="btn-box"><a href="<?= baseURL('blog/'); ?>">Start Here</a></div>
                         </div>
                     </div>

@@ -64,7 +64,7 @@
             <div class="sidebar-info-contents">
                 <div class="content-inner">
                     <div class="logo">
-                        <a href="<?= baseURL('index/'); ?>"><img src="/Images/Logo/favicon.png" alt="Logo" /></a>
+                        <a href="<?= baseURL('index/'); ?>"><img src="/Images/Logo/allure-official.png" alt="Logo" /></a>
                     </div>
                     
                     <?php if ($coyInfo) { ?>

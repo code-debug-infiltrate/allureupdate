@@ -15,6 +15,7 @@ $router->get('/index', [HomeController::class, 'index']);
 $router->get('/about-us', [HomeController::class, 'about_us']);
 $router->get('/how-it-works', [HomeController::class, 'how_it_works']);
 $router->get('/safety-security', [HomeController::class, 'safety_security']);
+$router->get('/search', [HomeController::class, 'search']);
 $router->get('/ajax-subscribe', [HomeController::class, 'ajax_subscribe']);
 
 $router->get('/blog', [HomeController::class, 'blognews_update']);
