@@ -12,7 +12,7 @@ $(document).ready(function() {
          var email = $('#email').val();
          if(email == ''){
              $('.emailError_box').html(
-               '<span style="color:red;">Enter Your Registered Email ID!</span>'
+                  '<span style="color:red;">Enter Your Registered Email ID!</span>'
              );
             $('#email').focus();
             return false;
@@ -20,7 +20,7 @@ $(document).ready(function() {
          if( $("#email").val()!='' ){
             if( !isValidEmailAddress( $("#email").val() ) ){
                $('.emailError_box').html(
-                  '<span style="color:red;">Provided Email ID Is Incorrect!</span>'
+                     '<span style="color:red;">Provided Email ID Is Incorrect!</span>'
                 );
                $('#email').focus();
                return false;
@@ -46,7 +46,7 @@ $(document).ready(function() {
             //Show Message Before Sending
             beforeSend: function() {
                $('.flash-outer').html(
-				    '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait.. </div>'
+				      '<div class="flash-inner" style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Processing, Please Wait.. </div>'
                );
                $('#loader').show();
                $('#forgot').hide('fast');
@@ -62,7 +62,7 @@ $(document).ready(function() {
                   
                   setTimeout(function() {
                      $('.flash-outer').html(
-				    '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
+				            '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                      );
                   }, delay);
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
 
                   setTimeout(function() {
                      $('.flash-outer').html(
-				    '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
+				            '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</div>'
                      );
                   }, delay);
                   $('#loader').hide();

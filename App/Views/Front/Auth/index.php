@@ -18,13 +18,14 @@ include 'Layout/navbar.php';
 
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <h3>Welcome Back, Login</h3>
-                        <div class="text"> 
-                            Fill In Your Member Credentials In The Form Fields Below
-                            <br>
-                            Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>">Create Your Account</a>
-                        </div>
-                        <div class="formError_box" style="margin:10px 0px;"></div>
+                        <div id="loginForm">
+                            <h3>Welcome Back, Login</h3>
+                            <div class="text"> 
+                                Fill In Your Member Credentials In The Form Fields Below
+                                <br>
+                                Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>">Create Your Account</a>
+                            </div>
+                            <div class="formError_box" style="margin:10px 0px;"></div>
 
                             <form method="POST" class="signup-form"> 
                                 <input type="hidden" id="ip" value="<?php echo $ip?>">
@@ -62,16 +63,22 @@ include 'Layout/navbar.php';
                        </div>
                         <!-- Dashboard Login For Users -->
                         <div class="" id="dashboardForm" style="display: none"> 
-
-                            <br>
                             <center><div class="profileimage"></div></center>
-
                             <h1 class="welcome log-title" style="text-align: center;"></h1>
                             <br>
                             <div class="clickable" style="font-size: 16px; text-align: center;"></div>
                             <br>
                             <p class="notme"></p>
+                        </div>
 
+                        <!-- Unlock Link For Users -->
+                        <div class="" id="unlockForm" style="display: none"> 
+                            <center><img src="/Images/Body/createAccount.png" alt="Unlock-icon"></center>
+                            <h1 class="welcome log-title" style="text-align: center;"> Verification Needed</h1>
+                            <br>
+                            <h5 class="welcome log-title" style="text-align: center; color: green;">A One-Time OTP Code Has Been Sent To The Provided Email.</h5>
+                            <br>
+                            <p class="text" style="font-size: 14px; text-align: center; color: red;">Check Your Email Inbox Or Spam Folder For Your Unlock Code . <br>Remember To Keep Your Account Information Safe! </p>
                         </div>
                     </div>
                 </div>

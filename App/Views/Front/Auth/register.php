@@ -21,14 +21,15 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
-                    <div class="inner-box wow fadeInRight" id="registerForm" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <h3>Ready To Find Valuable Connection?</h3>
-                        <div class="text"> 
-                            Fill In Your Personal Credentials In The Form Fields Below
-                            <br>
-                            Already a Member? <a href="<?= baseURL('login/'); ?>">Sign In</a>
-                        </div>
-                        <div class="formError_box" style="margin:10px 0px;"></div>
+                    <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <div id="registerForm">
+                            <h3>Ready To Find Valuable Connection?</h3>
+                            <div class="text"> 
+                                Fill In Your Personal Credentials In The Form Fields Below
+                                <br>
+                                Already a Member? <a href="<?= baseURL('login/'); ?>">Sign In</a>
+                            </div>
+                            <div class="formError_box" style="margin:10px 0px;"></div>
                             <br>
                             <form method="POST" id="contact-form" class="signup-form"> 
                                 
@@ -98,7 +99,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                             <br>
                             <div class="clickable" style="font-size: 16px; font-weight: 700; text-align: center;">You Can Proceed To The <a href="<?= trim(getenv('baseURL'))."login/";?>">Login Portal</a></div>
                             <br><br>
-                            <p class="notme" style="font-size: 11px; color: red; text-align: center;">Check Your Email Inbox Or Spam Folder For Your Membership Details. <br>Remember To Keep Your Account Information Safe!</p>
+                            <p class="notme" style="font-size: 14px; color: red; text-align: center;">Check Your Email Inbox Or Spam Folder For Your Membership Details. <br>Remember To Keep Your Account Information Safe!</p>
                             <br><br>
                         </div>
                     </div>

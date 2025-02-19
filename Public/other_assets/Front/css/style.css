@@ -19816,7 +19816,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
  /* Flash Message */
  .flash-outer {
   position: fixed !important;
-  bottom: 10%;
+  bottom: 5%;
   right: 10px;
   width: auto;
   overflow-y: auto;
@@ -19852,11 +19852,11 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 }
 
 .flash-inner {
-  font-size: 14px;
+  font-size: 12px;
   text-transform: capitalize;
   font-weight: 500;
-  margin: 15px;
-  padding: 15px;
+  margin: 10px;
+  padding: 10px;
   text-align: center;
   background: #e6fafa;
   /* border: 1px solid #7706ef ; */

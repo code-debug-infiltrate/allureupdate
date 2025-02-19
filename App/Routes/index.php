@@ -50,6 +50,8 @@ $router->get('/ajax-forgot', [LoginController::class, 'ajax_forgotpassword']);
 $router->get('/reset-password', [LoginController::class, 'reset_password']);
 $router->get('/ajax-reset', [LoginController::class, 'ajax_resetpassword']);
 
+$router->get('/unlock-dashboard', [LoginController::class, 'unlock_member']);
+
 $router->get('/verify-email', [RegisterController::class, 'confirm_member']);
 
 

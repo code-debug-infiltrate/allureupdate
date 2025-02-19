@@ -6,79 +6,85 @@ include 'Layout/navbar.php';
 <title>Member Area | Reset Password Page |  <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></title>
 
 
-    <!-- contact-section -->
-    <section class="contact-section">
+
+
+
+
+
+
+    <!-- intro-style-two -->
+    <section class="intro-style-two home-6" style="background-image: url(/Images/Banner/4.jpg);">
         <div class="container">
-            <div class="row" style="margin-top: 50px; padding-top: 100px;">
-                
-                <div class="col-lg-5 col-md-5 col-sm-12 form-column">
-                    <div class="contact-form-area">
-                    <br /><br />
-                        <h2>Reset Password</h2>
+            <div class="row" style="margin-top: 50px; padding-top: 200px;">
 
-                        <div id="loginForm">
-                            <div class="text" style="font-size: 12px;">
-                                <!-- Not Yet a Member? <a href="<?= baseURL('join-us/'); ?>">Register Here</a>
-                                <br> -->
-                                Fill In Your New Account Password In The Form Field Below
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <?php include 'auth-side.php'; ?>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                    <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <div class="" id="resetForm"> 
+                            <h3>Create New Password</h3>
+                            <div class="text"> 
+                                Create And Confirm Your New Password In The Form Field Below
+                                <br>
+                                Didn't Forget Password? <a href="<?= baseURL('login/'); ?>">Login Here</a>
                             </div>
-                            <br />
-
                             <div class="formError_box" style="margin:10px 0px;"></div>
 
-                            <form method="POST" class="default-form"> 
-                                <input type="hidden" name="ip" value="<?php echo $ip?>">
-                                <input type="hidden" name="ua" value="<?php echo $user_agent?>">
-                                <input type="hidden" name="uniqueid" value="<?= $_GET['id']; ?>">
-                                <input type="hidden" name="email" value="<?= $_GET['e']; ?>">
-                                <input type="hidden" name="name" value="<?= $_GET['u']; ?>">
+                            <form method="POST" class="signup-form"> 
+                                <input type="hidden" id="ip" value="<?php echo $ip?>">
+                                <input type="hidden" id="ua" value="<?php echo $user_agent?>">
+                                <input type="hidden" id="url" value="<?= trim(getenv('baseURL'));?>">
+                                <input type="hidden" id="url1" value="ajax-reset/">
+                                <input type="hidden" id="email" value="<?= $_GET['id']; ?>"/>
                                 
                                 <div class="form-group">
-                                    <input type="text" name="code" minlength="4" maxlength="7" placeholder="One-Time Code" required>
+                                    <label class="control-label" for="input">One-Time Code</label><i class="mtrl-select"></i>
+                                    <input type="text" id="code" value="<?= $_GET['otp']; ?>" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" minlength="5" maxlength="20" placeholder="New Password" required>
+                                    <label class="control-label" for="input">New Password</label><i class="mtrl-select"></i>
+                                    <input type="password" id="password" placeholder="**********" required="required"/>
 
-                                    <input type="checkbox" style="margin-top: 10px;" class="select-message" onclick="passwordToggle()"/><i class="check-box" style="margin-right: 8px; font-size: 10px;"> Show Password</i>
+                                    <input type="checkbox" class="select-message" onclick="passwordToggle()"/><i class="check-box"></i> Show Password
                                 </div>
-
-                                <div class="text" style="text-align: right; font-size: 12px;">Did Not Forget Password? <a href="<?= baseURL('login/'); ?>">Login Now</a></div>
                                 
+                                <script>
+                                    function passwordToggle() {
+                                        var x = document.getElementById("password");
+                                        if (x.type === "password") { x.type = "text"; } else { x.type = "password"; }
+                                    }
+                                </script>
+                               
                                 <div class="form-group message-btn" style="margin-top: 20px; border-radius: 1px; width: 100%;">
                                     <img src="/Images/green-dots.gif" id="loader" style="display: none"/>
-                                    <button type="submit" name="reset">Continue</button>
+                                    <button type="submit" id="reset">Create New Password</button>
                                 </div>
                                 
+                                <p title="Register" style="margin-top: 10px; float: right;">Not <?= $_GET['uid']; ?>? <a href="<?= baseURL('login/'); ?>" style="color:#7005e3;">Login</a></p> 
+                                
                             </form>
-
-                            <script>
-                                function passwordToggle() {
-                                    var x = document.getElementById("password");
-                                    if (x.type === "password") {
-                                        x.type = "text";
-                                    } else {
-                                        x.type = "password";
-                                    }
-                                }
-                            </script>
-
-                       </div>
-                        
-
+                            
+                        </div>
+                        <!-- Form Login For Users -->
+                        <div class="" id="loginForm" style="display: none"> 
+                            <center><img src="/Images/Body/thumb-up.png" style="width: 150px; margin: 80px;" alt="Successful-icon"></center>
+                            <h5 class="welcome log-title" style="text-align: center; font-weight: 600;">Well Done<br><br>You Created a New Password!</h5>
+                            <br>
+                            <div class="clickable" style="font-size: 16px; font-weight: 700; text-align: center;">You Can Proceed To The <a href="<?= trim(getenv('baseURL'))."login/";?>">Login Portal</a></div>
+                            <br><br>
+                            <p class="notme" style="font-size: 14px; color: red; text-align: center;">Remember To Keep Your Account Information Safe!</p>
+                            <br><br>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-lg-7 col-md-7 col-sm-6 agent-column">
-                    <div class="agent-content">
-                        <br><br>
-                        <img src="/Images/Banner/5.png" style="width: 100%; margin-left: 80px;" alt="Member-area-icon">
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    <!-- contact-section end -->
+    <!-- intro-style-two end -->
+
+
 
 
 

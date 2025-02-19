@@ -36,8 +36,12 @@ class LoginAlert
                 <p style="margin: 10px;">
                 Hello '.$data['username'].',
                 <br>
-                There is a login attempt on your account. If this is initiated by you, complete your login process with the code below.
-                <br>
+                There is a login attempt on your account. If this is initiated by you, complete your login by clicking the link and the code below.
+                <br><br>
+                <a href="'.rtrim(getenv('baseURL')).'unlock-dashboard/?id='.$data['email'].'&otp='.$data['code'].'&uid='.$data['username'].'">Unlock Your Dashboard</a> Or Copy The Link Below Into A Browser.
+                <br><br>
+                '.rtrim(getenv('baseURL')).'unlock-dashboard/?id='.$data['email'].'&otp='.$data['code'].'&uid='.$data['username'].'
+                <br><br>
                 <i style="font-size: 26px; color: darkred;">'.$data['code'].' </i>
                 <br>
                 If not, kindly ignore this message for safety.

@@ -8,67 +8,68 @@ include 'Layout/navbar.php';
 
 
 
-    <!-- about-banner -->
-    <section class="about-banner" style="background-image: url(/Images/Body/news.jpg);">
+
+
+
+    <!-- intro-style-two -->
+    <section class="intro-style-two home-6" style="background-image: url(/Images/Banner/4.jpg);">
         <div class="container">
-            <div class="content-box">
-                <h1>Member Area</h1>
-                <div class="text">Restricted Area (Members Only) <br />Fill the form fields below to login.</div>
-            </div>
-        </div>
-    </section>
-    <!-- about-banner end -->
+            <div class="row" style="margin-top: 50px; padding-top: 200px;">
 
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <?php include 'auth-side.php'; ?>
+                </div>
 
-
-    <!-- contact-section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-md-12 col-sm-12 agent-column">
-                    <div class="agent-content">
-                        <h2>Useful Links</h2>
-                        <div class="single-agent-box">
-                            <div class="content-box">
-                                <figure class="agent-image"><img src="/Images/Body/meeting.jpg" alt="Our Team"></figure>
-                                <h4><?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></h4>
-                                <span>Member Area Links</span>
-                                <div class="text">Forgot Password? <a href="<?= baseURL('forgot-password/'); ?>">Reset Now</a></div>
-                                <div class="text">Not Yet a Member? <a href="<?= baseURL('register/'); ?>">Register Here</a></div>
+                <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                    <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
+                        <div class="" id="resetForm"> 
+                            <h3>Verify Your Identity</h3>
+                            <div class="text"> 
+                                Confirm Your One Time Unlock Code In The Form Field Below
                             </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                    <div class="contact-form-area">
+                            <div class="formError_box" style="margin:10px 0px;"></div>
 
-                            <h2>Member Credentials</h2>
-                            <form method="POST" action="<?= baseURL('unlock/'); ?>" id="contact-form" class="default-form"> 
-                                <input type="hidden" name="ip" value="<?php echo $ip?>">
-                                <input type="hidden" name="ua" value="<?php echo $user_agent?>">
+                            <form method="POST" class="signup-form"> 
+                                <input type="hidden" id="ip" value="<?php echo $ip?>">
+                                <input type="hidden" id="ua" value="<?php echo $user_agent?>">
+                                <input type="hidden" id="url" value="<?= trim(getenv('baseURL'));?>">
+                                <input type="hidden" id="url1" value="ajax-unlock/">
+                                <input type="hidden" id="email" value="<?= $_GET['id']; ?>"/>
                                 
-                                <div class="form-group col-md-10">
-                                    <input type="text" name="u" minlength="5" maxlength="30" placeholder="Email OR Member ID" required>
+                                <div class="form-group">
+                                    <label class="control-label" for="input">One-Time Code</label><i class="mtrl-select"></i>
+                                    <input type="text" id="code" value="<?= $_GET['otp']; ?>" required="required"/>
                                 </div>
-
-                                <div class="form-group col-md-10">
-                                    <input type="password" name="p" minlength="5" maxlength="30" placeholder="**********" required>
+                               
+                                <div class="form-group message-btn" style="margin-top: 20px; border-radius: 1px; width: 100%;">
+                                    <img src="/Images/green-dots.gif" id="loader" style="display: none"/>
+                                    <button type="submit" id="unlock">Unlock Dashboard</button>
                                 </div>
                                 
-                                <div class="form-group message-btn" style="margin-top: 20px;">
-                                    <button type="submit" class="theme-btn" name="signin">Continue</button>
-                                </div>
+                                <p title="Register" style="margin-top: 10px; float: right;">Not <?= $_GET['uid']; ?>? <a href="<?= baseURL('login/'); ?>" style="color:#7005e3;">Login</a></p> 
+                                
                             </form>
+                            
+                        </div>
+                        <!-- Form Login For Users -->
+                        <div class="" id="loginForm" style="display: none"> 
+                            <center><img src="/Images/Body/thumb-up.png" style="width: 150px; margin: 80px;" alt="Successful-icon"></center>
+                            <h5 class="welcome log-title" style="text-align: center; font-weight: 600;">Well Done<br><br>You Created a New Password!</h5>
+                            <br>
+                            <div class="clickable" style="font-size: 16px; font-weight: 700; text-align: center;">You Can Proceed To The <a href="<?= trim(getenv('baseURL'))."login/";?>">Login Portal</a></div>
+                            <br><br>
+                            <p class="notme" style="font-size: 14px; color: red; text-align: center;">Remember To Keep Your Account Information Safe!</p>
+                            <br><br>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-    <!-- contact-section end -->
+    <!-- intro-style-two end -->
+
+
+
 
 
 

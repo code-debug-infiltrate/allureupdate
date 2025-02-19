@@ -97,17 +97,17 @@ $(document).ready(function() {
                             );
                         }, delay);
                         $('#loginForm').hide();
-                        $('.profileimage').html('<div><img src="'+url+''+imgLink+''+info.result_info.userInfo.profileimage+'" style="width: 80px; border-radius: 100%;" alt="Profile Image"></div>');
-                        $('.welcome').html('<div>Welcome '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+' </div>');
+                        $('.profileimage').html('<div><img src="'+url+''+imgLink+''+info.result_info.userInfo.profileimage+'" style="width: 100px; border-radius: 100%;" alt="Profile Image"></div>');
+                        $('.welcome').html('<div><b style="font-size: 16px;">You Are Logged In As</b><br> '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+' </div>');
                         
                         if (info.result_info.userInfo.profile === "Admin") {
-                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'ad-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'ad-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: #7005e3;">Continue To Your Dashboard</b></a> </div>');
                         } else if (info.result_info.userInfo.profile === "User"){
-                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'us-index/'+info.result_info.userInfo.uniqueid+'/?tab=timeline"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'us-index/'+info.result_info.userInfo.uniqueid+'/?tab=timeline"><b style="color: #7005e3;">Continue To Your Dashboard</b></a> </div>');
                         } else {
-                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'md-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: white;">Continue To Your Dashboard</b></a> </div>');
+                            $('.clickable').html('<div><a class="mtr-btn" href="'+url+'md-index/'+info.result_info.userInfo.uniqueid+'/"><b style="color: #7005e3;">Continue To Your Dashboard</b></a> </div>');
                         }
-                        $('.notme').html('<div style="margin-top: 20px; float: right;">Not '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+'? <a href="'+url+'logout/'+info.result_info.userInfo.uniqueid+'/"><i style="color: #7005e3;">Login as New User</i></a></div>');
+                        $('.notme').html('<div style="margin-top: 40px; float: right; font-size: 11px; font-weight: 600;">Not '+info.result_info.userInfo.fname+' '+info.result_info.userInfo.lname+'? <a href="'+url+'logout/'+info.result_info.userInfo.uniqueid+'/"><i style="color: #7005e3;">Login as New User</i></a></div>');
                         $('#dashboardForm').show();
                     }
 
