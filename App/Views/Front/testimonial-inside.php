@@ -4,8 +4,8 @@
     <section class="testimonial-style-six testimonial-page centred">
         <div class="container">
             <div class="sec-title">
-                <div class="top-text">Matched Singles</div>
-                <h1>Testimonials And Feedbacks They Shared</h1>
+                <div class="top-text">Testimonials And Feedbacks</div>
+                <h1>Real love stories last forever</h1>
             </div>
             <div class="single-item-carousel owl-carousel owl-theme">
                 <div class="testimonial-content">

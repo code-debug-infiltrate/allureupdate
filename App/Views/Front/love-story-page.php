@@ -27,7 +27,6 @@ include 'Layout/navbar.php';
         <div class="container">
             <div class="row">
 
-
                 <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                     <div class="blog-single-content">
 

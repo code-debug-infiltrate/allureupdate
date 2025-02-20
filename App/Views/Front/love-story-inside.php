@@ -6,7 +6,7 @@
                     <div class="title-inner">
                         <div class="top-text">Our platform is </div>
                         <h1>Committed to fostering a safe, respectful, and trustworthy community. </h1>
-                        <h3>Violations of these policies will result in immediate account suspension and potential legal action.</h3>
+                        <h3>Bringing matches together on the Allure-D website gives us a thrill every single time. It’s a true honor to play a part in helping so many soulmates discover that connection and start dating online. Behind each genuine romance is a captivating life story, and we take immense pleasure in sharing these stories with you all. We feel so much joy when hearing about your beautiful milestones from initial meeting on the app and early chat on the site to serious relationships, marriage and kids. Your wonderful progress is at the heart of everything we do. Thank you!.</h3>
                     </div>
                 </div>
             </div>
