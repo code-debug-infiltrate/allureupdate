@@ -3,7 +3,10 @@ include 'Layout/top.php';
 include 'Layout/navbar.php';
 ?>
 
-
+<!-- preloader -->
+<div class="preloader"></div>
+<!-- preloader -->
+ 
 <title><?= str_replace('_', ' ', $_GET['match']); ?> Testimonial | Love Stories |  <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></title>
 
 

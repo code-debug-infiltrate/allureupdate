@@ -2,31 +2,46 @@
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
               <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="http://www.themekita.com">
-                    ThemeKita
-                  </a>
+                <li class="nav-item" style="font-size: 11px; margin-left: 10px;">
+                    <a href="<?= $coyInfo['channel']; ?>" target="_blank" style="color: white;" title="Channel Link"> Channel</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Help </a>
+                <li class="nav-item" style="font-size: 11px; margin-left: 10px;">
+                    <a href="#" title="Report Violation" style="color: white;">Report Violation</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Licenses </a>
+                <li class="nav-item" style="font-size: 11px;">
+                  <a class="nav-link" href="<?= baseURL('blog/'); ?>all/" target="_blank" style="color: white;"> News & Updates</a>
                 </li>
               </ul>
             </nav>
             <div class="copyright">
-              2024, made with <i class="fa fa-heart heart text-danger"></i> by
-              <a href="http://www.themekita.com">ThemeKita</a>
+                <a target="_blank" href="<?= baseURL('index/'); ?>" style="color: white;">
+				          <strong>&copy; Copyright <span> <script type="text/JavaScript">document.write(new Date().getFullYear()); </script> <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></span>. All Rights Reserved </strong>
+				        </a>
             </div>
-            <div>
-              Distributed by
-              <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+            <div style="font-size: 11px;">
+                Powered By <a href="<?= getenv('DV_LINK')?>" class="text-muted" target="_blank"><?= getenv('DV_NAME')?></a>
             </div>
           </div>
         </footer>
       </div>
 
+    <script type="text/javascript">
+        const date = new Date();
+        const hrs = date.getHours();
+        const grtnMsg = document.getElementById('grtnMsg');
+        const grtnMsg1 = document.getElementById('grtnMsg1');
+        var msg;
+
+        if (hrs > 0) msg = "Mornin', ";
+        if (hrs > 5) msg = "Good Morning, ";
+        if (hrs > 12) msg = "Good Afternoon, ";
+        if (hrs > 17) msg = "Good Evening, ";
+        if (hrs > 22) msg = "Go To Bed, ";
+
+        grtnMsg.textContent = msg;
+        grtnMsg1.textContent = msg;
+        
+    </script>
 
     </div>
     <!--   Core JS Files   -->

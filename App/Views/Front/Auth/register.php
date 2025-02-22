@@ -5,6 +5,10 @@ include 'Layout/navbar.php';
 if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 ?>
 
+<!-- preloader -->
+<div class="preloader"></div>
+<!-- preloader -->
+ 
 <title>New Member Area | Sign Up Page |  <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></title>
 
 

@@ -190,6 +190,7 @@ class UserController extends Controller
             //Get User Credentials
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
+            $matchInfo = ModelFactory::model('User')->user_find_people($info);
             $randomBuddy = ModelFactory::model('User')->user_random_people($info);
             $myPostActions = ModelFactory::model('User')->my_post_action($info);
             $userProfiles = ModelFactory::model('User')->user_profiles();
@@ -231,6 +232,9 @@ class UserController extends Controller
                 'user_preference' => $userDetails['user_preference'],
                 'userProfiles' => $userProfiles['user_profiles'], 
                 'randomBuddy' => $randomBuddy['buddy_info'],
+                 
+            'veryClose' => $matchInfo['people_info']['veryClose'], 
+            'slightlyClose' => $matchInfo['people_info']['slightlyClose'], 
             );
 
             return $this->view('User/index', $data); 

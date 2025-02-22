@@ -40,6 +40,7 @@ include 'timeAgo.php';
 
     <!-- Stylesheets -->
     <link href="<?= public_asset('/other_assets/Front/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= public_asset('/other_assets/Front/css/faq-style.css') ?>" rel="stylesheet">
     <link href="<?= public_asset('/other_assets/Front/css/responsive.css') ?>" rel="stylesheet">
 
     <link rel="icon" href="/Images/Logo/favicon.png" type="image/x-icon">

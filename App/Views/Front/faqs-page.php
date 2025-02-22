@@ -2,7 +2,7 @@
 include 'Layout/top.php'; 
 include 'Layout/navbar.php';
 ?>
-<link href="<?= public_asset('/other_assets/Front/css/faq-style.css') ?>" rel="stylesheet">
+
 <!-- preloader -->
 <div class="preloader"></div>
 <!-- preloader -->
