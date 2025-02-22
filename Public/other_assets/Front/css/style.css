@@ -4124,7 +4124,7 @@ body.flyout-searchbar-active .wraper_flyout_search > .table > .table-cell .flyou
 .project-block-two .inner-box .image-box{
   position: relative;
   display: block;
-  background: #7005e3;
+  border: 1px solid #535155;
   overflow: hidden;
 }
 
