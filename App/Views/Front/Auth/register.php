@@ -5,9 +5,6 @@ include 'Layout/navbar.php';
 if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 ?>
 
-<!-- preloader -->
-<div class="preloader"></div>
-<!-- preloader -->
  
 <title>New Member Area | Sign Up Page |  <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></title>
 
@@ -85,7 +82,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                         <button type="submit" id="register"><span>Create Your Account</span></button>
                                     </div>
                                 </div>
-
+                                <br>
                                 <p title="Register" style="margin-top: 10px; float: right;">Already Registered? <a href="<?= baseURL('login/'); ?>" style="color:#7005e3;">Login</a></p>
                             </form>
 

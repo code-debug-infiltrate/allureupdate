@@ -83,6 +83,7 @@ $router->get('/us-transactions', [UserController::class, 'member_transactions'])
 $router->get('/us-news-updates', [UserController::class, 'member_news_updates']);
 $router->get('/us-subscription-payment', [UserController::class, 'member_subscription_payment']);
 
+
 //User Ajax
 $router->get('/ajax-interest', [UserController::class, 'ajax_interest']);
 $router->get('/ajax-language', [UserController::class, 'ajax_language']);

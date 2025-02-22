@@ -28,9 +28,9 @@
           <!-- Navbar Header -->
           <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom" >
             
-                <?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newMessageCount > 0)) { ?>
-					<iframe src="/Images/Sounds/ding-sound.mp3" allow="autoplay" style="display:none" autoplay></iframe>
-				<?php } ?>
+            <?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newMessageCount > 0)) { ?>
+              <iframe src="/Images/Sounds/ding-sound.mp3" allow="autoplay" style="display:none" autoplay></iframe>
+            <?php } ?>
           
             <div class="container-fluid">
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -242,7 +242,7 @@
                       />
                     </div>
                     <span class="profile-username" style="color: #ffffff;">
-                      <span class="op-7"><b id="grtnMsg" style="font-size: 12px;"></b></span>
+                      <span class="op-7">Hi, </span>
                       <span class="fw-bold"> <?= $userInfo['username']; ?> </span>
                     </span>
                   </a>
@@ -270,10 +270,10 @@
                       </li>
                       <li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= baseURL('us-profile-settings/')?><?= $userInfo['uniqueid']; ?>/?tab=profile"> Profile Setting</a>
-                        <!-- <a class="dropdown-item" href="#">My Balance</a> -->
+                        <a class="dropdown-item" href="<?= baseURL('us-settings/')?><?= $userInfo['uniqueid']; ?>/?tab=profile"> Settings</a>
+                        <a class="dropdown-item" href="<?= baseURL('us-preferences/')?><?= $userInfo['uniqueid']; ?>/?tab=account">Preference</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= baseURL('us-account-settings/')?><?= $userInfo['uniqueid']; ?>/?tab=account">Account Setting</a>
+                        <a class="dropdown-item" href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/?tab=Notify">Notifications</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?= baseURL('logout/')?><?= $userInfo['uniqueid']; ?>/?tab=logout">Logout</a>
                       </li>

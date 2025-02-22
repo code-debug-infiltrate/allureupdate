@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-      <div class="sidebar" style="background: #7005e3;">
+      <div class="sidebar" style="background: #fbcdfb;">
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" style="background: #7005e3;">
@@ -27,7 +27,23 @@
         </div>
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
-            
+
+          <div style="margin: 10px; text-align: center;"><p style="color: #000f0f;"><b id="grtnMsg1"></b>  <br><?= $userInfo['username']; ?></p></div>
+
+            <div class="card card-round" style="margin: 10px;">
+              <div class="card-body" style="background: #fbcdfb; border-radius: 10px;">
+                <span style="margin-bottom: 5px; font-size: 10px;"><i class="fa fa-comments" style="font-size: 16px; color: #700bcd; margin-right: 5px;"></i> Buddy Chats <em><?= number_format($newChatCount);?></em></span>
+                <hr>
+                <span style="margin-bottom: 5px; font-size: 10px;"><i class="fa fa-envelope" style="font-size: 16px; color: #700bcd; margin-right: 5px;"></i> Mail Box <em><?= number_format($newMessageCount);?></em></span>
+                <hr>       
+                <span style="margin-bottom: 5px; font-size: 10px;"><i class="fa fa-group" style="font-size: 16px; color: #700bcd; margin-right: 5px;"></i> Match Pool <em><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span>
+                <hr>
+                <span style="margin-bottom: 5px; font-size: 10px;"><i class="fa fa-bell" style="font-size: 16px; color: #700bcd; margin-right: 5px;"></i> Notifications <em><?= number_format($userNoticeCount);?></em></span>
+                <hr>
+                <span style="margin-bottom: 5px; font-size: 10px;"><img src="/Images/Body/online.png" style="max-width: 16px;"/> Online Around You <em><?= number_format($onlineNow); ?></em></span>
+                
+              </div>
+            </div>
           <?php if($randomBuddy != null) { ?>
                 
                 <div class="card card-round" style="margin: 10px;">
@@ -69,3 +85,21 @@
         </div>
       </div>
       <!-- End Sidebar -->
+
+      <script type="text/javascript">
+        const date = new Date();
+        const hrs = date.getHours();
+        const grtnMsg = document.getElementById('grtnMsg');
+        const grtnMsg1 = document.getElementById('grtnMsg1');
+        var msg;
+
+        if (hrs > 0) msg = "Mornin', ";
+        if (hrs > 5) msg = "Good Morning, ";
+        if (hrs > 12) msg = "Good Afternoon, ";
+        if (hrs > 17) msg = "Good Evening, ";
+        if (hrs > 22) msg = "Go To Bed, ";
+
+        grtnMsg.textContent = msg;
+        grtnMsg1.textContent = msg;
+        
+    </script>

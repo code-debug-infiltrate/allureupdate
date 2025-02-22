@@ -10,9 +10,9 @@ include 'Layout/navbar.php';
 
     <div class="container" style="background: #fbcdfb;">
         <div class="page-inner">
-            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-2">
                 <div>
-                    <h3 class="fw-bold mb-2"><b id="grtnMsg1"></b>  <?= $userInfo['username']; ?> </h3>
+                    <!-- <h5 class="fw-bold mb-2"><b id="grtnMsg1"></b>  <?= $userInfo['username']; ?> </h5> -->
                     <!-- <h6 class="op-7 mb-2"> </h6> -->
                 </div>
                 <div class="ms-md-auto py-2 py-md-0">
@@ -20,13 +20,11 @@ include 'Layout/navbar.php';
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-home-tab-icon" data-bs-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="true">
                                 <i class="fa fa-users"></i>
-                                Virtual Pool
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="pills-profile-tab-icon" data-bs-toggle="pill" href="#pills-profile-icon" role="tab" aria-controls="pills-profile-icon" aria-selected="false">
                                 <i class="fa fa-envelope"></i>
-                                Messages
                             </a>
                         </li>
                     </ul>
@@ -34,7 +32,7 @@ include 'Layout/navbar.php';
             </div>
             <div class="row">
             <div class="col-md-12">
-                <div class="card" style="background-image:url(/Images/Banner/4.jpg);">
+                <div class="card" style="background: transparent;">
                     <!-- <div class="card-header">
                         <h4 class="card-title">Nav Pills With Icon (Horizontal Tabs)</h4>
                     </div> -->
@@ -44,7 +42,19 @@ include 'Layout/navbar.php';
                             
                             <div class="tab-pane fade show active" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
                                 
-                                <?php include 'dating-pool-inside.php'; ?>
+                                <?php if (!$user_myself) { ?>
+
+                                    <?php include 'myself-inside.php'; ?>
+
+                                <?php } elseif (!$user_preference) { ?>
+
+                                    <?php include 'preferences-inside.php'; ?>
+
+                                <?php } else { ?>
+
+                                    <?php include 'dating-pool-inside.php'; ?>
+
+                                <?php } ?>
 
                             </div>
 

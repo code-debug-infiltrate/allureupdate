@@ -34,7 +34,7 @@ include 'Layout/navbar.php';
             </div>
             <div class="row">
             <div class="col-md-12">
-                <div class="card" style="background-image:url(/Images/Banner/4.jpg);">
+                <div class="card">
                     <!-- <div class="card-header">
                         <h4 class="card-title">Nav Pills With Icon (Horizontal Tabs)</h4>
                     </div> -->
