@@ -12,7 +12,7 @@ include 'Layout/navbar.php';
         <div class="page-inner">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-2">
                 <div>
-                    <!-- <h5 class="fw-bold mb-2"><b id="grtnMsg1"></b>  <?= $userInfo['username']; ?> </h5> -->
+                    <h5 class="fw-bold mb-2"><b id="grtnMsg"></b> <?= $userInfo['username']; ?> </h5>
                     <!-- <h6 class="op-7 mb-2"> </h6> -->
                 </div>
                 <div class="ms-md-auto py-2 py-md-0">
@@ -42,7 +42,11 @@ include 'Layout/navbar.php';
                             
                             <div class="tab-pane fade show active" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
                                 
-                                <?php if (!$user_myself) { ?>
+                                <?php if ($userInfo['profileimage'] == "favicon.png") { ?>
+                                    
+                                    <?php include 'profile-photo-inside.php'; ?>
+
+                                <?php } elseif (!$user_myself) { ?>
 
                                     <?php include 'myself-inside.php'; ?>
 

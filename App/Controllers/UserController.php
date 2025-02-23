@@ -32,6 +32,30 @@ class UserController extends Controller
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
 
+        if (isset($_POST['submitProfile'])) {
+            // code...
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $type = "Profile";  //Determines the folder to upload image
+
+            // File name
+            $value = $_FILES['profileimage']['name'];
+            $temp = $_FILES['profileimage']['tmp_name'];
+
+            $image = $this->uploadFile($type, $value, $temp);
+
+            if ($image['fileType']) { 
+                $info = array('type' => $image['fileType'], 'profileimage' => trim($image['pics']), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+                //Call API Function
+                $pass = ModelFactory::model('User')->upload_profile_photo($info);
+            } else { $result = $image; }
+
+            //Get User Credentials
+            $userDetails =$this->user_information($id); 
+            $coyInfo = ModelFactory::model('Register')->coy_info();
+            
+        }
+
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
