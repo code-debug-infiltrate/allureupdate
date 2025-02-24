@@ -1,5 +1,5 @@
 <!-- Left sidebar menu start -->
-	<div class="ttr-sidebar">
+	<div class="ttr-sidebar" style="background: #fbcdfb;">
 		<div class="ttr-sidebar-wrapper content-scroll">
 			<!-- side menu logo start -->
 			<div class="ttr-sidebar-logo">
@@ -10,9 +10,7 @@
 				</div>
 				
 				<span class="ttr-label">
-					<b id="grtnMsg1" style="font-size: 18px;"></b>
-            		<br />
-            		<i style="font-size: 14px; text-transform: capitalize;"> <?= $userInfo['username']; ?></i>
+					<b id="grtnMsg1" style="font-size: 16px;"></b> <br> <i style="font-size: 14px; text-transform: capitalize;"> <?= $userInfo['username']; ?></i>
 				</span>
 
 				<!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
@@ -30,7 +28,7 @@
 
 					<div class="card card-round" style="margin: 10px;">
 					<!-- <div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Dashboard</b> Analysis</p></div> -->
-					<div class="card-body" style="background: #fff; border-radius: 10px;">
+					<div class="card-body" style="background: #fff; border-radius: 10px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/msg.gif" style="width: 40px; margin-right: 8px;"> Buddy Chats <em style="margin-left: 8px;"><?= number_format($newChatCount);?></em></span>
 						<hr>      
 						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Match Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span>
@@ -48,7 +46,7 @@
                 
 						<div class="card card-round" style="margin: 10px;">
 						<div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Random</b> Buddies</p></div>
-						<div class="card-body">
+						<div class="card-body" style="box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 							<!-- <div class="card-title fw-mediumbold">Random Meet Ups</div> -->
 							<div class="card-list">
 							<?php foreach ($randomBuddy as $key => $buddy) { ?>
@@ -110,9 +108,9 @@
 	<!-- Subscribe Modal -->
 	<div class="modal fade review-bx-reply" id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="background: #fff;">
+                    <div class="modal-content" style="background: #fbcdfb;">
                         <div class="modal-header">
-                            <h5 class="modal-title widget-bg1" style="float: center; padding: 10px; color: #fff; border-radius: 10px;">Service Subscription</h5>
+                            <h5 class="modal-title" style="float: center; padding: 10px;">All Service Subscription</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

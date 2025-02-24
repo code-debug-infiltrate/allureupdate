@@ -195,7 +195,7 @@
 </header>
 <!-- header end -->
 
-
+<body  style="background: #fbcdfb;">
 				
 
 <!-- Alerts For Notifications & Messages -->

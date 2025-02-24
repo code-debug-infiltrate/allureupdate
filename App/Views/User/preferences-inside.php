@@ -60,6 +60,7 @@
                                     <?php } ?>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div12a" onclick="replace('div12a','div12')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div13" style="display: none;" onchange="replace('div13','div13a')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 3 of 20</i>
@@ -75,6 +76,7 @@
                                     <option value="8Ft To 9Ft">8Ft To 9Ft</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div13" onclick="replace('div13','div12a')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div13a" style="display: none;" onchange="replace('div13a','div13b')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 4 of 20</i>
@@ -93,6 +95,7 @@
                                     <option value="110Kg Above">110Kg Above</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div13a" onclick="replace('div13a','div13')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div13b" style="display: none;" onchange="replace('div13b','div14a')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 5 of 20</i>
@@ -108,6 +111,7 @@
                                     <option value="Skinny">Skinny</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div13b" onclick="replace('div13b','div13a')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div14a" style="display: none;" onchange="replace('div14a','div14')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 6 of 20</i>
@@ -123,6 +127,7 @@
                                     <option value="Irreligion">Irreligion</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div14a" onclick="replace('div14a','div13b')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div14" style="display: none;" onchange="replace('div14','div15a')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 7 of 20</i>
@@ -137,6 +142,7 @@
                                     <option value="Marriage">Marriage</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div14" onclick="replace('div14','div13b')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div15a" style="display: none;" onchange="replace('div15a','div15b')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 8 of 20</i>
@@ -151,6 +157,7 @@
                                     <option value="Never Smoke">Never Smoke</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div15a" onclick="replace('div15a','div14')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div15b" style="display: none;" onchange="replace('div15b','div15')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 9 of 20</i>
@@ -166,6 +173,7 @@
                                     <option value="Black">Black</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div15b" onclick="replace('div15b','div15a')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             <div class="form-group" id="div15" style="display: none;" onchange="replace('div15','div16a')">
                             <i class="" style="font-size: 10px; color: #7005e3;">Step: 10 of 20</i>
@@ -180,6 +188,7 @@
                                     <option value="Asian">Asian</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div15" onclick="replace('div15','div15b')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div16a" style="display: none;" onchange="replace('div16a','div16b')">
@@ -196,6 +205,7 @@
                                     <option value="Never Drink">Never Drink</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div16a" onclick="replace('div16a','div15')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div16b" style="display: none;" onchange="replace('div16b','div16')">
@@ -210,6 +220,7 @@
                                     <option value="Super Sizing">Super Sizing</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div16b" onclick="replace('div16b','div16a')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div16" style="display: none;" onchange="replace('div16','div17')">
@@ -222,6 +233,7 @@
                                     <option value="No">No</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div16" onclick="replace('div16','div16b')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div17" style="display: none;" onchange="replace('div17','div17a')">
@@ -235,6 +247,7 @@
                                     <option value="I Dont Go">I Dont Go</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div17" onclick="replace('div17','div16')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div17a" style="display: none;" onchange="replace('div17a','div17b')">
@@ -251,6 +264,7 @@
                                     <option value="8-9">8-9</option>
                                     <option value="9 & above">9 & above</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div17a" onclick="replace('div17a','div17')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div17b" style="display: none;" onchange="replace('div17b','div17c')">
@@ -267,6 +281,7 @@
                                     <option value="Widowed">Widowed</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div17b" onclick="replace('div17b','div17a')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div17c" style="display: none;" onchange="replace('div17c','div18')">
@@ -279,6 +294,7 @@
                                     <option value="No Kids">No Kids</option>
                                     <option value="Not Sure">Not Sure</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div17c" onclick="replace('div17c','div17b')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div18" style="display: none;" onchange="replace('div18','div19')">
@@ -293,6 +309,7 @@
                                     <option value="Indifferent">Indifferent</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div18" onclick="replace('div18','div17c')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div19" style="display: none;" onchange="replace('div19','div20')">
@@ -308,6 +325,7 @@
                                     <option value="Self Employed">Self Employed</option>
                                     <option value="Any">Any</option>
                                 </select>
+                                <a href="javascript:void(0);" id="div19" onclick="replace('div19','div18')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
 
                             <div class="form-group" id="div20" style="display: none;" onclick="replace('div19','div21')">	
@@ -315,7 +333,7 @@
                             <br>
                             <label class="control-label" for="textarea">Outline Any Other Information You Would Want In a Potential Match</label><i class="mtrl-select"></i>
                             <textarea class="form-control" rows="4" id="prefdetails" required style="background: white;"></textarea>
-                                
+                            <a href="javascript:void(0);" id="div20" onclick="replace('div20','div19')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Back One Step</a>
                             </div>
                             
                             <!-- <img src="/Images/green-dots.gif" id="prefLoader" style="display: none"/>

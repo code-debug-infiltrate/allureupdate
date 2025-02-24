@@ -38,7 +38,7 @@
 	height: 60px;
 	text-align: center;
 	cursor: pointer;
-	color: #FFF;
+	color: #fbcdfb;
 	background-color: rgba(255,255,255,0.1);
 	float: left;
 }
@@ -813,9 +813,9 @@
 }
 
 .widget-box{
-	background-color: #fff;
-	box-shadow:0 3px 10px 0px rgba(0,0,0,.08);
-	border-radius: 4px;
+	background-color: #ffffff;
+	box-shadow:0 5px 10px 0px rgba(0,0,0,.40);
+	border-radius: 10px;
 	height: 100%;
 }
 .widget-box .widget-inner{
@@ -831,6 +831,17 @@
 	margin:0;
 	color:#333;
 	font-weight:500;
+}
+
+.widget-box:hover {
+	animation-name: float;
+	-webkit-animation-name: float;
+
+	animation-duration: 1.5s;
+	-webkit-animation-duration: 1.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
 }
 /* Full Calendra */
 
@@ -1790,3 +1801,30 @@
 		margin-bottom: 10px;
 	}
 }
+
+@keyframes float {
+
+	0% {
+	transform: translateY(0%);
+	}
+	50% {
+	transform: translateY(2%);
+	}
+	100% {
+	transform: translateY(0%);
+	}
+	}
+	
+	@-webkit-keyframes float {
+	
+	0% {
+	-webkit-transform: translateY(0%);
+	}
+	50% {
+	-webkit-transform: translateY(2%);
+	}
+	100% {
+	-webkit-transform: translateY(0%);
+	}
+	}
+	
