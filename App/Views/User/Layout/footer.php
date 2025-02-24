@@ -1,31 +1,15 @@
-        <footer class="footer">
-          <div class="container-fluid d-flex justify-content-between">
-            <nav class="pull-left">
-              <ul class="nav">
-                <li class="nav-item" style="font-size: 11px; margin-left: 10px;">
-                    <a href="<?= $coyInfo['channel']; ?>" target="_blank" style="color: white;" title="Channel Link"> Channel</a>
-                </li>
-                <li class="nav-item" style="font-size: 11px; margin-left: 10px;">
-                    <a href="#" title="Report Violation" style="color: white;">Report Violation</a>
-                </li>
-                <li class="nav-item" style="font-size: 11px;">
-                  <a class="nav-link" href="<?= baseURL('blog/'); ?>all/" target="_blank" style="color: white;"> News & Updates</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="copyright">
-                <a target="_blank" href="<?= baseURL('index/'); ?>" style="color: white;">
-				          <strong>&copy; Copyright <span> <script type="text/JavaScript">document.write(new Date().getFullYear()); </script> <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></span>. All Rights Reserved </strong>
-				        </a>
-            </div>
-            <div style="font-size: 11px;">
-                Powered By <a href="<?= getenv('DV_LINK')?>" class="text-muted" target="_blank"><?= getenv('DV_NAME')?></a>
-            </div>
-          </div>
-        </footer>
-      </div>
+    <?php 
+    
+    include 'business-tools-modal.php';
 
-      <script type="text/javascript">
+    include 'business-support-modal.php';
+
+    include 'my-wallet-modal.php';
+
+    ?>
+    
+    
+    <script type="text/javascript">
         const date = new Date();
         const hrs = date.getHours();
         const grtnMsg = document.getElementById('grtnMsg');
@@ -38,40 +22,40 @@
         if (hrs > 17) msg = "Good Evening, ";
         if (hrs > 22) msg = "Go To Bed, ";
 
-        grtnMsg.textContent = msg;
-        grtnMsg1.textContent = msg;
+        grtnMsg.textContent = msg
+        grtnMsg1.textContent = msg
         
-      </script>
+        //console.log(msg);
+    </script>
 
-    </div>
-    <!--   Core JS Files   -->
-    <script src="<?= public_asset('/other_assets/User/js/core/jquery-3.7.1.min.js') ?>"></script>
-    <script src="<?= public_asset('/other_assets/User/js/core/popper.min.js') ?>"></script>
-    <script src="<?= public_asset('/other_assets/User/js/core/bootstrap.min.js') ?>"></script>
+	<div class="ttr-overlay"></div>
 
-    <!-- jQuery Scrollbar -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') ?>"></script>
+    <button class="back-to-top fa fa-chevron-up" ></button>
 
-    <!-- Chart JS -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/chart.js/chart.min.js') ?>"></script>
+<!-- External JavaScripts -->
 
-    <!-- jQuery Sparkline -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/jquery.sparkline/jquery.sparkline.min.js') ?>"></script>
 
-    <!-- Chart Circle -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/chart-circle/circles.min.js') ?>"></script>
 
-    <!-- Datatables -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/datatables/datatables.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/bootstrap/js/popper.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/bootstrap/js/bootstrap.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/bootstrap-select/bootstrap-select.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/magnific-popup/magnific-popup.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/counter/waypoints-min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/counter/counterup.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/imagesloaded/imagesloaded.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/masonry/masonry.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/masonry/filter.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/owl-carousel/owl.carousel.js') ?>"></script>
+<script src='<?= public_asset('/other_assets/User/vendors/scroll/scrollbar.min.js') ?>'></script>
+<script src="<?= public_asset('/other_assets/User/js/functions.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/vendors/chart/chart.min.js') ?>"></script>
+<script src="<?= public_asset('/other_assets/User/js/admin.js') ?>"></script>
 
-    <!-- Bootstrap Notify -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/bootstrap-notify/bootstrap-notify.min.js') ?>"></script>
 
-    <!-- Sweet Alert -->
-    <script src="<?= public_asset('/other_assets/User/js/plugin/sweetalert/sweetalert.min.js') ?>"></script>
+<!-- Image Validation -->
+<!-- <script src="<?= public_asset('/other_assets/User/js/validateImage.js') ?>"></script> -->
 
-    <!-- Kaiadmin JS -->
-    <script src="<?= public_asset('/other_assets/User/js/kaiadmin.min.js') ?>"></script>
 
-  </body>
+</body>
 </html>

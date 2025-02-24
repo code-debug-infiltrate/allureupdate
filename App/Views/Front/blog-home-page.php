@@ -13,7 +13,7 @@ include 'Layout/navbar.php';
 
 
     <!-- case-banner -->
-    <section class="case-banner centred" style="background-image: url(/Images/Body/privacy.png);">
+    <section class="case-banner centred" style="background-image: url(/Images/Body/outdoor.jpg);">
         <div class="container">
             <div class="content-box" style="margin-top: 150px;">
                 <h1>News & Updates</h1>

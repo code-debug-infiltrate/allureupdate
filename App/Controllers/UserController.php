@@ -37,7 +37,6 @@ class UserController extends Controller
             $uniqueid = $v->clean($_POST['uniqueid']);
             $username = $v->clean($_POST['username']);
             $type = "Profile";  //Determines the folder to upload image
-
             // File name
             $value = $_FILES['profileimage']['name'];
             $temp = $_FILES['profileimage']['tmp_name'];
@@ -49,7 +48,6 @@ class UserController extends Controller
                 //Call API Function
                 $pass = ModelFactory::model('User')->upload_profile_photo($info);
             } else { $result = $image; }
-
             //Get User Credentials
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
@@ -140,7 +138,7 @@ class UserController extends Controller
 
             //Get User Credentials
             $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
+            $coyInfo = ModelFactory::model('Register')->coy_info();
             
         } elseif (isset($_POST['submitCover'])) {
             // code...
@@ -192,7 +190,7 @@ class UserController extends Controller
             'newChatCount' => $userDetails['newChatCount'],
             'newChatDetails' => $userDetails['newChatDetails'],
             'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
+            'appSubPlan' => $userDetails['appSubPlan'],
             'userTrancInfo' => $userDetails['trancInfo'],
             'subPlan' => $userDetails['subPlan'],
             'user_interests' => $userDetails['user_interests'],

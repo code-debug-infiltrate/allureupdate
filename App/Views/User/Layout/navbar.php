@@ -1,287 +1,217 @@
-    <div class="main-panel">
-        <div class="main-header">
-          <div class="main-header-logo">
-            <!-- Logo Header -->
-            <div class="logo-header" style="background: #7005e3;">
-              <a href="<?= baseURL('us-index/')?><?= $userInfo['uniqueid']; ?>/?tab=timeline" class="logo">
-                <img
-                  src="/Images/Logo/favicon.png"
-                  alt="navbar brand"
-                  class="navbar-brand"
-                  height="50"
-                />
-              </a>
-              <div class="nav-toggle">
-                <button class="btn btn-toggle toggle-sidebar">
-                  <i class="gg-menu-right"></i>
-                </button>
-                <button class="btn btn-toggle sidenav-toggler">
-                  <i class="gg-menu-left"></i>
-                </button>
-              </div>
-              <button class="topbar-toggler more">
-                <i class="gg-more-vertical-alt"></i>
-              </button>
-            </div>
-            <!-- End Logo Header -->
-          </div>
-          <!-- Navbar Header -->
-          <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom" >
-            
-            <?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newMessageCount > 0)) { ?>
-              <iframe src="/Images/Sounds/ding-sound.mp3" allow="autoplay" style="display:none" autoplay></iframe>
-            <?php } ?>
-          
-            <div class="container-fluid">
-              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="messageDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="fa fa-envelope" style="color: #fff;"></i>
-                    <span class="notification"><?= number_format($newMessageCount);?></span>
-                  </a>
-                  <ul
-                    class="dropdown-menu messages-notif-box animated fadeIn"
-                    aria-labelledby="messageDropdown"
-                  >
-                    <li>
-                      <div class="dropdown-title">
-                        You have <?= number_format($newMessageCount);?> Message(s)
-                      </div>
-                    </li>
+<!-- header start -->
+<header class="ttr-header">
+	<div class="ttr-header-wrapper">
+		<!--sidebar menu toggler start -->
+		<div class="ttr-toggle-sidebar ttr-material-button">
+			<i class="ti-close ttr-open-icon"></i>
+			<i class="ti-menu ttr-close-icon"></i>
+		</div>
+		<!--sidebar menu toggler end -->
+		<!--logo start -->
+		<div class="ttr-logo-box">
+			<div>
+				<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-logo">
+					<img class="ttr-logo-mobile" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="100" height="80">
+					<img class="ttr-logo-desktop" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="150" height="100">
+				</a>
+			</div>
+		</div>
+		<!--logo end -->
+		<div class="ttr-header-menu">
+			<!-- header left menu start -->
+			<ul class="ttr-header-navigation">
+				<!-- <li>
+					<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button ttr-submenu-toggle"><i class="ti-home mr-2"></i> Home Page</a>
+				</li> -->
+				
+				<!-- <li>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle">TASK BOARD <i class="fa fa-angle-down"></i></a>
+					<div class="ttr-header-submenu">
+						<ul>
+	                	
+	                	<li>
+	                		<a href="<?= baseURL('tasks/'); ?><?= $userInfo['uniqueid']; ?>/"><span class="ttr-label">All Tasks</span></a>
+	                	</li>
+						<li>
+							<a href="<?= baseURL('earn-badge/'); ?><?= $userInfo['uniqueid']; ?>/"><span class="ttr-label">Earn Badge</span></a>
+						</li>
+						
+	                	<li>
+	                		<a href="<?= baseURL('us-tasks/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button"><span class="ttr-label">My Tasks</span></a>
+	                	</li>
+						
+	                </ul>
+					</div>
+				</li> -->
+				
+			</ul>
+			<!-- header left menu end -->
+		</div>
+		<div class="ttr-header-right ttr-with-seperator">
+			<!-- header right menu start -->
+			<ul class="ttr-header-navigation">
+				<!-- <li>
+					<a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
+				</li> -->
 
-                    <!-- <li>
-                      <div
-                        class="dropdown-title d-flex justify-content-between align-items-center"
-                      >
-                        Messages
-                        <a href="#" class="small">Mark all as read</a>
-                      </div>
-                    </li> -->
-                    <li>
-                      <div class="message-notif-scroll scrollbar-outer">
-                        <div class="notif-center">
-                        <?php if ($newMessageDetails) { ?>
-                            <?php foreach ($newMessageDetails as $key => $msgDet) { ?>
-                            <a href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/?box=Inbox" data-toggle="tooltip" title="Notifications">
-                                <?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $msgDet['sender']) { ?>
-                                <div class="notif-img">
-                                    <img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo">
-                                </div>
-                                <div class="notif-content">
-                                <span class="subject"><?= $user['fname']; ?> <?= $user['lname']; ?></span>
-                                <span class="block"> <?= $msgDet['details']; ?> </span>
-                                <span class="time"><?php echo(''.timeAgo(date('Y/m/d', strtotime($msgDet['created']))).''); ?></span>
-                                </div>
-                                <?php } } ?>
-                            </a>
-                            <?php } } else { ?>
-								<center><p>No New Message</p></center>
-							<?php } ?>
-                          
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <a class="see-all" href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/?box=Inbox"
-                        >See all<i class="fa fa-angle-right"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="notifDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="fa fa-bell" style="color: #fff;"></i>
-                    <span class="notification"><?= number_format($userNoticeCount);?></span>
-                  </a>
-                  <ul
-                    class="dropdown-menu notif-box animated fadeIn"
-                    aria-labelledby="notifDropdown"
-                  >
-                    <li>
-                      <div class="dropdown-title">
-                        You have <?= number_format($userNoticeCount);?> notification
-                      </div>
-                    </li>
-                    <li>
-                      <div class="notif-scroll scrollbar-outer">
-                        <div class="notif-center">
-                        <?php if ($newActivityNotice) { ?>
-                            <?php foreach ($newActivityNotice as $key => $notify) { ?>
-                            <a href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/">
-                                <div class="notif-icon notif-primary">
-                                <?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $notify['user_uniqueid']) { ?>
-                                    <img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 40px; width: 40px;">
-                                </div>
-                                <div class="notif-content">
-                                    <span class="subject"><h6><?= $user['fname']; ?> <?= $user['lname']; ?></span>
-                                    <span class="block"> <?= $notify['details']; ?> </span>
-                                    <span class="time"><?php echo(''.timeAgo(date('Y/m/d', strtotime($notify['created']))).''); ?></span>
-                                </div>
-                                <?php } } ?>
-                            </a>
-                          <?php } } else { ?>
-                            <center><p>No New Notifications</p></center>
-                        <?php } ?>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <a class="see-all" href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/"
-                        >See all<i class="fa fa-angle-right"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a
-                    class="nav-link"
-                    data-bs-toggle="dropdown"
-                    href="#"
-                    aria-expanded="false"
-                  >
-                    <i class="fa fa-list-alt" style="color: #fff;"></i>
-                  </a>
-                  <div class="dropdown-menu quick-actions animated fadeIn">
-                    <div class="quick-actions-header">
-                      <span class="title mb-1">Quick Actions</span>
-                      <span class="subtitle op-7">Shortcuts</span>
-                    </div>
-                    <div class="quick-actions-scroll scrollbar-outer">
-                      <div class="quick-actions-items">
-                        <div class="row m-0">
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div class="avatar-item bg-danger rounded-circle">
-                                <i class="far fa-calendar-alt"></i>
-                              </div>
-                              <span class="text">Calendar</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-warning rounded-circle"
-                              >
-                                <i class="fas fa-map"></i>
-                              </div>
-                              <span class="text">Maps</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div class="avatar-item bg-info rounded-circle">
-                                <i class="fas fa-file-excel"></i>
-                              </div>
-                              <span class="text">Reports</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-success rounded-circle"
-                              >
-                                <i class="fas fa-envelope"></i>
-                              </div>
-                              <span class="text">Emails</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-primary rounded-circle"
-                              >
-                                <i class="fas fa-file-invoice-dollar"></i>
-                              </div>
-                              <span class="text">Invoice</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-secondary rounded-circle"
-                              >
-                                <i class="fas fa-credit-card"></i>
-                              </div>
-                              <span class="text">Payments</span>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+				<li>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-envelope"></i><span class="counter" style="font-weight: lighter; top: -10px;"><?= count($userNewMsgs); ?></span></a>
+					<div class="ttr-header-submenu noti-menu">
+						<?php $i=0; if ($userNewMsgs) { ?>
+						<div class="ttr-notify-header">
+							<span class="ttr-notify-text-top"><?= count($userNewMsgs); ?> Messages</span>
+							<span class="ttr-notify-text"><a href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/">All Messages</a></span>
+						</div>
+						<div class="noti-box-list">
+							<ul>
+								<?php foreach ($userNewMsgs as $key => $msg) { ?>
+									<?php if ($i <= 2) {  ?>
+									<li id="msg<?= $msg['id']; ?>">
+										<span class="notification-icon dashbg-primary">
+											<i class="fa fa-bullhorn"></i>
+										</span>
+										<span class="notification-text" style="font-size: 10px;">
+											<span style="font-size: 14px;"><b><?= substr($msg['subject'], 0, 20); ?>...</b></span> 
+											<br>
+											<?= substr($msg['details'], 0, 150); ?>
+										</span>
+										<span class="notification-time">
+											<a href="#" class="fa fa-close" onclick="document.getElementById('msg<?= $msg['id']; ?>').style.display='none'"></a>
+											<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($msg['created']))).''); ?></span>
+										</span>
+									</li>
+								<?php } ?>
+							<?php $i++; } ?>
+							</ul>
+						</div>
+						<?php } ?>
+					</div>
+				</li>
 
-                <li class="nav-item topbar-user dropdown hidden-caret">
-                  <a
-                    class="dropdown-toggle profile-pic"
-                    data-bs-toggle="dropdown"
-                    href="#"
-                    aria-expanded="false"
-                  >
-                    <div class="avatar-sm">
-                      <img
-                        src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>"
-                        alt="..."
-                        class="avatar-img rounded-circle"
-                      />
-                    </div>
-                    <span class="profile-username" style="color: #ffffff;">
-                      <span class="op-7">Hi, </span>
-                      <span class="fw-bold"> <?= $userInfo['username']; ?> </span>
-                    </span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-user animated fadeIn" style="background: #fbcdfb;">
-                    <div class="dropdown-user-scroll scrollbar-outer">
-                      <li>
-                        <div class="user-box">
-                          <div class="avatar-lg">
-                            <img
-                              src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>"
-                              alt="image profile"
-                              class="avatar-img rounded"
-                            />
-                          </div>
-                          <div class="u-text">
-                            <h4><?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?></h4>
-                            <p class="text-muted"><?= $userInfo['email']; ?> </p>
-                            <a
-                              href="<?= baseURL('us-profile/')?><?= $userInfo['uniqueid']; ?>/?tab=Profile"
-                              class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= baseURL('us-settings/')?><?= $userInfo['uniqueid']; ?>/?tab=profile"> Settings</a>
-                        <a class="dropdown-item" href="<?= baseURL('us-preferences/')?><?= $userInfo['uniqueid']; ?>/?tab=account">Preference</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/?tab=Notify">Notifications</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= baseURL('logout/')?><?= $userInfo['uniqueid']; ?>/?tab=logout">Logout</a>
-                      </li>
-                    </div>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <!-- End Navbar -->
-        </div>
+				<li>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-bell"></i><span class="counter" style="font-weight: lighter; top: -10px;"><?= count($userNotice); ?></span></a>
+					<div class="ttr-header-submenu noti-menu">
+						<?php $i=0; if ($userNotice) { ?>
+						<div class="ttr-notify-header">
+							<span class="ttr-notify-text-top"><?= count($userNotice); ?> Notifications</span>
+							<span class="ttr-notify-text"><a href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/">All Notifications</a></span>
+						</div>
+						<div class="noti-box-list">
+							<ul>
+								<?php foreach ($userNotice as $key => $notice) { ?>
+									<?php if ($i <= 2) {  ?>
+								<li id="notice<?= $notice['id']; ?>">
+									<span class="notification-icon dashbg-primary">
+										<i class="fa fa-bullhorn"></i>
+									</span>
+									<span class="notification-text" style="font-size: 10px;">
+										<span style="font-size: 14px;"><b><?= $notice['subject']; ?></b></span> 
+										<br>
+										<?= $notice['details']; ?>
+									</span>
+									<span class="notification-time">
+										<a href="#" class="fa fa-close" onclick="document.getElementById('notice<?= $notice['id']; ?>').style.display='none'"></a>
+										<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($notice['created']))).''); ?></span>
+									</span>
+								</li>
+
+								<?php } ?>
+							<?php $i++; } ?>
+							</ul>
+						</div>
+						<?php } ?>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="Profile-Img" src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" width="52" height="52"></span></a>
+					<div class="ttr-header-submenu">
+						<ul>
+							<li><a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-settings mr-2"></i> Account Settings</a></li>
+							<li class="ttr-seperate"></li>
+
+							<li><a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/#password"><i class="ti-key mr-2"></i> Change Password</a></li>
+							<li class="ttr-seperate"></li>
+
+							<li><a href="<?= baseURL('us-need-help/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-help-alt mr-2"></i> Need Help</a></li>
+							<li class="ttr-seperate"></li>
+
+							<li><a href="<?= baseURL('us-profile-settings/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-2"></i> Profile Settings</a></li>
+							<li class="ttr-seperate"></li>
+
+							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-power-off mr-2"></i> Logout</a></li>
+
+						</ul>
+					</div>
+				</li>
+				<!-- <li class="ttr-hide-on-mobile">
+					<a href="#" class="ttr-material-button"><i class="ti-layout-grid3-alt"></i></a>
+					<div class="ttr-header-submenu ttr-extra-menu">
+						<a href="#">
+							<i class="fa fa-music"></i>
+							<span>Musics</span>
+						</a>
+						<a href="#">
+							<i class="fa fa-youtube-play"></i>
+							<span>Videos</span>
+						</a>
+						<a href="#">
+							<i class="fa fa-envelope"></i>
+							<span>Emails</span>
+						</a>
+						<a href="#">
+							<i class="fa fa-book"></i>
+							<span>Reports</span>
+						</a>
+						<a href="#">
+							<i class="fa fa-smile-o"></i>
+							<span>Persons</span>
+						</a>
+						<a href="#">
+							<i class="fa fa-picture-o"></i>
+							<span>Pictures</span>
+						</a>
+					</div>
+				</li> -->
+			</ul>
+			<!-- header right menu end -->
+		</div>
+		<!--header search panel start -->
+		<div class="ttr-search-bar">
+			<form class="ttr-search-form">
+				<div class="ttr-search-input-wrapper">
+					<input type="text" name="qq" placeholder="search something..." class="ttr-search-input">
+					<button type="submit" name="search" class="ttr-search-submit"><i class="ti-arrow-right"></i></button>
+				</div>
+				<span class="ttr-search-close ttr-search-toggle">
+					<i class="ti-close"></i>
+				</span>
+			</form>
+		</div>
+		<!--header search panel end -->
+	</div>
+</header>
+<!-- header end -->
+
+
+				
+
+<!-- Alerts For Notifications & Messages -->
+<?php include 'alert.php'; ?>
+
+<div class="flash-outer closer" id="closerFlash9" onclick="$('#closerFlash9').hide()"></div>
+<!-- End Alerts For Notifications & Messages -->
+
+
+<?php if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }?>
+
+
+    
+<input type="hidden" name="uniqueid" id="uniqueid" value="<?= $userInfo['uniqueid']; ?>" required>
+<input type="hidden" name="username" id="username" value="<?= $userInfo['username']; ?>" required>
+<input type="hidden" name="fname" id="fname" value="<?= $userInfo['fname']; ?>" required>
+<input type="hidden" name="lname" id="lname" value="<?= $userInfo['lname']; ?>" required>
+<input type="hidden" name="email" id="email" value="<?= $userInfo['email']; ?>" required>
+<input type="hidden" name="currency" id="currency" value="<?= $curInfo['currency']; ?>" required>
+<input type="hidden" name="cur" id="cur" value="<?= $userInfo['wallet']; ?>" required>
+<input type="hidden" name="sec" id="sec" value="<?= $userInfo['pin']; ?>" required>
+<input type="hidden" name="urlWallet" id="urlWallet" value="<?= $url.$_SERVER['HTTP_HOST']."/";?>">
