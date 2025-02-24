@@ -23,174 +23,64 @@
 			<!-- side menu logo end -->
 			<!-- sidebar menu start -->
 			<nav class="ttr-sidebar-navi">
+
 				<ul> 
-					<li>
-						<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-home"></i></span>
-		                	<span class="ttr-label">Home Page</span>
-		                </a>
-		            </li>
-					<li class="ttr-seperate"></li>
 					
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-support"></i></span>
-		                	<span class="ttr-label">Support </span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="#" data-toggle="modal" data-target="#supportModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Quick Cash</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="#" data-toggle="modal" data-target="#supportModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i> KYC</span></a>
-		                	</li>
-							<li>
-		                		<a href="<?= baseURL('us-business-support/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Support Page</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-		                	<span class="ttr-label"> Tools</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="#" data-toggle="modal" data-target="#businessToolsModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Bulk SMS</span></a>
-		                	</li>
-							<li>
-		                		<a href="#" data-toggle="modal" data-target="#businessToolsModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Bulk Recharge Cards</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="#" data-toggle="modal" data-target="#businessToolsModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Sim Hoisting</span></a>
-		                	</li>
-							<li>
-		                		<a href="#" data-toggle="modal" data-target="#businessToolsModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>SMS OTP</span></a>
-		                	</li>
-							<li>
-		                		<a href="#" data-toggle="modal" data-target="#businessToolsModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Voice OTP</span></a>
-		                	</li>
-							<li>
-		                		<a href="<?= baseURL('us-business-tools/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Tools Page</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-mobile"></i></span>
-							<span class="ttr-label">Utility</span>
-							<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-						</a>
-						<ul>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#educationalModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Educational Pin</span></a>
-							</li>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#electricityModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Electricity</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-internet-data/')?><?= $userInfo['uniqueid']; ?>/"  class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Internet Data</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-global-cards/')?><?= $userInfo['uniqueid']; ?>/"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Global Cards</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-local-cards/')?><?= $userInfo['uniqueid']; ?>/"  class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Local Cards</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-smile-voice/')?><?= $userInfo['uniqueid']; ?>/"  class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Smile Voice</span></a>
-							</li>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#tvSubscriptionModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>TV Subscription</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-bill-payment/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Bill Pay Page</span></a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-wallet"></i></span>
-		                	<span class="ttr-label">Wallet</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-								<a href="#" data-toggle="modal" data-target="#addBalanceModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Add Money</span></a>
-		                	</li>
-							
-							<li>
-								<a href="<?= baseURL('us-crypto-currency/')?><?= $userInfo['uniqueid']?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Crypto Currency</span></a>
-		                	</li>
-
-							<li>
-								<a href="#" data-toggle="modal" data-target="#converterModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Exchange Rate</span></a>
-		                	</li>
-
-							<?php if ($userInfo['wallet'] > "50") { ?>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#internalTransferModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Fondo Pay</span></a>
-		                	</li>
-		                	<li>
-								<a href="<?= baseURL('us-other-transfer/')?><?= $userInfo['uniqueid']?>/" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>All Transfer</span></a>
-		                	</li>
-							<?php } ?>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#virtualAccountModal" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Virtual Account</span></a>
-		                	</li>
-							<li>
-		                		<a href="<?= baseURL('us-transactions/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Wallet Page</span></a>
-		                	</li>
-		                </ul>
-		            </li>
-
 					<li class="ttr-seperate"></li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-comments"></i></span>
-							<span class="ttr-label">Messages</span>
-							<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-						</a>
-						<ul>
-							<li>
-								<a href="<?= baseURL('us-messages/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Tickets</span></a>
-							</li>
-							<li>
-								<a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i> Notifications</span></a>
-							</li>
-						</ul>
-					</li>
-										
-		            <li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-settings"></i></span>
-		                	<span class="ttr-label"> Settings</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Account</span></a>
-		                	</li>
 
-		                	<li>
-		                		<a href="<?= baseURL('us-profile-settings/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Profile</span></a>
-		                	</li>
+					<div class="card card-round" style="margin: 10px;">
+					<!-- <div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Dashboard</b> Analysis</p></div> -->
+					<div class="card-body" style="background: #fff; border-radius: 10px;">
+						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/msg.gif" style="width: 40px; margin-right: 8px;"> Buddy Chats <em style="margin-left: 8px;"><?= number_format($newChatCount);?></em></span>
+						<hr>      
+						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Match Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span>
+						<hr>
+						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/online.png" style="width: 20px; margin-right: 8px;"/> Online Around You <em style="margin-left: 8px;"><?= number_format($onlineNow); ?></em></span>
+						
+					</div>
+					</div>
 
-		                </ul>
-		            </li>
+					<div class="">
+						<a href="#" data-toggle="modal" data-target="#subModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 100px;"></a>
+					</div>
+
+					<?php if($randomBuddy != null) { ?>
+                
+						<div class="card card-round" style="margin: 10px;">
+						<div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Random</b> Buddies</p></div>
+						<div class="card-body">
+							<!-- <div class="card-title fw-mediumbold">Random Meet Ups</div> -->
+							<div class="card-list">
+							<?php foreach ($randomBuddy as $key => $buddy) { ?>
+							<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $buddy['uniqueid']) { ?>
+							<div class="item-list">
+								<div class="avatar">
+								<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $buddy['uniqueid']; ?>&tab=about" data-toggle="tooltip" title="View Buddy Profile">
+								<img
+									src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>"
+									alt="Buddy Photo"
+									class="avatar-img rounded-circle"
+								/>
+								</a>
+								</div>
+								<div class="info-user ms-3">
+								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $buddy['uniqueid']) { ?>
+									<div class="username"><?= $user['fname']; ?> <?= $user['lname']; ?></div>
+									<div class="status"><?= $user['occupation']; ?></div>
+								<?php } } ?>
+								</div>
+								<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $buddy['uniqueid']; ?>&tab=about">
+								<button class="btn btn-icon btn-primary btn-round btn-xs">
+									<i class="fa fa-plus"></i>
+								</button>
+								</a>
+							</div>
+							<?php } } ?>
+							</div>
+						</div>
+						</div>
 					
-		            <li>
-						<a href="<?= baseURL('us-referrals/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-link"></i></span>
-		                	<span class="ttr-label">Referral</span>
-		                </a>
-		            </li>
-		            <li class="ttr-seperate"></li>
+					<?php } } ?>
 
 					<li>
 						<a href="<?= baseURL('us-need-help/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
@@ -213,3 +103,29 @@
 		</div>
 	</div>
 	<!-- Left sidebar menu end -->
+
+
+
+
+	<!-- Subscribe Modal -->
+	<div class="modal fade review-bx-reply" id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background: #fff;">
+                        <div class="modal-header">
+                            <h5 class="modal-title widget-bg1" style="float: center; padding: 10px; color: #fff; border-radius: 10px;">Service Subscription</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p class="mt-5" style="text-align: center; font-size: 16px; color: green;">This Service Is Currently Not Available In Your Region. </p>
+                            
+                            <!-- <textarea class="form-control" placeholder="Type text"></textarea> -->
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn mr-auto">Reply</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>

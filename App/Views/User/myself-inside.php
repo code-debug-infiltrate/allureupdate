@@ -19,7 +19,7 @@
                     <div class="card-header">
                         <img src="/Images/Body/done.png" alt="Preference Image" style="height: 120px;"/>
                         <div class="card-title">Tell The World About Yourself</div>
-                        <small class="form-text text-muted">Answer 19 Questions To Tell Us a Bit About Your Personality, Select Options That Best Describes You Then Sit Back And Relax.</small>
+                        <small class="form-text text-muted">Answer 19 Questions To Tell Us a Bit About Your Personality. <br>Select Options That Best Describes You Then Sit Back And Relax.</small>
                     </div>
 
                     <form method="post">
@@ -307,7 +307,7 @@
                             <button type="submit" id="updateMyself" class="btn btn-success"><span>Save & Continue To Ideal Match</span></button>
                         </div>
                     
-                        <a href="" style="margin-top: 30px; float: right; font-size: 11px;">Click To Start Over</a>
+                        <a href="" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Click To Start Over</a>
                     </form>
 
                     <script src="<?= public_asset('/other_assets/Front/js/AjaxForms/create-myself.js') ?>"></script>

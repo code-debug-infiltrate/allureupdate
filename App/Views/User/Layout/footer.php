@@ -1,8 +1,4 @@
     <?php 
-    
-    include 'business-tools-modal.php';
-
-    include 'business-support-modal.php';
 
     include 'my-wallet-modal.php';
 

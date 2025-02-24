@@ -11,8 +11,8 @@
 		<div class="ttr-logo-box">
 			<div>
 				<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-logo">
-					<img class="ttr-logo-mobile" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="100" height="80">
-					<img class="ttr-logo-desktop" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="150" height="100">
+					<img class="ttr-logo-mobile" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="50" height="30">
+					<img class="ttr-logo-desktop" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="70" height="40">
 				</a>
 			</div>
 		</div>
@@ -53,18 +53,21 @@
 				<!-- <li>
 					<a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
 				</li> -->
+				<?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newMessageCount > 0)) { ?>
+				<iframe src="/Images/Sounds/ding-sound.mp3" allow="autoplay" style="display:none" autoplay></iframe>
+				<?php } ?>
 
 				<li>
-					<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-envelope"></i><span class="counter" style="font-weight: lighter; top: -10px;"><?= count($userNewMsgs); ?></span></a>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/msg.gif" alt="Email" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($newMessageCount); ?></span></a>
 					<div class="ttr-header-submenu noti-menu">
-						<?php $i=0; if ($userNewMsgs) { ?>
+						<?php $i=0; if ($newMessageCount) { ?>
 						<div class="ttr-notify-header">
-							<span class="ttr-notify-text-top"><?= count($userNewMsgs); ?> Messages</span>
+							<span class="ttr-notify-text-top"><?= number_format($newMessageCount); ?> Messages</span>
 							<span class="ttr-notify-text"><a href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/">All Messages</a></span>
 						</div>
 						<div class="noti-box-list">
 							<ul>
-								<?php foreach ($userNewMsgs as $key => $msg) { ?>
+								<?php foreach ($newMessageCount as $key => $msg) { ?>
 									<?php if ($i <= 2) {  ?>
 									<li id="msg<?= $msg['id']; ?>">
 										<span class="notification-icon dashbg-primary">
@@ -89,16 +92,16 @@
 				</li>
 
 				<li>
-					<a href="#" class="ttr-material-button ttr-submenu-toggle"><i class="fa fa-bell"></i><span class="counter" style="font-weight: lighter; top: -10px;"><?= count($userNotice); ?></span></a>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/love.gif" alt="Notify" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($userNoticeCount); ?></span></a>
 					<div class="ttr-header-submenu noti-menu">
-						<?php $i=0; if ($userNotice) { ?>
+						<?php $i=0; if ($userNoticeCount) { ?>
 						<div class="ttr-notify-header">
-							<span class="ttr-notify-text-top"><?= count($userNotice); ?> Notifications</span>
+							<span class="ttr-notify-text-top"><?= number_format($userNoticeCount); ?> Notifications</span>
 							<span class="ttr-notify-text"><a href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/">All Notifications</a></span>
 						</div>
 						<div class="noti-box-list">
 							<ul>
-								<?php foreach ($userNotice as $key => $notice) { ?>
+								<?php foreach ($userNoticeCount as $key => $notice) { ?>
 									<?php if ($i <= 2) {  ?>
 								<li id="notice<?= $notice['id']; ?>">
 									<span class="notification-icon dashbg-primary">
@@ -211,7 +214,4 @@
 <input type="hidden" name="fname" id="fname" value="<?= $userInfo['fname']; ?>" required>
 <input type="hidden" name="lname" id="lname" value="<?= $userInfo['lname']; ?>" required>
 <input type="hidden" name="email" id="email" value="<?= $userInfo['email']; ?>" required>
-<input type="hidden" name="currency" id="currency" value="<?= $curInfo['currency']; ?>" required>
-<input type="hidden" name="cur" id="cur" value="<?= $userInfo['wallet']; ?>" required>
-<input type="hidden" name="sec" id="sec" value="<?= $userInfo['pin']; ?>" required>
-<input type="hidden" name="urlWallet" id="urlWallet" value="<?= $url.$_SERVER['HTTP_HOST']."/";?>">
+<input type="hidden" name="url" id="url" value="<?= $url.$_SERVER['HTTP_HOST']."/";?>">

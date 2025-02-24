@@ -6,54 +6,53 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if (!isset($_SESSION['uniqueid'])) {
     echo '<meta http-equiv="refresh" content="1; URL=../../login/">';
   }
-if (empty($userInfo['uniqueid'])) {
+if ((empty($userInfo['uniqueid'])) || ($userInfo['login_status'] == "Logged_out") ) {
     echo '<meta http-equiv="refresh" content="1; URL=../../login/">';
  }
-if ($_SESSION['log_session'] != $userInfo['log_session']) {
+if (($_SESSION['log_session'] != $userInfo['log_session']) || ($userInfo['log_session'] == "End Session")) {
     echo '<meta http-equiv="refresh" content="1; URL=../../login/">';
  }
- 
 include 'location.php';
 include 'timeAgo.php';
-
+//include 'cache-top.php';
 ?>
 
+
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="<?= getenv('APP_NAME'); ?>, Buy Cheap Data &amp; Airtime | Pay Electricity Bills Online | Cable TV Subscription | Print Recharge Cards Online, Fund Acounts Online." />
-    <meta name="keywords" content="Buy Cheap Data &amp; Airtime, Pay Electricity Bills Online, Cable TV Subscription, Print Recharge Cards, Fund Account, Online Account, Deposits, Transfers, Business Loans" />
-    <meta name="author" content="ITM-Network">
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stop Searching, Start Dating — all you need is a device connected to the internet" />
+    <meta name="keywords" content="Dating, Relationship, Marriage, Casual" />
 
     <!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="<?= getenv('APP_NAME')?>"/>
 	<meta property="og:image" content="/Images/Logo/favicon.png"/>
 	<meta property="og:url" content="<?= getenv('APP_LINK')?>"/>
 	<meta property="og:site_name" content="<?= getenv('APP_NAME')?>"/>
-	<meta property="og:description" content="<?= getenv('APP_NAME'); ?>, Buy Cheap Data &amp; Airtime | Pay Electricity Bills Online | Cable TV Subscription | Print Recharge Cards Online, Fund Acounts Online."/>
+	<meta property="og:description" content="Stop Searching, Start Dating — all you need is a device connected to the internet"/>
 	<meta name="twitter:title" content="<?= getenv('APP_NAME')?>" />
 	<meta name="twitter:image" content="/Images/Logo/favicon.png" />
 	<meta name="twitter:url" content="<?= getenv('APP_LINK')?>" />
-	<meta name="twitter:card" content="<?= getenv('APP_NAME'); ?>, Buy Cheap Data &amp; Airtime | Pay Electricity Bills Online | Cable TV Subscription | Print Recharge Cards Online, Fund Acounts Online." />
+	<meta name="twitter:card" content="Stop Searching, Start Dating — all you need is a device connected to the internet." />
 	
 	<!-- FAVICONS ICON ============================================= -->
 	<!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/Images/Logo/logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Images/Logo/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Images/Logo/logo.png">
-    <link rel="manifest" href="/Images/Logo/logo.png">
-    <link rel="mask-icon" href="/Images/Logo/logo.png" color="#666666">
-    <link rel="shortcut icon" href="/Images/Logo/logo.png">
-    <meta name="apple-mobile-web-app-title" content="<?= getenv('APP_NAME')?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/Logo/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/Logo/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/Logo/favicon.png">
+    <link rel="manifest" href="/Images/Logo/favicon.png">
+    <link rel="mask-icon" href="/Images/Logo/favicon.png" color="#666666">
+    <link rel="shortcut-icon" href="/Images/Logo/favicon.png">
+    <meta name="apple-mobile-web-app-title" content="Stop Searching, Start Dating">
     <meta name="application-name" content="<?= getenv('APP_NAME')?>">
     <meta name="msapplication-TileColor" content="#6262e3">
     <meta name="msapplication-config" content="/Images/Logo/favicon.png">
 	
 	<!-- MOBILE SPECIFIC ============================================= -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/Images/Logo/favicon.png" type="image/x-icon"/>
 
 	<link href="/Images/Logo/logo.png" rel="icon">
     <link href="/Images/Logo/logo.png" rel="apple-touch-icon">

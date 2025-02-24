@@ -24,20 +24,24 @@ include 'Layout/sidebar.php';
 
 
 
-		<?php include 'index-counter-inside.php'; ?>
 
+		<?php if ($userInfo['profileimage'] == "favicon.png") { ?>
+                                    
+			<?php include 'profile-photo-inside.php'; ?>
 
-		<?php include 'services-inside.php'; ?>
+		<?php } elseif (!$user_myself) { ?>
 
+			<?php include 'myself-inside.php'; ?>
 
-		<?php include 'recent-transactions-inside.php'; ?>
+		<?php } elseif (!$user_preference) { ?>
 
+			<?php include 'preferences-inside.php'; ?>
 
+		<?php } else { ?>
 
+			<?php include 'dating-pool-inside.php'; ?>
 
-
-		<?php include 'caution-alert.php'; ?>
-
+		<?php } ?>
 
 
 
