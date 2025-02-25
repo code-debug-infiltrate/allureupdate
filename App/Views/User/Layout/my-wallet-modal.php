@@ -349,4 +349,4 @@
 
 
 
-<script src="<?= public_asset('/other_assets/AjaxForms/User/my-wallet-modal.js') ?>"></script>
+<!-- <script src="<?= public_asset('/other_assets/AjaxForms/User/my-wallet-modal.js') ?>"></script> -->

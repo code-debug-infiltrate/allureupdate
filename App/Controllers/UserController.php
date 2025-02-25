@@ -57,6 +57,8 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $matchInfo = ModelFactory::model('User')->user_find_people($info);
         $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         $myPostActions = ModelFactory::model('User')->my_post_action($info);
@@ -73,6 +75,8 @@ class UserController extends Controller
         $data = array(
             'userInfo' => $userDetails['user_info'],
             'coyInfo' => $coyInfo, 
+            'curInfo' => $curInfo['result_message'], 
+            'subPlans' => $subPlans['result_message'],
             'myPostActions' => $myPostActions['my_post_actions'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
@@ -336,6 +340,28 @@ class UserController extends Controller
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
 
+        if (isset($_POST['submitProfile'])) {
+            // code...
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $type = "Profile";  //Determines the folder to upload image
+            // File name
+            $value = $_FILES['profileimage']['name'];
+            $temp = $_FILES['profileimage']['tmp_name'];
+
+            $image = $this->uploadFile($type, $value, $temp);
+
+            if ($image['fileType']) { 
+                $info = array('type' => $image['fileType'], 'profileimage' => trim($image['pics']), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+                //Call API Function
+                $pass = ModelFactory::model('User')->upload_profile_photo($info);
+            } else { $result = $image; }
+            //Get User Credentials
+            $userDetails =$this->user_information($id); 
+            $coyInfo = ModelFactory::model('Register')->coy_info();
+            
+        }
+
         if (isset($_POST['updateUserID'])) {
 
             $info = array('uniqueid' => $v->clean($_POST['uniqueid']), 'username' => $v->clean($_POST['username']), 'newUsername' => $v->clean($_POST['userid']), );
@@ -497,15 +523,15 @@ class UserController extends Controller
             'userLikesCount' => $userDetails['userLikesCount'], 
             'userViewsCount' => $userDetails['userViewsCount'], 
             'userNoticeCount' => $userDetails['userNoticeCount'], 
-                'newMessageCount' => $userDetails['newMessageCount'],
-                'newMessageDetails' => $userDetails['newMessageDetails'],
+            'newMessageCount' => $userDetails['newMessageCount'],
+            'newMessageDetails' => $userDetails['newMessageDetails'],
             'matchCount' => $userDetails['matchInfo'],
-                'newChatCount' => $userDetails['newChatCount'],
-                'newChatDetails' => $userDetails['newChatDetails'],
+            'newChatCount' => $userDetails['newChatCount'],
+            'newChatDetails' => $userDetails['newChatDetails'],
             'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
+            'appSubPlan' => $userDetails['appSubPlan'],
             'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
+            'subPlan' => $userDetails['subPlan'],
             'user_language' => $userDetails['user_language'],
             'user_interests' => $userDetails['user_interests'],
             'user_preference' => $userDetails['user_preference'],
@@ -1745,9 +1771,6 @@ class UserController extends Controller
 
 
 
-
-
-
     //Create Location route
     public function ajax_location()
     {
@@ -1897,6 +1920,8 @@ class UserController extends Controller
     }
 
 
+
+
     //Create Password Change route
     public function ajax_accept_buddy_request()
     {
@@ -1918,6 +1943,8 @@ class UserController extends Controller
         }
     }
     
+
+
 
     //Create Password Change route
     public function ajax_send_buddy_action()
@@ -1962,169 +1989,170 @@ class UserController extends Controller
     }
 
 
-     //Ajax Post View Create route
-     public function ajax_post_actions()
-     {
-         $v = new Validate();
- 
-         if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
-             // code...
-             $postid = $v->clean($_POST['postid']);
-             $postedby = $v->clean($_POST['postedby']);
-             $action = $v->clean($_POST['action']);
-             $uniqueid = $v->clean($_POST['uniqueid']);
-             $username = $v->clean($_POST['username']);
- 
-             $info = array('action' => trim($action), 'postid' => trim($postid), 'postedby' => trim($postedby), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-             //Call API Function
-             $pass = ModelFactory::model('User')->user_post_action($info);
- 
-             echo $pass;
-         }
-     }
+
+
+    //Ajax Post View Create route
+    public function ajax_post_actions()
+    {
+        $v = new Validate();
+
+        if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $postid = $v->clean($_POST['postid']);
+            $postedby = $v->clean($_POST['postedby']);
+            $action = $v->clean($_POST['action']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+
+            $info = array('action' => trim($action), 'postid' => trim($postid), 'postedby' => trim($postedby), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_post_action($info);
+
+            echo $pass;
+        }
+    }
 
 
 
 
+    //Ajax Post Comments route
+    public function ajax_post_comment()
+    {
+        $v = new Validate();
 
-       //Ajax Post Comments route
-       public function ajax_post_comment()
-       {
-           $v = new Validate();
-   
-           if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
-               // code...
-               $postid = $v->clean($_POST['postid']);
-               $uniqueid = $v->clean($_POST['uniqueid']);
-               $sender = $v->clean($_POST['sender']);
-               $receiver = $v->clean($_POST['receiver']);
-               $username = $v->clean($_POST['username']);
-               $commentid = $v->clean($_POST['commentid']);
-               $details = $v->clean($_POST['details']);
-   
-               $info = array('sender' => trim($sender), 'receiver' => trim($receiver), 'commentid' => trim($commentid), 'details' => trim($details), 'postid' => trim($postid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-                
-               //Call API Function
-               $pass = ModelFactory::model('User')->user_post_comment($info);
-   
-               echo $pass;
-           }
-       }
+        if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $postid = $v->clean($_POST['postid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $sender = $v->clean($_POST['sender']);
+            $receiver = $v->clean($_POST['receiver']);
+            $username = $v->clean($_POST['username']);
+            $commentid = $v->clean($_POST['commentid']);
+            $details = $v->clean($_POST['details']);
+
+            $info = array('sender' => trim($sender), 'receiver' => trim($receiver), 'commentid' => trim($commentid), 'details' => trim($details), 'postid' => trim($postid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_post_comment($info);
+
+            echo $pass;
+        }
+    }
 
       
 
 
 
-      //Ajax Report Post route
-      public function ajax_report_post()
-      {
-          $v = new Validate();
-  
-          if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
-              // code...
-              $postid = $v->clean($_POST['postid']);
-              $uniqueid = $v->clean($_POST['uniqueid']);
-              $username = $v->clean($_POST['username']);
-              $reason = $v->clean($_POST['reason']);
-  
-              $info = array('postid' => trim($postid), 'reason' => trim($reason), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-              $pass = ModelFactory::model('User')->user_post_report($info);
-  
-              echo $pass;
-          }
-      }
+    //Ajax Report Post route
+    public function ajax_report_post()
+    {
+        $v = new Validate();
+
+        if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $postid = $v->clean($_POST['postid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $reason = $v->clean($_POST['reason']);
+
+            $info = array('postid' => trim($postid), 'reason' => trim($reason), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_post_report($info);
+
+            echo $pass;
+        }
+    }
 
 
 
-      //Ajax Make Payment route
-      public function ajax_make_payment()
-      {
-          $v = new Validate();
-  
-          if (($_POST['planid']!="") && ($_POST['uniqueid']!="")) {
-              // code...
-              $planid = $v->clean($_POST['planid']);
-              $uniqueid = $v->clean($_POST['uniqueid']);
-              $username = $v->clean($_POST['username']);
-  
-              $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-              $pass = ModelFactory::model('User')->user_make_payment($info);
+    //Ajax Make Payment route
+    public function ajax_make_payment()
+    {
+        $v = new Validate();
+
+        if (($_POST['planid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $planid = $v->clean($_POST['planid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+
+            $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_make_payment($info);
+            //var_dump($pass);
+            echo $pass;
+        }
+    }
+
+
+
+
+    //Ajax Notification Status route
+    public function ajax_notify_status()
+    {
+        $v = new Validate();
+
+        if (($_POST['id']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $id = $v->clean($_POST['id']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $status = $v->clean($_POST['status']);
+
+            $info = array('status' => trim($status), 'id' => trim($id), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->update_notification_status($info);
+            //var_dump($pass);
+            echo $pass;
+        }
+    }
+
+
+
+
+
+    //Ajax Notification Status route
+    public function ajax_activity_status()
+    {
+        $v = new Validate();
+
+        if (($_POST['id']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $id = $v->clean($_POST['id']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $status = $v->clean($_POST['status']);
+
+            $info = array('status' => trim($status), 'id' => trim($id), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->update_activity_status($info);
                 //var_dump($pass);
-              echo $pass;
-          }
-      }
-
-
-
-
-      //Ajax Notification Status route
-      public function ajax_notify_status()
-      {
-          $v = new Validate();
-  
-          if (($_POST['id']!="") && ($_POST['uniqueid']!="")) {
-              // code...
-              $id = $v->clean($_POST['id']);
-              $uniqueid = $v->clean($_POST['uniqueid']);
-              $username = $v->clean($_POST['username']);
-              $status = $v->clean($_POST['status']);
-  
-              $info = array('status' => trim($status), 'id' => trim($id), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-              $pass = ModelFactory::model('User')->update_notification_status($info);
-                //var_dump($pass);
-              echo $pass;
-          }
-      }
+            echo $pass;
+        }
+    }
 
 
 
 
 
-       //Ajax Notification Status route
-       public function ajax_activity_status()
-       {
-           $v = new Validate();
-   
-           if (($_POST['id']!="") && ($_POST['uniqueid']!="")) {
-               // code...
-               $id = $v->clean($_POST['id']);
-               $uniqueid = $v->clean($_POST['uniqueid']);
-               $username = $v->clean($_POST['username']);
-               $status = $v->clean($_POST['status']);
-   
-               $info = array('status' => trim($status), 'id' => trim($id), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-               //Call API Function
-               $pass = ModelFactory::model('User')->update_activity_status($info);
-                 //var_dump($pass);
-               echo $pass;
-           }
-       }
+    //Ajax Report Post route
+    public function ajax_delete_post()
+    {
+        $v = new Validate();
 
+        if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $postid = $v->clean($_POST['postid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
 
+            $info = array('status' => "Trash", 'postid' => trim($postid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_post_delete($info);
 
-
-
-       //Ajax Report Post route
-       public function ajax_delete_post()
-       {
-           $v = new Validate();
-   
-           if (($_POST['postid']!="") && ($_POST['uniqueid']!="")) {
-               // code...
-               $postid = $v->clean($_POST['postid']);
-               $uniqueid = $v->clean($_POST['uniqueid']);
-               $username = $v->clean($_POST['username']);
-   
-               $info = array('status' => "Trash", 'postid' => trim($postid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-               //Call API Function
-               $pass = ModelFactory::model('User')->user_post_delete($info);
-   
-               echo $pass;
-           }
-       }
+            echo $pass;
+        }
+    }
 
       
 
@@ -2200,16 +2228,6 @@ class UserController extends Controller
             return $result;
         }
     }
-
-
-    
-
-
-
-
-
-
-
 
 
 

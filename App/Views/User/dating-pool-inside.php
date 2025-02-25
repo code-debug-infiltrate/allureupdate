@@ -56,54 +56,72 @@
                     </div>
 			        <div class="widget-inner">
                         <div class="separator-solid"></div>
-                        <p class="card-category text-info mb-1" style="margin-top: -90px;"> 
+                        <!-- <p class="card-category text-info mb-1"> 
                             <i style="font-size: 12px;">Match Score:</i> <em style="color: red; font-size: 12px;">-50%</em> 
-                        </p>
-                        <h5 class="card-title">
+                        </p> -->
+                        <h6 class="card-title" style="margin-top: -55px;">
                             <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                                 <?php foreach ($userOnlineStatus as $key => $logstatus) { if ($logstatus['uniqueid'] == $info['uniqueid']) { ?>
                                     <?php if ($logstatus['login_status'] == "Logged_in") { ?>
-                                        <img src="/Images/Body/online.png" style="max-width: 16px; margin-right: 10px;"/>
+                                        <img src="/Images/Body/online.png" style="max-width: 12px; margin-right: 5px;"/>
                                     <?php } else { ?>
-                                        <img src="/Images/Body/offline.png" style="max-width: 16px; margin-right: 10px;"/>
+                                        <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
-                                <b><?= $user['fname']?>,</b> <i style="font-size: 14px;"><?= $age; ?> | <?= $user['city']?></i>
+                                <b><?= $user['fname']?>,</b> <i style="font-size: 10px;"><?= $age; ?> | <?= $user['city']?> | <em style="color: red; font-size: 10px;">-50%</em> </i>
                             </a> 
-                        </h5>
+                        </h6>
                         <p class="card-text">
-                            <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 11px; color: black;"><?= substr($info['details'], 0, 85); ?>...</a>
+                            <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 11px; color: black;"><?= substr($info['details'], 0, 65); ?>...</a>
                         </p>
-                        <div class="card-text">
-                            <a href="#" data-toggle="modal" data-target="#msgModal" style="float: left; margin-bottom: 10px;"><img src="/Images/Body/msg.gif" alt="Email" style="width: 50px;"></a>       <a href="#" data-toggle="modal" data-target="#pokeModal<?= $info['uniqueid']; ?>" style="float: right; margin-bottom: 5px;"><img src="/Images/Body/love.gif" alt="Poke" style="width: 50px;"></a>
+                        <div style="background: #fbcdfb; margin: 10px;">
+                            <a href="#" data-toggle="modal" data-target="#msgModal<?= $info['uniqueid']; ?>" style="float: left; margin-bottom: 10px;"><img src="/Images/Body/msgcount1.gif" alt="Email" style="width: 50px;"></a>       <a href="#" data-toggle="modal" data-target="#pokeModal<?= $info['uniqueid']; ?>" style="float: right; margin-bottom: 5px;"><img src="/Images/Body/love.gif" alt="Poke" style="width: 50px;"></a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Message Modal -->
+            <div class="modal fade review-bx-reply" id="msgModal<?= $info['uniqueid']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background: #fbcdfb;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">Send <?= $user['fname']; ?> <?= $user['lname']; ?> a Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea class="form-control" placeholder="Send a Message to the <?= $user['fname']; ?>" rows="5"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="checkRate" class="btn-secondry add-item m-r5">Send Message <i class="ti-arrow-right"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Message Modal -->
+
 
             <!-- Poke Modal -->
             <div class="modal fade review-bx-reply" id="pokeModal<?= $info['uniqueid']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" style="background: #fbcdfb;">
                         <div class="modal-header">
-                            <h5 class="modal-title" style="float: center; padding: 10px;">Make The First Move On <?= $user['fname']; ?> <?= $user['lname']; ?></h5>
+                            <h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">Make The First Move On <?= $user['fname']; ?> <?= $user['lname']; ?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <img src="/Images/Body/love.gif" alt="Poke Icon" style="width: 150px;">
-                            <button type="button" class="btn-secondry add-item m-r5">Send a Poke To <?= $user['fname']; ?> <?= $user['lname']; ?></button>
+                            <button type="button" class="btn-secondry add-item m-r5">Poke <?= $user['fname']; ?></button>
                             <br>
-                            <p style="text-align: center;">This a Good Way To Start a Conversation With <?= $user['fname']; ?> <?= $user['lname']; ?>. Pokes Are Free!
-                            <!-- <textarea class="form-control" placeholder="Type text"></textarea> -->
+                            <p style="text-align: center; font-size: 12px;">This a Good Way To Start a Conversation With <?= $user['fname']; ?> <?= $user['lname']; ?>. <br>Pokes Are Free!</p>
                         </div>
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn-secondry add-item m-r5">Send a Poke To <?= $user['fname']; ?> <?= $user['lname']; ?></button>
-                        </div> -->
                     </div>
                 </div>
             </div>
-            <!-- Poke Modal -->
+            <!-- End Poke Modal -->
 
         <?php } } ?>
     <?php } ?>

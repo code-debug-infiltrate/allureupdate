@@ -6,23 +6,10 @@ $(document).ready(function() {
       $('#updatePass').click(function(e){
 
          e.preventDefault();
-         
-
-         //Process ID 
-         var uniqueid = $('#uniqueid').val();
-         if(uniqueid == ''){
-            $('.passError_box').html(
-               '<span style="color:red;">Unique ID Cannot Be Empty!</span>'
-            );
-            $('#uniqueid').focus();
-            return false;
-         }
-
-
          //Process Pass 
          var oldpass = $('#oldpass').val();
          if(oldpass == ''){
-            $('.passError_box').html(
+            $('.oldPassError_box').html(
                '<span style="color:red;">Current Password Cannot Be Empty!</span>'
             );
             $('#oldpass').focus();
@@ -33,7 +20,7 @@ $(document).ready(function() {
          //Process Pass 
          var newpass = $('#newpass').val();
          if(newpass == ''){
-            $('.passError_box').html(
+            $('.newPassError_box').html(
                '<span style="color:red;">New Password Cannot Be Empty!</span>'
             );
             $('#newpass').focus();
@@ -44,6 +31,7 @@ $(document).ready(function() {
          var url = $('#url').val();
          var url2 = $('#url2').val();
          var username = $('#username').val();
+         var uniqueid = $('#uniqueid').val();
 
          var subURL = url+url2;
          

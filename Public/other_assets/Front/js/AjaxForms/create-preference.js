@@ -258,19 +258,20 @@ $(document).ready(function() {
                    $('#prefLoader').show();
                
                    $('.clickable').html('<div><a class="mtr-btn" href="'+url+'us-index/'+uniqueid+'/?tab=timeline"><b style="color: white;">Click Here To Continue To NewsFeed</b></a> </div>');
-                   $('#updatePreference').hide('slow');
+                   $('#Preference').hide('slow');
+                   $('#dating-pool-inside').show();
 
               } else {
 
-               setTimeout(function() {
+                setTimeout(function() {
                     $('.flash-outer').html(
 				        '<div class="flash-inner" style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  '+info.result_info.message+'</div>'
                     );
                    }, delay);
                    $('#prefLoader').hide();
                    $('#updatePreference').show('slow');
-               }
-           }
+                }
+            }
         });
 
       });

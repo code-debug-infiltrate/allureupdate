@@ -80,4 +80,4 @@ include 'timeAgo.php';
     <script src="<?= public_asset('/other_assets/User/js/jquery.min.js') ?>"></script>
     
 </head>
-<body class="ttr-opened-sidebar ttr-pinned-sidebar" onCut="return false" onDrag="return false" onDrop="return false">
+<body class="ttr-opened-sidebar ttr-pinned-sidebar" onCut="return false" onDrag="return false" onDrop="return false" style="background: #fbcdfb;">

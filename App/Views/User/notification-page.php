@@ -14,8 +14,8 @@ include 'Layout/sidebar.php';
 			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg" style="font-size: 15px;"></b> <?= $userInfo['username']; ?></h4>
 			<ul class="db-breadcrumb-list">
 				<li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>"><i class="fa fa-home"></i>Home</a></li>
-				<li><a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>"><i class="fa fa-donate"></i>Messaging</a></li>
-				<li>Notifications</li>
+				<li><a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>"><i class="fa fa-bell"></i>Notifications</a></li>
+				<li>Alerts</li>
 			</ul>
 
 		</div>
@@ -50,18 +50,6 @@ include 'Layout/sidebar.php';
 
 			<h5 class="col-md-10 mx-auto" style="text-align: center;">You Can Always Contact Support By Raising a <a href="<?= baseURL('us-message/')?><?= $userInfo['uniqueid']; ?>/" style="color: blue;">Ticket Here</a> </h5>
 		</div>
-
-<div class="ttr-overlay"></div>
-
-
-
-
-
-<?php include 'caution-alert.php'; ?>
-
-
-
-
 
 
 <!-- End oF file -->

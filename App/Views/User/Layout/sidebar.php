@@ -3,7 +3,7 @@
 		<div class="ttr-sidebar-wrapper content-scroll">
 			<!-- side menu logo start -->
 			<div class="ttr-sidebar-logo">
-				<a href="<?= baseURL('us-profile-settings/'); ?><?= $userInfo['uniqueid']; ?>/#profileImage"><img alt="Logo" src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" style="border-radius: 50%; height: 40px; width: 40px;"></a>
+				<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=profileImageTab"><img alt="Logo" src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" style="border-radius: 50%; height: 40px; width: 40px;"></a>
 
 				<div class="ttr-sidebar-toggle-button">
 					<i class="ti-arrow-left"></i>
@@ -26,74 +26,68 @@
 					
 					<li class="ttr-seperate"></li>
 
-					<div class="card card-round" style="margin: 10px;">
-					<!-- <div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Dashboard</b> Analysis</p></div> -->
-					<div class="card-body" style="background: #fff; border-radius: 10px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
-						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/msg.gif" style="width: 40px; margin-right: 8px;"> Buddy Chats <em style="margin-left: 8px;"><?= number_format($newChatCount);?></em></span>
-						<hr>      
-						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Match Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span>
-						<hr>
-						<span style="font-size: 10px; font-weight: 600;"><img src="/Images/Body/online.png" style="width: 20px; margin-right: 8px;"/> Online Around You <em style="margin-left: 8px;"><?= number_format($onlineNow); ?></em></span>
-						
-					</div>
-					</div>
-
-					<div class="">
-						<a href="#" data-toggle="modal" data-target="#subModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 100px;"></a>
-					</div>
-
-					<?php if($randomBuddy != null) { ?>
-                
-						<div class="card card-round" style="margin: 10px;">
-						<div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Random</b> Buddies</p></div>
-						<div class="card-body" style="box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
-							<!-- <div class="card-title fw-mediumbold">Random Meet Ups</div> -->
-							<div class="card-list">
-							<?php foreach ($randomBuddy as $key => $buddy) { ?>
-							<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $buddy['uniqueid']) { ?>
-							<div class="item-list">
-								<div class="avatar">
-								<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $buddy['uniqueid']; ?>&tab=about" data-toggle="tooltip" title="View Buddy Profile">
-								<img
-									src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>"
-									alt="Buddy Photo"
-									class="avatar-img rounded-circle"
-								/>
-								</a>
-								</div>
-								<div class="info-user ms-3">
-								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $buddy['uniqueid']) { ?>
-									<div class="username"><?= $user['fname']; ?> <?= $user['lname']; ?></div>
-									<div class="status"><?= $user['occupation']; ?></div>
-								<?php } } ?>
-								</div>
-								<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $buddy['uniqueid']; ?>&tab=about">
-								<button class="btn btn-icon btn-primary btn-round btn-xs">
-									<i class="fa fa-plus"></i>
-								</button>
-								</a>
-							</div>
-							<?php } } ?>
-							</div>
-						</div>
-						</div>
 					
-					<?php } } ?>
+					<!-- <div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Dashboard</b> Analysis</p></div> -->
+						<div class="card-body" style="background: transparent; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+							<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Match Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span></a>
+							<hr>
+							<a href="<?= baseURL('us-chats/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/msg.gif" style="width: 40px; margin-right: 8px;"> Buddy Chats <em style="margin-left: 8px;"><?= number_format($newChatCount);?></em></span></a>
+							<hr>
+							<a href="<?= baseURL('us-buddies/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/channel.png" style="border-radius: 50%; width: 40px; margin-right: 8px;"> Random Buddies </span></a>
+						</div>
 
-					<li>
-						<a href="<?= baseURL('us-need-help/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-help-alt"></i></span>
-		                	<span class="ttr-label">Need Help?</span>
-		                </a>
-		            </li>
-		            <li class="ttr-seperate"></li>
+						<div class="mt-3">
+							<a href="#" data-toggle="modal" data-target="#subModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 80px;"></a>
+						</div>
+						
+						
 
-		            <li>
-						<a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-power-off"></i></span>
-		                	<span class="ttr-label">Log Out</span>
-		                </a>
-		            </li>
+						<div class="card-body" style="background: transparent; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+							
+							<a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
+								<span class="ttr-icon"><i class="fa fa-group"></i></span>
+								<span class="ttr-label">Preference Settings</span>
+							</a>
+							<li>
+								<a href="#" class="ttr-material-button">
+									<span class="ttr-icon"><i class="ti-settings"></i></span>
+									<span class="ttr-label"> Account Settings</span>
+									<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+								</a>
+								<ul>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Bio Details</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=interestsTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Interests</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=work&eduTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Work & Education</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=languageTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Languages</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=profileImageTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Profile Photo</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=addressTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Address</span></a>
+									</li>
+									<li>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=deleteAccountTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Delete Account</span></a>
+									</li>
+								</ul>
+							</li>
+							<a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
+								<span class="ttr-icon"><i class="ti-power-off"></i></span>
+								<span class="ttr-label">Log Out</span>
+							</a>
+							<hr> 
+							<span style="font-size: 12px;"><img src="/Images/Body/online.png" style="width: 20px; margin-right: 8px;"/> Online Buddies Around You <em style="margin-left: 8px;"><?= number_format($onlineNow); ?></em></span>
+						
+						</div>
+				
+
 				</ul>
 				<!-- sidebar menu end -->
 			</nav>
@@ -107,23 +101,45 @@
 
 	<!-- Subscribe Modal -->
 	<div class="modal fade review-bx-reply" id="subModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="background: #fbcdfb;">
-                        <div class="modal-header">
-                            <h5 class="modal-title" style="float: center; padding: 10px;">All Service Subscription</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="background: #fbcdfb;">
+				<div class="modal-header">
+					<h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">All Service Subscription</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
 
-                            <p class="mt-5" style="text-align: center; font-size: 16px; color: green;">This Service Is Currently Not Available In Your Region. </p>
-                            
-                            <!-- <textarea class="form-control" placeholder="Type text"></textarea> -->
-                        </div>
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn mr-auto">Reply</button>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
+					
+				<?php if ($subPlans) { ?>
+					<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
+						<div class="new-user-list" style="margin: 5px;">
+							<ul>
+								<li>
+									<span class="new-users-pic">
+										<img src="/Images//Body/money.png" alt="Payment Plan"/>
+									</span>
+									<span class="new-users-text">
+										<a href="#" class="new-users-name"><?= $subplan['type']; ?> | <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></a>
+										<span class="new-users-info"><?= $subplan['details']; ?></span>
+									</span>
+									<span class="new-users-btn">
+										<a href="#" class="btn button-sm outline">Make Payment</a>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<hr>
+					<?php } } ?>
+				<?php } else { ?>
+					<p>No Subscription Plans</p>
+				<?php } ?>
+				
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn mr-auto">Reply</button>
+				</div> -->
+			</div>
+		</div>
+	</div>

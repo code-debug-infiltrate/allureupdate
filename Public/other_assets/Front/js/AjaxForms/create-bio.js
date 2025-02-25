@@ -10,14 +10,14 @@ $(document).ready(function() {
         //Process And Validate EMail 
         var fname = $('#fname').val();
         if(fname == ''){
-            $('.bioError_box').html(
+            $('.fnameError_box').html(
                 '<span style="color:red;">Enter Your First Name</span>'
             );
             $('#fname').focus();
             return false;
         }
         if(fname.length < 3 || fname.length > 40 ){
-            $('.bioError_box').html(
+            $('.fnameError_box').html(
                 '<span style="color:red;">Firstname Must Be Between 3 to 40 Characters</span>'
             );
             $('#fname').focus();
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
         var lname = $('#lname').val();
         if(lname == ''){
-            $('.bioError_box').html(
+            $('.lnameError_box').html(
                 '<span style="color:red;">Enter Your Last Name</span>'
             );
             $('#lname').focus();
@@ -34,7 +34,7 @@ $(document).ready(function() {
         }
 
         if(lname.length < 3 || lname.length > 40 ){
-            $('.bioError_box').html(
+            $('.lnameError_box').html(
                 '<span style="color:red;">Last Name Must Be Between 3 to 40 Characters</span>'
             );
             $('#lname').focus();
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
         var number = $('#number').val();
         if(number == ''){
-            $('.bioError_box').html(
+            $('.phoneError_box').html(
                 '<span style="color:red;">Enter Your Mobile No.</span>'
             );
             $('#number').focus();
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
         var occupation = $('#occupation').val();
         if(occupation == ''){
-            $('.bioError_box').html(
+            $('.occupationError_box').html(
                 '<span style="color:red;">Enter Your occupation</span>'
             );
             $('#occupation').focus();

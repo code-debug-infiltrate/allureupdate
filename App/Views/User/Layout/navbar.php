@@ -60,21 +60,24 @@
 				<li>
 					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/msg.gif" alt="Email" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($newMessageCount); ?></span></a>
 					<div class="ttr-header-submenu noti-menu">
-						<?php $i=0; if ($newMessageCount) { ?>
+						<?php $i=0; if ($newMessageDetails) { ?>
 						<div class="ttr-notify-header">
 							<span class="ttr-notify-text-top"><?= number_format($newMessageCount); ?> Messages</span>
 							<span class="ttr-notify-text"><a href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/">All Messages</a></span>
 						</div>
 						<div class="noti-box-list">
 							<ul>
-								<?php foreach ($newMessageCount as $key => $msg) { ?>
-									<?php if ($i <= 2) {  ?>
+								<?php foreach ($newMessageDetails as $key => $msg) { ?>
+									<?php if ($i <= 4) {  ?>
 									<li id="msg<?= $msg['id']; ?>">
+										<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $msg['sender']) { ?>
+											
 										<span class="notification-icon dashbg-primary">
-											<i class="fa fa-bullhorn"></i>
+											<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 40px; width: 40px;">
 										</span>
+
 										<span class="notification-text" style="font-size: 10px;">
-											<span style="font-size: 14px;"><b><?= substr($msg['subject'], 0, 20); ?>...</b></span> 
+											<span style="font-size: 14px;"><b><?= $user['fname']; ?> <?= $user['lname']; ?></b></span> 
 											<br>
 											<?= substr($msg['details'], 0, 150); ?>
 										</span>
@@ -82,6 +85,7 @@
 											<a href="#" class="fa fa-close" onclick="document.getElementById('msg<?= $msg['id']; ?>').style.display='none'"></a>
 											<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($msg['created']))).''); ?></span>
 										</span>
+										<?php } } ?>
 									</li>
 								<?php } ?>
 							<?php $i++; } ?>
@@ -94,30 +98,32 @@
 				<li>
 					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/love.gif" alt="Notify" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($userNoticeCount); ?></span></a>
 					<div class="ttr-header-submenu noti-menu">
-						<?php $i=0; if ($userNoticeCount) { ?>
+						<?php $i=0; if ($newActivityNotice) { ?>
 						<div class="ttr-notify-header">
 							<span class="ttr-notify-text-top"><?= number_format($userNoticeCount); ?> Notifications</span>
 							<span class="ttr-notify-text"><a href="<?= baseURL('us-notifications/')?><?= $userInfo['uniqueid']; ?>/">All Notifications</a></span>
 						</div>
 						<div class="noti-box-list">
 							<ul>
-								<?php foreach ($userNoticeCount as $key => $notice) { ?>
-									<?php if ($i <= 2) {  ?>
-								<li id="notice<?= $notice['id']; ?>">
-									<span class="notification-icon dashbg-primary">
-										<i class="fa fa-bullhorn"></i>
-									</span>
-									<span class="notification-text" style="font-size: 10px;">
-										<span style="font-size: 14px;"><b><?= $notice['subject']; ?></b></span> 
-										<br>
-										<?= $notice['details']; ?>
-									</span>
-									<span class="notification-time">
-										<a href="#" class="fa fa-close" onclick="document.getElementById('notice<?= $notice['id']; ?>').style.display='none'"></a>
-										<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($notice['created']))).''); ?></span>
-									</span>
-								</li>
-
+								<?php foreach ($newActivityNotice as $key => $notice) { ?>
+									<?php if ($i <= 4) {  ?>
+									<li id="notice<?= $notice['id']; ?>">
+										<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $notice['user_uniqueid']) { ?>
+										
+										<span class="notification-icon dashbg-primary">
+											<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 40px; width: 40px;">
+										</span>
+										<span class="notification-text" style="font-size: 10px;">
+											<span style="font-size: 14px;"><b><?= $user['fname']; ?> <?= $user['lname']; ?></b></span> 
+											<br>
+											<?= $notice['details']; ?>
+										</span>
+										<span class="notification-time">
+											<a href="#" class="fa fa-close" onclick="document.getElementById('notice<?= $notice['id']; ?>').style.display='none'"></a>
+											<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($notice['created']))).''); ?></span>
+										</span>
+										<?php } } ?>
+									</li>
 								<?php } ?>
 							<?php $i++; } ?>
 							</ul>
@@ -126,21 +132,28 @@
 					</div>
 				</li>
 				<li>
-					<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="Profile-Img" src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" width="52" height="52"></span></a>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle">
+						<span class="ttr-user-avatar">
+							<img alt="Profile-Img" src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" width="52" height="52">
+						</span>
+					</a>
 					<div class="ttr-header-submenu">
 						<ul>
-							<li><a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-settings mr-2"></i> Account Settings</a></li>
+							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=usernameTab"><i class="ti-user mr-2"></i> change Username</a></li>
 							<li class="ttr-seperate"></li>
 
-							<li><a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/#password"><i class="ti-key mr-2"></i> Change Password</a></li>
+							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=2faTab"><i class="ti-settings mr-2"></i> 2FA Security</a></li>
 							<li class="ttr-seperate"></li>
 
-							<li><a href="<?= baseURL('us-need-help/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-help-alt mr-2"></i> Need Help</a></li>
+							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=passwordTab"><i class="ti-key mr-2"></i> Change Password</a></li>
 							<li class="ttr-seperate"></li>
 
-							<li><a href="<?= baseURL('us-profile-settings/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-2"></i> Profile Settings</a></li>
-							<li class="ttr-seperate"></li>
-
+							<li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-2"></i> Profile Settings</a></li>
+							
+							<hr>
+							<li><a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-layout-accordion-list mr-2"></i> Preference Settings</a></li>
+							
+							<hr>
 							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-power-off mr-2"></i> Logout</a></li>
 
 						</ul>
@@ -194,8 +207,6 @@
 	</div>
 </header>
 <!-- header end -->
-
-<body  style="background: #fbcdfb;">
 				
 
 <!-- Alerts For Notifications & Messages -->

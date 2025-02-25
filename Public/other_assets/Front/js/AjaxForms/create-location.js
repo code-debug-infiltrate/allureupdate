@@ -3,21 +3,21 @@ $(document).ready(function() {
    var delay = 2000;
 
     //Forgot Pass Form Action
-    $('#addLocation').click(function(e){
+    $('#updateAddress').click(function(e){
 
         e.preventDefault();
 
         //Process And Validate EMail 
         var address = $('#address').val();
         if(address == ''){
-            $('.locError_box').html(
-                '<span style="color:red;">Enter Your Home Address</span>'
+            $('.addressError_box').html(
+                '<span style="color:red;">Enter Your Current Home Address</span>'
             );
             $('#address').focus();
             return false;
         }
         if(address.length < 10 || address.length > 90 ){
-            $('.locError_box').html(
+            $('.addressError_box').html(
                 '<span style="color:red;">Address Must Be Between 10 to 90 Characters</span>'
             );
             $('#address').focus();
@@ -26,15 +26,15 @@ $(document).ready(function() {
 
         var city = $('#city').val();
         if(city == ''){
-            $('.locError_box').html(
-                '<span style="color:red;">Enter Your Home City</span>'
+            $('.addressError_box').html(
+                '<span style="color:red;">Enter Your Current City Or State</span>'
             );
             $('#city').focus();
             return false;
         }
 
         if(city.length < 4 || city.length > 20 ){
-            $('.locError_box').html(
+            $('.addressError_box').html(
                 '<span style="color:red;">City Must Be Between 4 to 20 Characters</span>'
             );
             $('#city').focus();
@@ -42,6 +42,21 @@ $(document).ready(function() {
         }
 
         var country = $('#country').val();
+        if(country == ''){
+            $('.addressError_box').html(
+                '<span style="color:red;">Enter Current Country Where You Live</span>'
+            );
+            $('#country').focus();
+            return false;
+        }
+
+        if(country.length < 4 || country.length > 20 ){
+            $('.addressError_box').html(
+                '<span style="color:red;">country Must Be Between 4 to 20 Characters</span>'
+            );
+            $('#country').focus();
+            return false;
+        }
 
         var uniqueid = $('#uniqueid').val();
         var username = $('#username').val();
@@ -67,7 +82,7 @@ $(document).ready(function() {
 
         success: function(data)
         {
-            //console.log(data);
+            console.log(data);
             //Process Data From Controller
             var info = JSON.parse(data);
 
