@@ -682,7 +682,7 @@ include 'Layout/sidebar.php';
                             <img src="/Images/green-dots.gif" id="myselfLoader" style="display: none"/> -->
                             <div class="clickable" style="margin:10px 0px;"></div>
                             
-                            <div class="submit-btns" id="div21" style="display: none;"  onclick="replace('div19','myself')">
+                            <div class="submit-btns" id="div21" style="display: none;"  onclick="replace('div19','div20')">
                                 <button type="submit" id="updatePreference" class="btn btn-success"><span>Save Ideal Match</span></button>
                             </div>
                         </div><!-- preference -->

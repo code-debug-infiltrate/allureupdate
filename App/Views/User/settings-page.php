@@ -299,58 +299,58 @@ include 'Layout/sidebar.php';
 
 				<?php if ($_GET['tab'] == "passwordTab") { ?>
 				<!-- Password Change -->
-			<div class="col-lg-12 m-b30" id="passwordTab">
-                <span class="close" id="password" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('password').style.display='none'"> &times;</span>
-				<div class="card-body">
-					<div class="wc-title">
-						<h4>Update Your Account Password  
-							<br>
-						<i style="font-size: 11px; color: darkblue;">This Helps Keep Your Account More Secured.</i></h4>
-					</div>
-					<div class="widget-inner">
+				<div class="col-lg-12 m-b30" id="passwordTab">
+					<span class="close" id="password" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('password').style.display='none'"> &times;</span>
+					<div class="card-body">
+						<div class="wc-title">
+							<h4>Update Your Account Password  
+								<br>
+							<i style="font-size: 11px; color: darkblue;">This Helps Keep Your Account More Secured.</i></h4>
+						</div>
+						<div class="widget-inner">
 
-					<input type="hidden" name="url" id="url2" value="/ajax-password-change">
-							<div class="row">
-								
-								<div class="col-12">
+						<input type="hidden" name="url" id="url2" value="/ajax-password-change">
+								<div class="row">
+									
+									<div class="col-12">
 
-									<table id="item-add" style="width:100%;">
-										<tr class="list-item">
-											<td>
-												
-                                                <div class="col-md-12">
-                                                    <label class="col-form-label">Current Password</label>
-                                                    <div class="oldPassError_box" style="margin:10px 0px;"></div>
-                                                    <div>
-                                                        <input class="form-control" type="password" id="oldpass" minlength="5" maxlength="50" placeholder="**********" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <label class="col-form-label">New Password</label>
-                                                    <div class="newPassError_box" style="margin:10px 0px;"></div>
-                                                    <div>
-                                                        <input class="form-control" id="newpass" minlength="5" maxlength="50" type="password" placeholder="**********" required>
-                                                    </div>
-                                                </div>
-    
-                                                <div class="col-md-12 mt-5">
-                                                    
-                                                    <button type="submit" id="updatePass" class="btn-secondry add-item"><i class="fa fa-fw fa-plus-circle"></i> Update Password</button>
-                                                    <!-- <button type="reset" class="btn">Save changes</button> -->
-                                                </div>
-												
-											</td>
-										</tr>
-									</table>
+										<table id="item-add" style="width:100%;">
+											<tr class="list-item">
+												<td>
+													
+													<div class="col-md-12">
+														<label class="col-form-label">Current Password</label>
+														<div class="oldPassError_box" style="margin:10px 0px;"></div>
+														<div>
+															<input class="form-control" type="password" id="oldpass" minlength="5" maxlength="50" placeholder="**********" required>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<label class="col-form-label">New Password</label>
+														<div class="newPassError_box" style="margin:10px 0px;"></div>
+														<div>
+															<input class="form-control" id="newpass" minlength="5" maxlength="50" type="password" placeholder="**********" required>
+														</div>
+													</div>
+		
+													<div class="col-md-12 mt-5">
+														
+														<button type="submit" id="updatePass" class="btn-secondry add-item"><i class="fa fa-fw fa-plus-circle"></i> Update Password</button>
+														<!-- <button type="reset" class="btn">Save changes</button> -->
+													</div>
+													
+												</td>
+											</tr>
+										</table>
+									</div>
+									
 								</div>
-								
-							</div>
+						</div>
 					</div>
+					<a href="?tab=2faTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To 2FA Authentication</a>
+						<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/change-password.js') ?>"></script>
 				</div>
-				<a href="?tab=2faTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To 2FA Authentication</a>
-					<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/change-password.js') ?>"></script>
-			</div>
-			<!-- Password Change END-->
+				<!-- Password Change END-->
 			<?php } ?>
 
 
@@ -369,8 +369,6 @@ include 'Layout/sidebar.php';
 						<?php } ?>
 					</div>
 					<div class="widget-inner">
-						
-						<form class="edit-profile m-b30" method="POST" action="">
 							<div class="row">
 								
 								<div class="col-12 m-t20 mb-2">
@@ -385,6 +383,8 @@ include 'Layout/sidebar.php';
 									</div>
 								</div>
 								<div class="col-12">
+
+								<input type="hidden" name="url" id="url2" value="/ajax-notify-status">
 
 									<table id="item-add" style="width:100%;">
 										<tr class="list-item">
@@ -418,7 +418,6 @@ include 'Layout/sidebar.php';
 								</div>
 
 							</div>
-						</form>
 					</div>
 				</div>
                 <a href="?tab=usernameTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Username</a>

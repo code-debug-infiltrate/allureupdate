@@ -257,7 +257,7 @@ $(document).ready(function() {
                    }, delay);
                    $('#prefLoader').show();
                
-                   $('.clickable').html('<div><a class="mtr-btn" href="'+url+'us-index/'+uniqueid+'/?tab=timeline"><b style="color: white;">Click Here To Continue To NewsFeed</b></a> </div>');
+                   $('.clickable').html('<div><a class="btn-secondry add-item m-r5" href="'+url+'us-index/'+uniqueid+'/?tab=timeline"><b style="color: white;">Continue To Virtual Pool</b></a> </div>');
                    $('#Preference').hide('slow');
                    $('#dating-pool-inside').show();
 

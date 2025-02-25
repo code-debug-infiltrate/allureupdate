@@ -67,7 +67,7 @@
                                     <?php } else { ?>
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
-                                <b><?= $user['fname']?>,</b> <i style="font-size: 10px;"><?= $age; ?> | <?= $user['city']?> | <em style="color: red; font-size: 10px;">-50%</em> </i>
+                                <b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> | <?= $user['city']?> | <em style="color: red; font-size: 11px;">-50%</em> </i>
                             </a> 
                         </h6>
                         <p class="card-text">

@@ -29,7 +29,7 @@
 					
 					<!-- <div style="margin-top: 10px; text-align: center;"><p style="color: #700bcd;"><b>Dashboard</b> Analysis</p></div> -->
 						<div class="card-body" style="background: transparent; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
-							<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Match Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span></a>
+							<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/ideal.png" style="width: 40px; margin-right: 8px;"> Virtual Pool <em style="margin-left: 8px;"><?php if ($matchCount) { echo number_format(count($matchCount)); } else { echo 0; }?></em></span></a>
 							<hr>
 							<a href="<?= baseURL('us-chats/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 12px;"><img src="/Images/Body/msg.gif" style="width: 40px; margin-right: 8px;"> Buddy Chats <em style="margin-left: 8px;"><?= number_format($newChatCount);?></em></span></a>
 							<hr>

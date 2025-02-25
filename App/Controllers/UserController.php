@@ -168,7 +168,9 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
         $workedu = ModelFactory::model('User')->user_workeducation($info);
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $myPostActions = ModelFactory::model('User')->my_post_action($info);
         $userProfiles = ModelFactory::model('User')->user_profiles();
         $latestPosts = ModelFactory::model('User')->get_latest_posts();
@@ -180,7 +182,9 @@ class UserController extends Controller
             'myPostActions' => $myPostActions['my_post_actions'],
             'user_workedu' => $workedu['workeducation_info'],
             'userInfo' => $userDetails['user_info'],
-            'coyInfo' => $coyInfo, 
+            'coyInfo' => $coyInfo,
+            'curInfo' => $curInfo['result_message'], 
+            'subPlans' => $subPlans['result_message'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
             'buddiesCount' => $userDetails['buddiesCount'], 
@@ -371,7 +375,8 @@ class UserController extends Controller
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
             $result = json_decode($uId, true);
-            
+            $curInfo = ModelFactory::model('Admin')->get_currency_info();
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
             $userProfiles = ModelFactory::model('User')->user_profiles();
             $latestPosts = ModelFactory::model('User')->get_latest_posts();
             $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
@@ -380,6 +385,8 @@ class UserController extends Controller
             $data = array(
                 'userInfo' => $userDetails['user_info'],
                 'coyInfo' => $coyInfo, 
+                'curInfo' => $curInfo['result_message'],
+                'subPlans' => $subPlans['result_message'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -418,7 +425,8 @@ class UserController extends Controller
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
             $result = json_decode($uId, true);
-            
+            $curInfo = ModelFactory::model('Admin')->get_currency_info();
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
             $userProfiles = ModelFactory::model('User')->user_profiles();
             $latestPosts = ModelFactory::model('User')->get_latest_posts();
             $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
@@ -427,6 +435,8 @@ class UserController extends Controller
             $data = array(
                 'userInfo' => $userDetails['user_info'],
                 'coyInfo' => $coyInfo, 
+                'curInfo' => $curInfo['result_message'],
+                'subPlans' => $subPlans['result_message'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -460,6 +470,8 @@ class UserController extends Controller
 
             //Get User Credentials
             $userDetails =$this->user_information($id); 
+            $curInfo = ModelFactory::model('Admin')->get_currency_info();
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
             $coyInfo = ModelFactory::model('Register')->coy_info();
             $userProfiles = ModelFactory::model('User')->user_profiles();
             $latestPosts = ModelFactory::model('User')->get_latest_posts();
@@ -469,6 +481,8 @@ class UserController extends Controller
             $data = array(
                 'userInfo' => $userDetails['user_info'],
                 'coyInfo' => $coyInfo, 
+                'curInfo' => $curInfo['result_message'],
+                'subPlans' => $subPlans['result_message'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -511,11 +525,15 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $userProfiles = ModelFactory::model('User')->user_profiles();
         
         $data = array(
             'userInfo' => $userDetails['user_info'],
             'coyInfo' => $coyInfo, 
+            'curInfo' => $curInfo['result_message'],
+            'subPlans' => $subPlans['result_message'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
             'buddiesCount' => $userDetails['buddiesCount'], 
@@ -557,7 +575,8 @@ class UserController extends Controller
         $coyInfo = ModelFactory::model('Register')->coy_info();
         //$user = json_decode($result, true);
         $userInfo = $userDetails['user_info'];
-
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $activity = ModelFactory::model('User')->user_activity($info);
         $userProfiles = ModelFactory::model('User')->user_profiles();
         
@@ -603,6 +622,8 @@ class UserController extends Controller
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
         $userProfiles = ModelFactory::model('User')->user_profiles();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $buddyActivity = ModelFactory::model('User')->buddy_activities($info);
         //$user = json_decode($result, true);
         $userInfo = $userDetails['user_info'];
@@ -610,6 +631,8 @@ class UserController extends Controller
         $data = array(
         'userInfo' => $userInfo,
         'coyInfo' => $coyInfo,
+        'curInfo' => $curInfo['result_message'],
+        'subPlans' => $subPlans['result_message'],
         'newActivityNotice' => $userDetails['newActivityNotice'], 
         'userOnlineStatus' => $userDetails['userOnlineStatus'], 
         'buddiesCount' => $userDetails['buddiesCount'], 
@@ -648,6 +671,8 @@ class UserController extends Controller
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
         $userProfiles = ModelFactory::model('User')->user_profiles();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $allMessageDetails = ModelFactory::model('User')->all_message_details($info);
         //$user = json_decode($result, true);
         $userInfo = $userDetails['user_info'];
@@ -655,6 +680,8 @@ class UserController extends Controller
         $data = array(
             'userInfo' => $userInfo,
             'coyInfo' => $coyInfo,
+            'curInfo' => $curInfo['result_message'],
+            'subPlans' => $subPlans['result_message'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
             'buddiesCount' => $userDetails['buddiesCount'], 
@@ -689,6 +716,8 @@ class UserController extends Controller
         $v = new Validate();
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
   
         if (isset($_POST['replychat'])) {
 
@@ -863,6 +892,8 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         $userProfiles = ModelFactory::model('User')->user_profiles();
         $postDetails = ModelFactory::model('User')->get_post($info);
@@ -918,6 +949,8 @@ class UserController extends Controller
         $info = array('uniqueid' => $v->clean($id), 'postid' => $v->clean($_GET['id']), 'sender' => $v->clean($_GET['by']),  'commentid' => $v->clean($_GET['cid']), 'receiver' => $v->clean($id), );
 
         $commentChats = ModelFactory::model('User')->all_comment_chats($info);
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
 
         if (isset($_POST['respond'])) {
             $sender = $v->clean($_POST['uniqueid']);
