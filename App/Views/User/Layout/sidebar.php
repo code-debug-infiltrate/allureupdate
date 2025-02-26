@@ -44,37 +44,18 @@
 
 						<div class="card-body" style="background: transparent; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 							
-							<a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button">
-								<span class="ttr-icon"><i class="fa fa-group"></i></span>
-								<span class="ttr-label">Preference Settings</span>
-							</a>
 							<li>
 								<a href="#" class="ttr-material-button">
 									<span class="ttr-icon"><i class="ti-settings"></i></span>
-									<span class="ttr-label"> Account Settings</span>
+									<span class="ttr-label"> Settings</span>
 									<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
 								</a>
 								<ul>
 									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Bio Details</span></a>
+										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Account</span></a>
 									</li>
 									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=interestsTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Interests</span></a>
-									</li>
-									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=work&eduTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Work & Education</span></a>
-									</li>
-									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=languageTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Languages</span></a>
-									</li>
-									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=profileImageTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Profile Photo</span></a>
-									</li>
-									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=addressTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Address</span></a>
-									</li>
-									<li>
-										<a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=deleteAccountTab" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Delete Account</span></a>
+										<a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-material-button"><span class="ttr-label"><i class="fa fa-toggle-off" style="margin-right: 5px;"></i>Preference</span></a>
 									</li>
 								</ul>
 							</li>

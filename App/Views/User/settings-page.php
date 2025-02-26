@@ -39,7 +39,6 @@ include 'Layout/sidebar.php';
 
 
 				<!-- Username -->
-				<?php if ($_GET['tab'] == "usernameTab") { ?>
 				<div class="col-lg-12 m-b30" id="usernameTab">
 					<span class="close" id="usernameTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('usernameTab').style.display='none'"> &times;</span>
 					<div class="card-body">
@@ -80,16 +79,16 @@ include 'Layout/sidebar.php';
 							</form>
 						</div>
 					</div>
-					<a href="?tab=profileImageTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Profile Photo</a>
+					<a href="javascript:void(0);" onclick="replace('usernameTab','deleteAccountTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px; color: red;">Delete Account</a>
+					<a href="javascript:void(0);" onclick="replace('usernameTab','profileImageTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Profile Photo</a>
 					
 				</div>
 
 				<!-- Username End -->
-				<?php } ?>
 
-				<?php if ($_GET['tab'] == "profileImageTab") { ?>
+				
 				<!-- Profile Photo -->
-				<div class="col-lg-12 m-b30" id="profileImageTab">
+				<div class="col-lg-12 m-b30" style="display: none;" id="profileImageTab">
 					<span class="close" id="profileImageTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('profileImageTab').style.display='none'"> &times;</span>
 					<div class="card-body">
 						<div class="wc-title">
@@ -113,7 +112,7 @@ include 'Layout/sidebar.php';
 															<input type="hidden" class="form-control" name="uniqueid" value="<?= $userInfo['uniqueid']; ?>">
 															<input type="hidden" class="form-control" name="username" value="<?= $userInfo['username']; ?>">
 															<!-- <label class="col-form-label">Choose an Image To Upload</label> -->
-															<figure class="logo-box"><img src="<?= public_asset('/other_assets/Profile/'); ?><?= $userInfo['profileimage']; ?>" id="output_profileimage" alt="Profile Photo" style="width: 200px;"></figure>
+															<center><figure class="logo-box"><img src="<?= public_asset('/other_assets/Profile/'); ?><?= $userInfo['profileimage']; ?>" id="output_profileimage" alt="Profile Photo" style="width: 200px;"></figure></center>
 															<br>
 															<div class="form-group">
 																<label> Upload Profile Photo</label>
@@ -134,16 +133,16 @@ include 'Layout/sidebar.php';
 							<script src="<?= public_asset('/other_assets/User/js/validateImage.js') ?>"></script>
 						</div>
 					</div>
-					<a href="?tab=addressTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Address</a>
+					<a href="javascript:void(0);" onclick="replace('profileImageTab','2faTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To 2FA Authentication</a>
+					<a href="javascript:void(0);" onclick="replace('profileImageTab','addressTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Address</a>
 					
 				</div>
 				<!-- Profile Photo END-->
-				<?php } ?>
+				
 
 
-				<?php if ($_GET['tab'] == "addressTab") { ?>
 				<!-- Address Info -->
-				<div class="col-lg-12 m-b30" id="addressTab">
+				<div class="col-lg-12 m-b30" style="display: none;" id="addressTab">
 					<span class="close" id="addressTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('addressTab').style.display='none'"> &times;</span>
 					<div class="card-body">
 						<div class="wc-title">
@@ -188,18 +187,17 @@ include 'Layout/sidebar.php';
 								</div>
 							
 						</div>
-						<a href="?tab=bioTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Bio Details</a>
+						<a href="javascript:void(0);" onclick="replace('addressTab','passwordTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Password</a>
+						<a href="javascript:void(0);" onclick="replace('addressTab','bioTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Bio Details</a>
 						<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/create-location.js') ?>"></script>
 					</div>
 				</div>
 				<!-- Address Info END-->
-				<?php } ?>
 
 
 
-				<?php if ($_GET['tab'] == "bioTab") { ?>
 				<!-- Your Profile Views Chart -->
-				<div class="col-lg-12 m-b30" id="bioTab">
+				<div class="col-lg-12 m-b30" style="display: none;" id="bioTab">
 					<div class="card-body">
 						<div class="wc-title">
 							<h4>Keep Your Personal Details Updated!</h4>
@@ -290,16 +288,16 @@ include 'Layout/sidebar.php';
 							
 						</div>
 					</div>
-					<a href="?tab=passwordTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Password</a>
+					<a href="javascript:void(0);" onclick="replace('bioTab','profileImageTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Profile Photo</a>
+					<a href="javascript:void(0);" onclick="replace('bioTab','passwordTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Password</a>
 					<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/create-bio.js') ?>"></script>
 				</div>
 				<!-- Your Profile Views Chart END-->
-				<?php } ?>
 
 
-				<?php if ($_GET['tab'] == "passwordTab") { ?>
+
 				<!-- Password Change -->
-				<div class="col-lg-12 m-b30" id="passwordTab">
+				<div class="col-lg-12 m-b30" style="display: none;" id="passwordTab">
 					<span class="close" id="password" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('password').style.display='none'"> &times;</span>
 					<div class="card-body">
 						<div class="wc-title">
@@ -347,18 +345,17 @@ include 'Layout/sidebar.php';
 								</div>
 						</div>
 					</div>
-					<a href="?tab=2faTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To 2FA Authentication</a>
+					<a href="javascript:void(0);" onclick="replace('passwordTab','usernameTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Username</a>
+					<a href="javascript:void(0);" onclick="replace('passwordTab','2faTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To 2FA Authentication</a>
 						<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/change-password.js') ?>"></script>
 				</div>
 				<!-- Password Change END-->
-			<?php } ?>
 
 
 
-			<?php if ($_GET['tab'] == "2faTab") { ?>
 
 			<!-- 2FA Security -->
-			<div class="col-lg-12 m-b30"  id="2faTab">
+			<div class="col-lg-12 m-b30" style="display: none;" id="2faTab">
                 <span class="close" id="2fa" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('2fa').style.display='none'"> &times;</span>
 				<div class="card-body">
 					<div class="wc-title">
@@ -420,29 +417,27 @@ include 'Layout/sidebar.php';
 							</div>
 					</div>
 				</div>
-                <a href="?tab=usernameTab" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Username</a>
+				<a href="javascript:void(0);" onclick="replace('2faTab','addressTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Address</a>
+				<a href="javascript:void(0);" onclick="replace('2faTab','usernameTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Username</a>
 					<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/update-2fa.js') ?>"></script>
 			</div>
 			<!-- 2FA Security END-->
-			<?php } ?>
+			
+			
 
-			<?php if ($_GET['tab'] == "deleteAccountTab") { ?>
 			<!-- Delete Account -->
-
-			<div class="col-lg-12 m-b30" id="deleteAccountTab">
+			<div class="col-lg-12 m-b30" style="display: none;" id="deleteAccountTab">
                 <span class="close" id="deleteAccount" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('deleteAccount').style.display='none'"> &times;</span>
                 <div class="card-body">
 					<div class="wc-title">
 						<h4 class="text-danger"><i class="ti-face-sad mr-3" style="font-size: 34px;"></i> Delete Your Account<br><i style="font-size: 12px; color: darkblue;">Your Account Will Be Deactivated Now But Permanently Deleted After Six (6) Months.</i>  </h4>
+						
+						<i style="font-size: 12px; color: darkblue;"> If You Are Having Problems Using Your Account? <a href="<?= baseURL('us-support-ticket/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" style="color: blue;">Write Us</a>.</i>
 					</div>
 					<div class="widget-inner">
 
 						<form class="edit-profile m-b30" method="POST">
 							<div class="row">
-
-								<h3 class="m-form__section">
-									<i style="font-size: 12px; color: darkblue;"> If You Are Having Problems Using Your Account? <a href="<?= baseURL('us-support-ticket/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" style="color: blue;">Write Us</a>.</i>
-								</h3>
 
 								<div class="col-12">
 
@@ -493,11 +488,15 @@ include 'Layout/sidebar.php';
 						</form>
 					</div>
 				</div>
+					
+					<a href="javascript:void(0);" onclick="replace('deleteAccountTab','usernameTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Username</a>
+					<a href="javascript:void(0);" onclick="replace('deleteAccountTab','profileImageTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Profile Photo</a>
+					
 				<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/delete-account.js') ?>"></script>
 			</div>
 
 			<!-- Delete Account End -->
-			<?php } ?>
+			
 			
 
 
@@ -531,7 +530,14 @@ include 'Layout/sidebar.php';
 
 
 
+<script>
+	
+    function replace( hide, show ) {
+        document.getElementById(hide).style.display="none";
+        document.getElementById(show).style.display="block";
+    }
 
+ </script>
 
 
 

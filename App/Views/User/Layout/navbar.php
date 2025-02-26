@@ -139,13 +139,9 @@
 					</a>
 					<div class="ttr-header-submenu" style="padding: 20px;">
 						<ul>
-							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=usernameTab"><i class="ti-user mr-3" style="color: rgb(57, 6, 91);"></i> change Username</a></li>
-							<li class="ttr-seperate"></li>
+							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-3" style="color: rgb(57, 6, 91);"></i> Account Settings</a></li>
 
-							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=2faTab"><i class="ti-settings mr-3" style="color: rgb(57, 6, 91);"></i> 2FA Security</a></li>
-							<li class="ttr-seperate"></li>
-
-							<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=passwordTab"><i class="ti-key mr-3" style="color: rgb(57, 6, 91);"></i> Change Password</a></li>
+							<li><a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-layout-accordion-list mr-3" style="color: rgb(57, 6, 91);"></i> Preference Settings</a></li>
 							
 							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
 							<li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-3" style="color: rgb(57, 6, 91);"></i> My Profile</a></li>
@@ -153,9 +149,6 @@
 							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
 							<li><a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-bell mr-3" style="color: rgb(57, 6, 91);"></i> Notifications</a></li>
 
-							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
-							<li><a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-layout-accordion-list mr-3" style="color: rgb(57, 6, 91);"></i> Preference Settings</a></li>
-							
 							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
 							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-power-off mr-3" style="color: rgb(57, 6, 91);"></i> Logout</a></li>
 
