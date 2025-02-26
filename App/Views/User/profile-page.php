@@ -14,36 +14,21 @@ include 'Layout/sidebar.php';
 	<div class="container-fluid">
 
 
-		<!-- <div class="db-breadcrumb">
+		<div class="db-breadcrumb">
 			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg" style="font-size: 15px;"></b> <?= $userInfo['username']; ?></h4>
 			<ul class="db-breadcrumb-list">
 				<li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="fa fa-home"></i>Home</a></li>
-				<li>Dashboard</li>
+                <li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="fa fa-user"></i>Profile</a></li>
+				<li>Personal</li>
 			</ul>
-		</div> -->
+		</div>
 
-
-
-
-		<?php if ($userInfo['profileimage'] == "favicon.png") { ?>
                                     
-			<?php include 'profile-photo-inside.php'; ?>
+		<?php include 'profile-banner-inside.php'; ?>
 
-		<?php } elseif (!$user_myself) { ?>
+        <?php include 'profile-diary-inside.php'; ?>
 
-			<?php include 'myself-inside.php'; ?>
-
-		<?php } elseif (!$user_preference) { ?>
-
-			<?php include 'preferences-inside.php'; ?>
-
-		<?php } else { ?>
-
-			<?php include 'dating-pool-inside.php'; ?>
-
-		<?php } ?>
-
-
+        <?php include 'profile-preferences-inside.php'; ?>
 
 
 <!-- End oF file -->

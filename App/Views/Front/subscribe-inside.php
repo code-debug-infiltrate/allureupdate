@@ -2,7 +2,7 @@
     <section class="subscribe-section about-page bg-color-3">
         <div class="container">
             <div class="inner-box">
-                <figure class="icon-box"><img src="/Images/Body/btm-baner-avatar.png" alt="Subscribe-Icon"></figure>
+                <figure class="icon-box" style="top: -150px;"><img src="/Images/Body/btm-baner-avatar.png" alt="Subscribe-Icon"></figure>
                 <div class="content-box">
                     <h2>Love Relationship News And Tips?</h2>
                     <div class="text">Monthly Relationship News And Tips, Articles, and Resources, Sent Straight To You.</div>

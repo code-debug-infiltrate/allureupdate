@@ -22,35 +22,66 @@ include 'Layout/sidebar.php';
 
 
 		<div class="row">
+
+
+		<!-- First Column Side -->
+		<div class="col-md-2 col-lg-2">
+
+                
+
+		</div>
+		<!-- End First Column Side -->
+
+
+
+
+		<!-- Second Column Side -->
+		<div class="col-md-8 col-lg-8">
+
 			<!-- Your Profile Views Chart -->
 
-			<?php if ($userNotice) { ?>
+			<?php if ($buddyActivity) { ?>
 
-				<?php foreach ($userNotice as $key => $notif) { ?>
+				<?php foreach ($buddyActivity as $key => $activity) { ?>
 
-					<div class="col-lg-12 m-b30" id="not<?= $notif['id']; ?>">
-					<div class="row mb-3">
-						<div class="col-md-12">
-						<span class="close" style="font-size: 40px; padding: 10px;" onclick="document.getElementById('not<?= $notif['id']; ?>').style.display='none'"> &times;</span>
-							<div class="widget-box" style="padding: 20px;">
-								<h4><img src="/Images/Body/alert.png" style="width: 50px;"> <?= $notif['subject']; ?></h4>
-								<p>Posted: <?= $notif['created']; ?></p>
-								<h6 class="m-b10"><?= $notif['details']; ?></h6>	
-							</div>
+					<div class="new-user-list" style="margin: 5px;" id="not<?= $activity['id']; ?>">
+							<ul>
+							<span class="close" style="font-size: 40px; padding: 10px;" onclick="document.getElementById('not<?= $activity['id']; ?>').style.display='none'"> &times;</span>
+								<li>
+								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $activity['user_uniqueid']) { ?>
+									<span class="new-users-pic">
+										<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 50px; width: 60px;">
+									</span>
+									<span class="new-users-text">
+										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><?= $user['fname']; ?> <?= $user['lname']; ?></a>
+										<span class="new-users-info"><?= $activity['details']; ?></span>
+									</span>
+									
+									<span class="new-users-btn">
+										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="btn button-sm outline">Check Buddy Out</a>
+									</span>
+									<?php } } ?>
+								</li>
+							</ul>
 						</div>
-					</div>
-					</div>
-
+						<hr>
 				<?php } ?>
-					
-			<?php } ?>
-				
-			
+				<?php } else { ?>
+						<p style="text-align: center; font-size: 20px;">You Do Not Have Any Notifications Yet </p>
+					<?php } ?>
 			<!-- Your Profile Views Chart END-->
 
-			<h5 class="col-md-10 mx-auto" style="text-align: center;">You Can Always Contact Support By Raising a <a href="<?= baseURL('us-message/')?><?= $userInfo['uniqueid']; ?>/" style="color: blue;">Ticket Here</a> </h5>
-		</div>
+			</div>
+            <!-- End Second Column Side -->
 
+
+            <!-- Third Column Side -->
+            <div class="col-md-2 col-lg-2">
+
+                
+
+            </div>
+            <!-- End Third Column Side -->
 
 <!-- End oF file -->
 

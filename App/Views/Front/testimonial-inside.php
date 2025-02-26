@@ -11,7 +11,7 @@
                 <div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
-                            <figure class="author-thumb"><img src="/Images/Testimonials/johnandyana.jpg" alt="Testimony Image"></figure>
+                            <figure class="author-thumb"><img src="/Images/Testimonials/johnandyana.jpg" alt="Testimony Image" style="width: 100px; height: 80px;"></figure>
                             <h5>John & Yana</h5>
                             <span class="designation">Feb 12</span>
                         </div>
@@ -21,7 +21,7 @@
                 <div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
-                            <figure class="author-thumb"><img src="/Images/Testimonials/manfredandecho.jpg" alt="Testimonial Image"></figure>
+                            <figure class="author-thumb"><img src="/Images/Testimonials/manfredandecho.jpg" alt="Testimonial Image" style="width: 100px; height: 80px;"></figure>
                             <h5>Richy & Anj</h5>
                             <span class="designation">April 26</span>
                         </div>
@@ -31,7 +31,7 @@
                 <div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
-                            <figure class="author-thumb"><img src="/Images/Testimonials/yanaandkurt.jpg" alt="Testimonial-Image"></figure>
+                            <figure class="author-thumb"><img src="/Images/Testimonials/yanaandkurt.jpg" alt="Testimonial-Image" style="width: 100px; height: 80px;"></figure>
                             <h5>Anny & Fred</h5>
                             <span class="designation">Sept 20</span>
                         </div>
@@ -41,7 +41,7 @@
                 <div class="testimonial-content">
                     <div class="inner-box">
                         <div class="author-info">
-                            <figure class="author-thumb"><img src="/Images/Testimonials/stewardandapril.jpg" alt="Testimonial-Image"></figure>
+                            <figure class="author-thumb"><img src="/Images/Testimonials/stewardandapril.jpg" alt="Testimonial-Image" style="width: 100px; height: 80px;"></figure>
                             <h5>Morayo & Cole</h5>
                             <span class="designation">Sept 28</span>
                         </div>
