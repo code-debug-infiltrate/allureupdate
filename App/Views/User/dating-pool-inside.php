@@ -59,7 +59,7 @@
                         <!-- <p class="card-category text-info mb-1"> 
                             <i style="font-size: 12px;">Match Score:</i> <em style="color: red; font-size: 12px;">-50%</em> 
                         </p> -->
-                        <h6 class="card-title" style="margin-top: -55px;">
+                        <h6 class="card-title" style="margin-top: -40px;">
                             <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                                 <?php foreach ($userOnlineStatus as $key => $logstatus) { if ($logstatus['uniqueid'] == $info['uniqueid']) { ?>
                                     <?php if ($logstatus['login_status'] == "Logged_in") { ?>

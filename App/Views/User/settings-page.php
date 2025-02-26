@@ -35,7 +35,7 @@ include 'Layout/sidebar.php';
 
 
 			<!-- Second Column Side -->
-			<div class="col-md-6 col-lg-6">
+			<div class="col-md-6 col-lg-6" style="background: #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 
 
 				<!-- Username -->
@@ -83,7 +83,6 @@ include 'Layout/sidebar.php';
 					<a href="javascript:void(0);" onclick="replace('usernameTab','profileImageTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Profile Photo</a>
 					
 				</div>
-
 				<!-- Username End -->
 
 				
@@ -417,8 +416,8 @@ include 'Layout/sidebar.php';
 							</div>
 					</div>
 				</div>
-				<a href="javascript:void(0);" onclick="replace('2faTab','addressTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Address</a>
-				<a href="javascript:void(0);" onclick="replace('2faTab','usernameTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Username</a>
+					<a href="javascript:void(0);" onclick="replace('2faTab','addressTab')" style="margin-top: 30px; margin-bottom: 30px; float: left; font-size: 11px;">Go To Address</a>
+					<a href="javascript:void(0);" onclick="replace('2faTab','usernameTab')" style="margin-top: 30px; margin-bottom: 30px; float: right; font-size: 11px;">Go To Username</a>
 					<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/update-2fa.js') ?>"></script>
 			</div>
 			<!-- 2FA Security END-->
@@ -468,7 +467,7 @@ include 'Layout/sidebar.php';
 													</div>
 													<div class="col-md-12 mt-5">
                                                         
-														<button type="submit" onclick="return accountDeleteFunction();" id="delAct" class="btn-secondry add-item m-r5 mt-2"><i class="fa fa-fw fa-plus-circle"></i> Delete Account</button>
+														<button type="submit" onclick="return accountDeleteFunction();" id="deleteAccount" class="btn-secondry add-item m-r5 mt-2"><i class="fa fa-fw fa-plus-circle"></i> Delete Account</button>
 													</div>
 												</div>
 											</td>

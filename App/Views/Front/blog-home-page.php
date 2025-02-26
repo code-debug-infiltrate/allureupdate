@@ -46,14 +46,14 @@ include 'Layout/navbar.php';
                                 <a href="<?= $post['url']; ?>"><img src="/Images/Blog/<?= $post['file']; ?>" alt="Post Image" class="img-size-50" style="width: 100%; height: 250px;"></a>
                             </figure>
                             <div class="lower-content">
-                                <h4><a href="<?= $post['url']; ?>"><?= substr($post['title'], 0, 55); ?>...</a></h4>
+                                <h4><a href="<?= $post['url']; ?>"><?= substr($post['title'], 0, 45); ?>...</a></h4>
                                 <div class="post-info">
                                 <?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $post['uniqueid']) { ?>
 											<a href="<?= $post['url']; ?>#writerProfile" title="Writer Profile"><?= $user['fname']; ?> <?= $user['lname']; ?></a>
 										<?php } } ?>
 											- <?php echo(''.timeAgo(date('Y/m/d', strtotime($post['created']))).''); ?> 
                                 </div>
-                                <div class="text"><?= substr($post['introduction'], 0, 80); ?>...</div>
+                                <div class="text"><?= substr($post['introduction'], 0, 60); ?>...</div>
                                 <div class="link-btn"><a href="<?= $post['url']; ?>">Read More<i class="flaticon-slim-right"></i></a></div>
                             </div>
                         </div>

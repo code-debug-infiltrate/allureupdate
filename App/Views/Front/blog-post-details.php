@@ -219,12 +219,12 @@ include 'Layout/navbar.php';
                         <div class="categories-widget sidebar-widget wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <h3 class="widget-title">News Categories</h3>
                             <ul class="categories-list">
-                                <li><a href="<?= baseURL('Dating/')?>">Dating</a></li>
-                                <li><a href="<?= baseURL('Relationshhip/')?>">Relationship</a></li>
-                                <li><a href="<?= baseURL('Marriage/')?>">Marriage</a></li>
-                                <li><a href="<?= baseURL('Motivationals/')?>">Motivationals</a></li>
-                                <li><a href="<?= baseURL('Life-Hacks/')?>">Life Hacks</a></li>
-                                <li><a href="<?= baseURL('all/')?>">General News</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Dating/">#Dating</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Relationshhip/">#Relationship</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Marriage/">#Marriage</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Motivationals/">#Motivationals</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Life-Hacks/">#Life Hacks</a></li>
+                                <li><a href="<?= baseURL('blog/')?>all/">#General News</a></li>
                             </ul>
                         </div>
 
@@ -252,12 +252,12 @@ include 'Layout/navbar.php';
                             <h3 class="widget-title">Tags</h3>
                             <div class="widget-content">
                                 <ul class="clearfix">
-								<li><a href="<?= baseURL('Dating/')?>">#Dating</a></li>
-                                <li><a href="<?= baseURL('Relationshhip/')?>">#Relationship</a></li>
-                                <li><a href="<?= baseURL('Marriage/')?>">#Marriage</a></li>
-                                <li><a href="<?= baseURL('Motivationals/')?>">#Motivationals</a></li>
-                                <li><a href="<?= baseURL('Life-Hacks/')?>">#Life Hacks</a></li>
-                                <li><a href="<?= baseURL('all/')?>">#General News</a></li>
+								<li><a href="<?= baseURL('blog/')?>Dating/">#Dating</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Relationshhip/">#Relationship</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Marriage/">#Marriage</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Motivationals/">#Motivationals</a></li>
+                                <li><a href="<?= baseURL('blog/')?>Life-Hacks/">#Life Hacks</a></li>
+                                <li><a href="<?= baseURL('blog/')?>all/">#General News</a></li>
                                 </ul>
                             </div>
                         </div>
