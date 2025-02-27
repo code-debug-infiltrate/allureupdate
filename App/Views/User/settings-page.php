@@ -11,14 +11,14 @@ include 'Layout/sidebar.php';
 <!--Main container start -->
 <main class="ttr-wrapper">
 	<div class="container-fluid">
-		<div class="db-breadcrumb">
+		<!-- <div class="db-breadcrumb">
 			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg" style="font-size: 14px;"></b> <?= $userInfo['username']; ?></h4>
 			<ul class="db-breadcrumb-list">
 				<li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>"><i class="fa fa-home"></i>Home</a></li>
 				<li><a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>"><i class="fa fa-cogs"></i>Settings</a></li>
 				<li>Profile</li>
 			</ul>
-		</div>	
+		</div>	 -->
 
 	
 		<div class="row">
@@ -431,7 +431,7 @@ include 'Layout/sidebar.php';
 					<div class="wc-title">
 						<h4 class="text-danger"><i class="ti-face-sad mr-3" style="font-size: 34px;"></i> Delete Your Account<br><i style="font-size: 12px; color: darkblue;">Your Account Will Be Deactivated Now But Permanently Deleted After Six (6) Months.</i>  </h4>
 						
-						<i style="font-size: 12px; color: darkblue;"> If You Are Having Problems Using Your Account? <a href="<?= baseURL('us-support-ticket/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" style="color: blue;">Write Us</a>.</i>
+						<i style="font-size: 12px; color: darkblue;"> If You Are Having Problems Using Your Account? <a href="<?= baseURL('write-us/'); ?><?= $userInfo['uniqueid']; ?>/?cat=All" style="color: blue;">Write Us</a>.</i>
 					</div>
 					<div class="widget-inner">
 

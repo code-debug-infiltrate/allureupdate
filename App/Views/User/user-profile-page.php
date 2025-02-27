@@ -14,14 +14,14 @@ include 'Layout/sidebar.php';
 	<div class="container-fluid">
 
 
-		<div class="db-breadcrumb">
+		<!-- <div class="db-breadcrumb">
 			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg" style="font-size: 15px;"></b> <?= $userInfo['username']; ?></h4>
 			<ul class="db-breadcrumb-list">
 				<li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="fa fa-home"></i>Home</a></li>
                 <li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="fa fa-user"></i>Buddy</a></li>
 				<li>Profile</li>
 			</ul>
-		</div>
+		</div> -->
 
                                     
 		<?php include 'profile-banner-inside.php'; ?>

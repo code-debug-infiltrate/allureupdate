@@ -50,9 +50,11 @@
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
                 <div class="widget-box image-effect">
                     <div class="wc-title">
-                    <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
-                        <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px; border-radius: 100%;"/></center>
-                    </a>    
+                        
+                <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: red;">-50%</em></p>
+                        <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
+                            <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px;"/></center>
+                        </a>    
                     </div>
 			        <div class="widget-inner">
                         <div class="separator-solid"></div>
@@ -67,13 +69,14 @@
                                     <?php } else { ?>
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
-                                <b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> | <?= $user['city']?> | <em style="color: red; font-size: 11px;">-50%</em> </i>
+                                
+                                <b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> | <?= $user['city']?> </i>
                             </a> 
                         </h6>
-                        <p class="card-text">
-                            <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 11px; color: black;"><?= substr($info['details'], 0, 65); ?>...</a>
-                        </p>
-                        <div style="background: #fbcdfb; margin: 10px;">
+                        
+                        <p class=""style="line-height: 17px;"> <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 12px; color: black;"><?= substr($info['details'], 0, 65); ?>...</a> </p>
+                        
+                        <div style="margin-top: -20px;">
                             <a href="#" data-toggle="modal" data-target="#msgModal<?= $info['uniqueid']; ?>" style="float: left; margin-bottom: 10px;"><img src="/Images/Body/msgcount1.gif" alt="Email" style="width: 50px;"></a>       <a href="#" data-toggle="modal" data-target="#pokeModal<?= $info['uniqueid']; ?>" style="float: right; margin-bottom: 5px;"><img src="/Images/Body/love.gif" alt="Poke" style="width: 50px;"></a>
                         </div>
                     </div>

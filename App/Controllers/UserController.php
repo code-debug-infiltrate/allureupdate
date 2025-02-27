@@ -144,25 +144,103 @@ class UserController extends Controller
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
             
-        } elseif (isset($_POST['submitCover'])) {
-            // code...
+        } elseif (isset($_POST['createPost'])) {
+
             $uniqueid = $v->clean($_POST['uniqueid']);
             $username = $v->clean($_POST['username']);
-            $type = "Cover"; //Determines the folder to upload image
+            $postdetails = $v->clean($_POST['postdetails']);
+            $url = $v->clean($_POST['url']);
 
-            // File name
-            $value = $_FILES['coverimage']['name'];
-            $temp = $_FILES['coverimage']['tmp_name'];
+            $extension = array("jpeg","jpg","png","JPEG","JPG","PNG");
+            $folder = "Public/other_assets/Posts/";
 
-            $image = $this->uploadFile($type, $value, $temp);
-            if ($image['fileType']) { 
-                $info = array('type' => $image['fileType'], 'coverimage' => trim($image['pics']), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-                //Call API Function
-                $pass = ModelFactory::model('User')->upload_cover_photo($info);
-            } else { $result = $image; } 
+            foreach($_FILES["postimage"]["tmp_name"] as $key => $tmp_name) {
+
+                $file_name = $_FILES["postimage"]["name"][$key];
+                $file_tmp = $_FILES["postimage"]["tmp_name"][$key];
+                $ext = pathinfo($file_name,PATHINFO_EXTENSION);
+
+                if (in_array($ext,$extension)) { 
+
+                    if (!file_exists($folder.$file_name)) {
+
+                        $target_file = $folder.$file_name;
+                        move_uploaded_file($file_tmp, $target_file);
+
+                        $allImages[] = $file_name;
+
+                    } else {
+
+                        $errorMsg = "Image(s) Already Exists In Storage, Select Another!";
+                    /*else {
+                        $filename=basename($file_name,$ext);
+                        $newFileName=$filename.time().".".$ext;
+                        $target_file = $folder.$newFileName;
+                        move_uploaded_file($file_tmp, $target_file);
+
+                        $allImages[] = $newFileName;
+                    }*/
+                    }
+                } else {
+                    $result = array('result_info' => array('type' => "error", 'message' => "Image(s) Must be JPEG, JPG Or PNG Format!", ), );
+                }
+            }
+            if (isset($allImages)) {
+
+                $info = array('uniqueid' => $uniqueid, 'username' => $username, 'url' => $url, 'details' => $postdetails, 'file' => $allImages[0], 'allImages' => $allImages, );
+
+                $result = ModelFactory::model('User')->user_create_post($info);
+
+            } else {
+
+                $result = array('result_info' => array('type' => "error", 'message' => $errorMsg, ), );
+            }
+
             //Get User Credentials
             $userDetails =$this->user_information($id); 
+            $coyInfo = ModelFactory::model('Register')->coy_info();
+            $randomBuddy = ModelFactory::model('User')->user_random_people($info);
+            $myPostActions = ModelFactory::model('User')->my_post_action($info);
+            $userProfiles = ModelFactory::model('User')->user_profiles();
+            $latestPosts = ModelFactory::model('User')->get_latest_posts();
+            $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
+            $postActions = ModelFactory::model('User')->get_post_actions();
+            
 
+            $data = array(
+                'userInfo' => $userDetails['user_info'],
+                'coyInfo' => $coyInfo, 
+                'myPostActions' => $myPostActions['my_post_actions'],
+                'newActivityNotice' => $userDetails['newActivityNotice'], 
+                'userOnlineStatus' => $userDetails['userOnlineStatus'], 
+                'buddiesCount' => $userDetails['buddiesCount'], 
+                'buddiesList' => $userDetails['buddies'], 
+                'postActions' => $postActions['post_interactions'], 
+                'userLikesCount' => $userDetails['userLikesCount'], 
+                'userViewsCount' => $userDetails['userViewsCount'], 
+                'userNoticeCount' => $userDetails['userNoticeCount'], 
+                'newMessageCount' => $userDetails['newMessageCount'],
+                'newMessageDetails' => $userDetails['newMessageDetails'],
+                'matchCount' => $userDetails['matchInfo'],
+                'newChatCount' => $userDetails['newChatCount'],
+                'newChatDetails' => $userDetails['newChatDetails'],
+                'latestPosts' => $latestPosts['post_details'],
+                'latestPostsFiles' => $latestPostsFiles['post_files'],
+                'onlineNow' => $userDetails['onlineNow'],
+                'subPlan' => $userDetails['subPlan'],
+                'appSubPlan' => $userDetails['appSubPlan'],
+                'userTrancInfo' => $userDetails['trancInfo'],
+                'user_language' => $userDetails['user_language'],
+                'user_interests' => $userDetails['user_interests'],
+                'user_myself' => $userDetails['user_myself'],
+                'user_preference' => $userDetails['user_preference'],
+                'userProfiles' => $userProfiles['user_profiles'], 
+                'randomBuddy' => $randomBuddy['buddy_info'],
+                'type' => $result['result_info']['type'], 
+                'message' => $result['result_info']['message'],
+            );
+
+            return $this->view('User/profile-page', $data);  
         }
         
         //Get User Credentials
@@ -228,6 +306,8 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $matchInfo = ModelFactory::model('User')->user_find_people($info);
         $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         $userProfiles = ModelFactory::model('User')->user_profiles();
@@ -237,6 +317,8 @@ class UserController extends Controller
         $data = array(
             'userInfo' => $userInfo,
             'coyInfo' => $coyInfo, 
+            'curInfo' => $curInfo['result_message'], 
+            'subPlans' => $subPlans['result_message'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
             'buddiesCount' => $userDetails['buddiesCount'], 
@@ -280,6 +362,8 @@ class UserController extends Controller
         $user = array('uniqueid' => $v->clean($pop), 'viewerid' => $v->clean($id), 'username' => $username, );
         $userViews = ModelFactory::model('User')->user_views($user);
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $viewUser = ModelFactory::model('User')->user_info($user);
         $userProfiles = ModelFactory::model('User')->user_profiles();
         $latestPosts = ModelFactory::model('User')->get_latest_posts();
@@ -299,6 +383,8 @@ class UserController extends Controller
         $data = array(
             'userInfo' => $userInfo,
             'coyInfo' => $coyInfo, 
+            'curInfo' => $curInfo['result_message'], 
+            'subPlans' => $subPlans['result_message'],
             'myPostActions' => $myPostActions['my_post_actions'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
@@ -670,6 +756,8 @@ class UserController extends Controller
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $userProfiles = ModelFactory::model('User')->user_profiles();
         $curInfo = ModelFactory::model('Admin')->get_currency_info();
         $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
@@ -717,6 +805,8 @@ class UserController extends Controller
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
         $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
   
         if (isset($_POST['replychat'])) {
@@ -779,6 +869,8 @@ class UserController extends Controller
             $data = array(
                 'userInfo' => $userInfo,
                 'coyInfo' => $coyInfo,
+                'curInfo' => $curInfo['result_message'], 
+                'subPlans' => $subPlans['result_message'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -819,6 +911,8 @@ class UserController extends Controller
             $data = array(
                 'userInfo' => $userInfo,
                 'coyInfo' => $coyInfo,
+                'curInfo' => $curInfo['result_message'], 
+                'subPlans' => $subPlans['result_message'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -855,6 +949,8 @@ class UserController extends Controller
         $data = array(
             'userInfo' => $userInfo,
             'coyInfo' => $coyInfo,
+            'curInfo' => $curInfo['result_message'], 
+            'subPlans' => $subPlans['result_message'],
             'newActivityNotice' => $userDetails['newActivityNotice'], 
             'userOnlineStatus' => $userDetails['userOnlineStatus'], 
             'buddiesCount' => $userDetails['buddiesCount'], 

@@ -10,7 +10,7 @@
 				</div>
 				
 				<span class="ttr-label">
-					<b id="grtnMsg1" style="font-size: 16px;"></b> <br> <i style="font-size: 14px; text-transform: capitalize;"> <?= $userInfo['username']; ?></i>
+					<b id="grtnMsg" style="font-size: 16px;"></b> <br> <i style="font-size: 14px; text-transform: capitalize;"> <?= $userInfo['username']; ?></i>
 				</span>
 
 				<!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">

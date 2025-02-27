@@ -12,15 +12,15 @@ include 'Layout/sidebar.php';
 <!--Main container start -->
 <main class="ttr-wrapper">
 	<div class="container-fluid">
-		<div class="db-breadcrumb">
-			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg" style="font-size: 15px;"></b> <?= $userInfo['username']; ?></h4>
+		<!-- <div class="db-breadcrumb">
+			<h4 class="breadcrumb-title" style="text-transform: capitalize;"><b id="grtnMsg1" style="font-size: 15px;"></b> <?= $userInfo['username']; ?></h4>
 			<ul class="db-breadcrumb-list">
 				<li><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="fa fa-home"></i>Home</a></li>
 				<li><a href="<?= baseURL('support-ticket/'); ?><?= $userInfo['uniqueid']; ?>/?type=All"><i class="fa fa-edit"></i>Messaging</a></li>
 				<li>Message Details</li>
 			</ul>
 
-		</div>
+		</div> -->
 
 
 			<div class="row">
