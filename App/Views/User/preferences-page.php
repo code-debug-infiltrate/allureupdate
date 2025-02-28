@@ -41,7 +41,7 @@ include 'Layout/sidebar.php';
             <!-- Second Column Side -->
             <div class="col-md-6 col-lg-6">
 
-                <div id="myself">
+                <div id="myself" style="display: none;">
 
                     <div class="card-header">
                         <img src="/Images/Body/done.png" alt="Preference Image" style="height: 120px;"/>
@@ -358,7 +358,7 @@ include 'Layout/sidebar.php';
                 </div>
 
 
-                <div id="preference" style="display: none;">
+                <div id="preference">
                 <div class="card-header">
                         <img src="/Images/Body/ideal.png" alt="Preference Image" style="height: 150px;"/>
                         <div class="card-title"><b>Describe Your Ideal Partner</b></div>
@@ -682,7 +682,7 @@ include 'Layout/sidebar.php';
                             <img src="/Images/green-dots.gif" id="myselfLoader" style="display: none"/> -->
                             <div class="clickable" style="margin:10px 0px;"></div>
                             
-                            <div class="submit-btns" id="div21" style="display: none;"  onclick="replace('div19','div20')">
+                            <div class="submit-btns" id="div21" style="display: none;"  onclick="replace('preference','myself')">
                                 <button type="submit" id="updatePreference" class="btn btn-success"><span>Save Ideal Match</span></button>
                             </div>
                         </div><!-- preference -->

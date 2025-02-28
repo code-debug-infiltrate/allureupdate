@@ -54,7 +54,7 @@
             <div class="footer-bottom clearfix">
                 <div class="copyright pull-left" style="font-size: 12px;">
                     <strong>
-                        &copy; Copyright <span> 
+                        &copy; Copyright <span>2024 -
                         <script type="text/JavaScript">
                             document.write(new Date().getFullYear());
                         </script> 

@@ -36,7 +36,7 @@ include 'Layout/navbar.php';
                                 
                                 <div class="form-group">
                                     <label class="control-label" for="input">Email OR Member ID</label><i class="mtrl-select"></i>	
-                                    <input type="email" id="email" placeholder="Email ID" required focus>
+                                    <input type="email" id="email" placeholder="Email ID" required autofocus>
                                 </div>
 
                                 <div class="form-group message-btn" style="margin-top: 20px; border-radius: 1px; width: 100%;">

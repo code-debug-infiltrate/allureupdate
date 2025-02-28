@@ -41,7 +41,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 
                                     <div class="form-group col-md-6">	
                                     <label class="control-label" for="input">First Name</label><i class="mtrl-select"></i>	
-                                        <input type="text" id="fname" placeholder="First Name" required="required"/>
+                                        <input type="text" id="fname" placeholder="First Name" autofocus/>
                                     </div>
                                     <div class="form-group col-md-6">	
                                     <label class="control-label" for="input">Last Name</label><i class="mtrl-select"></i>		

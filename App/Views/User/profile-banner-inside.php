@@ -20,35 +20,35 @@
                         <div class="card-courses-list-bx">
                             <ul class="card-courses-view">
                                 <li class="">
+                                    <h5 style="color: #000000; font-size: 12px;">Age</h5>
                                     <?php if ($userInfo['dob']) { ?>
-                                        <h5 style="color: #000000; font-size: 12px;">Age</h5>
                                         <p style="font-size: 14px;"><?= $age; ?> Years</p>
                                     <?php } else { ?>
-                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Update Age</a>
+                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Go To Settings</a>
                                     <?php } ?>
                                 </li>
                                 <li class="">
+                                    <h5 style="color: #000000; font-size: 12px;">Gender</h5>
                                     <?php if ($userInfo['gender']) { ?>
-                                        <h5 style="color: #000000; font-size: 12px;">Gender</h5>
                                         <p style="font-size: 14px;"><?= $userInfo['gender']; ?></p>
                                     <?php } else { ?>
-                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Update Gender</a>
+                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Go To Settings</a>
                                     <?php } ?>
                                 </li>
                                 <li class="">
+                                    <h5 style="color: #000000; font-size: 12px;">Occupation</h5>
                                     <?php if ($userInfo['occupation']) { ?>
-                                        <h5 style="color: #000000; font-size: 12px;">Occupation</h5>
                                         <p style="font-size: 14px;"><?= $userInfo['occupation']; ?></p>
                                     <?php } else { ?>
-                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Add Occupation</a>
+                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Go To Settings</a>
                                     <?php } ?>
                                 </li>
                                 <li class="">
+                                     <h5 style="color: #000000; font-size: 12px;">Phone No.</h5>
                                     <?php if ($userInfo['number']) { ?>
-                                        <h5 style="color: #000000; font-size: 12px;">Phone No.</h5>
                                         <p style="font-size: 14px;"><?= $userInfo['number']; ?> </p>
                                     <?php } else { ?>
-                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Add Phone No.</a>
+                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=bioTab" style="font-size: 11px; margin: 5px;">Go To Settings</a>
                                     <?php } ?>	
                                 </li>
                                 <li class="">
@@ -56,11 +56,11 @@
                                     <p style="font-size: 14px;"><?= $userInfo['email']; ?></p>
                                 </li>
                                 <li class="">
+                                    <h5 style="color: #000000; font-size: 12px;">Location</h5>
                                     <?php if ($userInfo['address']) { ?>
-                                        <h5 style="color: #000000; font-size: 12px;">Location</h5>
                                         <p style="font-size: 14px;"><?= $userInfo['city']; ?>, <?= $userInfo['country']; ?></p>
                                     <?php } else { ?>
-                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=addressTab" style="font-size: 11px; margin: 5px;">Add Address</a>
+                                        <a href="<?= baseURL('us-settings/'); ?><?= $userInfo['uniqueid']; ?>/?tab=addressTab" style="font-size: 11px; margin: 5px;">Go To Settings</a>
                                     <?php } ?>
                                 </li>
                                 <li class="">

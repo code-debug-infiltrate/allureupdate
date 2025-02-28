@@ -50,16 +50,16 @@ include 'Layout/sidebar.php';
 								<li>
 								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $activity['user_uniqueid']) { ?>
 									<span class="new-users-pic">
-										<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 50px; width: 60px;">
+										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 50px; width: 60px;"></a>
 									</span>
 									<span class="new-users-text">
 										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><?= $user['fname']; ?> <?= $user['lname']; ?></a>
 										<span class="new-users-info"><?= $activity['details']; ?></span>
 									</span>
 									
-									<span class="new-users-btn">
+									<!-- <span class="new-users-btn">
 										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="btn button-sm outline">Check Buddy Out</a>
-									</span>
+									</span> -->
 									<?php } } ?>
 								</li>
 							</ul>

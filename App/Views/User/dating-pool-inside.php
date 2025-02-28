@@ -7,7 +7,7 @@
 
             <div class="col-lg-3 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
-                <div class="widget-box image-effect">
+                <div class="widget-box image-effect"  style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: green;">70%+</em></p>
@@ -52,7 +52,7 @@
 
             <div class="col-lg-3 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
-                <div class="widget-box image-effect"style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+                <div class="widget-box image-effect" style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: red;">-50%</em></p>

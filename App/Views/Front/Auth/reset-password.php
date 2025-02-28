@@ -41,7 +41,7 @@ include 'Layout/navbar.php';
                                 
                                 <div class="form-group">
                                     <label class="control-label" for="input">One-Time Code</label><i class="mtrl-select"></i>
-                                    <input type="text" id="code" value="<?= $_GET['otp']; ?>" required="required"/>
+                                    <input type="text" id="code" value="<?= $_GET['otp']; ?>" required="required" autofocus/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="input">New Password</label><i class="mtrl-select"></i>
