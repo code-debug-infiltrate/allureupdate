@@ -99,7 +99,7 @@
 							<ul>
 								<li>
 									<span class="new-users-pic">
-										<img src="/Images//Body/money.png" alt="Payment Plan"/>
+										<img src="/Images/Body/money.png" alt="Payment Plan"/>
 									</span>
 									<span class="new-users-text">
 										<a href="#" class="new-users-name"><?= $subplan['type']; ?> | <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></a>

@@ -24,9 +24,55 @@ include 'Layout/sidebar.php';
 		</div> -->
 
 
+		<div class="row">
+          
+          <!-- First Column Side -->
+            <div class="col-md-2 col-lg-2">
+            
+            </div>
+            <!-- End First Column Side -->            
+            
 
 
+            <!-- Second Column Side -->
+            <div class="col-md-8 col-lg-8">
 
+				<?php if ($userChats) { ?>
+					<?php foreach ($userChats as $key => $subplan) { ?>
+					<div class="new-user-list" style="margin: 5px;">
+						<ul>
+							<li>
+								<span class="new-users-pic">
+									<img src="/Images/Body/money.png" alt="Payment Plan"/>
+								</span>
+								<span class="new-users-text">
+									<a href="#" class="new-users-name"> Topic</a>
+									<span class="new-users-info"><?= $subplan['details']; ?></span>
+								</span>
+								<span class="new-users-btn">
+									<a href="#" class="btn button-sm outline">Make Payment</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<hr>
+					<?php } ?>
+				<?php } else { ?>
+					<p>You Currently Have No Messages. Start a Chat With a Buddy.</p>
+				<?php } ?>
+
+				</div>
+            <!-- End Second Column Side -->
+
+            
+
+            <!-- Third Column Side -->
+            <div class="col-md-2 col-lg-2">
+            
+            </div>
+            <!-- End Third Column Side -->
+
+    </div>
 
 
 <!-- End oF file -->

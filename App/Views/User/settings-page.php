@@ -35,12 +35,12 @@ include 'Layout/sidebar.php';
 
 
 			<!-- Second Column Side -->
-			<div class="col-md-6 col-lg-6" style="background: #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+			<div class="col-md-6 col-lg-6">
 
 
 				<!-- Username -->
-				<div class="col-lg-12 m-b30" id="usernameTab">
-					<span class="close" id="usernameTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('usernameTab').style.display='none'"> &times;</span>
+				<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);" id="usernameTab">
+					<!-- <span class="close" id="usernameTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('usernameTab').style.display='none'"> &times;</span> -->
 					<div class="card-body">
 						<div class="wc-title">
 							<h4 class="">Account Username  <br><i class="" style="font-size: 11px; color: darkblue;">Create New Username</i> </h4>
@@ -87,8 +87,8 @@ include 'Layout/sidebar.php';
 
 				
 				<!-- Profile Photo -->
-				<div class="col-lg-12 m-b30" style="display: none;" id="profileImageTab">
-					<span class="close" id="profileImageTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('profileImageTab').style.display='none'"> &times;</span>
+				<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="profileImageTab">
+					<!-- <span class="close" id="profileImageTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('profileImageTab').style.display='none'"> &times;</span> -->
 					<div class="card-body">
 						<div class="wc-title">
 							<?php if ($userInfo['profileimage'] == "profile.png") { ?>
@@ -141,8 +141,8 @@ include 'Layout/sidebar.php';
 
 
 				<!-- Address Info -->
-				<div class="col-lg-12 m-b30" style="display: none;" id="addressTab">
-					<span class="close" id="addressTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('addressTab').style.display='none'"> &times;</span>
+				<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="addressTab">
+					<!-- <span class="close" id="addressTab" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('addressTab').style.display='none'"> &times;</span> -->
 					<div class="card-body">
 						<div class="wc-title">
 							<h4> Contact Information  <br><i style="font-size: 11px; color: darkblue;">Only Provide Accurate Information. Information Provided May Be Subject To Verification.</i></h4>
@@ -196,7 +196,7 @@ include 'Layout/sidebar.php';
 
 
 				<!-- Your Profile Views Chart -->
-				<div class="col-lg-12 m-b30" style="display: none;" id="bioTab">
+				<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="bioTab">
 					<div class="card-body">
 						<div class="wc-title">
 							<h4>Keep Your Personal Details Updated!</h4>
@@ -296,8 +296,8 @@ include 'Layout/sidebar.php';
 
 
 				<!-- Password Change -->
-				<div class="col-lg-12 m-b30" style="display: none;" id="passwordTab">
-					<span class="close" id="password" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('password').style.display='none'"> &times;</span>
+				<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="passwordTab">
+					<!-- <span class="close" id="password" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('password').style.display='none'"> &times;</span> -->
 					<div class="card-body">
 						<div class="wc-title">
 							<h4>Update Your Account Password  
@@ -354,8 +354,8 @@ include 'Layout/sidebar.php';
 
 
 			<!-- 2FA Security -->
-			<div class="col-lg-12 m-b30" style="display: none;" id="2faTab">
-                <span class="close" id="2fa" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('2fa').style.display='none'"> &times;</span>
+			<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="2faTab">
+                <!-- <span class="close" id="2fa" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('2fa').style.display='none'"> &times;</span> -->
 				<div class="card-body">
 					<div class="wc-title">
 						<?php if ($userInfo['notify'] == "Off") { ?>
@@ -425,8 +425,8 @@ include 'Layout/sidebar.php';
 			
 
 			<!-- Delete Account -->
-			<div class="col-lg-12 m-b30" style="display: none;" id="deleteAccountTab">
-                <span class="close" id="deleteAccount" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('deleteAccount').style.display='none'"> &times;</span>
+			<div class="col-lg-12 m-b30" style="border:1px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40); display: none;" id="deleteAccountTab">
+                <!-- <span class="close" id="deleteAccount" style="font-size: 40px; padding: 5px;" onclick="document.getElementById('deleteAccount').style.display='none'"> &times;</span> -->
                 <div class="card-body">
 					<div class="wc-title">
 						<h4 class="text-danger"><i class="ti-face-sad mr-3" style="font-size: 34px;"></i> Delete Your Account<br><i style="font-size: 12px; color: darkblue;">Your Account Will Be Deactivated Now But Permanently Deleted After Six (6) Months.</i>  </h4>

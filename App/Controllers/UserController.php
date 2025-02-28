@@ -805,8 +805,6 @@ class UserController extends Controller
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
         $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
   
         if (isset($_POST['replychat'])) {
