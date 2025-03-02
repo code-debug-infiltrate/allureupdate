@@ -104,10 +104,15 @@ $curURL = $tN[1];
                                     <ul class="navigation clearfix">
                                         <li class="<?php if ($curURL == "index" || $curURL == "") {echo "current";}?>"><a href="<?= baseURL('index/'); ?>">Home</a></li>
 
-                                        <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Who We Are</a>
+                                        <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Find Out</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('about-us/'); ?>">About Us</a></li>
-                                                <li><a href="<?= baseURL('how-it-works/'); ?>">How It Works</a></li>
+                                                <li class="dropdown"><a href="#">What We Do</a>
+                                                    <ul>
+                                                        <li><a href="<?= baseURL('how-it-works/'); ?>#matchmaking">Match Making</a></li>
+                                                        <li><a href="<?= baseURL('how-it-works/'); ?>#therapy">Therapy & Consultation</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li class="dropdown"><a href="#">Legal</a>
                                                     <ul>
                                                         <li><a href="<?= baseURL('privacy-policy/')?>">Privacy Policy</a></li>
@@ -177,10 +182,15 @@ $curURL = $tN[1];
                             <ul class="navigation clearfix">
                                 <li class="<?php if ($curURL == "index" || $curURL == "") {echo "current";}?>"><a href="<?= baseURL('index/'); ?>">Home</a></li>
 
-                                <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Who We Are</a>
+                                <li class="<?php if ($curURL == "about-us" || $curURL == "how-it-works" || $curURL == "privacy-policy" || $curURL == "terms-of-service") {echo "current";}?> dropdown"><a href="#">Find Out</a>
                                     <ul>
                                         <li><a href="<?= baseURL('about-us/'); ?>">About Us</a></li>
-                                        <li><a href="<?= baseURL('how-it-works/'); ?>">How It Works</a></li>
+                                        <li class="dropdown"><a href="#">What We Do</a>
+                                            <ul>
+                                                <li><a href="<?= baseURL('how-it-works/'); ?>#matchmaking">Match Making</a></li>
+                                                <li><a href="<?= baseURL('how-it-works/'); ?>#therapy">Therapy & Consultation</a></li>
+                                            </ul>
+                                        </li>
                                         <li class="dropdown"><a href="#">Legal</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('privacy-policy/')?>">Privacy Policy</a></li>

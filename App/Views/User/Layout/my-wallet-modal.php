@@ -25,7 +25,7 @@
 											<select class="form-control" id="amountDeposit">
 												<option value=""></option>
 												<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
-													<option value="<?= $subplan['amount']; ?>"><?= $subplan['type']; ?> For <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></option>
+													<option value="<?= $subplan['amount']; ?>"><?= $subplan['type']; ?>(<?= $subplan['expiry']; ?>) For <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></option>
 												<?php } }  ?>
 											</select>
 										</div>

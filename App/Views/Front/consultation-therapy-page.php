@@ -18,7 +18,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
         <div class="container">
             <div class="content-box">
                 <h1>Asking For Help Is Not Weakness</h1>
-                <div class="text">We are focused and dedicated to helping individuals healthier and more happier people. <br />Fill the form fields below to book a consultation or therapy session.</div>
+                <div class="text">It's a Path Way To Solution. <br>We are focused and dedicated to helping individuals become more healthy and happier.</div>
             </div>
         </div>
     </section>
@@ -54,16 +54,17 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 </div>
                 
                 <div class="col-lg-7 col-md-12 col-sm-12 form-column" style="background: white; padding: 50px; border-radius: 5px;">
-                    <div class="contact-form-area">
+                    <div class="contact-form-area" id="contactForm">
 
-                        <h2>Fill All Form Fields Correctly So We Know How To Help You!</h2>
-                        
+                        <h2>We Are Few Clicks Away!</h2>
+                        <p>Fill All Form Fields Correctly With Accurate Information. The Provided Information Helps Us Get In Touch With You Faster. </p>
+                        <hr>
                         <div class="formError_box" style="margin:10px 0px;"></div>
 
-                        <form method="POST" action="" id="contact-form" class="default-form"> 
+                         
                             <input type="hidden" name="ip" id="ip" value="<?php echo $ip?>">
 		                	<input type="hidden" name="ua" id="ua" value="<?php echo $user_agent?>">
-                            <input type="hidden" id="urlCon" value="<?= trim(getenv('baseURL'))."ajax-consultation/";?>">
+                            <input type="hidden" id="url" value="<?= trim(getenv('baseURL'));?>">
 
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -80,7 +81,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                 <div class="form-group col-md-6">
                                     <label>Gender</label>
                                     <select class="form-control" id="gender" required>
-                                    <option value=""></option>
+                                    <option value="" disabled selected> -Gender- </option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
                                 </select>
@@ -88,7 +89,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                 <div class="form-group col-md-6">
                                 <label> Current Location</label>
                                 <select class="form-control" id="location" required>
-                                    <option value=""></option>
+                                    <option value="" disabled selected> -Location- </option>
                                     <option value="AFG">Afghanistan</option>
                                     <option value="ALA">Ƭand Islands</option>
                                     <option value="ALB">Albania</option>
@@ -360,10 +361,11 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                 </div>
                                 <div class="form-group col-md-6">
                                 <label> Preferred Method To Contact You</label>
-                                <select class="form-control" id="contactme" required>
-                                    <option value=""></option>
-                                    <option value="Email Only">Contact Me Through Email Only</option>
-                                    <option value="Whatsapp Call">Contact Me Through Whatsapp Call</option>
+                                <select class="form-control" id="contactmethod" required>
+                                    <option value="" disabled selected> -Method- </option>
+                                    <option value="Through Email">Contact Me Through Email</option>
+                                    <option value="Through Whatsapp">Contact Me Through Whatsapp</option>
+                                    <option value="Zoom Call">Contact Me Through Zoom Call</option>
                                 </select>
                                 </div>
                             </div>
@@ -377,9 +379,122 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                 <button type="submit" class="theme-btn" id="startConsultation" name="submit">Continue To Payment</button>
                             </div>
 
-                        </form>
+                       
 
                     </div>
+
+                    <div class="contact-form-area" id="paymentForm" style="display: none;">
+                        <h2>Make Payment To Complete Booking.</h2>
+                        <hr>
+                        <?php foreach ($subPlans as $key => $subplan) { if (($subplan['type'] == "Consultation") || ($subplan['type'] == "Therapy")) {  ?>
+                            <h2>Session Fee: <?= $curInfo['currency']; ?><?= $subplan['amount']?></h2>
+                            <input type="hidden" class="form-control"  id="amount" value="<?= $subplan['amount']?>" placeholder="Transaction Amount" required>
+                            
+                            <?php if ($exchangeInfo) { foreach ($exchangeInfo as $key => $exchange) { if ($exchange['currency'] == "Naira") {  ?>
+                                <p><b>Naira Rate:</b>  NGN<?= number_format($subplan['amount'] * $exchange['rate']); ?> Only</p>
+                                <input type="hidden" class="form-control"  id="cardamount" value="<?= $subplan['amount'] * $exchange['rate']; ?>" placeholder="Transaction Amount" required>
+                            <?php } } } ?>
+                            
+                            <p>Sessions Are One-Time Bills. You Can Book As Many Sessions As You Like.</p>
+                        <?php } } ?>
+
+                        <input type="hidden" class="form-control"  id="currency" value="<?= $curInfo['currency']; ?>" placeholder="Transaction Currency" required>
+                        <input type="hidden" class="form-control"  id="memo" maxlength="200" value="One-Time Consultation|Therapy Payment (Single Session)" placeholder="Transaction Details" required>
+                           
+                        <hr>
+                        <?php if ($bankInfo['status'] == "Publish") { ?>
+                        <div class="form-group message-btn">
+                            <button type="submit" id="payWithTransfer" class="theme-btn m-r5"><img src="/Images/Body/transfers.png" style="width: 15%; margin-right: 20px;"> Bank Transfer </button>
+                        </div>
+                        <?php } ?>
+                        <hr>
+                        <center><label style="color: red; font-size: 12px;">Service Fees May Apply For Online | Card Payments.</label></center>
+                        <div class="form-group message-btn">
+                            <button type="submit" id="payWithOnline" class="theme-btn m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Online | Cards </button>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- Card|Online Payment result -->
+					<div class="col-12 col-md-12 mx-auto mb-3" id="online_info" style="display: none;">
+						<h2 class="fw-400 text-4 text-center mt-1">Online Card Transfer! </h2>
+
+						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment. Your Deposit Will Be Added Automatically.</p>
+						
+						<div class="col-12 col-md-12 mx-auto">
+							<div class="mb-3">
+								<p class="payInfo"></p>
+							</div>
+							
+							<div>
+								<center><p style="color: blue; font-size: 12px;">Click The Button Below Only If You Are Ready To Make The Payment. <br><i class="text-danger"><b>Note That Service Fee May Apply.</b></i></p></center>
+								<hr>
+								<div class="modal-footer">
+									<div class="urlLink"></div>
+								</div>
+								<hr>
+							</div>
+						</div>
+					</div>
+					<!-- Card|Online Payment result End -->
+
+
+
+                    
+								
+					<!-- Bank Payment result -->
+					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_info" style="display: none;">
+						<h2 class="fw-400 text-4 text-center mt-1"><b>Bank Transfer Details!</b></h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Please Follow The Instructions On This Page Carefully To Prevent Issues With Your Deposit. <br>Use The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<br>
+						<div class="col-12 col-md-12 mx-auto">
+							<div class="mb-3">
+								<p class="bankName"></p>
+                                <br>
+								<p class="accountName"></p>
+                                <br>
+								<p class="acccountNumber"></p>
+                                <br>
+								<p class="amount"></p>
+                                <br>
+								<p class="narration"></p>
+                                <br>
+								<p class="swiftCode"></p>
+							</div>
+
+							<hr>
+							<div class="contact-form-area" >
+								<center><label style="color: green; font-size: 12px;">Click The Button Below Only If You Have Made The Payment</label></center>
+								<div class="form-group message-btn">
+									<button type="submit" id="doneBankTransfer" class="theme-btn m-r5"><img src="/Images/Body/thumb-up.png" style="width: 15%; margin-right: 20px;"> I Have Transfered Money </button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Bank Payment result End -->
+
+
+					<!-- Bank Payment Done -->
+					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_done_info" style="display: none;">
+						<h2 class="fw-400 text-4 text-center mt-1">Bank Transfer Sent! </h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Please Hold On For a Moment, Our System Is Watching Out For Your Deposit To Be Confirmed. <br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						
+						<div class="col-12 col-md-12 mx-auto">
+
+							<hr>
+							<center>
+								<img src="/Images/Body/thumb-up.png" style="width: 40%;"> 
+								<hr><br>
+								<label style="color: green; font-size: 18px;">Our System Will Keeping Monitoring Your Payment. You WIll Be Alerted As Soon As It's Confirmed!</label>
+							</center>
+
+						</div>
+					</div>
+					<!-- Bank Payment Done End -->
+
+
                 </div>
 
             </div>

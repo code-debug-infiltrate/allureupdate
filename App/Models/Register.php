@@ -80,6 +80,42 @@ class Register extends Model
          
         return $ch;
     }
+
+
+    //Function to Create A New Account using Oriented API
+    public function confirm_consultation($params)
+    {   
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+        
+        
+        //$user = $data['user_info'];
+        $coy = $apiInfo->get_curl($token_info['url'].'/coy-info');
+        $coy_info = json_decode($coy, true);
+        //Send Email Alert To User
+        Mail::mailer('RegistrationAlert')->consultation_alert($params, $coy_info); 
+        $data = array(
+            'result_info' => array('code' => "200", 'type' => "success", 'message' => "Booking Created, Select Payment Method To Continue.", ),
+            'buddy_info' => $params,
+        );
+        $ch = json_encode($data, JSON_FORCE_OBJECT);
+        
+        return $ch;
+    }
+
+    //Function to Create A New Account using Oriented API
+    public function pay_consultation($params)
+    {   
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+        
+        
+        //$user = $data['user_info'];
+        $coy = $apiInfo->get_curl($token_info['url'].'/get-bank-info');
+        $coy_info = json_decode($coy, true);
+        
+        return $coy;
+    }
      
 
 

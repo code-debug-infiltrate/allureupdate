@@ -26,9 +26,9 @@
                             <div class="left-layer"></div>
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-headphones"></i></div>
-                            <h3><a href="<?= baseURL('write-us/'); ?>">Private Sessions</a></h3>
+                            <h3><a href="<?= baseURL('how-it-works/'); ?>#therapy">Private Sessions</a></h3>
                             <div class="text">Book a private session with one of our experts. Where you get to meet virtually for result focused interactions.</div>
-                            <div class="btn-box"><a href="<?= baseURL('write-us/'); ?>">Book Session</a></div>
+                            <div class="btn-box"><a href="<?= baseURL('how-it-works/'); ?>#therapy">Book Session</a></div>
                         </div>
                     </div>
                 </div>
@@ -38,9 +38,9 @@
                             <div class="left-layer"></div>
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-heartbeat"></i></div>
-                            <h3><a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy Services</a></h3>
+                            <h3><a href="<?= baseURL('how-it-works/'); ?>#therapy">Therapy Services</a></h3>
                             <div class="text">Individuals, Couples and Group. Priotize your mental health - Personalized therapy for a happier and healthier you.</div>
-                            <div class="btn-box"><a href="<?= baseURL('consultation-and-therapy/'); ?>">Start Here</a></div>
+                            <div class="btn-box"><a href="<?= baseURL('how-it-works/'); ?>#therapy">Start Here</a></div>
                         </div>
                     </div>
                 </div>

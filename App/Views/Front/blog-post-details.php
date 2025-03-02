@@ -201,9 +201,9 @@ include 'Layout/navbar.php';
                     <div class="sidebar blog-sidebar">
                         <div class="contact-widget sidebar-widget wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="widget-content">
-                                <h4>Need Professional Help On Personal, Marital Or Career Matters?</h4>
+                                <h4>Need Professional Help On Personal, Marital Or Career Issues?</h4>
                                 <div class="text">Take a bold step by booking a strategic session today.</div>
-                                <div class="btn-box"><a href="<?= baseURL('write-us/'); ?>"><i class="fas fa-angle-right"></i>Contact Us</a></div>
+                                <div class="btn-box"><a href="<?= baseURL('consultation-and-therapy/'); ?>"><i class="fas fa-angle-right"></i>Start Here</a></div>
                             </div>
                         </div>
                         <div class="search-widget sidebar-widget">

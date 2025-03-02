@@ -324,6 +324,41 @@ class User extends Model
     }
 
 
+
+
+
+     //Function to Make Bank Transfer|Deposit using Oriented API
+     public function make_deposit($params)
+     {
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+
+        if ($params['type'] == "Bank Deposit") {
+            $ch = $apiInfo->get_curl($token_info['url'].'/get-bank-info?');
+            $bank = json_decode($ch, true);
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => "0", 'total' => $params['amount'], 'cur_bal' => $params['cur_bal'], 'bank' => $bank['result_message']['bankname'], 'accname' => $bank['result_message']['acctname'], 'accnum' => $bank['result_message']['acctnum'], 'details' => $params['uniqueid']."-".$params['details'], );
+        } else {
+            //Transaction Fee;
+            $charges = (1.5/100 * $params['amount']) + 100;
+            $total = $params['amount'] + $charges;
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => $charges, 'total' => $total, 'cur_bal' => $params['cur_bal'], 'bank' => "Online Card Payment", 'accname' => "Allure-D Third Party", 'accnum' => "0001101010",'details' => $params['uniqueid']."-".$params['details'], );
+        }
+ 
+         $url = ''.$token_info['url'].'/make-deposit';
+  
+         $body = http_build_query($newParams);
+         $ch = $apiInfo->post_curl($url, $body);
+ 
+         $coy = $apiInfo->get_curl($token_info['url'].'/coy-info');
+         $coy_info = json_decode($coy, true);
+         
+         //Send Email Alert To Admin
+         Mail::mailer('AdminAlert')->deposit_alert($newParams, $coy_info); 
+         
+         return $ch;
+     }
+
+
        
 
     //Function For Update Username using Oriented API

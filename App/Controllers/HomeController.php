@@ -6,6 +6,8 @@ use Config\Controller;
 use Config\Validate;
 use Config\ModelFactory;
 
+use App\Controllers\Paystack;
+
 /**
  * Homepage Controller
  */
@@ -206,9 +208,17 @@ class HomeController extends Controller
     public function consultation_therapy()
     {
         $coyInfo = ModelFactory::model('Register')->coy_info();
+        $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
+        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
+        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
      
         $data = array(
             'coyInfo' => $coyInfo, 
+            'subPlans' => $subPlans['result_message'],
+            'bankInfo' => $bankInfo['result_message'], 
+            'curInfo' => $curInfo['result_message'], 
+            'exchangeInfo' => $exchangeInfo['result_message'], 
         );
 
         $this->view('Front/consultation-therapy-page', $data);
@@ -412,6 +422,135 @@ class HomeController extends Controller
            echo $member;
        }
    }
+
+
+
+
+
+   //Send Admin Email For Therapy Service
+   public function ajax_therapy()
+   {
+       $v = new Validate();
+
+       if ($_POST['email']!="") {
+           //Get form inputs
+           $fname = $v->clean($_POST['fname']);
+           $lname = $v->clean($_POST['lname']);
+           $email = $v->clean($_POST['email']);
+           $phone = $v->clean($_POST['phone']);
+           $gender = $v->clean($_POST['gender']);
+           $location = $v->clean($_POST['location']);
+           $contactdate = $v->clean($_POST['contactdate']);
+           $contactmethod = $v->clean($_POST['contactmethod']);
+           $message = $v->clean($_POST['msg']);
+           $ip = $v->clean($_POST['ip']);
+           $ua = $v->clean($_POST['ua']);
+
+           $info = array('fname' => trim($fname), 'lname' => trim($lname), 'phone' => trim($phone),'email' => trim($email), 'gender' => trim($gender), 'location' => trim($location), 'contactdate' => trim($contactdate), 'contactmethod' => trim($contactmethod), 'message' => trim($message), 'ip' => $ip, 'user_agent' => $ua,);
+           //Call API Function
+           $member = ModelFactory::model('Register')->confirm_consultation($info);
+           
+           echo $member;
+       }
+   }
+
+
+   //Send Admin Email For Therapy Service
+   public function ajax_bank_details()
+   {
+       $v = new Validate();
+
+       if ($_POST['email']!="") {
+           //Get form inputs
+           $fname = $v->clean($_POST['fname']);
+           $lname = $v->clean($_POST['lname']);
+           $email = $v->clean($_POST['email']);
+           $amount = $v->clean($_POST['amount']);
+
+           $info = array('fname' => trim($fname), 'lname' => trim($lname), 'email' => trim($email), );
+           //Call API Function
+           $member = ModelFactory::model('Register')->pay_consultation($info);
+           
+           echo $member;
+       }
+   }
+
+
+
+
+   
+
+    //Connect Third Party Details For Deposit
+    public function online_card_payments()
+    {
+        $v = new Validate();
+        $paystack = new Paystack(); 
+
+        if (($_POST['fname']!="") && ($_POST['email']!="")){
+
+            $fname = $v->clean($_POST['fname']);
+            $lname = $v->clean($_POST['lname']);
+            $email = $v->clean($_POST['email']);
+            $amount = $v->clean($_POST['amount']);
+            $currency = $v->clean($_POST['currency']);
+            $memo = $v->clean($_POST['memo']);
+
+            //Transaction Fee;
+            $chargeAmount = (1.5/100 * $amount) + 100;
+            $newAmount = $amount + $chargeAmount;
+            
+            $info = array('email' => $email, 'fname' => $fname, 'amount' => $newAmount, 'memo' => $memo, 'lname' => $lname, 'transaction_charge' => $chargeAmount,  );
+            $deposit = $paystack->card_payment($info);
+            $real = json_decode($deposit, true);
+
+            if (isset($real['responseBody'])) {
+                
+                $url = $real['responseBody']['checkoutUrl'];
+                $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo."-URL:-".$url,  );
+                $result = ModelFactory::model('User')->make_deposit($info);
+            } else {
+
+                $url = $real['data']['authorization_url'];
+                $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo."-URL:-".$url,  );
+                $result = ModelFactory::model('User')->make_deposit($info);
+            }
+
+            echo $deposit;
+        }
+    }
+
+
+
+
+
+    
+
+
+    //Transaction Payment Info
+    public function ajax_bank_transfer_done()
+    {
+        $v = new Validate(); 
+
+        if (($_POST['fname']!="") && ($_POST['lname']!="")){
+
+            $fname = $v->clean($_POST['fname']);
+            $lname = $v->clean($_POST['lname']);
+            $email = $v->clean($_POST['email']);
+            $currency = $v->clean($_POST['currency']);
+            $amount = $v->clean($_POST['amount']);
+            $type = $v->clean($_POST['type']);
+            $memo = $v->clean($_POST['memo']);
+            $phone = $v->clean($_POST['phone']);
+
+            $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'type' => $type, 'phone' => $phone, 'details' => $memo,  );
+
+            $result = ModelFactory::model('User')->make_deposit($info);
+
+            //$data = json_encode($result);
+
+            echo $result;
+        }
+    }
 
 
 
