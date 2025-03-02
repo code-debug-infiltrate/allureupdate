@@ -143,13 +143,10 @@
 
 							<li><a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-layout-accordion-list mr-3" style="color: rgb(57, 6, 91);"></i> Preference Settings</a></li>
 							
-							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
+							<li class="ttr-seperate" style="border: 1px solid rgb(202, 201, 202);"></li>
 							<li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-3" style="color: rgb(57, 6, 91);"></i> My Profile</a></li>
 							
-							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
-							<li><a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-bell mr-3" style="color: rgb(57, 6, 91);"></i> Notifications</a></li>
-
-							<li class="ttr-seperate" style="border: 1px solid rgb(57, 6, 91);"></li>
+							<li class="ttr-seperate" style="border: 1px solid rgb(202, 201, 202);"></li>
 							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-power-off mr-3" style="color: rgb(57, 6, 91);"></i> Logout</a></li>
 
 						</ul>
@@ -222,3 +219,4 @@
 <input type="hidden" name="lname" id="lname" value="<?= $userInfo['lname']; ?>" required>
 <input type="hidden" name="email" id="email" value="<?= $userInfo['email']; ?>" required>
 <input type="hidden" name="url" id="url" value="<?= $url.$_SERVER['HTTP_HOST']."/";?>">
+<input type="hidden" name="currency" id="currency" value="<?= $curInfo['currency'];?>">

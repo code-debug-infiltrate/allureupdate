@@ -41,11 +41,13 @@ include 'Layout/sidebar.php';
 
 			<?php include 'dating-pool-inside.php'; ?>
 
+			<?php include 'random-buddies-inside.php'; ?>
+
 		<?php } ?>
 
 
 
-
+		<?php include 'random-buddies-modal.php'; ?>
 <!-- End oF file -->
 
 	</div>

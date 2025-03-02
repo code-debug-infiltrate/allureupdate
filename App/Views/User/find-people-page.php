@@ -57,7 +57,7 @@ include 'Layout/sidebar.php';
 												<img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
 										<?php } } } ?>
 										
-										<b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> | <?= $user['city']?> </i>
+										<b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> Yrs | <?= $user['city']?> </i>
 									</a> 
 								</h6>
 								
@@ -86,3 +86,7 @@ include 'Layout/sidebar.php';
 
 
 <?php include 'Layout/footer.php'; ?>
+
+
+
+

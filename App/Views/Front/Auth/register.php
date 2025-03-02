@@ -98,9 +98,9 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                             <center><img src="/Images/Body/thumb-up.png" style="width: 150px; margin: 80px;" alt="Successful-icon"></center>
                             <h5 class="welcome log-title" style="text-align: center; font-weight: 600;">Congratulations!!!<br><br>You Are Now a Member!</h5>
                             <br>
-                            <div class="clickable" style="font-size: 16px; font-weight: 700; text-align: center;">You Can Proceed To The <a href="<?= trim(getenv('baseURL'))."login/";?>">Login Portal</a></div>
+                            <div class="clickable" style="font-size: 16px; font-weight: 700; text-align: center;">Check Your Email Inbox Or Spam Folder For Your Password & Membership Details Then Proceed To The <a href="<?= trim(getenv('baseURL'))."login/";?>">Login Portal</a></div>
                             <br><br>
-                            <p class="notme" style="font-size: 14px; color: red; text-align: center;">Check Your Email Inbox Or Spam Folder For Your Membership Details. <br>Remember To Keep Your Account Information Safe!</p>
+                            <p class="notme" style="font-size: 14px; color: red; text-align: center;">Remember To Keep Your Account Information Safe!</p>
                             <br><br>
                         </div>
                     </div>
