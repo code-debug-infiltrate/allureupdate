@@ -203,6 +203,23 @@ class HomeController extends Controller
      /**
      * Display method for static route
      */
+    public function consultation_therapy()
+    {
+        $coyInfo = ModelFactory::model('Register')->coy_info();
+     
+        $data = array(
+            'coyInfo' => $coyInfo, 
+        );
+
+        $this->view('Front/consultation-therapy-page', $data);
+    }
+
+
+
+
+     /**
+     * Display method for static route
+     */
     public function faqs()
     {
         $coyInfo = ModelFactory::model('Register')->coy_info();

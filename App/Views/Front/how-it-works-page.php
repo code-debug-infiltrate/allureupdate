@@ -92,8 +92,8 @@ include 'Layout/navbar.php';
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-edit"></i></div>
                             <h3><a href="<?= baseURL('new-member/'); ?>">Registration</a></h3>
-                            <div class="text"> Needing Help Is Not Weakness. It's a Path Way To Solution. <a href="<?= baseURL('new-member/'); ?>">Register</a> Your Details. <br>Your Welcome Message Which Includes Password Will Be Sent To Your Email Inbox Or SPam Folder.<br>Find Your Welcome Message And Follow The Instructions In The Email To <a href="<?= baseURL('login/'); ?>">Login</a> To Your Dashboard.</div>
-                            <div class="btn-box"><a href="<?= baseURL('new-member/'); ?>">Join Free</a></div>
+                            <div class="text"> Needing Help Is Not Weakness. It's a Path Way To Solution. <a href="<?= baseURL('new-member/'); ?>">Register</a> Your Details. <br>Your Welcome Message Which Includes Booking Schedule Will Be Sent To Your Email Inbox Or SPam Folder.<br>Find Your Welcome Message And Follow The Instructions In The Email. </div>
+                            <div class="btn-box"><a href="<?= baseURL('consultation-and-therapy/'); ?>">Join Free</a></div>
                         </div>
                     </div>
                 </div>
@@ -103,9 +103,9 @@ include 'Layout/navbar.php';
                             <div class="left-layer"></div>
                             <div class="right-layer"></div>
                             <div class="icon-box"><i class="fa fa-user"></i></div>
-                            <h3><a href="<?= baseURL('login/'); ?>">Profile Setup</a></h3>
-                            <div class="text">If You Found Your Welcome Email In Your Inbox Folder, Good, Else Check Your Spam Folder. <br><a href="<?= baseURL('login/'); ?>">Login</a> To Your <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Member Dashboard. Your Profile Setup Steps Will Be Waiting. <br>Answer All Questions And You're Already On Your Way To Getting The Help You Need.</div>
-                            <div class="btn-box"><a href="<?= baseURL('login/'); ?>">Setup profile</a></div>
+                            <h3><a href="<?= baseURL('login/'); ?>">Booking Setup</a></h3>
+                            <div class="text">If You Found Your Welcome Email In Your Inbox Folder, Good, Else Check Your Spam Folder. Your Booking Is Already In Progress. <br>Answer All Questions And You're Already On Your Way To Getting The Help You Need.</div>
+                            <div class="btn-box"><a href="<?= baseURL('consultation-and-therapy/'); ?>">Setup profile</a></div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ include 'Layout/navbar.php';
                             <div class="icon-box"><i class="fa fa-heartbeat"></i></div>
                             <h3><a href="<?= baseURL('blog/'); ?>">Therapy Services</a></h3>
                             <div class="text">If You Want Consultation Session Or Theraphy As Individuals, Couples Or Group, We Got You Covered. <br> Just Select Therapy Option, Schedule Your Time, Make Payment And You Will Be Booked Immediately. <br>Remember To Follow All Instructions Or Chat One Of Our Representatives Using Our <a href="<?= baseURL('write-us/')?>">Contact Us</a> Page. </div>
-                            <div class="btn-box"><a href="<?= baseURL('blog/'); ?>">Start Here</a></div>
+                            <div class="btn-box"><a href="<?= baseURL('consultation-and-therapy/'); ?>">Start Here</a></div>
                         </div>
                     </div>
                 </div>

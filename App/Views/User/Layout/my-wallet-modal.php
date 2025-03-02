@@ -15,35 +15,44 @@
 						<p class="lead text-3 text-center mb-2">Select & Pay Your TV Plan Anytime, Anywhere!</p> -->
 						<div class="col-md-12 mx-auto">
 							<div class="bg-white shadow-sm rounded">
-								
-							<?php if ($subPlans) { ?>
-								<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
-									<div class="new-user-list" style="margin: 5px;">
-										<ul>
-											<li>
-												<input type="hidden" name="amountDeposit" id="amountDeposit" value="<?= $subplan['amount']; ?>">
-												<span class="new-users-pic">
-													<img src="/Images/Body/money.png" alt="Payment Plan"/>
-												</span>
-												<span class="new-users-text">
-													<a href="#" class="new-users-name"><?= $subplan['type']; ?> | <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></a>
-													<span class="new-users-info"><?= $subplan['details']; ?></span>
-												</span>
-												<span class="new-users-btn">
-													<a href="#" class="btn button-sm outline" alt="<?= $subplan['type']; ?>" id="payWithTransfer">Bank Transfer</a>
-												</span>
-												<span class="new-users-btn">
-													<a href="#" class="btn button-sm outline" alt="<?= $subplan['type']; ?>" id="payWithOnline">Online Payment</a>
-												</span>
-											</li>
-										</ul>
 
+							<form method="POST" action="" autocomplete="off">
+								<div class="amountDepositError_box" style="margin:10px 0px;"></div>
+								<?php if ($subPlans) { ?>
+									<div class="mb-3">
+										<label for="youSend" class="form-label">Select a Plan (Pay In <?= $curInfo['name']; ?>)</label>
+										<div class="input-group">
+											<select class="form-control" id="amountDeposit">
+												<option value=""></option>
+												<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
+													<option value="<?= $subplan['amount']; ?>"><?= $subplan['type']; ?> For <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></option>
+												<?php } }  ?>
+											</select>
+										</div>
 									</div>
+									<?php  } ?>
+									<div class="memoDepositError_box" style="margin:10px 0px;"></div>
+									<div class="mb-3">
+										<label for="youSend" class="form-label">Narration</label>
+										<div class="input-group">
+											<span class="input-group-text"><i class="fa fa-comments"></i></span>
+											<input type="text" class="form-control"  id="memoDeposit" maxlength="200" value="<?= $userInfo['username']; ?> Matchmaking Subscription Payment" placeholder="Transaction Details" required>
+											
+										</div>
+									</div>
+
+									<?php if ($bankInfo['status'] == "Publish") { ?>
+									<div class="modal-footer">
+										<button type="submit" id="payWithTransfer" class="btn-secondry add-item m-r5"><img src="/Images/Body/transfers.png" style="width: 15%; margin-right: 20px;"> Bank Transfer </button>
+									</div>
+									<?php } ?>
 									<hr>
-								<?php } } ?>
-							<?php } else { ?>
-								<p>No Subscription Plans</p>
-							<?php } ?>
+									<center><label style="color: red; font-size: 12px;">Service Fees May Apply For Online | Card Payments.</label></center>
+									<div class="modal-footer">
+										<button type="submit" id="payWithOnline" class="btn-secondry add-item m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Online | Cards </button>
+									</div>
+								</form>
+								
 
 							</div>
 						</div>

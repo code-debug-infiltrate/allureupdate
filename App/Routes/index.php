@@ -28,6 +28,7 @@ $router->get('/privacy-policy', [HomeController::class, 'privacy_policy']);
 $router->get('/terms-of-service', [HomeController::class, 'terms_of_service']);
 $router->get('/testimonials', [HomeController::class, 'testimonials']);
 $router->get('/love-story', [HomeController::class, 'love_story']);
+$router->get('/consultation-and-therapy', [HomeController::class, 'consultation_therapy']);
 
 $router->get('/write-us', [HomeController::class, 'contact_us']);
 $router->get('/ajax-contact', [HomeController::class, 'ajax_contact']);
