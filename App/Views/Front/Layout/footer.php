@@ -28,10 +28,10 @@
                                 <h4 class="widget-title">Need Help?</h4>
                                 <div class="widget-content">
                                     <ul>
+                                        <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a></li>
                                         <li><a href="<?= baseURL('faqs/'); ?>">FAQs</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
-                                        <li><a href="<?= baseURL('privacy-policy/'); ?>">Privacy Policy</a></li>
-                                        <li><a href="<?= baseURL('terms-of-service/'); ?>">Terms Of Service</a></li>
+                                        <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -44,6 +44,7 @@
                                         <li><a href="<?= baseURL('new-member/'); ?>"> Find a Match </a></li>
                                         <li><a href="<?= baseURL('forgot-password/'); ?>"> Forgot Password </a></li>
                                         <li><a href="<?= baseURL('login/'); ?>">Login to Dashboard</a></li>
+                                        <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -120,8 +121,17 @@
                         <h4>About Us</h4>
                         <p class="text"><?= $coyInfo['slogan']; ?></p>
                         <br>
-                        <a href="<?= baseURL('about-us/'); ?>">Learn More</a>
+                        <a href="<?= baseURL('about-us/'); ?>" style="color: #fff;">Learn More</a>
+                        
                     </div>
+                    <p class="text mt-5"> <b style="font-size: 16px;">Services We Offer Are:</b>
+                        <br> 
+                        <a class="mt-5" href="<?= baseURL('new-member/'); ?>">🌟 Match Making</a>
+                        <br>
+                        <a class="mt-3" href="<?= baseURL('consultation-and-therapy/'); ?>">🌟 Consultation</a> 
+                        <br>
+                        <a class="mt-3" href="<?= baseURL('consultation-and-therapy/'); ?>">🌟 Therapy</a>
+                    </p>
                     <div class="contact-info">
                         <h4>Contact Info</h4>
                         <ul>

@@ -22,7 +22,9 @@ include 'Layout/navbar.php';
                         <div id="loginForm">
                             <h3>Welcome Back, Login</h3>
                             <div class="text"> 
-                                Fill In Your Member Credentials In The Form Fields Below
+                            <b style="font-size: 10px; font-weight: 500; color: red;">Member Area Is For Matchmaking Only. <br>If You Need <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
+                            <hr>
+                                Fill In Your Member Credentials Below
                                 <br>
                                 Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>">Create Your Account</a>
                             </div>

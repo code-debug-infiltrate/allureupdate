@@ -124,18 +124,25 @@ $curURL = $tN[1];
 
                                         <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                        <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                        <li class="<?php if ($curURL == "consultation-and-therapy" || $curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
                                                 <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                                 <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
+                                                <li class="dropdown"><a href="#">One-On-One</a>
+                                                    <ul>
+                                                        <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a></li>
+                                                        <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </li> 
 
-                                        <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
+                                        <li class="<?php if ($curURL == "forgot-password" || $curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
                                             <ul>
                                                 <li><a href="<?= baseURL('login/'); ?>">Login</a></li>
                                                 <li><a href="<?= baseURL('new-member/'); ?>">Register</a></li>
+                                                <li><a href="<?= baseURL('forgot-password/'); ?>">Forgot Password</a></li>
                                             </ul>
                                         </li> 
 
@@ -202,20 +209,27 @@ $curURL = $tN[1];
 
                                 <li class="<?php if ($curURL == "testimonials") {echo "current";}?>"><a href="<?= baseURL('testimonials/'); ?>">Love Stories</a></li>
 
-                                <li class="<?php if ($curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
+                                <li class="<?php if ($curURL == "consultation-and-therapy" || $curURL == "safety-security" || $curURL == "faqs" || $curURL == "write-us") {echo "current";}?> dropdown"><a href="#">Need Help?</a>
                                     <ul>
                                         <li><a href="<?= baseURL('faqs/'); ?>">Faqs</a></li>
                                         <li><a href="<?= baseURL('safety-security/'); ?>">Safety & Security</a></li>
                                         <li><a href="<?= baseURL('write-us/'); ?>">Write Us</a></li>
+                                        <li class="dropdown"><a href="#">One-On-One</a>
+                                            <ul>
+                                                <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a></li>
+                                                <li><a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li> 
 
                                 <li class="<?php if ($curURL == "blog") {echo "current";}?>"><a href="<?= baseURL('blog/'); ?>all/">News & Updates</a></li>
                                  
-                                <li class="<?php if ($curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
+                                <li class="<?php if ($curURL == "forgot-password" || $curURL == "new-member" || $curURL == "login") {echo "current";}?> dropdown"><a href="#">Member Area</a>
                                     <ul>
                                         <li><a href="<?= baseURL('login/'); ?>">Login</a></li>
                                         <li><a href="<?= baseURL('new-member/'); ?>">Register</a></li>
+                                        <li><a href="<?= baseURL('forgot-password/'); ?>">Forgot Password</a></li>
                                     </ul>
                                 </li> 
 

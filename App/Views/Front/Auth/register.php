@@ -24,11 +24,12 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <div id="registerForm">
-                            <h3>Ready To Find Valuable Connection?</h3>
+                            <h3>Ready To Find Valuable Connections?</h3>
                             <div class="text"> 
-                                Fill In Your Personal Credentials In The Form Fields Below
-                                <br>
-                                Already a Member? <a href="<?= baseURL('login/'); ?>">Sign In</a>
+                                <b style="font-size: 10px; font-weight: 500; color: red;">Registration Is For Matchmaking Only. <br>If You Need <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
+                                <hr>
+                                Fill In Your Personal Credentials Below To Register. <br>
+                                Already a Member? <a href="<?= baseURL('login/'); ?>">Click Here</a>
                             </div>
                             <div class="formError_box" style="margin:10px 0px;"></div>
                             <br>

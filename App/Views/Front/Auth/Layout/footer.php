@@ -73,8 +73,16 @@
                         <h4>About Us</h4>
                         <p class="text"><?= $coyInfo['slogan']; ?></p>
                         <br>
-                        <a href="<?= baseURL('about-us/'); ?>">Learn More</a>
+                        <a href="<?= baseURL('about-us/'); ?>" style="color: #fff;">Learn More</a>
                     </div>
+                    <p class="text mt-5"> <b style="font-size: 16px;">Services We Offer Are:</b>
+                        <br> 
+                        <a class="mt-5" href="<?= baseURL('new-member/'); ?>">🌟 Match Making</a>
+                        <br>
+                        <a class="mt-3" href="<?= baseURL('consultation-and-therapy/'); ?>">🌟 Consultation</a> 
+                        <br>
+                        <a class="mt-3" href="<?= baseURL('consultation-and-therapy/'); ?>">🌟 Therapy</a>
+                    </p>
                     <div class="contact-info">
                         <h4>Contact Info</h4>
                         <ul>

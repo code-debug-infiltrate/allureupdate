@@ -57,7 +57,10 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                     <div class="contact-form-area" id="contactForm">
 
                         <h2>We Are Few Clicks Away!</h2>
-                        <p>Fill All Form Fields Correctly With Accurate Information. The Provided Information Helps Us Get In Touch With You Faster. </p>
+                        <p>
+                            <b style="font-size: 11px; font-weight: 500; color: red;">Kindly Note That This Service Is NOT FREE. If You Need <a href="<?= baseURL('new-member/'); ?>">Match Making</a> Service, Kindly <a href="<?= baseURL('new-member/'); ?>">Click Here</a>.</b>
+                            <hr>
+                            Fill All Form Fields Correctly With Accurate Information. The Provided Information Helps Us Get In Touch With You Faster. </p>
                         <hr>
                         <div class="formError_box" style="margin:10px 0px;"></div>
 
