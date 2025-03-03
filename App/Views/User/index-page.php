@@ -4,7 +4,7 @@ include 'Layout/navbar.php';
 include 'Layout/sidebar.php'; 
 ?>
 
-<title>Welcome Back <?= $userInfo['username']; ?> | Home Page | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
+<title><?= $userInfo['username']; ?>'s Virtual Pool | Virual Pool Page | Meet New Buddies | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
 
 
 <!--Main container start -->

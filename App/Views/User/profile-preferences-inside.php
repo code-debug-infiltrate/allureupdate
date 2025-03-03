@@ -46,7 +46,7 @@
         <div class="col-md-4 col-lg-4">
 
             <?php if ($user_myself) { ?>
-            <h2>My Personal Qualities</h2>
+            <h2>My Qualities</h2>
             <ul class="ttr-header-navigation">
                 
                 <li>
@@ -137,7 +137,7 @@
         <div class="col-md-4 col-lg-4">
 
             <?php if ($user_preference) { ?>
-            <h2>Ideal Partner Should Have</h2>
+            <h2>Ideal Partner Qualities</h2>
             <ul class="ttr-header-navigation">
                 
             <li>

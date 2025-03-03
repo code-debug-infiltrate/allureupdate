@@ -4,7 +4,7 @@ include 'Layout/navbar.php';
 include 'Layout/sidebar.php'; 
 ?>
 
-<title>Notification History  | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
+<title><?= $userInfo['username']; ?>'s Notifications | Notification History  | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
 
 
 <!--Main container start -->

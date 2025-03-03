@@ -4,7 +4,7 @@ include 'Layout/navbar.php';
 include 'Layout/sidebar.php'; 
 ?>
 
-<title>Messages | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
+<title><?= $userInfo['username']; ?>'s Messages | All Messages Page | <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> </title>
 
 
 <!--Main container start -->

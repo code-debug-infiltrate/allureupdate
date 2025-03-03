@@ -3662,24 +3662,3 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
       -webkit-transform: translateY(0%);
     }
     }
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-/* Track */
-::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey;
-border-radius: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-background: #7005e3;
-border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #ffffff;
-}
-
