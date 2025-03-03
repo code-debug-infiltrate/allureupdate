@@ -26,7 +26,47 @@ include 'Layout/sidebar.php';
 			<!-- First Column Side -->
 			<div class="col-md-3 col-lg-3">
 
-                
+				<div class="profile-bx text-center">
+					<div class="user-profile-thumb">
+						<img src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" alt="My-Photo" onclick="replace('usernameTab','profileImageTab')"/>
+					</div>
+					<div class="profile-info">
+						<h4><?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?></h4>
+						<span><?= $userInfo['number']; ?></span>
+						<span><?= $userInfo['email']; ?></span>
+					</div>
+					<div class="profile-tabnav">
+						<ul class="nav nav-tabs">
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('profileImageTab','usernameTab')" href="javascript:void(0);"><i class="ti-user"></i>Username</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('usernameTab','addressTab')" href="javascript:void(0);"><i class="ti-home"></i>Address</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('addressTab','bioTab')" href="javascript:void(0);"><i class="ti-user"></i>Bio Details</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('bioTab','passwordTab')" href="javascript:void(0);"><i class="ti-lock"></i>Password</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('passwordTab','2faTab')" href="javascript:void(0);"><i class="ti-lock"></i>2FA Authentication</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('2faTab','languageTab')" href="javascript:void(0);"><i class="ti-user"></i>Language</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('languageTab','interestTab')" href="javascript:void(0);"><i class="ti-game"></i>Interests</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('interestTab','workeduTab')" href="javascript:void(0);"><i class="ti-pencil"></i>Education | Work</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link danger" onclick="replace('workeduTab','deleteAccountTab')" href="javascript:void(0);"><i class="ti-trash"></i>Delete Account</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 
 			</div>
 			<!-- End First Column Side -->
@@ -270,9 +310,9 @@ include 'Layout/sidebar.php';
 					<div class="card-body">
 						<div class="wc-title">
 							<?php if ($userInfo['profileimage'] == "profile.png") { ?>
-								<h4>You Need a Better Profile Photo. <br><i style="font-size: 11px; color: darkblue;">Make Sure Your Face Is Visible!</i></h4>
+								<h4>You Need a Profile Photo. <br><i style="font-size: 11px; color: darkblue;">Make Sure Your Face Is Visible!</i></h4>
 							<?php } else { ?>
-								<h4>More Professional Photo?<br><i style="font-size: 11px; color: darkblue;">Make Sure Your Face Is Visible!</i></h4>
+								<h4>More Charming Look?<br><i style="font-size: 11px; color: darkblue;">Show Other Buddies Your Recent Fascinating Look!</i></h4>
 							<?php } ?>
 						</div>
 						<div class="widget-inner">

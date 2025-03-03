@@ -144,10 +144,10 @@
 							<li><a href="<?= baseURL('us-preferences/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-layout-accordion-list mr-3" style="color: rgb(57, 6, 91);"></i> Preference Settings</a></li>
 							
 							<li class="ttr-seperate" style="border: 1px solid rgb(202, 201, 202);"></li>
-							<li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-user mr-3" style="color: rgb(57, 6, 91);"></i> My Profile</a></li>
+							<li><a href="<?= baseURL('us-profile/'); ?><?= $userInfo['uniqueid']; ?>/"><img src="/Images/Body/done.png" style="width: 20px; margin-right: 8px;">  My Profile</a></li>
 							
 							<li class="ttr-seperate" style="border: 1px solid rgb(202, 201, 202);"></li>
-							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><i class="ti-power-off mr-3" style="color: rgb(57, 6, 91);"></i> Logout</a></li>
+							<li><a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><img src="/Images/Body/alert.png" style="width: 20px; margin-right: 8px;">  Logout</a></li>
 
 						</ul>
 					</div>

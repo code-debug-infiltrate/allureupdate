@@ -32,7 +32,26 @@ include 'Layout/sidebar.php';
             <!-- First Column Side -->
             <div class="col-md-3 col-lg-3">
 
-                
+                <div class="profile-bx text-center">
+					<div class="user-profile-thumb">
+						<img src="<?= public_asset('/other_assets/Profile/') ?><?= $userInfo['profileimage']; ?>" alt="My-Photo" onclick="replace('usernameTab','profileImageTab')"/>
+					</div>
+					<div class="profile-info">
+						<h4><?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?></h4>
+						<span><?= $userInfo['number']; ?></span>
+						<span><?= $userInfo['email']; ?></span>
+					</div>
+					<div class="profile-tabnav">
+						<ul class="nav nav-tabs">
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('preference','myself')" href="javascript:void(0);"><i class="ti-user"></i>Tell Other Buddies About Yourself</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" onclick="replace('myself','preference')" href="javascript:void(0);"><i class="ti-heart"></i>Tell Us Few Qualities Of Partner You Want</a>
+							</li>
+						</ul>
+					</div>
+				</div>                
 
             </div>
             <!-- End First Column Side -->

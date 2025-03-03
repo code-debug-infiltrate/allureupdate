@@ -29,11 +29,7 @@ include 'Layout/sidebar.php';
                                     
 			<?php include 'profile-photo-inside.php'; ?>
 
-		<?php } elseif (!$user_myself) { ?>
-
-			<?php include 'myself-inside.php'; ?>
-
-		<?php } elseif (!$user_preference) { ?>
+		<?php } elseif ((!$user_myself) || (!$user_preference)) { ?>
 
 			<?php include 'preferences-inside.php'; ?>
 
@@ -41,11 +37,26 @@ include 'Layout/sidebar.php';
 
 			<?php include 'dating-pool-inside.php'; ?>
 
+			<!-- Update Preferences ==== -->
+			<div class="section-area section-sp2 bg-fix ovbl-dark join-bx text-center" style="background-image:url(/Images/Body/animated-bg2.png);">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="join-content-bx text-white">
+								<h4><span class="counter"><?= number_format(count($userProfiles))?> </span> Active Buddies</h4>
+								<h2>Get More Possible Matches</h2>
+								<!-- <p>Updating Your Preferences Will Reshuffle Your Match Pool And Find You Befitting Connections.</p> -->
+								<a href="<?= baseURL('us-preferences/')?><?= $userInfo['uniqueid']; ?>/" class="btn button-md">Update Your Preferences</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Update Preferences END ==== -->
+
 			<?php include 'random-buddies-inside.php'; ?>
 
 		<?php } ?>
-
-
 
 		<?php include 'random-buddies-modal.php'; ?>
 <!-- End oF file -->

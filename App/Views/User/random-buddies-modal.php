@@ -13,7 +13,7 @@
 			</div>
 			<div class="modal-body">
 
-			<div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+			<div class="recent-news-carousel owl-carousel col-12 p-lr0">
 
 				
 					<?php foreach($randomBuddy as $key => $info) { ?>	
