@@ -1,13 +1,25 @@
-
- 
-<div class="row">
-    <div class="col-md-6">
-        <h2><a href="#" data-toggle="modal" data-target="#msgModal" style="float: left; margin-bottom: 10px;"><img src="/Images/Body/msgcount1.gif" alt="Email" style="width: 50px; margin-right: 10px;"> Send <?= $viewUser['fname']; ?> a Message</a></h2>      
-    </div>
-    <div class="col-md-6">
-        <h2><a href="#" data-toggle="modal" data-target="#pokeModal" style="float: right; margin-bottom: 5px;"><img src="/Images/Body/love.gif" alt="Poke" style="width: 50px; margin-right: 10px;"> Send <?= $viewUser['fname']; ?> a Poke</a></h2>
-    </div>
-</div>
+<!-- Update Preferences ==== -->
+<div class="section-area section-sp2 bg-fix ovbl-dark join-bx text-center" style="background-image:url(/Images/Banner/4.jpg);">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="join-content-bx text-white">
+								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#msgModal"><img src="/Images/Body/msg.gif" alt="Email" style="width: 80px;"> Message <?= $viewUser['fname']; ?></a></h4>
+							</div>
+						</div>
+                        <div class="col-md-2">
+                            <div class="join-content-bx text-white">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+							<div class="join-content-bx text-white">
+								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#pokeModal"><img src="/Images/Body/love.gif" alt="Poke" style="width: 80px; margin-right: 10px;"> Poke <?= $viewUser['fname']; ?></a></h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Update Preferences END ==== -->
 
 
 

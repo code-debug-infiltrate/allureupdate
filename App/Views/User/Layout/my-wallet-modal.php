@@ -10,40 +10,84 @@
 			</div>
 			<div class="modal-body py-4 px-0">
 				<div class="row">
+
 					<div class="col-12 col-md-12 mx-auto" id="depositForm">
-						<!-- <h2 class="fw-400 text-4 text-center mt-1">Subscription Plans!</h2> 
-						<p class="lead text-3 text-center mb-2">Select & Pay Your TV Plan Anytime, Anywhere!</p> -->
+						<h2 class="fw-400 text-4 text-center mt-1"><!--<img src="/Images/Body/subscribe.png" style="width: 100%; height: 80px;"> -->Get Unlimited Access!</h2> 
+						<!-- <p class="lead text-3 text-center mb-2">Select & Pay Your TV Plan Anytime, Anywhere!</p> -->
 						<div class="col-md-12 mx-auto">
 							<div class="bg-white shadow-sm rounded">
 
-							<form method="POST" action="" autocomplete="off">
-								<div class="amountDepositError_box" style="margin:10px 0px;"></div>
-								<?php if ($subPlans) { ?>
-									<div class="mb-3">
-										<label for="youSend" class="form-label">Select a Plan (Pay In <?= $curInfo['name']; ?>)</label>
-										<div class="input-group">
-											<select class="form-control" id="amountDeposit">
-												<option value=""></option>
-												<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
-													<option value="<?= $subplan['amount']; ?>"><?= $subplan['type']; ?>(<?= $subplan['expiry']; ?>) For <?= $curInfo['currency']; ?><?= $subplan['amount']; ?></option>
-												<?php } }  ?>
-											</select>
+								<?php if ($exchangeInfo) { foreach ($exchangeInfo as $key => $exchange) { if ($exchange['currency'] == "Naira") {  ?>
+									<input type="hidden" class="form-control"  id="cardamount" value="<?= $exchange['rate']; ?>" placeholder="Transaction Amount" required>
+								<?php } } } ?>
+
+								<input type="hidden" class="form-control"  id="memo" value="<?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?> Matchmaking Subscription Payment" placeholder="Transaction Details" required>
+								
+								<div class="amountDepositError_box text-center" style="margin:10px 0px;"></div>
+
+
+									<div class="col-lg-12 row">
+										<?php if ($subPlans) { ?>
+										<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
+											<div class="form-group col-md-12">
+												<div class="input-group">
+													<a href="javascript:void(0);" id="<?= str_replace(' ', '_', $subplan['type']); ?>" style="font-size: 18px;"><img src="/Images/Body/unlock1.gif" style="width: 50px; margin-right: 10px;"> <?= $subplan['expiry']; ?> (<?= $subplan['type']; ?>)  <b style="font-size: 24px; margin-left: 20px;"><?= $curInfo['currency']; ?><?= $subplan['amount']; ?></b></a>
+												</div>
+											</div>
+										<?php } }  ?>
+										<?php  } ?>
+
+										
+										
+										<div class="form-group col-md-12">
+											<div class="input-group">
+												<input id="planAmount" type="hidden" class="form-control" required>
+											</div>
 										</div>
-									</div>
-									<?php  } ?>
-									<div class="memoDepositError_box" style="margin:10px 0px;"></div>
-									<div class="mb-3">
-										<label for="youSend" class="form-label">Narration</label>
-										<div class="input-group">
-											<span class="input-group-text"><i class="fa fa-comments"></i></span>
-											<input type="text" class="form-control"  id="memoDeposit" maxlength="200" value="<?= $userInfo['username']; ?> Matchmaking Subscription Payment" placeholder="Transaction Details" required>
-											
-										</div>
+
+										<script>
+											$(document).ready(function(){
+												var amount = document.getElementById("planAmount");
+
+												$("#Quarterly_Plan").click(function(){
+													var newAddress = "Quarterly Plan";
+													if (amount.value != "Quarterly Plan") {
+														amount.value = "";
+														amount.value += newAddress;
+														$("#Quarterly_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
+														$("#Semestral_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Yearly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+													}
+												});
+
+												$("#Semestral_Plan").click(function(){
+													var newAddress = "Semestral Plan";
+													if (amount.value != "Semestral Plan") {
+														amount.value = "";
+														amount.value += newAddress;
+														$("#Semestral_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
+														$("#Quarterly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Yearly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+													}
+												});
+
+												$("#Yearly_Plan").click(function(){
+													var newAddress = "Yearly Plan";
+													if (amount.value != "Yearly Plan") {
+														amount.value = "";
+														amount.value += newAddress;
+														$("#Yearly_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
+														$("#Quarterly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Semestral_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+													}
+												});
+											});
+										</script>
 									</div>
 
 									<?php if ($bankInfo['status'] == "Publish") { ?>
 									<div class="modal-footer">
-										<button type="submit" id="payWithTransfer" class="btn-secondry add-item m-r5"><img src="/Images/Body/transfers.png" style="width: 15%; margin-right: 20px;"> Bank Transfer </button>
+										<button type="submit" id="payWithTransfer" class="btn-secondry add-item m-r5"><img src="/Images/Body/transfers.png" style="width: 25%; margin-right: 20px;"> Bank Transfer </button>
 									</div>
 									<?php } ?>
 									<hr>
@@ -51,7 +95,7 @@
 									<div class="modal-footer">
 										<button type="submit" id="payWithOnline" class="btn-secondry add-item m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Online | Cards </button>
 									</div>
-								</form>
+						
 								
 
 							</div>
@@ -89,8 +133,8 @@
 								
 					<!-- Bank Payment result -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1">Bank Transfer Details! </h2>
-						<p class="text-center" style="font-size: 12px; color: blue;">Please Follow The Instructions On This Page Carefully To Prevent Issues With Your Deposit. <br>Use The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<h2 class="fw-400 text-4 text-center mt-1"><img src="/Images/Body/transfers.png" style="width: 350px;"> </h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Please Follow The Instructions On This Page Carefully. <br>Use The Narration Correctly, Your Access Will Be Granted Automatically.</p>
 						
 						<div class="col-12 col-md-12 mx-auto">
 							<div class="mb-3">
@@ -119,15 +163,13 @@
 						<h2 class="fw-400 text-4 text-center mt-1">Bank Transfer Sent! </h2>
 						<p class="text-center" style="font-size: 12px; color: blue;">Please Hold On For a Moment, Our System Is Watching Out For Your Deposit To Be Confirmed. <br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
 						
-						<div class="col-12 col-md-12 mx-auto">
+						<div class="col-12 col-md-12 text-center mx-auto">
 
 							<hr>
-							<center>
-								<img src="/Images/Body/thumb-up.png" style="width: 40%;"> 
-								<hr><br>
-								<label style="color: green; font-size: 18px;">Our System Will Keeping Monitoring Your Payment. You WIll Be Alerted As Soon As It's Confirmed!</label>
-							</center>
-
+							<img src="/Images/Body/thumb-up.png" style="width: 40%;"> 
+							<hr><br>
+							<label style="color: green; font-size: 18px;">Our System Will Keeping Monitoring Your Payment. You WIll Be Alerted As Soon As It's Confirmed!</label>
+					
 						</div>
 					</div>
 					<!-- Bank Payment Done End -->
@@ -140,77 +182,6 @@
 <!-- Add Balance Modal End --> 
 
 
-
-
-
-<!-- Internal Transfer Modal
-============================== -->
-<div id="internalTransferModal" class="modal fade" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content border-0">
-			<div class="modal-header">
-				<h5 class="modal-title fw-400 text-4 text-center widget-bg1" style="float: center;  padding: 10px; color: #fff; border-radius: 10px;">Fondo Pay</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body py-4 px-0">
-				<div class="row">
-					<div class="col-12 col-md-12 mx-auto">
-						<h2 class="fw-400 text-4 text-center mt-1">Transfer To a FondoEx User!</h2> 
-						<div class="col-md-10 mx-auto">
-							<div class="bg-white shadow-sm rounded">
-								<form method="POST" action="<?= baseURL('us-fondotransfer/'); ?><?= $userInfo['uniqueid']; ?>/" autocomplete="off">
-								<div class="mb-3">
-									<label for="emailID" class="form-label">Email ID</label>
-									<div class="fondoEmailError_box" style="margin:10px 0px; font-size: 12px;"></div>
-									<div class="input-group">
-                                  		<span class="input-group-text"><i class="fa fa-envelope"></i></span>
-										<input type="email" class="form-control" id="fondoEmail" name="fondoEmail" placeholder="Email ID Of The Beneficiary" required>
-									</div>
-									<div class="fondoEmailAlert_box" style="margin:10px 0px; font-size: 14px;"></div>
-								</div>
-                              <div class="mb-3">
-                                <label for="youSend" class="form-label">Amount</label>
-								<div class="fondoAmountError_box" style="margin:10px 0px; font-size: 12px;"></div>
-                                <div class="input-group">
-                                  <span class="input-group-text"><?= $curInfo['name']; ?></span>
-                                  <input type="number" class="form-control" id="fondoAmount" name="fondoAmount" placeholder="How Much Are You Sending?" required>
-								  
-								</div>
-                              </div>
-                              <div class="mb-3">
-                                <label for="youSend" class="form-label">Transaction Pin</label>
-								<div class="fondoPinError_box" style="margin:10px 0px; font-size: 12px;"></div>
-                                <div class="input-group">
-                                  <span class="input-group-text"><i class="fa fa-key"></i></span>
-                                  <input type="password" class="form-control" id="fondoPin" name="fondoPin" maxlength="5" placeholder="*****" required>
-								</div>
-                                   <a href="<?= baseURL('us-account-settings/'); ?><?= $userInfo['uniqueid']; ?>/#transferPin" style="color: blue; font-size: 12px;">Forgot Pin?</a>
-                              </div>
-                              <div class="mb-3">
-                                <label for="youSend" class="form-label">Narration</label>
-								<div class="fondoMemoError_box" style="margin:10px 0px; font-size: 12px;"></div>
-                                <div class="input-group">
-                                  <span class="input-group-text"><i class="fa fa-comments"></i></span>
-                                  <input type="text" class="form-control" id="fondoMemo" name="fondoMemo" maxlength="100" placeholder="Transaction Details" required>
-                                </div>
-                              </div>
-                              <p class="text-1 text-danger text-center"><i class="fa fa-question-circle"></i> Security Alert: Do Not Expose Your Pin!</p>
-									<div class="modal-footer">
-										<center><div id="fondoTransfer_done" style="font-size: 16px; color: green; display: none;">Transaction Completed Successfully! <br><a href="<?= baseURL('us-transactions/')?><?= $userInfo['uniqueid']; ?>/" style="color: blue;">View Transaction Details Here</a><br><a href="" style="color: blue;">Click Here</a> To Send More Money.</div></center>
-										<button type="button" id="fondoTransfer" class="btn-secondry add-item m-r5"> Make Transfer <i class="ti-arrow-right"></i></button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Internal Transfer Modal End --> 
 
 
 

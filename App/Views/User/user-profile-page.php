@@ -103,7 +103,9 @@ include 'Layout/sidebar.php';
 										<?php if ($viewUser['details']) { ?>
 											<p><?= $viewUser['details']; ?> </p>
 										<?php } else { ?>
-											<center> <a href="javascript:void(0);" style="font-size: 16px; margin: 5px;"><?= $viewUser['username']; ?> Hasn't Told The World Facsinating Details Of Him/Her Self.</a> </center>
+											<center> <a href="javascript:void(0);" style="font-size: 16px; margin: 5px;"><?= $viewUser['username']; ?> Hasn't Told The World Facsinating Details Of 
+											
+											<?php if ($viewUser['gender'] == "Male") { ?>Himself <?php } else { ?>Herself<?php } ?>.</a> </center>
 											<?php } ?>		
 										</div>
 										<div class="row col-md-12">

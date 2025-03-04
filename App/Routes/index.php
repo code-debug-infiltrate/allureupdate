@@ -111,6 +111,8 @@ $router->get('/ajax-post-comment', [UserController::class, 'ajax_post_comment'])
 $router->get('/ajax-report-post', [UserController::class, 'ajax_report_post']);
 $router->get('/ajax-notify-status', [UserController::class, 'ajax_notify_status']);
 $router->get('/ajax-activity-status', [UserController::class, 'ajax_activity_status']);
+$router->get('/ajax-bank-transfer', [UserController::class, 'ajax_bank_details']);
+$router->get('/ajax-bank-transfer-confirm', [UserController::class, 'ajax_bank_transfer']);
 $router->get('/ajax-make-payment', [UserController::class, 'ajax_make_payment']);
 $router->get('/ajax-delete-post', [UserController::class, 'ajax_delete_post']);
 

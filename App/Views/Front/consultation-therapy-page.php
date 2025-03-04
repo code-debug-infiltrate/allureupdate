@@ -60,7 +60,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                         <p>
                             <b style="font-size: 11px; font-weight: 500; color: red;">Kindly Note That This Service Is NOT FREE. If You Need <a href="<?= baseURL('new-member/'); ?>">Match Making</a> Service, Kindly <a href="<?= baseURL('new-member/'); ?>">Click Here</a>.</b>
                             <hr>
-                            Fill All Form Fields Correctly With Accurate Information. The Provided Information Helps Us Get In Touch With You Faster. </p>
+                            Fill All Form Fields Correctly With Accurate Information. <br><i style="font-size: 11px;">This Information Helps Us Get In Touch With You Faster.</i> </p>
                         <hr>
                         <div class="formError_box" style="margin:10px 0px;"></div>
 
@@ -394,11 +394,11 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                             <input type="hidden" class="form-control"  id="amount" value="<?= $subplan['amount']?>" placeholder="Transaction Amount" required>
                             
                             <?php if ($exchangeInfo) { foreach ($exchangeInfo as $key => $exchange) { if ($exchange['currency'] == "Naira") {  ?>
-                                <p><b>Naira Rate:</b>  NGN<?= number_format($subplan['amount'] * $exchange['rate']); ?> Only</p>
+                                <!-- <p><b>Naira Rate:</b>  NGN<?= number_format($subplan['amount'] * $exchange['rate']); ?> Only</p> -->
                                 <input type="hidden" class="form-control"  id="cardamount" value="<?= $subplan['amount'] * $exchange['rate']; ?>" placeholder="Transaction Amount" required>
                             <?php } } } ?>
                             
-                            <p>Sessions Are One-Time Bills. You Can Book As Many Sessions As You Like.</p>
+                            <p>Session Booking Is One-Time Payment. You Can Book As Many Sessions As You Like.</p>
                         <?php } } ?>
 
                         <input type="hidden" class="form-control"  id="currency" value="<?= $curInfo['currency']; ?>" placeholder="Transaction Currency" required>
@@ -449,8 +449,8 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 								
 					<!-- Bank Payment result -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1"><b>Bank Transfer Details!</b></h2>
-						<p class="text-center" style="font-size: 12px; color: blue;">Please Follow The Instructions On This Page Carefully To Prevent Issues With Your Deposit. <br>Use The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<h2 class="fw-400 text-4 text-center mt-1"><img src="/Images/Body/transfers.png"></h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Please Follow The Instructions On This Page Carefully. <br>Use The Narration Correctly, Your Deposit Will Be Verified Automatically.</p>
 						<br>
 						<div class="col-12 col-md-12 mx-auto">
 							<div class="mb-3">

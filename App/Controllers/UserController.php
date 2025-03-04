@@ -217,6 +217,7 @@ class UserController extends Controller
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
                 'buddiesList' => $userDetails['buddies'], 
+                'bankInfo' => $userDetails['bankInfo'], 
                 'postActions' => $postActions['post_interactions'], 
                 'userLikesCount' => $userDetails['userLikesCount'], 
                 'userViewsCount' => $userDetails['userViewsCount'], 
@@ -2236,6 +2237,72 @@ class UserController extends Controller
     }
 
 
+   //Send Admin Email For Therapy Service
+    public function ajax_bank_details()
+    {
+       $v = new Validate();
+
+        if ($_POST['email']!="") {
+            //Get form inputs
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $email = $v->clean($_POST['email']);
+            $amount = $v->clean($_POST['amount']);
+            $currency = $v->clean($_POST['currency']);
+            $method = $v->clean($_POST['method']);
+
+            $info = array('uniqueid' => trim($uniqueid), 'username' => trim($username), 'email' => trim($email), 'amount' => trim($amount),'currency' => trim($currency),'method' => trim($method),);
+            //Call API Function
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
+            $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
+
+            foreach ($subPlans['result_message'] as $key => $plan) {
+                    if ($amount == $plan['type']) {
+                        $choicePlan = $plan;
+                    }
+            }
+            $data = array('plan' => $choicePlan, 'bank' => $bankInfo, );
+            $member =  json_encode($data, JSON_FORCE_OBJECT);
+            
+            echo $member;
+        }
+    }
+
+
+
+    
+
+
+    //Transaction Payment Info
+    public function ajax_bank_transfer()
+    {
+        $v = new Validate(); 
+
+        if (($_POST['uniqueid']!="") && ($_POST['lname']!="")){
+
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $email = $v->clean($_POST['email']);
+            $currency = $v->clean($_POST['currency']);
+            $amount = $v->clean($_POST['amount']);
+            $type = $v->clean($_POST['type']);
+            $memo = $v->clean($_POST['memo']);
+            $phone = $v->clean($_POST['phone']);
+
+            $info = array('uniqueid' => $uniqueid, 'username' => $username, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'type' => $type, 'phone' => $phone, 'details' => $memo,  );
+
+            $result = ModelFactory::model('User')->make_deposit($info);
+
+            //$data = json_encode($result);
+
+            echo $result;
+        }
+    }
+
+
+
+
+   
 
     //Ajax Make Payment route
     public function ajax_make_payment()
