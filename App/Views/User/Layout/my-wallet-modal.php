@@ -31,13 +31,11 @@
 										<?php foreach ($subPlans as $key => $subplan) { if ($subplan['type'] != "Consultation") {  ?>
 											<div class="form-group col-md-12">
 												<div class="input-group">
-													<a href="javascript:void(0);" id="<?= str_replace(' ', '_', $subplan['type']); ?>" style="font-size: 18px;"><img src="/Images/Body/unlock1.gif" style="width: 50px; margin-right: 10px;"> <?= $subplan['expiry']; ?> (<?= $subplan['type']; ?>)  <b style="font-size: 24px; margin-left: 20px;"><?= $curInfo['currency']; ?><?= $subplan['amount']; ?></b></a>
+													<a href="javascript:void(0);" id="<?= str_replace(' ', '_', $subplan['type']); ?>" style="font-size: 16px;"><img src="/Images/Body/unlock1.gif" style="width: 50px; margin-right: 10px;"> <?= $subplan['expiry']; ?> (<?= $subplan['type']; ?>)  <b style="font-size: 22px; margin-left: 10px;"><?= $curInfo['currency']; ?><?= $subplan['amount']; ?></b></a>
 												</div>
 											</div>
 										<?php } }  ?>
 										<?php  } ?>
-
-										
 										
 										<div class="form-group col-md-12">
 											<div class="input-group">
@@ -160,15 +158,13 @@
 
 					<!-- Bank Payment Done -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_done_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1">Bank Transfer Sent! </h2>
-						<p class="text-center" style="font-size: 12px; color: blue;">Please Hold On For a Moment, Our System Is Watching Out For Your Deposit To Be Confirmed. <br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<h2 class="fw-400 text-4 text-center mt-1">Awaiting Confirmation! </h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Thank You For Your Payment.<br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
 						
 						<div class="col-12 col-md-12 text-center mx-auto">
-
+							<img src="/Images/Body/pending.png" style="width: 100%;"> 
 							<hr>
-							<img src="/Images/Body/thumb-up.png" style="width: 40%;"> 
-							<hr><br>
-							<label style="color: green; font-size: 18px;">Our System Will Keeping Monitoring Your Payment. You WIll Be Alerted As Soon As It's Confirmed!</label>
+							<p style="color: blue; font-size: 14px;">Our System Will Keep Monitoring Your Payment.<br>You Will Be Alerted As Soon As It's Confirmed!</p>
 					
 						</div>
 					</div>

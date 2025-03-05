@@ -392,6 +392,8 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                         <?php foreach ($subPlans as $key => $subplan) { if (($subplan['type'] == "Consultation") || ($subplan['type'] == "Therapy")) {  ?>
                             <h2>Session Fee: <?= $curInfo['currency']; ?><?= $subplan['amount']?></h2>
                             <input type="hidden" class="form-control"  id="amount" value="<?= $subplan['amount']?>" placeholder="Transaction Amount" required>
+                            <input type="hidden" class="form-control"  id="planid" value="<?= $subplan['planid']?>" placeholder="ID SUb" required>
+                            <input type="hidden" class="form-control"  id="type" value="<?= $subplan['type']?>" placeholder="Sub Type" required>
                             
                             <?php if ($exchangeInfo) { foreach ($exchangeInfo as $key => $exchange) { if ($exchange['currency'] == "Naira") {  ?>
                                 <!-- <p><b>Naira Rate:</b>  NGN<?= number_format($subplan['amount'] * $exchange['rate']); ?> Only</p> -->
@@ -481,18 +483,14 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 
 					<!-- Bank Payment Done -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_done_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1">Bank Transfer Sent! </h2>
-						<p class="text-center" style="font-size: 12px; color: blue;">Please Hold On For a Moment, Our System Is Watching Out For Your Deposit To Be Confirmed. <br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<h2 class="fw-400 text-4 text-center mt-1">Awaiting Confirmation! </h2>
+						<p class="text-center" style="font-size: 12px; color: blue;">Thank You For Your Payment.<br>If You Used The Narration Correctly, Your Deposit Will Be Confirmed Automatically.</p>
 						
-						<div class="col-12 col-md-12 mx-auto">
-
+						<div class="col-12 col-md-12 text-center mx-auto">
+                            <img src="/Images/Body/pending.png" style="width: 100%;"> 
 							<hr>
-							<center>
-								<img src="/Images/Body/thumb-up.png" style="width: 40%;"> 
-								<hr><br>
-								<label style="color: green; font-size: 18px;">Our System Will Keeping Monitoring Your Payment. You WIll Be Alerted As Soon As It's Confirmed!</label>
-							</center>
-
+							<p style="color: blue; font-size: 14px;">Our System Will Keep Monitoring Your Payment.<br>You Will Be Alerted As Soon As It's Confirmed!</p>
+					
 						</div>
 					</div>
 					<!-- Bank Payment Done End -->

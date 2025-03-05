@@ -496,7 +496,11 @@ include 'Layout/sidebar.php';
 
 
 
+	<div class="section-area">
+		<div class="container">
 
+		</div>
+	</div>
 
 
 

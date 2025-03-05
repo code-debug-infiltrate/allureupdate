@@ -119,6 +119,36 @@ class Register extends Model
      
 
 
+        
+     
+   //Function For User To Create Payment using Oriented API
+   public function user_make_payment($params)
+   {   
+       $apiInfo = new apiInfo();
+       $token_info = $apiInfo->token_details();
+       $url = ''.$token_info['url'].'/user-make-payment';
+
+       $body = http_build_query($params);
+       $ch = $apiInfo->post_curl($url, $body);
+
+       if(is_array($ch)){ $data = $ch; } else { $data = json_decode($ch, true); }
+
+    //    if ($data['result_info']['type'] == "success") {
+
+    //     $coy = $apiInfo->get_curl($token_info['url'].'/coy-info');
+    //     $coy_info = json_decode($coy, true);
+    //     //Send Email Alert To Administrator
+    //     Mail::mailer('AdminAlert')->transaction_alert($params, $params, $coy_info); 
+    //     //Send Email Alert To User Making The Payment
+    //     Mail::mailer('UserAlert')->transaction_alert($params, $params, $coy_info);  
+
+    // }
+       
+       return $ch;
+   }  
+
+
+
 
     //Function to Confirm A New User using Oriented API
     public function contact_us($params)

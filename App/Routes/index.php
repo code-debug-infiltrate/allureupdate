@@ -103,6 +103,7 @@ $router->get('/ajax-preference', [UserController::class, 'ajax_preference']);
 $router->get('/ajax-send-buddy-request', [UserController::class, 'ajax_send_buddy_request']);
 $router->get('/ajax-accept-buddy-request', [UserController::class, 'ajax_accept_buddy_request']);
 $router->get('/ajax-send-buddy-action', [UserController::class, 'ajax_send_buddy_action']);
+$router->get('/ajax-poke-user', [UserController::class, 'ajax_poke_user']);
 $router->get('/ajax-profile-photo', [UserController::class, 'ajax_profile_photo']);
 $router->get('/ajax-cover-photo', [UserController::class, 'ajax_cover_photo']);
 $router->get('/ajax-post-view', [UserController::class, 'ajax_post_view']);

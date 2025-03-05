@@ -541,10 +541,11 @@ class HomeController extends Controller
             $type = $v->clean($_POST['type']);
             $memo = $v->clean($_POST['memo']);
             $phone = $v->clean($_POST['phone']);
+            $planid = $v->clean($_POST['planid']);
 
-            $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'type' => $type, 'phone' => $phone, 'details' => $memo,  );
+            $info = array('planid' => $planid, 'uniqueid' => $fname."_".$lname, 'username' => $email, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'type' => $type, 'phone' => $phone, 'details' => $memo,  );
 
-            $result = ModelFactory::model('User')->make_deposit($info);
+            $result = ModelFactory::model('Register')->user_make_payment($info);
 
             //$data = json_encode($result);
 

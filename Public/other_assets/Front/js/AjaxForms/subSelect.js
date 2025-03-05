@@ -88,17 +88,17 @@
         var r = "ajax-bank-transfer-confirm/";
 
         //Process Pass 
-        var amount = $('#planamount').val();
+        var amount = $('#planAmount').val();
         if(amount == ''){
         $('.amountDepositError_box').html(
             '<span style="color:red;">You Have Not Selected a Subscription Plan</span>'
         );
-        $('#planamount').focus();
+        $('#planAmount').focus();
         return false;
         }
             
         var url = $('#url').val();
-        
+        //console.log(amount);
         //Process Ajax Form Submittion Without Page Reload                
         $.ajax
         ({

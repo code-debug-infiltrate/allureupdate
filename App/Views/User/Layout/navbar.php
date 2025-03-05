@@ -11,8 +11,8 @@
 		<div class="ttr-logo-box">
 			<div>
 				<a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/" class="ttr-logo">
-					<img class="ttr-logo-mobile" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="50" height="30">
-					<img class="ttr-logo-desktop" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="70" height="40">
+					<img class="ttr-logo-mobile" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="40" height="20">
+					<img class="ttr-logo-desktop" alt="Coy-Logo" src="/Images/Logo/favicon.png" width="50" height="30">
 				</a>
 			</div>
 		</div>

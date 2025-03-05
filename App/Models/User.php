@@ -80,6 +80,24 @@ class User extends Model
 
 
 
+
+    //Function For Sending User a Poke using Oriented API
+    public function send_poke_user($params)
+    {   
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+        $url = ''.$token_info['url'].'/send-buddy-poke';
+
+        $body = http_build_query($params);
+        $ch = $apiInfo->post_curl($url, $body);
+
+        if(is_array($ch)){ $data = $ch; } else { $data = json_decode($ch, true); }
+        
+        return $ch;
+    }
+
+
+
     //Function For User Myself using Oriented API
     public function user_myself($params)
     {   

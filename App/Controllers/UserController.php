@@ -1902,6 +1902,27 @@ class UserController extends Controller
 
 
 
+    //Poske User route
+    public function ajax_poke_user()
+    {
+        $v = new Validate();
+
+        if (($_POST['buddyid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $buddyid = $v->clean($_POST['buddyid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+
+            $info = array('buddyid' => trim($buddyid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), 'details' => $username." Poked You. Spark a Conversation Now.", );
+            //Call API Function
+            $interest = ModelFactory::model('User')->send_poke_user($info);
+            //var_dump($interest);
+            echo $interest;
+        }
+    }
+
+
+
     
     //Create Self Details route
     public function ajax_preference()
@@ -2278,7 +2299,7 @@ class UserController extends Controller
     {
         $v = new Validate(); 
 
-        if (($_POST['uniqueid']!="") && ($_POST['lname']!="")){
+        if (($_POST['uniqueid']!="") && ($_POST['email']!="")){
 
             $uniqueid = $v->clean($_POST['uniqueid']);
             $username = $v->clean($_POST['username']);
@@ -2287,15 +2308,19 @@ class UserController extends Controller
             $amount = $v->clean($_POST['amount']);
             $type = $v->clean($_POST['type']);
             $memo = $v->clean($_POST['memo']);
-            $phone = $v->clean($_POST['phone']);
+            
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
 
-            $info = array('uniqueid' => $uniqueid, 'username' => $username, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'type' => $type, 'phone' => $phone, 'details' => $memo,  );
+            foreach ($subPlans['result_message'] as $key => $plan) {
+                if ($amount == $plan['type']) {
+                    $planid = $plan['planid'];   
+                }
+            }
+            $info = array('planid' => $planid, 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+            //Call API Function
+            $pass = ModelFactory::model('User')->user_make_payment($info);
 
-            $result = ModelFactory::model('User')->make_deposit($info);
-
-            //$data = json_encode($result);
-
-            echo $result;
+            echo $pass;
         }
     }
 

@@ -4,7 +4,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="join-content-bx text-white">
-								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#msgModal"><img src="/Images/Body/msg.gif" alt="Email" style="width: 80px;"> Message <?= $viewUser['fname']; ?></a></h4>
+								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#msgModal"><img src="/Images/Body/msg.gif" alt="Email" style="width: 80px;"> Say Hi To <?= $viewUser['fname']; ?> </a></h4>
 							</div>
 						</div>
                         <div class="col-md-2">
@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-md-4">
 							<div class="join-content-bx text-white">
-								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#pokeModal"><img src="/Images/Body/love.gif" alt="Poke" style="width: 80px; margin-right: 10px;"> Poke <?= $viewUser['fname']; ?></a></h4>
+								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#pokeModal"><img src="/Images/Body/love.gif" alt="Poke" style="width: 80px; margin-right: 10px;"> Poke <?= $viewUser['fname']; ?> </a></h4>
 							</div>
 						</div>
 					</div>
@@ -50,18 +50,32 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background: #fff;">
             <div class="modal-header">
-                <h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">Make The First Move On <?= $viewUser['fname']; ?> <?= $viewUser['lname']; ?></h5>
+                <h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">Want To Make The First Move?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img src="/Images/Body/love.gif" alt="Poke Icon" style="width: 150px;">
-                <button type="button" class="btn-secondry add-item m-r5">Poke <?= $viewUser['fname']; ?></button>
-                <br>
-                <p style="text-align: center; font-size: 12px;">This a Good Way To Start a Conversation With <?= $viewUser['fname']; ?> <?= $viewUser['lname']; ?>. <br>Pokes Are Free!</p>
+
+                <div class="pokeMessage_box text-center" style="margin: 10px 0;"></div>
+
+                <a href="javascript:void(0);" id="pokeUser"> 
+                    <h2 class="text-center">Poke <?= $viewUser['fname']; ?></h2>
+                    <input type="hidden" value="<?= $viewUser['uniqueid']; ?>" id="buddyid" required>
+                    <center><img src="/Images/Body/love.gif" alt="Poke Icon" style="width: 150px;"></center>
+                    <br>
+                    <p style="text-align: center; font-size: 12px;">It's a Good Way To Start a Conversation With <?= $viewUser['fname']; ?>. <br>Pokes Are Free!</p>
+                </a>
+
+                <div id="poked" style="display: none;">
+                    <h2 class="text-center"><?= $viewUser['fname']; ?> <?= $viewUser['lname']; ?> Got Your Poke!</h2>
+                </div>
+                
             </div>
         </div>
     </div>
 </div>
 <!-- End Poke Modal -->
+
+
+<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/poke-user.js') ?>"></script>
