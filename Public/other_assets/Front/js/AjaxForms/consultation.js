@@ -385,7 +385,7 @@ $(document).ready(function() {
 
       success: function(data)
       {
-      console.log(data);
+      //console.log(data);
       //Process Data From Controller
       var info = JSON.parse(data);
 
@@ -394,7 +394,7 @@ $(document).ready(function() {
                $('.flash-outer').html(
                      '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px; top: -50px;" alt="Alert Image"/> '+info.message+'</div>'
                );
-               $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank" class="btn-secondry add-item m-r5"><img src="/Images/Body/thumb-up.png" style="width: 15%; margin-right: 20px;">Pay With Card Or USSD Code</a>');
+               $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank"> <img src="/Images/Body/card-pay.png" style="width: 300px;"></a>');
          }, delay);
                $('#paymentForm').hide();
                $('#online_info').show('slow');

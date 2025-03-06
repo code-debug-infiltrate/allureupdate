@@ -79,7 +79,7 @@
 										<span class="notification-text" style="font-size: 10px;">
 											<span style="font-size: 14px;"><b><?= $user['fname']; ?> <?= $user['lname']; ?></b></span> 
 											<br>
-											<?= substr($msg['details'], 0, 150); ?>
+											<?= substr($msg['details'], 0, 50); ?>
 										</span>
 										<span class="notification-time">
 											<a href="#" class="fa fa-close" onclick="document.getElementById('msg<?= $msg['id']; ?>').style.display='none'"></a>

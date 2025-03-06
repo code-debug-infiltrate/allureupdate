@@ -55,6 +55,7 @@
 														$("#Quarterly_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
 														$("#Semestral_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 														$("#Yearly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Private_Matching").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 													}
 												});
 
@@ -66,6 +67,7 @@
 														$("#Semestral_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
 														$("#Quarterly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 														$("#Yearly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Private_Matching").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 													}
 												});
 
@@ -77,6 +79,19 @@
 														$("#Yearly_Plan").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
 														$("#Quarterly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 														$("#Semestral_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Private_Matching").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+													}
+												});
+
+												$("#Private_Matching").click(function(){
+													var newAddress = "Private Matching";
+													if (amount.value != "Private Matching") {
+														amount.value = "";
+														amount.value += newAddress;
+														$("#Private_Matching").css({"text-decoration": "none", "color": "green", "font-size": "18px"});
+														$("#Quarterly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Semestral_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
+														$("#Yearly_Plan").css({"text-decoration": "line-through", "color": "brown", "font-size": "10px"});
 													}
 												});
 											});
@@ -105,9 +120,9 @@
 
 					<!-- Card|Online Payment result -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="online_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1">Online Card Transfer! </h2>
+						<h2 class="fw-400 text-4 text-center mt-1"><b>OnlineCard Payment!</b></h2>
 
-						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment. Your Deposit Will Be Added Automatically.</p>
+						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment.<br>Your Payment Will Be Confirmed Automatically.</p>
 						
 						<div class="col-12 col-md-12 mx-auto">
 							<div class="mb-3">
@@ -115,12 +130,14 @@
 							</div>
 							
 							<div>
-								<center><p style="color: blue; font-size: 12px;">Click The Button Below Only If You Are Ready To Make The Payment. <br><i class="text-danger"><b>Note That Service Fee May Apply.</b></i></p></center>
-								<hr>
-								<div class="modal-footer">
-									<div class="urlLink"></div>
-								</div>
-								<hr>
+								<center>
+									<p style="color: blue; font-size: 12px;">
+										Click The Button Below Only If You Are Ready To Make The Payment. 
+										<br><i class="text-danger"><b>Note That Service Fee May Apply.</b></i>
+										<hr><br>
+										<div class="urlLink"></div>
+									</p>
+								</center>
 							</div>
 						</div>
 					</div>

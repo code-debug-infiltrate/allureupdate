@@ -4,7 +4,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="join-content-bx text-white">
-								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#msgModal"><img src="/Images/Body/msg.gif" alt="Email" style="width: 80px;"> Say Hi To <?= $viewUser['fname']; ?> </a></h4>
+								<h4 style="font-size: 20px;"><a href="javascript:void(0);" data-toggle="modal" data-target="#msgModal"><img src="/Images/Body/msg.gif" alt="Email" style="width: 80px;"> Say Hi To <?= $viewUser['fname']; ?> </a></h4>
 							</div>
 						</div>
                         <div class="col-md-2">
@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-md-4">
 							<div class="join-content-bx text-white">
-								<h4><a href="javascript:void(0);" data-toggle="modal" data-target="#pokeModal"><img src="/Images/Body/love.gif" alt="Poke" style="width: 80px; margin-right: 10px;"> Poke <?= $viewUser['fname']; ?> </a></h4>
+								<h4 style="font-size: 20px;"><a href="javascript:void(0);" data-toggle="modal" data-target="#pokeModal"><img src="/Images/Body/love.gif" alt="Poke" style="width: 80px; margin-right: 10px;"> Poke <?= $viewUser['fname']; ?> </a></h4>
 							</div>
 						</div>
 					</div>

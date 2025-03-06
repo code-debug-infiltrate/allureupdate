@@ -2351,6 +2351,63 @@ class UserController extends Controller
 
 
    
+    //Ajax Online Payment route
+    public function ajax_online_payment()
+    {
+        $v = new Validate();
+        $mny = array('currency' => "Naira", );
+
+        if (($_POST['planid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $email = $v->clean($_POST['email']);
+            $type = $v->clean($_POST['amount']);
+            $currency = $v->clean($_POST['currency']);
+
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
+
+            foreach ($subPlans['result_message'] as $key => $plan) {
+                if ($type == $plan['type']) {
+                    $planid = $plan['planid'];
+                    $amount = $plan['amount'];   
+                }
+            }
+
+            $curRate = ModelFactory::model('User')->get_exchange_info($mny);
+            
+            $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+              //Call API Function
+            $pass = ModelFactory::model('User')->user_card_payment($info);
+
+            $rate = $curRate['post_details']['rate'];
+            $mon = $amount; 
+            $NGNamount = $mon * $rate;
+            $chargeAmount = (1.5/100 * $NGNamount) + 100;
+            $amount = $NGNamount + $chargeAmount;
+
+            $in = array('uniqueid' => $uniqueid, 'username' => $username, 'name' => $username, 'plan' => $planid, 'amount' => $amount, 'email' => $email, 'details' => $currency.$amount." Card Payment Was Initialized By ".$username." For ".$type, 'description' => $currency.$amount." Card Payment Was Initialized By ".$username." For ".$type, 'type' => "Deposit", 'transaction_charge' => $chargeAmount, );
+
+            //Connect To Payment Gateway
+            $paymentAPI = $this->payment_api();
+            $deposit = $paymentAPI->card_payment($in);
+            $real = json_decode($deposit, true);
+
+            if (isset($real['responseBody']) || isset($real['data'])) {
+                
+                if (isset($real['responseBody'])) {
+                    $url = $real['responseBody']['checkoutUrl'];
+                } else {
+                    $url = $real['data']['authorization_url'];
+                }
+            }
+            //var_dump($pass);
+            echo $deposit;
+        }
+    }
+
+
+
 
     //Ajax Make Payment route
     public function ajax_make_payment()
