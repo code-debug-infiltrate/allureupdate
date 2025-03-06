@@ -278,6 +278,7 @@ include 'Layout/sidebar.php';
 					  <li>
 						  <i class="ti-game mr-2"></i> <?= $interest['details']; ?></a>
 					  </li>
+					  <hr>
 					  <?php } ?>
 				  </ul>
 			  <?php } else { ?>
@@ -290,8 +291,9 @@ include 'Layout/sidebar.php';
 				  <ul class="ttr-header-navigation">
 					  <?php foreach($user_language as $key => $language) { ?>
 					  <li>
-						  <i class="ti-game mr-2"></i> <?= $language['language']; ?></a>
+						  <i class="ti-package mr-2"></i> <?= $language['language']; ?></a>
 					  </li>
+					  <hr>
 					  <?php } ?>
 				  </ul>
 			  <?php } else { ?>
@@ -303,6 +305,7 @@ include 'Layout/sidebar.php';
 			  <h2><?= $viewUser['fname']?>'s Education | Work </h2>
 			  <?php } else { ?>
 				  <p class="m-5"><a href="javascript:void(0);"><?= $viewUser['fname']?> Has No Education And Work</a></p>
+				  <hr>
 			  <?php } ?>
   
 		  </div>

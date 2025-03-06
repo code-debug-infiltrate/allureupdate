@@ -10,6 +10,7 @@
                     <li>
                         <i class="ti-game mr-2"></i> <?= $interest['details']; ?></a>
                     </li>
+                    <hr>
                     <?php } ?>
                 </ul>
             <?php } else { ?>
@@ -22,8 +23,9 @@
                 <ul class="ttr-header-navigation">
                     <?php foreach($user_language as $key => $language) { ?>
                     <li>
-                        <i class="ti-game mr-2"></i> <?= $language['language']; ?></a>
+                        <i class="ti-package mr-2"></i> <?= $language['language']; ?></a>
                     </li>
+                    <hr>
                     <?php } ?>
                 </ul>
             <?php } else { ?>

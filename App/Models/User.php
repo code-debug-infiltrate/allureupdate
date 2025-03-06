@@ -853,7 +853,7 @@ class User extends Model
     {   
         $apiInfo = new apiInfo();
         $token_info = $apiInfo->token_details();
-        $url = ''.$token_info['url'].'/user-chat-messages';
+        $url = ''.$token_info['url'].'/user-chat-reply';
 
         $body = http_build_query($params);
         $ch = $apiInfo->post_curl($url, $body);

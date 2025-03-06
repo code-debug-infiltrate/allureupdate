@@ -13,11 +13,12 @@
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: green;">70%+</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                             <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px;"/></center>
-                        </a>    
+                        </a>
+                        <div class="separator-solid"></div>    
                     </div>
 			        <div class="widget-inner" style="padding-bottom: 0;">
-                        <div class="separator-solid"></div>
-                        <h6 class="card-title" style="margin-top: -40px;">
+                        
+                        <h6 class="card-title" style="margin-top: -30px;">
                             <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                                 <?php foreach ($userOnlineStatus as $key => $logstatus) { if ($logstatus['uniqueid'] == $info['uniqueid']) { ?>
                                     <?php if ($logstatus['login_status'] == "Logged_in") { ?>
@@ -58,11 +59,11 @@
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: red;">-50%</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                             <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px;"/></center>
-                        </a>    
+                        </a>
+                        <div class="separator-solid"></div>    
                     </div>
 			        <div class="widget-inner" style="padding-bottom: 0;">
-                        <div class="separator-solid"></div>
-                        <h6 class="card-title" style="margin-top: -40px;">
+                        <h6 class="card-title" style="margin-top: -30px;">
                             <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                                 <?php foreach ($userOnlineStatus as $key => $logstatus) { if ($logstatus['uniqueid'] == $info['uniqueid']) { ?>
                                     <?php if ($logstatus['login_status'] == "Logged_in") { ?>

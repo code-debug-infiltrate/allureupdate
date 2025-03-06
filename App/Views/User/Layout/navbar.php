@@ -53,21 +53,21 @@
 				<!-- <li>
 					<a href="#" class="ttr-material-button ttr-search-toggle"><i class="fa fa-search"></i></a>
 				</li> -->
-				<?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newMessageCount > 0)) { ?>
+				<?php if (($userNoticeCount > 0) || ($newChatCount > 0) || ($newChatCount > 0)) { ?>
 				<iframe src="/Images/Sounds/ding-sound.mp3" allow="autoplay" style="display:none" autoplay></iframe>
 				<?php } ?>
 
 				<li>
-					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/msg.gif" alt="Email" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($newMessageCount); ?></span></a>
+					<a href="#" class="ttr-material-button ttr-submenu-toggle"><img src="/Images/Body/msg.gif" alt="Email" style="width: 30px;"><span class="counter" style="font-weight: lighter; top: -10px;"><?= number_format($newChatCount); ?></span></a>
 					<div class="ttr-header-submenu noti-menu">
-						<?php $i=0; if ($newMessageDetails) { ?>
+						<?php $i=0; if ($newChatDetails) { ?>
 						<div class="ttr-notify-header">
-							<span class="ttr-notify-text-top"><?= number_format($newMessageCount); ?> Messages</span>
+							<span class="ttr-notify-text-top"><?= number_format($newChatCount); ?> Messages</span>
 							<span class="ttr-notify-text"><a href="<?= baseURL('us-messages/')?><?= $userInfo['uniqueid']; ?>/">All Messages</a></span>
 						</div>
 						<div class="noti-box-list">
 							<ul>
-								<?php foreach ($newMessageDetails as $key => $msg) { ?>
+								<?php foreach ($newChatDetails as $key => $msg) { ?>
 									<?php if ($i <= 4) {  ?>
 									<li id="msg<?= $msg['id']; ?>">
 										<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $msg['sender']) { ?>

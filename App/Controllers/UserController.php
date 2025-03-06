@@ -1923,6 +1923,29 @@ class UserController extends Controller
 
 
 
+    //Poske User route
+    public function ajax_msg_user()
+    {
+        $v = new Validate();
+
+        if (($_POST['buddyid']!="") && ($_POST['uniqueid']!="")) {
+            // code...
+            $buddyid = $v->clean($_POST['buddyid']);
+            $uniqueid = $v->clean($_POST['uniqueid']);
+            $username = $v->clean($_POST['username']);
+            $msg = $v->clean($_POST['msg']);
+
+            $info = array('chatid' => "", 'receiver' => trim($buddyid), 'uniqueid' => trim($uniqueid), 'sender' => trim($uniqueid), 'username' => trim($username), 'details' => $msg, );
+            //Call API Function
+            $data = ModelFactory::model('User')->user_messages($info);
+            $userMsgs =  json_encode($data, JSON_FORCE_OBJECT);
+            
+            echo $userMsgs;
+        }
+    }
+
+
+
     
     //Create Self Details route
     public function ajax_preference()

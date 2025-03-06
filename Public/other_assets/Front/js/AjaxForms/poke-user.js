@@ -8,10 +8,29 @@ $(document).ready(function() {
        e.preventDefault();
  
        //Process IP 
-       var r = 'ajax-poke-user/';
+       var r = 'ajax-msg-user/';
        var uniqueid = $('#uniqueid').val();
        var username = $('#username').val();
        var buddyid = $('#buddyid').val();
+       
+       
+       //Process Message        
+        var msg = $('#firstmsg').val();
+        if(msg == ''){
+            $('.msgMessage_box').html(
+                '<span style="color:red;">Enter Detailed Message!</span>'
+            );
+            $('#firstmsg').focus();
+            return false;
+        }  
+
+        if(msg.length < 50 || msg.length > 500 ){
+            $('.msgMessage_box').html(
+                '<span style="color:red;">Message Must Be Between 50 to 500 Characters!</span>'
+            );
+            $('#firstmsg').focus();
+            return false;
+        }
        
        var url = $('#url').val();
        //Process Ajax Form Submittion Without Page Reload                
@@ -19,13 +38,13 @@ $(document).ready(function() {
         ({
           type: "POST",
           url: url+r,
-          data: "uniqueid="+uniqueid+"&username="+username+"&buddyid="+buddyid,
+          data: "uniqueid="+uniqueid+"&username="+username+"&buddyid="+buddyid+"&msg="+msg,
           //Show Message Before Sending
           beforeSend: function() {
-             $('.pokeMessage_box').html(
+             $('.msgMessage_box').html(
                  '<span style="color: black;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/>  Sent Poke Processing, Please Wait... </span>'
              );
-             $('#pokeUser').hide('fast');
+             $('#msgUser').hide('fast');
           }, 
  
           success: function(data)
@@ -36,19 +55,19 @@ $(document).ready(function() {
  
              if (info.result_info.type == "success") {
                 setTimeout(function() {
-                  $('.pokeMessage_box').html(
+                  $('.msgMessage_box').html(
                              '<span style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</span>'
                    );
                 }, delay);
-                $('#pokeUser').hide('slow');
-                $('#poked').show('slow');
+                $('#msgUser').hide('slow');
+                $('#msgd').show('slow');
              } else {
                 setTimeout(function() {
-                   $('.pokeMessage_box').html(
+                   $('.msgMessage_box').html(
                              '<span style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</span>'
                    );
                 }, delay);
-                $('#pokeUser').hide('slow');
+                $('#msgUser').hide('slow');
              }
           }
        });

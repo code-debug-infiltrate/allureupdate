@@ -63,8 +63,8 @@ include 'Layout/sidebar.php';
 									<?php } } ?>
 								</li>
 							</ul>
+							<hr>
 						</div>
-						<hr>
 				<?php } ?>
 				<?php } else { ?>
 						<p style="text-align: center; font-size: 20px;">You Do Not Have Any Notifications Yet </p>
