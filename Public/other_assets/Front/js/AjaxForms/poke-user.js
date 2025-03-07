@@ -12,6 +12,7 @@ $(document).ready(function() {
        var uniqueid = $('#uniqueid').val();
        var username = $('#username').val();
        var buddyid = $('#buddyid').val();
+       var chatid = $('#chatid').val();
        
        
        //Process Message        
@@ -38,7 +39,7 @@ $(document).ready(function() {
         ({
           type: "POST",
           url: url+r,
-          data: "uniqueid="+uniqueid+"&username="+username+"&buddyid="+buddyid+"&msg="+msg,
+          data: "uniqueid="+uniqueid+"&username="+username+"&buddyid="+buddyid+"&chatid="+chatid+"&msg="+msg,
           //Show Message Before Sending
           beforeSend: function() {
              $('.msgMessage_box').html(
@@ -56,7 +57,7 @@ $(document).ready(function() {
              if (info.result_info.type == "success") {
                 setTimeout(function() {
                   $('.msgMessage_box').html(
-                             '<span style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</span>'
+                             '<span style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+' <a href="'+url+'us-chats/'+uniqueid+'/?buddy='+buddyid+'">Continue To Chats</a></span>'
                    );
                 }, delay);
                 $('#msgUser').hide('slow');
@@ -64,7 +65,7 @@ $(document).ready(function() {
              } else {
                 setTimeout(function() {
                    $('.msgMessage_box').html(
-                             '<span style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+'</span>'
+                             '<span style="color: red;"><img src="/Images/Body/alert.png" style="width: 20px;" alt="Alert Image"/> '+info.result_info.message+' <a href="'+url+'us-chats/'+uniqueid+'/?buddy='+buddyid+'">Go To Chats</a></span>'
                    );
                 }, delay);
                 $('#msgUser').hide('slow');

@@ -27,43 +27,45 @@ include 'Layout/sidebar.php';
 			<div class="row">
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
-					<div class="widget">
-						<div class="email-wrapper">
+					<div class="widget row">
+						<div class="col-3">
 							<div class="email-menu-bar">
 								<div class="email-menu-bar-inner"  style="border:1px solid #ffffff; padding: 2px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 									<ul>
 
-										<?php foreach ($buddiesList as $key => $budReq) { ?>
+										<?php foreach ($userChatConnect as $key => $budReq) { ?>
 											<?php foreach ($userProfiles as $key => $user) { ?>
-												<?php if (($budReq['uniqueid'] == $userInfo['uniqueid']) && ($budReq['buddyid'] == $user['uniqueid']) && ($budReq['request'] != "Deactivated")) { ?>
-													<li>
+												<?php if (($budReq['uniqueid'] == $userInfo['uniqueid']) && ($budReq['buddyid'] == $user['uniqueid'])) { ?>
+													<li class="row">
 														<span style="font-size: 14px; font-weight: 500;">
 															<a href="<?= baseURL('us-chats/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $budReq['buddyid']; ?>">
 															<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="width: 30px; height: 30px; border-radius: 100%; margin-right: 10px;">
-																
+
+															<?= $user['fname']; ?> <?= $user['lname']; ?>	
+															
 															<?php if ($userChats) { foreach ($userChats as $eachChat => $chatDetails) {?>
-																<?php if (($budReq['uniqueid'] == $chatDetails['receiver'])) { ?>
+																
+																<?php if (($userInfo['uniqueid'] == $chatDetails['sender'])) { ?>
 																	<?php if ($chatDetails['status'] == "Unread") {?>
-																		<span class="star-this starred"><img src="/Images/Body/msgcount1.gif" style="width: 30px;" alt="New Chat"> </span>
+																		<img src="/Images/Body/online.png" style="width: 10px;" alt="New">
 																<?php } break; } ?>
 															<?php } } ?>
-
-															<?= $user['fname']; ?> <?= $user['lname']; ?>
 														</a></span>
 													</li>
-												<?php } elseif (($budReq['uniqueid'] != $userInfo['uniqueid']) && ($budReq['uniqueid'] == $user['uniqueid']) && ($budReq['request'] != "Deactivated")) { ?>
-													<li>
+												<?php } elseif (($budReq['buddyid'] == $userInfo['uniqueid']) && ($budReq['uniqueid'] == $user['uniqueid'])) { ?>
+													<li class="row">
 														<span style="font-size: 14px; font-weight: 500;"><a href="<?= baseURL('us-chats/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $budReq['uniqueid']; ?>">
 															<img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="width: 30px; height: 30px; border-radius: 100%; margin-right: 10px;">
-
-															<?php if ($userChats) { foreach ($userChats as $eachChat => $chatDetails) {?>
-																<?php if (($budReq['uniqueid'] == $chatDetails['sender'])) { ?>
-																	<?php if ($chatDetails['status'] == "Unread") {?>
-																		<span class="star-this starred"><img src="/Images/Body/msgcount1.gif" style="width: 30px;" alt="New Chat"> </span>
-																<?php } break; } ?>
-															<?php } } ?>
 															
 															<?= $user['fname']; ?> <?= $user['lname']; ?>
+															
+															<?php if ($userChats) { foreach ($userChats as $eachChat => $chatDetails) {?>
+																
+																<?php if (($userInfo['uniqueid'] == $chatDetails['receiver'])) { ?>
+																	<?php if ($chatDetails['status'] == "Unread") {?>
+																		<img src="/Images/Body/online.png" style="width: 10px;" alt="New">
+																<?php } break; } ?>
+															<?php } } ?>
 														</a></span>		
 													</li>
 												<?php } ?>
@@ -72,13 +74,14 @@ include 'Layout/sidebar.php';
 									</ul>
 								</div>
 							</div>
-							<div class="mail-list-container">
+						</div>
+							<div class="col-9">
 								<div class="mailbox-view">
 									<!-- <div class="mailbox-view-title">
 										<h5 class="send-mail-title">Your message title goes here</h5>
 									</div> -->
 									<div class="send-mail-details">
-										<div class="d-flex"  style="border:1px solid #ffffff; padding: 2px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+										<div class="d-flex col-lg-12"  style="background: url(/Images/Banner/4.jpg); margin: 5px; border:1px solid #d2d4d2; padding: 10px; border-radius: 5px;">
 											<div class="send-mail-user">
 											<?php if (isset($_GET['buddy'])) { $chatBuddy = $_GET['buddy']; ?>
 												<?php foreach ($userProfiles as $key => $user) { if ($chatBuddy == $user['uniqueid']) { ?>
@@ -92,56 +95,67 @@ include 'Layout/sidebar.php';
 												<?php } } ?>
 											</div>
 											<div class="ml-auto send-mail-full-info">
-												<!-- <div class="time"><span>10:25 PM</span></div> -->
+												<div class="time"><span>Connected: </span></div>
 												<!-- <span class="btn btn-info-icon">Reply</span> -->
 												<div class="dropdown all-msg-toolbar ml-auto">
 													<span class="btn btn-info-icon" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></span>
 													<ul class="dropdown-menu dropdown-menu-right">
-														<li><a href="#"><i class="fa fa-trash-o"></i> Block Buddy</a></li>
+														<li><a href="#" style="font-size: 10px;"><i class="fa fa-trash-o"></i> Block Buddy</a></li>
 													</ul>
 												</div>
 											</div>
 											
 										</div>
-										<?php if($userChats != NULL) { ?>
-											<?php foreach ($userChats as $comC => $chats) { ?>
-												<?php if ($chats['sender'] != $userInfo['uniqueid']) { ?>
-													<div class="read-content-body" style="float: left; margin: 10px;" id="you">
-														<?php if ($appSubPlan['status'] == "Paid") { ?>
-															<?php if ($subPlan) { ?>
-																<?php if ($subPlan['status'] == "Paid") {  ?>
-														
+
+										<div class="col-lg-12 row" style="overflow: auto; margin: 5px; border:1px solid #d2d4d2; padding: 10px; border-radius: 5px;">
+											<?php if($userChats != NULL) { ?>
+												<?php foreach ($userChats as $comC => $chats) { ?>
+													<?php if ($chats['sender'] != $userInfo['uniqueid']) { ?>
+														<div class="read-content-body" style="float: left; margin: 10px;" id="you">
+															<?php if ($appSubPlan['status'] == "Paid") { ?>
+																<?php if ($subPlan) { ?>
+																	<?php if ($subPlan['status'] == "Paid") {  ?>
+
+																		<p style="font-size: 12px; color: #0e014a;">
+																			<?php if ($chats['file']) { ?>
+																				<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
+																			<?php } ?>
+																			<?= $chats['details']; ?> <br><i style="font-size: 7px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
+																		</p>
+																		
+																	<?php } else { ?>
+
+																		<p>This Message Is Currently Masked. <a href="javascript:void(0);" style="color: #7005e3;">Subscribe To Unlock Conversation</a></p>
+																	
+															<?php } } } else { ?>
+
+																<p style="font-size: 12px; color: #0e014a;">
 																	<?php if ($chats['file']) { ?>
 																		<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
 																	<?php } ?>
-																	<p style="font-size: 18px;"><?= $chats['details']; ?> <br><i style="font-size: 8px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></p>
+																	<?= $chats['details']; ?> <br><i style="font-size: 7px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
+																</p>
 																
-																<?php } else { ?>
+															<?php } ?>
+														</div>
+											
+												<?php } else { ?>
+													<div class="read-content-body" style="float: right; margin: 10px;" id="me">
 
-																	<p>This Message Is Temporarily Locked. <a href="javascript:void(0);" style="color: #7005e3;">Click Here To Unlock It</a> Now!</p>
-																
-														<?php } } } else { ?>
+														<p style="font-size: 12px; color: #060312;">
 															<?php if ($chats['file']) { ?>
 																<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
 															<?php } ?>
-															<p style="font-size: 18px;"><?= $chats['details']; ?> <br><i style="font-size: 8px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></p>
-															
-														<?php } ?>
-													</div>
-										
-											<?php } else { ?>
-												<div class="read-content-body" style="float: right; margin: 10px;" id="me">
-													<?php if ($chats['file']) { ?>
-														<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
-													<?php } ?>
-													<p style="font-size: 18px;"><?= $chats['details']; ?> <br><i style="font-size: 8px;">Sent <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></p>
-												</div>
-										<?php } } ?>
+															<?= $chats['details']; ?> <br><i style="font-size: 7px;">Sent <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
+														</p>
 
-										<?php } else { ?>
-											<div class="col-lg-12"><center><p style="margin: 20px;">Start a Spark! <br> Send Buddy a Message! Say Hello...</p></center></div>
-										<?php } ?>
-									
+													</div>
+											<?php } } ?>
+
+											<?php } else { ?>
+												<center><p style="margin: 20px;">Start a Spark! <br> Send Buddy a Message! Say Hello...</p></center>
+											<?php } ?>
+										</div>
 										
 										<div class="form-group">
 											
@@ -181,7 +195,7 @@ include 'Layout/sidebar.php';
 									</div>
 								</div>
 							</div>
-						</div>
+						
 					</div> 
 				</div>
 				<!-- Your Profile Views Chart END-->

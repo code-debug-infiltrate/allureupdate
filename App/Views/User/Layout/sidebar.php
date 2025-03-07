@@ -32,9 +32,15 @@
 							<a href="<?= baseURL('us-notifications/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 14px;"><img src="/Images/Body/love.gif" style="border-radius: 50%; width: 40px; margin-right: 8px;"> Notifications <em style="margin-left: 8px;"><?= number_format($userNoticeCount); ?></em> </span></a>
 							<hr> 
 
-							<div class="mt-5 mb-5">
-								<a href="#" data-toggle="modal" data-target="#addBalanceModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 80px;"></a>
-							</div>
+							<?php if ($subPlan) { ?>
+								<?php if ($subPlan['status'] != "Paid") {  ?>
+								
+									<div class="mt-5 mb-5">
+										<a href="#" data-toggle="modal" data-target="#addBalanceModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 80px;"></a>
+									</div>
+									
+								<?php } ?>
+							<?php } ?>
 
 							<hr>
 							<a href="<?= baseURL('logout/'); ?><?= $userInfo['uniqueid']; ?>/"><span style="font-size: 14px;"><img src="/Images/Body/alert.png" style="border-radius: 50%; width: 30px; margin-right: 8px;"> Logout </span></a>

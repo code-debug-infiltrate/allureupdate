@@ -1,11 +1,11 @@
-<div class="row" id="dating-pool-inside">
+<div class="row col-lg-12 col-12" id="dating-pool-inside">
 <?php if ($veryClose) { ?>
 	<?php foreach($veryClose as $key => $info) { ?>	
     	<?php foreach ($userProfiles as $key => $user) { if (($user['uniqueid'] == $info['uniqueid']) && ($userInfo['uniqueid'] != $info['uniqueid']) && ($userInfo['gender'] != $user['gender'])) { ?>
 
             <?php if ($user['dob']) { $newDob = $user['dob']; $age = (date('Y') - date('Y', strtotime($newDob))); } ?>
 
-            <div class="col-lg-3 m-b30" id="<?= $info['uniqueid']; ?>">
+            <div class="col-lg-3 col-6 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
                 <div class="widget-box image-effect"  style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
@@ -44,14 +44,14 @@
 
 
 
-<div class="row">
+<div class="row col-lg-12 col-12">
     <?php if ($slightlyClose) { ?>
 	<?php foreach($slightlyClose as $key => $info) { ?>	
     	<?php foreach ($userProfiles as $key => $user) { if (($user['uniqueid'] == $info['uniqueid']) && ($userInfo['uniqueid'] != $info['uniqueid'])) { ?>
 
             <?php if ($user['dob']) { $newDob = $user['dob']; $age = (date('Y') - date('Y', strtotime($newDob))); } ?>
 
-            <div class="col-lg-3 m-b30" id="<?= $info['uniqueid']; ?>">
+            <div class="col-lg-3 col-6 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
                 <div class="widget-box image-effect" style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">

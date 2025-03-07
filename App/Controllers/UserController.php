@@ -879,19 +879,19 @@ class UserController extends Controller
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
             $userProfiles = ModelFactory::model('User')->user_profiles();
+            $userChatConnect = ModelFactory::model('User')->user_chat_connect($info);
+            $userMsgs = ModelFactory::model('User')->user_chat_messages($buddyInfo);
             
             //$user = json_decode($result, true);
             $userInfo = $userDetails['user_info'];
-            
-            $userMsgs = ModelFactory::model('User')->user_messages($buddyInfo);
 
             $data = array(
                 'userInfo' => $userInfo,
                 'coyInfo' => $coyInfo,
                 'curInfo' => $curInfo['result_message'], 
                 'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
+                'bankInfo' => $userDetails['bankInfo'], 
+                'exchangeInfo' => $userDetails['exchangeInfo'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -903,6 +903,7 @@ class UserController extends Controller
                 'newMessageDetails' => $userDetails['newMessageDetails'],
                 'matchCount' => $userDetails['matchInfo'],
                 'newChatCount' => $userDetails['newChatCount'],
+                'userChatConnect' => $userChatConnect['user_chat_connect'],
                 'newChatDetails' => $userDetails['newChatDetails'],
                 'onlineNow' =>$userDetails['onlineNow'],
                 'appSubPlan' => $userDetails['appSubPlan'],
@@ -922,20 +923,22 @@ class UserController extends Controller
             $userDetails =$this->user_information($id); 
             $coyInfo = ModelFactory::model('Register')->coy_info();
             $userProfiles = ModelFactory::model('User')->user_profiles();
+            $userChatConnect = ModelFactory::model('User')->user_chat_connect($info);
+            $userMsgs = ModelFactory::model('User')->user_chat_messages($buddyInfo);
             
             //$user = json_decode($result, true);
             $userInfo = $userDetails['user_info'];
             
 
-            $userMsgs = ModelFactory::model('User')->user_messages($buddyInfo);
+            //$userMsgs = ModelFactory::model('User')->user_messages($buddyInfo);
             
             $data = array(
                 'userInfo' => $userInfo,
                 'coyInfo' => $coyInfo,
                 'curInfo' => $curInfo['result_message'], 
                 'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
+                'bankInfo' => $userDetails['bankInfo'], 
+                'exchangeInfo' => $userDetails['exchangeInfo'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
@@ -947,6 +950,7 @@ class UserController extends Controller
                 'newMessageDetails' => $userDetails['newMessageDetails'],
                 'matchCount' => $userDetails['matchInfo'],
                 'newChatCount' => $userDetails['newChatCount'],
+                'userChatConnect' => $userChatConnect['user_chat_connect'],
                 'newChatDetails' => $userDetails['newChatDetails'],
                 'onlineNow' =>$userDetails['onlineNow'],
                 'appSubPlan' => $userDetails['appSubPlan'],
@@ -959,12 +963,13 @@ class UserController extends Controller
             return $this->view('User/chats-page', $data); 
 
         } 
-          
+        $buddyInfo = array('uniqueid' => $v->clean($id), 'buddyid' => "", );
         //Get User Credentials
         $userDetails =$this->user_information($id); 
         $coyInfo = ModelFactory::model('Register')->coy_info();
         $userProfiles = ModelFactory::model('User')->user_profiles();
-        $userMsgs = ModelFactory::model('User')->user_messages($info);
+        $userChatConnect = ModelFactory::model('User')->user_chat_connect($info);
+        $userMsgs = ModelFactory::model('User')->user_chat_messages($buddyInfo);
         
         //$user = json_decode($result, true);
         $userInfo = $userDetails['user_info'];
@@ -987,12 +992,13 @@ class UserController extends Controller
             'newMessageDetails' => $userDetails['newMessageDetails'],
             'matchCount' => $userDetails['matchInfo'],
             'newChatCount' => $userDetails['newChatCount'],
+            'userChatConnect' => $userChatConnect['user_chat_connect'],
             'newChatDetails' => $userDetails['newChatDetails'],
             'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
+            'appSubPlan' => $userDetails['appSubPlan'],
             'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'],  
+            'subPlan' => $userDetails['subPlan'],
+            'userProfiles' => $userProfiles['user_profiles'], 
             'userChats' => $userMsgs['user_chat_info'],
         );
   
@@ -1933,9 +1939,10 @@ class UserController extends Controller
             $buddyid = $v->clean($_POST['buddyid']);
             $uniqueid = $v->clean($_POST['uniqueid']);
             $username = $v->clean($_POST['username']);
+            $chatid = $v->clean($_POST['chatid']);
             $msg = $v->clean($_POST['msg']);
 
-            $info = array('chatid' => "", 'receiver' => trim($buddyid), 'uniqueid' => trim($uniqueid), 'sender' => trim($uniqueid), 'username' => trim($username), 'details' => $msg, );
+            $info = array('chatid' => $chatid, 'receiver' => trim($buddyid), 'uniqueid' => trim($uniqueid), 'sender' => trim($uniqueid), 'username' => trim($username), 'file' => "", 'details' => $msg, );
             //Call API Function
             $data = ModelFactory::model('User')->user_messages($info);
             $userMsgs =  json_encode($data, JSON_FORCE_OBJECT);

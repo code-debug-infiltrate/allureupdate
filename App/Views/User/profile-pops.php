@@ -36,7 +36,7 @@
                         <div class="modal-body">
 
                             <div class="msgMessage_box text-center mt-2" style="margin: 10px;"></div>
-
+                            <input type="hidden" id="chatid" value="">
                             <textarea class="form-control" id="firstmsg" placeholder="Send a Message to the <?= $viewUser['fname']; ?>" rows="5"></textarea>
                         </div>
                         <div class="modal-footer">

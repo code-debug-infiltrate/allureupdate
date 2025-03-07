@@ -863,6 +863,42 @@ class User extends Model
         return $data;
     }
 
+
+
+
+    //Function For User To Get all Chat Connects Post using Oriented API
+    public function user_chat_connect($params)
+    {   
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+        $url = ''.$token_info['url'].'/user-chat-connect';
+
+        $body = http_build_query($params);
+        $ch = $apiInfo->post_curl($url, $body);
+
+        if(is_array($ch)){ $data = $ch; } else { $data = json_decode($ch, true); }
+        
+        return $data;
+    }
+
+
+
+
+    //Function For User To Get all Chat Connects Post using Oriented API
+    public function user_chat_messages($params)
+    {   
+        $apiInfo = new apiInfo();
+        $token_info = $apiInfo->token_details();
+        $url = ''.$token_info['url'].'/user-chat-messages';
+
+        $body = http_build_query($params);
+        $ch = $apiInfo->post_curl($url, $body);
+
+        if(is_array($ch)){ $data = $ch; } else { $data = json_decode($ch, true); }
+        
+        return $data;
+    }
+
     
 
     //Function For User To Create Post using Oriented API
