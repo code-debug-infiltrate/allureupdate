@@ -983,7 +983,7 @@ include 'Layout/sidebar.php';
 
 
 
-
+			<?php include 'random-buddies-inside.php'; ?>
 			
 
 		</div>

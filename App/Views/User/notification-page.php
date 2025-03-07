@@ -83,6 +83,9 @@ include 'Layout/sidebar.php';
             </div>
             <!-- End Third Column Side -->
 
+
+			<?php include 'random-buddies-inside.php'; ?>
+
 <!-- End oF file -->
 
 	</div>

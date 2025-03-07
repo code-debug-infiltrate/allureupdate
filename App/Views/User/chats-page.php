@@ -27,9 +27,9 @@ include 'Layout/sidebar.php';
 			<div class="row">
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
-					<div class="widget row">
-						<div class="col-3">
-							<div class="email-menu-bar">
+					<div class="widget row col-12">
+						<div class="email-wrapper row">
+							<div class="email-menu-bar col-3">
 								<div class="email-menu-bar-inner"  style="border:1px solid #ffffff; padding: 2px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 									<ul>
 
@@ -74,8 +74,7 @@ include 'Layout/sidebar.php';
 									</ul>
 								</div>
 							</div>
-						</div>
-							<div class="col-9">
+							<div class="mail-list-container col-5">
 								<div class="mailbox-view">
 									<!-- <div class="mailbox-view-title">
 										<h5 class="send-mail-title">Your message title goes here</h5>
@@ -195,7 +194,7 @@ include 'Layout/sidebar.php';
 									</div>
 								</div>
 							</div>
-						
+						</div>
 					</div> 
 				</div>
 				<!-- Your Profile Views Chart END-->

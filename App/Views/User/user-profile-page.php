@@ -498,13 +498,7 @@ include 'Layout/sidebar.php';
 
 
 
-
-	<div class="section-area">
-		<div class="container">
-
-		</div>
-	</div>
-
+	  <?php include 'random-buddies-inside.php'; ?>
 
 
 

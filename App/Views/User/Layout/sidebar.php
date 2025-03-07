@@ -34,11 +34,15 @@
 
 							<?php if ($subPlan) { ?>
 								<?php if ($subPlan['status'] != "Paid") {  ?>
-								
+									<!-- If Not Paid... Show Subscribe Button -->
 									<div class="mt-5 mb-5">
 										<a href="#" data-toggle="modal" data-target="#addBalanceModal"><img src="/Images/Body/subscribe.png" alt="Subscribe Button" style="width: 100%; height: 80px;"></a>
 									</div>
-									
+								<?php } else { ?>
+									<!-- If Paid... SHow Therapy Button -->
+									<div class="mt-5 mb-5">
+										<a href="#" data-toggle="modal" data-target="#therapyModal"><img src="/Images/Body/coffee-conversation.png" alt="Subscribe Button" style="width: 100%; height: 80px;"></a>
+									</div>
 								<?php } ?>
 							<?php } ?>
 

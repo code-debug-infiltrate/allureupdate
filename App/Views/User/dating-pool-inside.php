@@ -1,4 +1,4 @@
-<div class="row col-lg-12 col-12" id="dating-pool-inside">
+<div class="row col-lg-12 col-12  m-0 p-0" id="dating-pool-inside">
 <?php if ($veryClose) { ?>
 	<?php foreach($veryClose as $key => $info) { ?>	
     	<?php foreach ($userProfiles as $key => $user) { if (($user['uniqueid'] == $info['uniqueid']) && ($userInfo['uniqueid'] != $info['uniqueid']) && ($userInfo['gender'] != $user['gender'])) { ?>
@@ -7,12 +7,12 @@
 
             <div class="col-lg-3 col-6 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
-                <div class="widget-box image-effect"  style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+                <div class="widget-box image-effect"  style="background: transparent; border:2px solid #ffffff; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: green;">70%+</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
-                            <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px;"/></center>
+                            <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 100%; height: 200px;"/></center>
                         </a>
                         <div class="separator-solid"></div>    
                     </div>
@@ -44,7 +44,7 @@
 
 
 
-<div class="row col-lg-12 col-12">
+<div class="row col-lg-12 col-12 m-0 p-0">
     <?php if ($slightlyClose) { ?>
 	<?php foreach($slightlyClose as $key => $info) { ?>	
     	<?php foreach ($userProfiles as $key => $user) { if (($user['uniqueid'] == $info['uniqueid']) && ($userInfo['uniqueid'] != $info['uniqueid'])) { ?>
@@ -53,12 +53,12 @@
 
             <div class="col-lg-3 col-6 m-b30" id="<?= $info['uniqueid']; ?>">
                 <span class="close" id="<?= $info['uniqueid']; ?>" style="font-size: 30px; padding: 5px;" onclick="document.getElementById('<?= $info['uniqueid']; ?>').style.display='none'"> &times;</span>
-                <div class="widget-box image-effect" style="background: transparent; border:2px solid #ffffff; padding: 10px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
+                <div class="widget-box image-effect" style="background: transparent; border:2px solid #ffffff; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
                         <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: red;">-50%</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
-                            <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 180px; height: 200px;"/></center>
+                            <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 100%; height: 200px;"/></center>
                         </a>
                         <div class="separator-solid"></div>    
                     </div>

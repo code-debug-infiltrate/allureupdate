@@ -123,6 +123,7 @@ class UserController extends Controller
         $v = new Validate();
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
+        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
 
         if (isset($_POST['submitProfile'])) {
             // code...
@@ -292,6 +293,7 @@ class UserController extends Controller
             'postActions' => $postActions['post_interactions'], 
             'latestPosts' => $latestPosts['post_details'],
             'latestPostsFiles' => $latestPostsFiles['post_files'],
+            'randomBuddy' => $randomBuddy['buddy_info'],
          );
 
         return $this->view('User/profile-page', $data); 
@@ -299,58 +301,6 @@ class UserController extends Controller
     }
 
 
-
-
-    // Members people
-    public function member_people()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $matchInfo = ModelFactory::model('User')->user_find_people($info);
-        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'], 
-            'veryClose' => $matchInfo['people_info']['veryClose'], 
-            'slightlyClose' => $matchInfo['people_info']['slightlyClose'], 
-            'randomBuddy' => $randomBuddy['buddy_info'], 
-            'userProfiles' => $userProfiles['user_profiles'], 
-        );
-
-        return $this->view('User/find-people-page', $data); 
-        
-    }
 
     
     // view User Profile
@@ -385,6 +335,7 @@ class UserController extends Controller
         $myself = ModelFactory::model('User')->user_myself($user);
         $buddiesList = ModelFactory::model('User')->user_buddies_list($user);
         $buddiesCount = ModelFactory::model('User')->user_buddies_count($user);
+        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         //$user = json_decode($result, true);
         
         $data = array(
@@ -422,6 +373,7 @@ class UserController extends Controller
             'postActions' => $postActions['post_interactions'], 
             'latestPosts' => $latestPosts['post_details'],
             'latestPostsFiles' => $latestPostsFiles['post_files'],
+            'randomBuddy' => $randomBuddy['buddy_info'],
          );
 
         return $this->view('User/user-profile-page', $data); 
@@ -438,6 +390,7 @@ class UserController extends Controller
         $v = new Validate();
         $id = $this->get_id();
         $info = array('uniqueid' => $v->clean($id), );
+        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
 
         if (isset($_POST['submitProfile'])) {
             // code...
@@ -507,6 +460,7 @@ class UserController extends Controller
                 'postActions' => $postActions['post_interactions'], 
                 'latestPosts' => $latestPosts['post_details'],
                 'latestPostsFiles' => $latestPostsFiles['post_files'],
+                'randomBuddy' => $randomBuddy['buddy_info'],
                 'type' => $result['result_info']['type'],
                 'message' => $result['result_info']['message'],
             );
@@ -559,6 +513,7 @@ class UserController extends Controller
                 'postActions' => $postActions['post_interactions'], 
                 'latestPosts' => $latestPosts['post_details'],
                 'latestPostsFiles' => $latestPostsFiles['post_files'],
+                'randomBuddy' => $randomBuddy['buddy_info'],
                 'type' => $result['result_info']['type'],
                 'message' => $result['result_info']['message'],
             );
@@ -607,6 +562,7 @@ class UserController extends Controller
                 'postActions' => $postActions['post_interactions'], 
                 'latestPosts' => $latestPosts['post_details'],
                 'latestPostsFiles' => $latestPostsFiles['post_files'],
+                'randomBuddy' => $randomBuddy['buddy_info'],
             );
 
             return $this->view('User/settings-page', $data); 
@@ -628,6 +584,7 @@ class UserController extends Controller
         $coyInfo = ModelFactory::model('Register')->coy_info();
         $curInfo = ModelFactory::model('Admin')->get_currency_info();
         $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
+        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         $userProfiles = ModelFactory::model('User')->user_profiles();
         
         $data = array(
@@ -658,59 +615,13 @@ class UserController extends Controller
             'user_preference' => $userDetails['user_preference'],
             'user_myself' => $userDetails['user_myself'],
             'userProfiles' => $userProfiles['user_profiles'], 
+            'randomBuddy' => $randomBuddy['buddy_info'],
         );
 
         return $this->view('User/preferences-page', $data); 
     }
 
 
-
-
-    // Members activity
-    public function member_activity()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $activity = ModelFactory::model('User')->user_activity($info);
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo,
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' => $userDetails['onlineNow'],
-            'subPlan' => $userDetails['subPlan'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'user_activity' => $activity['activity_info'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-         );
-
-        return $this->view('User/activity-page', $data); 
-        
-    }
-
-    
 
 
 
@@ -728,6 +639,7 @@ class UserController extends Controller
         $curInfo = ModelFactory::model('Admin')->get_currency_info();
         $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
         $buddyActivity = ModelFactory::model('User')->buddy_activities($info);
+        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
         //$user = json_decode($result, true);
         $userInfo = $userDetails['user_info'];
         
@@ -756,64 +668,11 @@ class UserController extends Controller
             'appSubPlan' => $userDetails['appSubPlan'],
             'userTrancInfo' => $userDetails['trancInfo'],
             'userProfiles' => $userProfiles['user_profiles'], 
+            'randomBuddy' => $randomBuddy['buddy_info'],
         );
 
         return $this->view('User/notification-page', $data); 
         
-    }
-  
-      
-
-      
-    // Members messages
-    public function member_messages()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-          
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $allMessageDetails = ModelFactory::model('User')->all_message_details($info);
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-       
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo,
-            'curInfo' => $curInfo['result_message'],
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-            'msgs_senders' => $allMessageDetails['all_msgs']['msgList'],
-            'msgs_details' => $allMessageDetails['all_msgs']['msgDetails'], 
-           );
-  
-        return $this->view('User/messages-page', $data); 
-          
     }
   
       
@@ -1008,647 +867,8 @@ class UserController extends Controller
       
 
 
-    // Members Commenting On Post
-    public function member_comment()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), 'postid' => $v->clean($_GET['id']), 'sender' => $v->clean($id), 'receiver' => $v->clean($_GET['by']), 'postedby' => $v->clean($_GET['by']), );
-        $cmm = array('sender' => $v->clean($id), 'postid' => $v->clean($_GET['id']), 'uniqueid' => $v->clean($_GET['by']), 'receiver' => $v->clean($_GET['by']), 'commentid' => "", );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $postDetails = ModelFactory::model('User')->get_post($info);
-        $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
-        
-        $postActions = ModelFactory::model('User')->get_post_actions();
-        $commentChats = ModelFactory::model('User')->all_comment_chats($cmm);
-        
-
-        $data = array(
-            'userInfo' => $userDetails['user_info'],
-            'coyInfo' => $coyInfo, 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'postActions' => $postActions['post_interactions'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'postDetails' => $postDetails['post_details'],
-            'latestPostsFiles' => $latestPostsFiles['post_files'],
-            'onlineNow' => $userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'],
-            'user_language' => $userDetails['user_language'],
-            'user_interests' => $userDetails['user_interests'],
-            'user_myself' => $userDetails['user_myself'],
-            'user_preference' => $userDetails['user_preference'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-            'randomBuddy' => $randomBuddy['buddy_info'],
-            'commentChats' => $commentChats['comment_chats'],
-           );
-  
-        return $this->view('User/comment-page', $data); 
-          
-    }
-  
-      
-   
-    
-    // Members Commenting On Post
-    public function member_message_reply()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), 'postid' => $v->clean($_GET['id']), 'sender' => $v->clean($_GET['by']),  'commentid' => $v->clean($_GET['cid']), 'receiver' => $v->clean($id), );
-
-        $commentChats = ModelFactory::model('User')->all_comment_chats($info);
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-
-        if (isset($_POST['respond'])) {
-            $sender = $v->clean($_POST['uniqueid']);
-            $username = $v->clean($_POST['username']);
-            $receiver = $v->clean($_POST['receiver']);
-            $postid = $v->clean($_POST['postid']);
-            $commentid = $v->clean($_POST['commentid']);
-            $details = $v->clean($_POST['details']);
-            
-            $a9 = array('uniqueid' => $v->clean($id), 'postid' => $v->clean($_GET['id']), 'sender' => $sender,  'commentid' => $v->clean($_GET['cid']), 'receiver' => $v->clean($_GET['by']), );
-            $ai = array('sender' => trim($sender), 'receiver' => trim($receiver), 'commentid' => trim($commentid), 'details' => trim($details), 'postid' => trim($postid), 'uniqueid' => trim($sender), 'username' => trim($username), );
-                
-            $pass = ModelFactory::model('User')->user_post_comment($ai);
-            $commentChats = ModelFactory::model('User')->all_comment_chats($a9);
-            
-        }
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $randomBuddy = ModelFactory::model('User')->user_random_people($info);
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $postDetails = ModelFactory::model('User')->get_post($info);
-        $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
-        
-        $postActions = ModelFactory::model('User')->get_post_actions();
-        
-        
-        $data = array(
-            'userInfo' => $userDetails['user_info'],
-            'coyInfo' => $coyInfo, 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'postActions' => $postActions['post_interactions'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'postDetails' => $postDetails['post_details'],
-            'latestPostsFiles' => $latestPostsFiles['post_files'],
-            'onlineNow' => $userDetails['onlineNow'],
-            'subPlan' => $userDetails['subPlan'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'user_language' => $userDetails['user_language'],
-            'user_interests' => $userDetails['user_interests'],
-            'user_myself' => $userDetails['user_myself'],
-            'user_preference' => $userDetails['user_preference'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-            'randomBuddy' => $randomBuddy['buddy_info'],
-            'commentChats' => $commentChats['comment_chats'],
-           );
-  
-        return $this->view('User/message-reply-page', $data); 
-          
-    }
-  
-
-
-    
-    // Members FAQs
-    public function member_faqs()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-        );
-
-        return $this->view('User/faqs-page', $data); 
-        
-    }
- 
-     
-    
-    // Members Character Test
-    public function member_character_test()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-        );
-
-        return $this->view('User/character-test-page', $data); 
-        
-    }
- 
-     
-    
-    // Members Subscription Plan
-    public function member_subscription_plan()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id);
-        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'bankInfo' => $bankInfo['result_message'],
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'], 
-        );
-
-        return $this->view('User/subscription-plan-page', $data); 
-        
-    }
- 
-  
-     
-    
-    // Members Private Session
-    public function member_private_session()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id);
-        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'bankInfo' => $bankInfo['result_message'], 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'],
-        );
-
-        return $this->view('User/private-session-page', $data); 
-        
-    }
- 
-     
-    
 
   
-    // Members News & Updates
-    public function member_news_updates()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id);
-        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'bankInfo' => $bankInfo['result_message'], 
-            'exchangeInfo' => $exchangeInfo['result_message'], 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-           'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-           'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'],
-        );
-
-        return $this->view('User/news-updates-page', $data); 
-        
-    }
- 
-     
-    
-    
-    // Members Subscription Payment
-    public function member_subscription_payment()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-        $mny = array('currency' => "Naira", );
-
-        if (isset($_POST['payCard'])) {
-
-            $uniqueid = $v->clean($_POST['uniqueid']);
-            $username = $v->clean($_POST['username']);
-            $email = $v->clean($_POST['email']);
-            $planid = $v->clean($_POST['planid']);
-            $amt = $v->clean($_POST['amount']);
-            $currency = $v->clean($_POST['currency']);
-
-            $curRate = ModelFactory::model('User')->get_exchange_info($mny);
-            
-            $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-            $pass = ModelFactory::model('User')->user_card_payment($info);
-
-            $rate = $curRate['post_details']['rate'];
-            $mon = $amt; 
-            $NGNamount = $mon * $rate;
-            $chargeAmount = (1.5/100 * $NGNamount) + 100;
-            $amount = $NGNamount + $chargeAmount;
-
-            $in = array('uniqueid' => $uniqueid, 'username' => $username, 'name' => $username, 'plan' => $planid, 'amount' => $amount, 'email' => $email, 'details' => $pass['result_message']['details'], 'description' => $pass['result_message']['details'], 'type' => "Deposit", 'transaction_charge' => $chargeAmount, );
-
-            //Connect To Payment Gateway
-            $paymentAPI = $this->payment_api();
-            $deposit = $paymentAPI->card_payment($in);
-            $real = json_decode($deposit, true);
-
-            if (isset($real['responseBody']) || isset($real['data'])) {
-                
-                if (isset($real['responseBody'])) {
-                    $url = $real['responseBody']['checkoutUrl'];
-                } else {
-                    $url = $real['data']['authorization_url'];
-                }
-            }
-            
-             //Get User Credentials
-            $userDetails =$this->user_information($id);
-            $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
-            $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-            $coyInfo = ModelFactory::model('Register')->coy_info();
-            $userProfiles = ModelFactory::model('User')->user_profiles();
-            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-            $curInfo = ModelFactory::model('Admin')->get_currency_info();
-            //$user = json_decode($result, true);
-            $userInfo = $userDetails['user_info'];
-
-            $data = array(
-                'paymentUrl' => $url,
-                'userInfo' => $userInfo,
-                'coyInfo' => $coyInfo, 
-                'curInfo' => $curInfo['result_message'], 
-                'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-                'bankInfo' => $bankInfo['result_message'], 
-                'exchangeInfo' => $exchangeInfo['result_message'], 
-                'newActivityNotice' => $userDetails['newActivityNotice'], 
-                'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-                'buddiesCount' => $userDetails['buddiesCount'], 
-                'buddiesList' => $userDetails['buddies'], 
-                'userLikesCount' => $userDetails['userLikesCount'], 
-                'userViewsCount' => $userDetails['userViewsCount'], 
-                'userNoticeCount' => $userDetails['userNoticeCount'], 
-                'newMessageCount' => $userDetails['newMessageCount'],
-                'newMessageDetails' => $userDetails['newMessageDetails'],
-                'matchCount' => $userDetails['matchInfo'],
-                'newChatCount' => $userDetails['newChatCount'],
-                'newChatDetails' => $userDetails['newChatDetails'],
-                'onlineNow' =>$userDetails['onlineNow'],
-                'appSubPlan' => $userDetails['appSubPlan'],
-                'userTrancInfo' => $userDetails['trancInfo'],
-                'subPlan' => $userDetails['subPlan'],
-                'userProfiles' => $userProfiles['user_profiles'],
-            );
-
-            return $this->view('User/subscription-payment-page', $data); 
-
-        }
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id);
-        $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
-        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'bankInfo' => $bankInfo['result_message'], 
-            'exchangeInfo' => $exchangeInfo['result_message'], 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'],
-        );
-
-        return $this->view('User/subscription-payment-page', $data); 
-        
-    }
- 
-
-
-    // Members Subscription Payment
-    public function member_transactions()
-    {
-        $v = new Validate();
-        $id = $this->get_id();
-        $info = array('uniqueid' => $v->clean($id), );
-        $mny = array('currency' => "Naira", );
-
-        if (isset($_POST['payCard'])) {
-
-            $uniqueid = $v->clean($_POST['uniqueid']);
-            $username = $v->clean($_POST['username']);
-            $email = $v->clean($_POST['email']);
-            $planid = $v->clean($_POST['id']);
-            $amt = $v->clean($_POST['amount']);
-            $currency = $v->clean($_POST['currency']);
-
-            $curRate = ModelFactory::model('User')->get_exchange_info($mny);
-            
-            $info = array('id' => trim($planid), 'status' => "Processing", 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-            $pass = ModelFactory::model('User')->user_recur_payment($info);
-
-            $rate = $curRate['post_details']['rate'];
-            $mon = $amt; 
-            $NGNamount = $mon * $rate;
-            $chargeAmount = (1.5/100 * $NGNamount) + 100;
-            $amount = $NGNamount + $chargeAmount;
-
-            $in = array('uniqueid' => $uniqueid, 'username' => $username, 'name' => $username, 'plan' => $planid, 'amount' => $amount, 'email' => $email, 'details' => $pass['details'], 'description' => $pass['details'], 'type' => "Deposit", 'transaction_charge' => $chargeAmount, );
-
-            //Connect To Payment Gateway
-            $paymentAPI = $this->payment_api();
-            $deposit = $paymentAPI->card_payment($in);
-            $real = json_decode($deposit, true);
-
-            if (isset($real['responseBody']) || isset($real['data'])) {
-                
-                if (isset($real['responseBody'])) {
-                    $url = $real['responseBody']['checkoutUrl'];
-                } else {
-                    $url = $real['data']['authorization_url'];
-                }
-            }
-            
-             //Get User Credentials
-            $userDetails =$this->user_information($id);
-            $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
-            $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-            $coyInfo = ModelFactory::model('Register')->coy_info();
-            $userProfiles = ModelFactory::model('User')->user_profiles();
-            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-            $curInfo = ModelFactory::model('Admin')->get_currency_info();
-            //$user = json_decode($result, true);
-            $userInfo = $userDetails['user_info'];
-
-            $data = array(
-                'paymentUrl' => $url,
-                'userInfo' => $userInfo,
-                'coyInfo' => $coyInfo, 
-                'curInfo' => $curInfo['result_message'], 
-                'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-                'bankInfo' => $bankInfo['result_message'], 
-                'exchangeInfo' => $exchangeInfo['result_message'], 
-                'newActivityNotice' => $userDetails['newActivityNotice'], 
-                'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-                'buddiesCount' => $userDetails['buddiesCount'], 
-                'buddiesList' => $userDetails['buddies'], 
-                'userLikesCount' => $userDetails['userLikesCount'], 
-                'userViewsCount' => $userDetails['userViewsCount'], 
-                'userNoticeCount' => $userDetails['userNoticeCount'], 
-                'newMessageCount' => $userDetails['newMessageCount'],
-                'newMessageDetails' => $userDetails['newMessageDetails'],
-                'matchCount' => $userDetails['matchInfo'],
-                'newChatCount' => $userDetails['newChatCount'],
-                'newChatDetails' => $userDetails['newChatDetails'],
-                'onlineNow' =>$userDetails['onlineNow'],
-                'appSubPlan' => $userDetails['appSubPlan'],
-                'userTrancInfo' => $userDetails['trancInfo'],
-                'subPlan' => $userDetails['subPlan'],
-                'userProfiles' => $userProfiles['user_profiles'],
-            );
-
-            return $this->view('User/transactions-page', $data); 
-
-        }
-
-        //Get User Credentials
-        $userDetails =$this->user_information($id);
-        $bankInfo = ModelFactory::model('Admin')->get_bank_info(); 
-        $coyInfo = ModelFactory::model('Register')->coy_info();
-        $userProfiles = ModelFactory::model('User')->user_profiles();
-        $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
-        $curInfo = ModelFactory::model('Admin')->get_currency_info();
-        $exchangeInfo = ModelFactory::model('Admin')->get_exchange_info();
-        //$user = json_decode($result, true);
-        $userInfo = $userDetails['user_info'];
-        
-        $data = array(
-            'userInfo' => $userInfo,
-            'coyInfo' => $coyInfo, 
-            'curInfo' => $curInfo['result_message'], 
-            'subPlans' => $subPlans['result_message'],
-            'bankInfo' => $userDetails['bankInfo'], 
-            'exchangeInfo' => $userDetails['exchangeInfo'],
-            'bankInfo' => $bankInfo['result_message'], 
-            'exchangeInfo' => $exchangeInfo['result_message'], 
-            'newActivityNotice' => $userDetails['newActivityNotice'], 
-            'userOnlineStatus' => $userDetails['userOnlineStatus'], 
-            'buddiesCount' => $userDetails['buddiesCount'], 
-            'buddiesList' => $userDetails['buddies'], 
-            'userLikesCount' => $userDetails['userLikesCount'], 
-            'userViewsCount' => $userDetails['userViewsCount'], 
-            'userNoticeCount' => $userDetails['userNoticeCount'], 
-            'newMessageCount' => $userDetails['newMessageCount'],
-            'newMessageDetails' => $userDetails['newMessageDetails'],
-            'matchCount' => $userDetails['matchInfo'],
-            'newChatCount' => $userDetails['newChatCount'],
-            'newChatDetails' => $userDetails['newChatDetails'],
-            'onlineNow' =>$userDetails['onlineNow'],
-            'appSubPlan' => $userDetails['appSubPlan'],
-            'userTrancInfo' => $userDetails['trancInfo'],
-            'subPlan' => $userDetails['subPlan'],
-            'userProfiles' => $userProfiles['user_profiles'],
-        );
-
-        return $this->view('User/transactions-page', $data); 
-        
-    }
- 
-     
-   
 
 
 

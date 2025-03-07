@@ -3,8 +3,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 heading-bx left">
-				<h2 class="title-head text-uppercase">Connect With Random <span> Buddies</span></h2>
-				<p>Create Valuable Connections With a Click. Take The First Shot At a Buddy.</p>
+				<h2 class="title-head text-uppercase"> Random <span> Buddies</span></h2>
+				<p> Valuable Connections With a Click. Take The First Shot At a Buddy.</p>
 			</div>
 		</div>
 		<div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
