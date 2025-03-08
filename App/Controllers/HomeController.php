@@ -506,14 +506,13 @@ class HomeController extends Controller
             if (isset($real['responseBody'])) {
                 
                 $url = $real['responseBody']['checkoutUrl'];
-                $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo."-URL:-".$url,  );
-                $result = ModelFactory::model('User')->make_deposit($info);
             } else {
 
                 $url = $real['data']['authorization_url'];
-                $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo."-URL:-".$url,  );
-                $result = ModelFactory::model('User')->make_deposit($info);
             }
+            
+            $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo, 'url' => $url,  );
+            $result = ModelFactory::model('User')->make_deposit($info);
 
             echo $deposit;
         }

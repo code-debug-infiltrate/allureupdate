@@ -201,7 +201,7 @@
                     $('.flash-outer').html(
                             '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px; top: -50px;" alt="Alert Image"/> '+info.message+'</div>'
                     );
-                    $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank"><img src="/Images/Body/card-pay.png" style="width: 400px;"></a>');
+                    $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank"><img src="/Images/Body/card-pay.png" style="width: 300px;"></a>');
                 }, delay);
                     $('#depositForm').hide();
                     $('#online_info').show('slow');

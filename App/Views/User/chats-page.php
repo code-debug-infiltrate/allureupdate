@@ -27,9 +27,9 @@ include 'Layout/sidebar.php';
 			<div class="row">
 				<!-- Your Profile Views Chart -->
 				<div class="col-lg-12 m-b30">
-					<div class="widget row col-12">
-						<div class="email-wrapper row">
-							<div class="email-menu-bar col-3">
+					<div class="widget">
+						<div class="email-wrapper">
+							<div class="email-menu-bar">
 								<div class="email-menu-bar-inner"  style="border:1px solid #ffffff; padding: 2px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 									<ul>
 
@@ -74,7 +74,7 @@ include 'Layout/sidebar.php';
 									</ul>
 								</div>
 							</div>
-							<div class="mail-list-container col-5">
+							<div class="mail-list-container">
 								<div class="mailbox-view">
 									<!-- <div class="mailbox-view-title">
 										<h5 class="send-mail-title">Your message title goes here</h5>
@@ -124,7 +124,7 @@ include 'Layout/sidebar.php';
 																		
 																	<?php } else { ?>
 
-																		<p>This Message Is Currently Masked. <a href="javascript:void(0);" style="color: #7005e3;">Subscribe To Unlock Conversation</a></p>
+																		<p>This Message Is Currently Masked. <a href="javascript:void(0);" data-toggle="modal" data-target="#addBalanceModal" style="color: #7005e3;">Subscribe To Unlock Conversation</a></p>
 																	
 															<?php } } } else { ?>
 

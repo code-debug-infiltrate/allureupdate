@@ -472,7 +472,7 @@ public function transaction_alert($buddy, $transaction, $coyInfo)
             <br>
             <b>Details:</b> '.$transaction['details'].'
             <br><br>
-            Complete This Transaction Now To Earn Points. 
+            <a href="'.$transaction['payment_url'].'">Complete This Transaction</a> Now Or Copy This Link To Your Browser '.$transaction['payment_url'].'. 
             <br><br>
             Customer Service Dept.
             <br>

@@ -354,12 +354,12 @@ class User extends Model
         if ($params['type'] == "Bank Deposit") {
             $ch = $apiInfo->get_curl($token_info['url'].'/get-bank-info?');
             $bank = json_decode($ch, true);
-            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => "0", 'total' => $params['amount'], 'cur_bal' => $params['cur_bal'], 'bank' => $bank['result_message']['bankname'], 'accname' => $bank['result_message']['acctname'], 'accnum' => $bank['result_message']['acctnum'], 'details' => $params['uniqueid']."-".$params['details'], );
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => "0", 'total' => $params['amount'], 'cur_bal' => $params['cur_bal'], 'bank' => $bank['result_message']['bankname'], 'accname' => $bank['result_message']['acctname'], 'accnum' => $bank['result_message']['acctnum'], 'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
         } else {
             //Transaction Fee;
             $charges = (1.5/100 * $params['amount']) + 100;
             $total = $params['amount'] + $charges;
-            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => $charges, 'total' => $total, 'cur_bal' => $params['cur_bal'], 'bank' => "Online Card Payment", 'accname' => "Allure-D Third Party", 'accnum' => "0001101010",'details' => $params['uniqueid']."-".$params['details'], );
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => $charges, 'total' => $total, 'cur_bal' => $params['cur_bal'], 'bank' => "Online Card Payment", 'accname' => "Allure-D Third Party", 'accnum' => "0001101010",'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
         }
  
          $url = ''.$token_info['url'].'/make-deposit';
@@ -371,7 +371,8 @@ class User extends Model
          $coy_info = json_decode($coy, true);
          
          //Send Email Alert To Admin
-         Mail::mailer('AdminAlert')->deposit_alert($newParams, $coy_info); 
+         Mail::mailer('AdminAlert')->deposit_alert($newParams, $coy_info);
+         Mail::mailer('RegistrationAlert')->transaction_alert($newParams, $coy_info); 
          
          return $ch;
      }
@@ -1239,7 +1240,8 @@ class User extends Model
     
             foreach ($transaction_det['result_message'] as $key => $tranc) {
                if ($tranc['status'] == "Processing") {
-                    $transaction_details = $tranc;
+                    $t = $tranc;
+                    $transaction_details = array('id' => $t['id'], 'trancid' => $t['trancid'], 'uniqueid' => $t['uniqueid'], 'currency' => $t['currency'], 'amount' => $t['amount'], 'type' => $t['type'], 'expiry' => $t['expiry'], 'details' => $t['details'], 'status' => $t['status'], 'created' => $t['created'], 'payment_url' => $params['payment_url'], );
                }
             }
     

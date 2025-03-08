@@ -46,7 +46,7 @@ include 'Layout/sidebar.php';
 
 					<div class="new-user-list" style="margin: 5px;" id="not<?= $activity['id']; ?>">
 							<ul>
-							<span class="close" style="font-size: 40px; padding: 10px;" onclick="document.getElementById('not<?= $activity['id']; ?>').style.display='none'"> &times;</span>
+							<span class="close" style="font-size: 24px; padding: 10px;" onclick="document.getElementById('not<?= $activity['id']; ?>').style.display='none'"> &times;</span>
 								<li>
 								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $activity['user_uniqueid']) { ?>
 									<span class="new-users-pic">
@@ -84,7 +84,10 @@ include 'Layout/sidebar.php';
             <!-- End Third Column Side -->
 
 
-			<?php include 'random-buddies-inside.php'; ?>
+		</div>
+
+
+		<?php include 'random-buddies-inside.php'; ?>
 
 <!-- End oF file -->
 

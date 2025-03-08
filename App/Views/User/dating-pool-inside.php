@@ -10,7 +10,6 @@
                 <div class="widget-box image-effect"  style="background: transparent; border:2px solid #ffffff; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
-                        <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: green;">70%+</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                             <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 100%; height: 200px;"/></center>
                         </a>
@@ -27,11 +26,11 @@
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
                                 
-                                <b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> Yrs | <?= $user['city']?> </i>
+                                <b><?= $user['fname']?></b> <br><i style="font-size: 10px;"><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?>  | <i class="fa fa-heartbeat" title="Match Score"></i> <em style="color: green;">70%+</em></i>
                             </a> 
                         </h6>
                         
-                        <p class=""style="line-height: 17px;"> <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 12px; color: black;"><?= substr($info['details'], 0, 60); ?>...</a> </p>
+                        <p class=""style="line-height: 17px;"> <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 14px; color: black;"><?= substr($info['details'], 0, 48); ?>...</a> </p>
                        
                     </div>
                 </div>
@@ -56,7 +55,6 @@
                 <div class="widget-box image-effect" style="background: transparent; border:2px solid #ffffff; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
                     <div class="wc-title">
                         
-                        <p style="margin-top: -10px; font-size: 11px;">Match Score: <em style="color: red;">-50%</em></p>
                         <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about">
                             <center> <img class="card-img-top" src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="<?= $user['fname']?> Photo" style="width: 100%; height: 200px;"/></center>
                         </a>
@@ -72,11 +70,11 @@
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
                                 
-                                <b><?= $user['fname']?>,</b> <i style="font-size: 11px;"><?= $age; ?> Yrs | <?= $user['city']?> </i>
+                                <b><?= $user['fname']?></b> <br><i style="font-size: 10px;"><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?> | <i class="fa fa-heartbeat" title="Match Score"></i> <em style="color: red;">-50%</em></i>
                             </a> 
                         </h6>
                         
-                        <p class=""style="line-height: 17px;"> <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 12px; color: black;"><?= substr($info['details'], 0, 60); ?>...</a> </p>
+                        <p class=""style="line-height: 17px;"> <a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $info['uniqueid']; ?>&tab=about" style="font-size: 14px; color: black;"><?= substr($info['details'], 0, 48); ?>...</a> </p>
                        
                     </div>
                 </div>

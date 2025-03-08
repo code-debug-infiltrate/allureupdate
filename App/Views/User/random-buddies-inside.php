@@ -31,9 +31,9 @@
 						<?php } } } ?>
 						<b><?= $user['fname']?></b>
 						</h5>
-						<p><?= $age; ?> Yrs | <?= $user['city']?></p>
+						<p><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?></p>
 					</div>
-					<div class="testimonial-content">
+					<div class="testimonial-content" style="font-size: 12px;">
 						<p><?= substr($info['details'], 0, 80); ?>...</p>
 					</div>
 				</div>

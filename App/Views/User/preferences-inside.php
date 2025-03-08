@@ -12,15 +12,16 @@
 					<div class="profile-info">
 						<h4><?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?></h4>
 						<span><?= $userInfo['number']; ?></span>
+                        <br>
 						<span><?= $userInfo['email']; ?></span>
 					</div>
 					<div class="profile-tabnav">
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
-								<a class="nav-link" onclick="replace('preference','myself')" href="javascript:void(0);"><i class="ti-user"></i>Tell Other Buddies About Yourself</a>
+								<a class="nav-link" style="color: blue; font-size: 12px;" onclick="replace('preference','myself')" href="javascript:void(0);"><i class="ti-user"></i> Answer Few Questions About Yourself</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" onclick="replace('myself','preference')" href="javascript:void(0);"><i class="ti-heart"></i>Tell Us Few Qualities Of Partner You Want</a>
+								<a class="nav-link" style="color: blue; font-size: 12px;" onclick="replace('myself','preference')" href="javascript:void(0);"><i class="ti-heart"></i> Select Few Qualities Of Your Ideal Partner</a>
 							</li>
 						</ul>
 					</div>

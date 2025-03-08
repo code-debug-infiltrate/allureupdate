@@ -1584,7 +1584,7 @@ class UserController extends Controller
         $v = new Validate();
         $mny = array('currency' => "Naira", );
 
-        if (($_POST['planid']!="") && ($_POST['uniqueid']!="")) {
+        if (($_POST['amount']!="") && ($_POST['uniqueid']!="")) {
             // code...
             $uniqueid = $v->clean($_POST['uniqueid']);
             $username = $v->clean($_POST['username']);
@@ -1602,10 +1602,6 @@ class UserController extends Controller
             }
 
             $curRate = ModelFactory::model('User')->get_exchange_info($mny);
-            
-            $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
-              //Call API Function
-            $pass = ModelFactory::model('User')->user_card_payment($info);
 
             $rate = $curRate['post_details']['rate'];
             $mon = $amount; 
@@ -1628,7 +1624,9 @@ class UserController extends Controller
                     $url = $real['data']['authorization_url'];
                 }
             }
-            //var_dump($pass);
+            $info = array('planid' => trim($planid), 'uniqueid' => trim($uniqueid), 'username' => trim($username), 'payment_url' => $url, );
+              //Call API Function
+            $pass = ModelFactory::model('User')->user_card_payment($info);
             echo $deposit;
         }
     }

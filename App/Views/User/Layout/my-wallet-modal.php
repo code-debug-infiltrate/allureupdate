@@ -122,7 +122,7 @@
 					<div class="col-12 col-md-12 mx-auto mb-3" id="online_info" style="display: none;">
 						<h2 class="fw-400 text-4 text-center mt-1"><b>OnlineCard Payment!</b></h2>
 
-						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment.<br>Your Payment Will Be Confirmed Automatically.</p>
+						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment.<br>Your Payment Will Be Confirmed Automatically And Generated Receipt Will Be Sent To Your Email.</p>
 						
 						<div class="col-12 col-md-12 mx-auto">
 							<div class="mb-3">
@@ -176,12 +176,12 @@
 					<!-- Bank Payment Done -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="transfer_done_info" style="display: none;">
 						<h2 class="fw-400 text-4 text-center mt-1">Awaiting Confirmation! </h2>
-						<p class="text-center" style="font-size: 12px; color: blue;">Thank You For Your Payment.<br>If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
+						<p class="text-center" style="font-size: 12px; color: blue;">If You Used The Narration Correctly, Your Deposit Will Be Added Automatically.</p>
 						
 						<div class="col-12 col-md-12 text-center mx-auto">
 							<img src="/Images/Body/pending.png" style="width: 100%;"> 
 							<hr>
-							<p style="color: blue; font-size: 14px;">Our System Will Keep Monitoring Your Payment.<br>You Will Be Alerted As Soon As It's Confirmed!</p>
+							<p style="color: blue; font-size: 14px;">Our System Will Keep Monitoring Your Payment.<br> Transaction Receipt Will Be Sent To Your Email!</p>
 					
 						</div>
 					</div>

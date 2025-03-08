@@ -33,6 +33,7 @@ include 'Layout/sidebar.php';
 					<div class="profile-info">
 						<h4><?= $userInfo['fname']; ?> <?= $userInfo['lname']; ?></h4>
 						<span><?= $userInfo['number']; ?></span>
+                        <br>
 						<span><?= $userInfo['email']; ?></span>
 					</div>
 					<div class="profile-tabnav">
@@ -980,13 +981,13 @@ include 'Layout/sidebar.php';
 
             </div>
             <!-- End Third Column Side -->
-
-
-
-			<?php include 'random-buddies-inside.php'; ?>
 			
 
 		</div>
+
+
+
+		<?php include 'random-buddies-inside.php'; ?>
 
 
 	</div>
