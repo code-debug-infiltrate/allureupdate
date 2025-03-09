@@ -103,10 +103,10 @@
 										<button type="submit" id="payWithTransfer" class="btn-secondry add-item m-r5"><img src="/Images/Body/transfers.png" style="width: 25%; margin-right: 20px;"> Bank Transfer </button>
 									</div>
 									<?php } ?>
+									
 									<hr>
-									<center><label style="color: red; font-size: 12px;">Service Fees May Apply For Online | Card Payments.</label></center>
 									<div class="modal-footer">
-										<button type="submit" id="payWithOnline" class="btn-secondry add-item m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Online | Cards </button>
+										<button type="submit" id="payWithOnline" class="btn-secondry add-item m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Continue To Payment </button>
 									</div>
 						
 								
@@ -120,7 +120,7 @@
 
 					<!-- Card|Online Payment result -->
 					<div class="col-12 col-md-12 mx-auto mb-3" id="online_info" style="display: none;">
-						<h2 class="fw-400 text-4 text-center mt-1"><b>OnlineCard Payment!</b></h2>
+						<h2 class="fw-400 text-4 text-center mt-1"><b>Online | Card Payment!</b></h2>
 
 						<p class="text-center" style="font-size: 16px;">You Will Be Re-Directed To Make Payment.<br>Your Payment Will Be Confirmed Automatically And Generated Receipt Will Be Sent To Your Email.</p>
 						
@@ -132,7 +132,7 @@
 							<div>
 								<center>
 									<p style="color: blue; font-size: 12px;">
-										Click The Button Below Only If You Are Ready To Make The Payment. 
+										Click The Button Below If The Page Does Not Re-Direct. 
 										<br><i class="text-danger"><b>Note That Service Fee May Apply.</b></i>
 										<hr><br>
 										<div class="urlLink"></div>

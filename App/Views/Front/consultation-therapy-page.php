@@ -400,22 +400,21 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                                 <input type="hidden" class="form-control"  id="cardamount" value="<?= $subplan['amount'] * $exchange['rate']; ?>" placeholder="Transaction Amount" required>
                             <?php } } } ?>
                             
-                            <p>Session Booking Is One-Time Payment. You Can Book As Many Sessions As You Like.</p>
+                            <p>This Booking Is a One-Time Payment But You Can Book As Many Sessions As You Like.</p>
                         <?php } } ?>
 
                         <input type="hidden" class="form-control"  id="currency" value="<?= $curInfo['currency']; ?>" placeholder="Transaction Currency" required>
                         <input type="hidden" class="form-control"  id="memo" maxlength="200" value="One-Time Consultation|Therapy Payment (Single Session)" placeholder="Transaction Details" required>
-                           
+                         
+                        <?php if ($bankInfo['status'] == "Publish") { ?>  
                         <hr>
-                        <?php if ($bankInfo['status'] == "Publish") { ?>
                         <div class="form-group message-btn">
                             <button type="submit" id="payWithTransfer" class="theme-btn m-r5"><img src="/Images/Body/transfers.png" style="width: 15%; margin-right: 20px;"> Bank Transfer </button>
                         </div>
                         <?php } ?>
                         <hr>
-                        <center><label style="color: red; font-size: 12px;">Service Fees May Apply For Online | Card Payments.</label></center>
                         <div class="form-group message-btn">
-                            <button type="submit" id="payWithOnline" class="theme-btn m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Online | Cards </button>
+                            <button type="submit" id="payWithOnline" class="theme-btn m-r5"><img src="/Images/Body/card-pay.png" style="width: 15%; margin-right: 20px;"> Continue To Payment </button>
                         </div>
                     </div>
 
@@ -436,7 +435,7 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
 							<div>
 								<center>
                                     <p style="color: blue; font-size: 12px;">
-                                        Click The Button Below Only If You Are Ready To Make The Payment. 
+                                        Click The Button Below If The Page Does Not Re-Direct. 
                                         <br><i class="text-danger"><b>Note That Service Fee May Apply.</b></i>
                                         <hr><br>
                                         <div class="urlLink"></div>

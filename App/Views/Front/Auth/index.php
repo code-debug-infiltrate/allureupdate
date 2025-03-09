@@ -20,13 +20,10 @@ include 'Layout/navbar.php';
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <div id="loginForm">
-                            <h3>Welcome Back, Login</h3>
+                            <h3>Welcome Back,<br><em style="font-size: 11px; font-weight: 400;">Fill In Your Member Credentials To Login</em></h3>
                             <div class="text"> 
-                            <b style="font-size: 10px; font-weight: 500; color: red;">Member Area Is For Matchmaking Only. <br>If You Need <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
-                            <hr>
-                                Fill In Your Member Credentials Below
-                                <br>
-                                Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>">Create Your Account</a>
+                                <b style="font-size: 10px; font-weight: 500; color: blue;">Member Area Is For Matchmaking Only. <br>If You Need <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
+                                <hr>
                             </div>
                             <div class="formError_box" style="margin:10px 0px;"></div>
 
@@ -54,7 +51,9 @@ include 'Layout/navbar.php';
                                     <img src="/Images/green-dots.gif" id="loader" style="display: none"/>
                                     <button type="submit" id="login">Login To Dashboard</button>
                                 </div>
-                                
+                                <br>
+                                <p title="Register As a New Member" style="font-size: 12px; margin-top: 20px; float: right;">Not Yet a Member? <a href="<?= baseURL('new-member/'); ?>" style="color:#7005e3;">Find a Match</a></p>
+                              
                             </form>
 
                             <script>

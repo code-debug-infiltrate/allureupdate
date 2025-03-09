@@ -1,3 +1,4 @@
+<?php if ($randomBuddy) { ?>
 <!-- Random Buddies ==== -->
 <div class="section-area section-sp2">
 	<div class="container">
@@ -9,7 +10,7 @@
 		</div>
 		<div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
 
-		<?php if ($randomBuddy) { ?>
+		
 			<?php foreach($randomBuddy as $key => $info) { ?>	
 				<?php foreach ($userProfiles as $key => $user) { if (($user['uniqueid'] == $info['uniqueid']) && ($userInfo['gender'] != $user['gender'])) { ?>
 
@@ -31,7 +32,12 @@
 						<?php } } } ?>
 						<b><?= $user['fname']?></b>
 						</h5>
-						<p><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?></p>
+						<p>
+							<i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | 
+							<?php if ($user['city']) { ?>
+								<i class="fa fa-street-view" title="City"></i> <?= $user['city']?>
+							<?php } ?>
+						</p>
 					</div>
 					<div class="testimonial-content" style="font-size: 12px;">
 						<p><?= substr($info['details'], 0, 80); ?>...</p>
@@ -42,10 +48,10 @@
 			
 			<?php } } ?>
 			<?php } ?>
-			<?php } else { ?>
-				<div class="col-lg-12" style="text-align: center;"><p class="mt-5 mb-5" style="font-size: 20px;">There Are Currently NO Random Buddies! <br><a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/">Go To Virtual Pool</a></p></div>
-			<?php } ?>
+			
 		</div>
 	</div>
 </div>
 <!-- Testimonials END ==== -->
+
+<?php } ?>

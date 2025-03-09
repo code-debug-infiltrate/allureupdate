@@ -33,7 +33,7 @@ include 'Layout/sidebar.php';
 								<div class="email-menu-bar-inner"  style="border:1px solid #ffffff; padding: 2px; border-radius: 5px; box-shadow:0 5px 10px 0px rgba(0,0,0,.40);">
 									<ul>
 
-										<?php foreach ($userChatConnect as $key => $budReq) { ?>
+										<?php if ($userChatConnect) { foreach ($userChatConnect as $key => $budReq) { ?>
 											<?php foreach ($userProfiles as $key => $user) { ?>
 												<?php if (($budReq['uniqueid'] == $userInfo['uniqueid']) && ($budReq['buddyid'] == $user['uniqueid'])) { ?>
 													<li class="row">
@@ -69,8 +69,9 @@ include 'Layout/sidebar.php';
 														</a></span>		
 													</li>
 												<?php } ?>
-											<?php } } ?>
-										
+											<?php } } } else {  ?>
+												<p> <a href="<?= baseURL('us-index/'); ?><?= $userInfo['uniqueid']; ?>/">Find Chat Buddies</a></p>
+											<?php } ?>
 									</ul>
 								</div>
 							</div>

@@ -192,7 +192,7 @@
 
             success: function(data)
             {
-            console.log(data);
+                //console.log(data);
             //Process Data From Controller
             var info = JSON.parse(data);
 
@@ -201,7 +201,7 @@
                     $('.flash-outer').html(
                             '<div class="flash-inner" style="color: green;"><img src="/Images/Body/alert.png" style="width: 20px; top: -50px;" alt="Alert Image"/> '+info.message+'</div>'
                     );
-                    $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank"><img src="/Images/Body/card-pay.png" style="width: 300px;"></a>');
+                    $('.urlLink').html('<a href="'+info.data.authorization_url+'" target="_blank"><img src="/Images/Body/card-pay.png" style="width: 300px;"> <script> window.setTimeout(function () { window.open("'+info.data.authorization_url+'", "_blank"); }, 1000); </script></a>');
                 }, delay);
                     $('#depositForm').hide();
                     $('#online_info').show('slow');

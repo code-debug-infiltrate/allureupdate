@@ -354,12 +354,12 @@ class User extends Model
         if ($params['type'] == "Bank Deposit") {
             $ch = $apiInfo->get_curl($token_info['url'].'/get-bank-info?');
             $bank = json_decode($ch, true);
-            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => "0", 'total' => $params['amount'], 'cur_bal' => $params['cur_bal'], 'bank' => $bank['result_message']['bankname'], 'accname' => $bank['result_message']['acctname'], 'accnum' => $bank['result_message']['acctnum'], 'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'fname' => $params['fname'], 'lname' => $params['lname'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => "0", 'total' => $params['amount'], 'cur_bal' => $params['cur_bal'], 'bank' => $bank['result_message']['bankname'], 'accname' => $bank['result_message']['acctname'], 'accnum' => $bank['result_message']['acctnum'], 'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
         } else {
             //Transaction Fee;
             $charges = (1.5/100 * $params['amount']) + 100;
             $total = $params['amount'] + $charges;
-            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => $charges, 'total' => $total, 'cur_bal' => $params['cur_bal'], 'bank' => "Online Card Payment", 'accname' => "Allure-D Third Party", 'accnum' => "0001101010",'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
+            $newParams = array('uniqueid' => $params['uniqueid'], 'username' => $params['username'], 'fname' => $params['fname'], 'lname' => $params['lname'], 'email' => $params['email'], 'type' => "Deposit", 'currency' => $params['currency'], 'amount' => $params['amount'], 'charges' => $charges, 'total' => $total, 'cur_bal' => $params['cur_bal'], 'bank' => "Online Card Payment", 'accname' => "Allure-D Third Party", 'accnum' => "0001101010",'details' => $params['uniqueid']."-".$params['details'], 'payment_url' => $params['url'], );
         }
  
          $url = ''.$token_info['url'].'/make-deposit';

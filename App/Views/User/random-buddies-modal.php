@@ -16,7 +16,7 @@
 							</button>
 							<div class="join-content-bx text-white">
 								<h4><span class="counter"><?= number_format(count($userProfiles)*25)?> </span> Buddies</h4>
-								<h2>Are Interested In <?php if ($user_myself['seeking'] == "Any") { ?>You<?php } else { ?><?= $user_myself['seeking']; ?><?php } ?></h2>
+								<h2>Are Interested In <?php if ($user_myself) { if ($user_myself['seeking'] == "Any") { ?>You<?php } else { ?><?= $user_myself['seeking']; ?><?php } } else { echo "You"; } ?></h2>
 								<!-- <p>Updating Your Preferences Will Reshuffle Your Match Pool And Find You Befitting Connections.</p> -->
 								<a href="<?= baseURL('us-preferences/')?><?= $userInfo['uniqueid']; ?>/" class="btn button-md">Be More Visible</a>
 							</div>

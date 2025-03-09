@@ -26,7 +26,15 @@
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
                                 
-                                <b><?= $user['fname']?></b> <br><i style="font-size: 10px;"><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?>  | <i class="fa fa-heartbeat" title="Match Score"></i> <em style="color: green;">70%+</em></i>
+                                <b><?= $user['fname']?></b> 
+                                <br>
+                                <i style="font-size: 10px;">
+                                    <i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | 
+                                    <?php if ($user['city']) { ?>
+                                        <i class="fa fa-street-view" title="City"></i> <?= $user['city']?> | 
+                                    <?php } ?>
+                                    <i class="fa fa-heartbeat" title="Match Score"></i> <em style="color: green;">+50%</em>
+                                </i>
                             </a> 
                         </h6>
                         
@@ -70,7 +78,15 @@
                                         <img src="/Images/Body/offline.png" style="max-width: 12px; margin-right: 5px;"/>
                                 <?php } } } ?>
                                 
-                                <b><?= $user['fname']?></b> <br><i style="font-size: 10px;"><i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | <i class="fa fa-street-view" title="City"></i> <?= $user['city']?> | <i class="fa fa-heartbeat" title="Match Score"></i> <em style="color: red;">-50%</em></i>
+                                <b><?= $user['fname']?></b> 
+                                <br>
+                                <i style="font-size: 10px;">
+                                    <i class="fa fa-calendar" title="Age"></i> <?= $age; ?> Yrs | 
+                                    <?php if ($user['city']) { ?>
+                                        <i class="fa fa-street-view ml-2" title="City"></i> <?= $user['city']?> | 
+                                    <?php } ?>
+                                    <i class="fa fa-heartbeat ml-2" title="Match Score"></i> <em style="color: red;">-50%</em>
+                                </i>
                             </a> 
                         </h6>
                         

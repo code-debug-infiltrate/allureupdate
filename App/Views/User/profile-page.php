@@ -35,7 +35,7 @@ include 'Layout/sidebar.php';
 							<!-- <h4><span class="">Never Let The Fun Slide Without Memories</h4> -->
 							<h2>Enrich Your Profile With Moments</h2>
 							<!-- <p>Updating Your Preferences Will Reshuffle Your Match Pool And Find You Befitting Connections.</p> -->
-							<a href="javascript:void(0);" class="btn button-md">Create a Photobook</a>
+							<a href="#" data-toggle="modal" data-target="#addPhotoBookModal" class="btn button-md">Create a Photobook</a>
 						</div>
 					</div>
 				</div>
@@ -48,11 +48,58 @@ include 'Layout/sidebar.php';
         <?php include 'profile-preferences-inside.php'; ?>
 
 		<?php include 'random-buddies-inside.php'; ?>
-<!-- End oF file -->
+
+
+
+
+					<!--Photo Book Modal -->
+					<div class="modal fade review-bx-reply" id="addPhotoBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content" style="background: #fff;">
+								<div class="modal-header">
+									<h5 class="modal-title" style="float: center; padding: 10px; font-weight: 600;">Create a Photo Book</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								
+
+								<form method="POST" action="" enctype="multipart/form-data">
+
+								<div class="modal-body">
+
+								<input type="hidden" name="uniqueid" id="uniqueid" value="<?= $userInfo['uniqueid']; ?>" required>
+										<input type="hidden" name="username" id="username" value="<?= $userInfo['username']; ?>" required>
+										<input type="hidden" name="url" id="url" value="<?= baseURL('view-ads/');?>">
+
+										<textarea rows="4" name="postdetails" class="form-control" id="postDetails" minlength="50" maxlength="1500" placeholder="Share Your Fun Moments With Buddies. Upload One To Five(5) Photos..." required></textarea>
+										<div class="attachments">
+											
+											<i class="fa fa-camera"></i>
+											<label class="fileContainer">
+												<input type="file" id="postimage" class="form-control" name="postimage[]" onchange="validatePostImage(event)" accept="image/*" multiple required>
+											</label>
+										</div>
+
+										<div class="postDetailsError_box" style="margin:10px 0px;"></div>
+
+										<center><figure><img src="" id="output_postimage" alt=""></figure></center>
+
+								</div>
+								<div class="modal-footer">
+									<button type="submit" name="createPost" class="btn-secondry add-item m-r5">Spill It Out <i class="ti-arrow-right"></i> </button>
+								</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+					<!-- Photo Book Modal End -->
 
 	</div>
 </main>
-
+<script src="<?= public_asset('/other_assets/Front/js/AjaxForms/create-post.js') ?>"></script>
 
 
 <?php include 'Layout/footer.php'; ?>

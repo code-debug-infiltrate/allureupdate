@@ -81,15 +81,6 @@ $(document).ready(function() {
             $('#postDetails').focus();
             return false;
         }
-
-        var uniqueid = $('#uniqueid').val();
-        var username = $('#username').val();
-        var url = $('#url').val();
-        var url5 = $('#url50').val();
-
-        var loginURL = url+url5;
-
-        return true;
         
       });
                 

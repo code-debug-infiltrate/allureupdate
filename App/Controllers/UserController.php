@@ -138,9 +138,9 @@ class UserController extends Controller
             $image = $this->uploadFile($type, $value, $temp);
 
             if ($image['fileType']) { 
-                $info = array('type' => $image['fileType'], 'profileimage' => trim($image['pics']), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
+                $nwii = array('type' => $image['fileType'], 'profileimage' => trim($image['pics']), 'uniqueid' => trim($uniqueid), 'username' => trim($username), );
                 //Call API Function
-                $pass = ModelFactory::model('User')->upload_profile_photo($info);
+                $pass = ModelFactory::model('User')->upload_profile_photo($nwii);
             } else { $result = $image; }
 
             //Get User Credentials
@@ -190,36 +190,42 @@ class UserController extends Controller
             }
             if (isset($allImages)) {
 
-                $info = array('uniqueid' => $uniqueid, 'username' => $username, 'url' => $url, 'details' => $postdetails, 'file' => $allImages[0], 'allImages' => $allImages, );
-
-                $result = ModelFactory::model('User')->user_create_post($info);
+                $nwi = array('uniqueid' => $uniqueid, 'username' => $username, 'url' => $url, 'details' => $postdetails, 'file' => $allImages[0], 'allImages' => $allImages, );
+                $result = ModelFactory::model('User')->user_create_post($nwi);
 
             } else {
 
                 $result = array('result_info' => array('type' => "error", 'message' => $errorMsg, ), );
             }
 
+            
             //Get User Credentials
-            $userDetails =$this->user_information($id); 
+            $userDetails =$this->user_information($id);
             $coyInfo = ModelFactory::model('Register')->coy_info();
+            $curInfo = ModelFactory::model('Admin')->get_currency_info();
             $randomBuddy = ModelFactory::model('User')->user_random_people($info);
+            $workedu = ModelFactory::model('User')->user_workeducation($info);
+            $subPlans = ModelFactory::model('Admin')->get_subscription_plan();
             $myPostActions = ModelFactory::model('User')->my_post_action($info);
             $userProfiles = ModelFactory::model('User')->user_profiles();
             $latestPosts = ModelFactory::model('User')->get_latest_posts();
-            $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
             $postActions = ModelFactory::model('User')->get_post_actions();
+            $latestPostsFiles = ModelFactory::model('User')->get_latest_posts_files();
             
 
             $data = array(
-                'userInfo' => $userDetails['user_info'],
-                'coyInfo' => $coyInfo, 
                 'myPostActions' => $myPostActions['my_post_actions'],
+                'user_workedu' => $workedu['workeducation_info'],
+                'userInfo' => $userDetails['user_info'],
+                'coyInfo' => $coyInfo,
+                'curInfo' => $curInfo['result_message'], 
+                'subPlans' => $subPlans['result_message'],
+                'bankInfo' => $userDetails['bankInfo'], 
+                'exchangeInfo' => $userDetails['exchangeInfo'],
                 'newActivityNotice' => $userDetails['newActivityNotice'], 
                 'userOnlineStatus' => $userDetails['userOnlineStatus'], 
                 'buddiesCount' => $userDetails['buddiesCount'], 
                 'buddiesList' => $userDetails['buddies'], 
-                'bankInfo' => $userDetails['bankInfo'], 
-                'postActions' => $postActions['post_interactions'], 
                 'userLikesCount' => $userDetails['userLikesCount'], 
                 'userViewsCount' => $userDetails['userViewsCount'], 
                 'userNoticeCount' => $userDetails['userNoticeCount'], 
@@ -228,17 +234,18 @@ class UserController extends Controller
                 'matchCount' => $userDetails['matchInfo'],
                 'newChatCount' => $userDetails['newChatCount'],
                 'newChatDetails' => $userDetails['newChatDetails'],
-                'latestPosts' => $latestPosts['post_details'],
-                'latestPostsFiles' => $latestPostsFiles['post_files'],
-                'onlineNow' => $userDetails['onlineNow'],
-                'subPlan' => $userDetails['subPlan'],
+                'onlineNow' =>$userDetails['onlineNow'],
                 'appSubPlan' => $userDetails['appSubPlan'],
                 'userTrancInfo' => $userDetails['trancInfo'],
-                'user_language' => $userDetails['user_language'],
+                'subPlan' => $userDetails['subPlan'],
                 'user_interests' => $userDetails['user_interests'],
-                'user_myself' => $userDetails['user_myself'],
                 'user_preference' => $userDetails['user_preference'],
+                'user_myself' => $userDetails['user_myself'],
+                'user_language' => $userDetails['user_language'],
                 'userProfiles' => $userProfiles['user_profiles'], 
+                'postActions' => $postActions['post_interactions'], 
+                'latestPosts' => $latestPosts['post_details'],
+                'latestPostsFiles' => $latestPostsFiles['post_files'],
                 'randomBuddy' => $randomBuddy['buddy_info'],
                 'type' => $result['result_info']['type'], 
                 'message' => $result['result_info']['message'],

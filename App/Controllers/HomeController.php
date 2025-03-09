@@ -499,19 +499,20 @@ class HomeController extends Controller
             $chargeAmount = (1.5/100 * $amount) + 100;
             $newAmount = $amount + $chargeAmount;
             
-            $info = array('email' => $email, 'fname' => $fname, 'amount' => $newAmount, 'memo' => $memo, 'lname' => $lname, 'transaction_charge' => $chargeAmount,  );
-            $deposit = $paystack->card_payment($info);
+            $pg = array('email' => $email, 'fname' => $fname, 'amount' => $newAmount, 'memo' => $memo, 'lname' => $lname, 'transaction_charge' => $chargeAmount,  );
+            $deposit = $paystack->card_payment($pg);
             $real = json_decode($deposit, true);
 
-            if (isset($real['responseBody'])) {
+            if (isset($real['responseBody']) || isset($real['data'])) {
                 
-                $url = $real['responseBody']['checkoutUrl'];
-            } else {
-
-                $url = $real['data']['authorization_url'];
+                if (isset($real['responseBody'])) {
+                    $url = $real['responseBody']['checkoutUrl'];
+                } else {
+                    $url = $real['data']['authorization_url'];
+                }
             }
             
-            $info = array('uniqueid' => $fname, 'username' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo, 'url' => $url,  );
+            $info = array('uniqueid' => $fname, 'username' => $lname, 'fname' => $fname, 'lname' => $lname, 'email' => $email, 'currency' => $currency, 'amount' => $amount, 'cur_bal' => "0", 'type' => "Online Payment", 'details' => $memo, 'url' => $url,  );
             $result = ModelFactory::model('User')->make_deposit($info);
 
             echo $deposit;

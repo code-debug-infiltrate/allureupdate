@@ -24,67 +24,78 @@ if (isset($_SERVER['HTTPS'])) { $url= "https://"; } else { $url = "http://"; }
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
                     <div class="inner-box wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <div id="registerForm">
-                            <h3>Ready To Find Valuable Connections?</h3>
+                            <h3>Ready For Valuable Connections?</h3>
                             <div class="text"> 
-                                <b style="font-size: 10px; font-weight: 500; color: red;">Registration Is For Matchmaking Only. <br>If You Need <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
-                                <hr>
-                                Fill In Your Personal Credentials Below To Register. <br>
-                                Already a Member? <a href="<?= baseURL('login/'); ?>">Click Here</a>
+                                <b style="font-size: 10px; font-weight: 500; color: blue;">Registration Is For Matchmaking Only. <br>For <a href="<?= baseURL('consultation-and-therapy/'); ?>">Private Session</a>, <a href="<?= baseURL('consultation-and-therapy/'); ?>">Consultation</a> Or <a href="<?= baseURL('consultation-and-therapy/'); ?>">Therapy</a>, Kindly <a href="<?= baseURL('consultation-and-therapy/'); ?>">Click Here</a>.</b>
                             </div>
                             <div class="formError_box" style="margin:10px 0px;"></div>
                             <br>
                             <form method="POST" id="contact-form" class="signup-form"> 
-                                
-                                <div class="form-row row col-md-12">
-                                    <input type="hidden" id="ip" value="<?php echo $ip?>">
-                                    <input type="hidden" id="ua" value="<?php echo $user_agent?>">
-                                    <input type="hidden" id="urlReg" value="<?= trim(getenv('baseURL'))."ajax-register/";?>">
+                                <input type="hidden" id="ip" value="<?php echo $ip?>">
+                                <input type="hidden" id="ua" value="<?php echo $user_agent?>">
+                                <input type="hidden" id="urlReg" value="<?= trim(getenv('baseURL'))."ajax-register/";?>">
 
-                                    <div class="form-group col-md-6">	
-                                    <label class="control-label" for="input">First Name</label><i class="mtrl-select"></i>	
-                                        <input type="text" id="fname" placeholder="First Name" autofocus/>
-                                    </div>
-                                    <div class="form-group col-md-6">	
-                                    <label class="control-label" for="input">Last Name</label><i class="mtrl-select"></i>		
-                                        <input type="text" id="lname" placeholder="Last Name" required="required"/>
+                                <div class="form-row" id="nameForm">
+                                    <div class="text col-md-12">Tell Us Your Names </div>
+                                    <div class="row">
+                                        <div class="col-6">	
+                                            <label class="control-label" for="input">First Name</label>	
+                                            <input type="text" id="fname" placeholder="First Name" autofocus/>
+                                        </div>
+                                        <div class="col-6">	
+                                            <label class="control-label" for="input">Last Name</label>		
+                                            <input type="text" id="lname" placeholder="Last Name" onclick="showButton('nameButton');" required="required"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12 message-btn" id="nameButton" style="margin-top: 10px; border-radius: 1px; width: 100%; display: none;">
+                                            <hr>
+                                            <button type="button" onclick="replace('nameForm','ageForm')"><span>Continue</span></button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-row row col-md-12">
-                                    <div class="form-group col-md-6">
-                                        <label class="control-label" for="input">Gender</label><i class="mtrl-select"></i>	
-                                        <select  id="gender" required="required">
-                                            <option value="" disabled selected> -Gender- </option>
-                                            <option value="Female">Female</option>
-                                            <option value="Male">Male</option>
-                                        </select><i class="mtrl-select"></i>
-                                    </div>
-                                    <div class="form-group col-md-6">	
-                                        <label class="control-label" for="input">Date Of Birth</label><i class="mtrl-select"></i>
-                                        <input type="date" id="dob" required="required"/>
+                                <div class="form-row" id="ageForm" style="display: none;">
+                                    <div class="text col-md-12"> Select Your Gender And Date Of Birth </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <label class="control-label" for="input">Gender</label>	
+                                            <select  id="gender" required="required">
+                                                <option value="" disabled selected> -Gender- </option>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-7">	
+                                            <label class="control-label" for="input">D O B</label>
+                                            <input type="date" id="dob" onclick="showButton('ageButton');" required="required"/>
+                                        </div>
+                                        <hr>
+                                        <a href="javascript:void(0);" id="ageForm" onclick="replace('ageForm','nameForm')" style="padding-top: 20px; padding-bottom: 30px; padding-left: 20px; font-size: 11px;">Back To Name</a>
+                                        <div class="form-group col-md-12 message-btn" id="ageButton" style="margin-top: 10px; border-radius: 1px; width: 100%; display: none;">
+                                           <button type="button" onclick="replace('ageForm','emailForm')"><span>Continue</span></button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-row row col-md-12">
+                                <div class="row" id="emailForm" style="display: none;">
                                     <div class="form-group col-md-12">	
-                                        <label class="control-label" for="input">Email ID</label><i class="mtrl-select"></i>	
+                                        <label class="control-label" for="input">Email ID</label>	
                                         <input type="email" id="email" autocomplete="off" placeholder="Email Address" required="required"/>
                                     </div>
-                                    <div class="checkbox">
+                                    <div class="checkbox col-md-12">
                                         <label>
-                                            <input type="checkbox" id="accept" required="required"/><i class="check-box"></i> Accept <a href="<?= baseURL('terms-of-service/'); ?>" style="color:#7005e3;">Terms & Conditions.</a>
+                                            <input type="checkbox" id="accept" onclick="showButton('emailButton');" required="required"/><i class="check-box"></i> Accept <a href="<?= baseURL('terms-of-service/'); ?>" style="color:#7005e3;">Terms & Conditions.</a>
                                         </label>
                                     </div>
-                                </div>
-
-                                <div class="form-row row col-md-12">
-                                    <div class="form-group message-btn" style="margin-top: 20px; border-radius: 1px; width: 100%;">
+                                    <hr>
+                                    <a href="javascript:void(0);" id="emailForm" onclick="replace('emailForm','ageForm')" style="padding-top: 20px; padding-bottom: 30px; padding-left: 20px; font-size: 11px;">Back To Age & Gender</a> 
+                                    <div class="col-md-12 message-btn" id="emailButton" style="margin-top: 10px; border-radius: 1px; width: 100%; display: none;">
                                         <img src="/Images/green-dots.gif" id="loader" style="display: none"/>
                                         <button type="submit" id="register"><span>Create Your Account</span></button>
                                     </div>
                                 </div>
                                 <br>
-                                <p title="Register" style="margin-top: 10px; float: right;">Already Registered? <a href="<?= baseURL('login/'); ?>" style="color:#7005e3;">Login</a></p>
+                                <p title="Register" style="font-size: 12px; margin-top: 20px; float: right;">Already Registered? <a href="<?= baseURL('login/'); ?>" style="color:#7005e3;">Login</a></p>
                             </form>
 
                             <script>

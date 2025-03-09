@@ -153,21 +153,23 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
    
              
 });
+
+
+
+
+     
+function replace(hide, show) {
+   document.getElementById(hide).style.display="none";
+   document.getElementById(show).style.display="block";
+}
+
+function showButton(a) {
+   //document.getElementById(hide).style.display="none";
+   document.getElementById(a).style.display="block";
+}
 
 
 
