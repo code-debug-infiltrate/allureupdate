@@ -1,115 +1,146 @@
- <!-- ======= Header ======= -->
-
+  <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-
-
     <div class="d-flex align-items-center justify-content-between">
-
-      <a href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/" class="logo d-flex align-items-center">
-
-        <img src="/Images/Logo/favicon.png" alt="Logo">
-
-        <span class="d-none d-lg-block" style="color: #899bbd; font-size: 20px;"><?= getenv('APP_NAME')?></span>
-
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="/Images/Logo/favicon.png" alt="Profile-Image">
+        <span class="d-none d-lg-block"><?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?></span>
       </a>
-
       <i class="bi bi-list toggle-sidebar-btn"></i>
-
     </div><!-- End Logo -->
 
-
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">
-
       <ul class="d-flex align-items-center">
 
-
-
         <li class="nav-item d-block d-lg-none">
-
-          <!-- <a class="nav-link nav-icon search-bar-toggle " href="#">
-
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
-
-          </a> -->
-
+          </a>
         </li><!-- End Search Icon-->
 
-        <!-- <li class="nav-item dropdown" title="New Products">
+        <li class="nav-item dropdown">
 
-          <a class="nav-link nav-icon" href="<?= baseURL('new-product/'); ?><?= $adminInfo['uniqueid']; ?>/">
-
-            <i class="bx bxs-gift"></i>
-
-            <span class="badge bg-danger badge-number">0</span>
-
-          </a>
-
-        </li> -->
-
-
-
-        <li class="nav-item dropdown" title="New Payments">
-
-          <a class="nav-link nav-icon" href="<?= baseURL('ad-transactions/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=Processing">
-
-            <i class="bi bi-cash-coin"></i>
-
-            <span class="badge bg-danger badge-number"><?= $newTransactionsCount; ?></span>
-
-          </a>
-
-        </li>
-
-
-
-        <li class="nav-item dropdown" title="New Messages">
-          
-          <a class="nav-link nav-icon" href="<?= baseURL('all-messages/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=New">
-
-            <i class="bi bi-envelope"></i>
-
-            <span class="badge bg-danger badge-number"><?= $newMessagesCount; ?></span>
-
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
 
-        </li>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
 
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
 
+          </ul><!-- End Notification Dropdown Items -->
 
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">3</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have 3 new messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>Maria Hudson</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>4 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="<?= baseURL('profile-settings/'); ?><?= $adminInfo['uniqueid']; ?>/" data-bs-toggle="dropdown">
-            <img src="<?= public_asset('/other_assets/Profile/') ?><?= $adminInfo['profileimage']; ?>" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?= $adminInfo['username']; ?></span>
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-
-          <li>
-              <hr class="dropdown-divider">
+            <li class="dropdown-header">
+              <h6><?= $adminInfo['fname']; ?> <?= $adminInfo['lname']; ?></h6>
+              <span><?= $adminInfo['occupation']; ?></span>
             </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="<?= baseURL('control-panel/'); ?><?= $adminInfo['uniqueid']; ?>/">
-                <i class="bi bi-sliders"></i>
-                <span>Control Panel</span>
-              </a>
-            </li>
-
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="<?= baseURL('profile-settings/'); ?><?= $adminInfo['uniqueid']; ?>/">
-                <i class="bx bx-user"></i>
-                <span>Profile Setting</span>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
               </a>
             </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -117,7 +148,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="<?= baseURL('logout/'); ?><?= $adminInfo['uniqueid']; ?>/">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Log Out</span>
+                <span>Sign Out</span>
               </a>
             </li>
 
@@ -125,7 +156,6 @@
         </li><!-- End Profile Nav -->
 
       </ul>
-
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
