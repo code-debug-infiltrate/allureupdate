@@ -70,6 +70,8 @@
 								<?php foreach ($newChatDetails as $key => $msg) { ?>
 									<?php if ($i <= 4) {  ?>
 									<li id="msg<?= $msg['id']; ?>">
+
+										<a href="<?= baseURL('us-chats/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $msg['sender']; ?>">
 										<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $msg['sender']) { ?>
 											
 										<span class="notification-icon dashbg-primary">
@@ -86,6 +88,7 @@
 											<span style="font-size: 7px;"> <?php echo(''.timeAgo(date('Y/m/d', strtotime($msg['created']))).''); ?></span>
 										</span>
 										<?php } } ?>
+										</a>
 									</li>
 								<?php } ?>
 							<?php $i++; } ?>

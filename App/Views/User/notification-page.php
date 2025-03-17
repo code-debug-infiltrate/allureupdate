@@ -45,26 +45,26 @@ include 'Layout/sidebar.php';
 				<?php foreach ($buddyActivity as $key => $activity) { ?>
 
 					<div class="new-user-list" style="margin: 5px;" id="not<?= $activity['id']; ?>">
-							<ul>
-							<span class="close" style="font-size: 24px; padding: 10px;" onclick="document.getElementById('not<?= $activity['id']; ?>').style.display='none'"> &times;</span>
-								<li>
-								<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $activity['user_uniqueid']) { ?>
-									<span class="new-users-pic">
-										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 50px; width: 60px;"></a>
-									</span>
-									<span class="new-users-text">
-										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><?= $user['fname']; ?> <?= $user['lname']; ?></a>
-										<span class="new-users-info"><?= $activity['details']; ?></span>
-									</span>
-									
-									<!-- <span class="new-users-btn">
-										<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="btn button-sm outline">Check Buddy Out</a>
-									</span> -->
-									<?php } } ?>
-								</li>
-							</ul>
-							<hr>
-						</div>
+						<ul>
+						<span class="close" style="font-size: 20px; padding: 10px;" onclick="document.getElementById('not<?= $activity['id']; ?>').style.display='none'"> &times;</span>
+							<li>
+							<?php foreach ($userProfiles as $key => $user) { if ($user['uniqueid'] == $activity['user_uniqueid']) { ?>
+								<span class="new-users-pic">
+									<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 50px; width: 60px;"></a>
+								</span>
+								<span class="new-users-text">
+									<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="new-users-name"><?= $user['fname']; ?> <?= $user['lname']; ?></a>
+									<span class="new-users-info"><?= $activity['details']; ?></span>
+								</span>
+								
+								<!-- <span class="new-users-btn">
+									<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $activity['user_uniqueid']; ?>&tab=about" class="btn button-sm outline">Check Buddy Out</a>
+								</span> -->
+								<?php } } ?>
+							</li>
+						</ul>
+						<hr>
+					</div>
 				<?php } ?>
 				<?php } else { ?>
 						<p style="text-align: center; font-size: 20px;">You Do Not Have Any Notifications Yet </p>

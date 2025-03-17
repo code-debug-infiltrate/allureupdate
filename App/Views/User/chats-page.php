@@ -108,58 +108,93 @@ include 'Layout/sidebar.php';
 										</div>
 
 										<div class="col-lg-12 row" style="overflow: auto; margin: 5px; border:1px solid #d2d4d2; padding: 10px; border-radius: 5px;">
-											<?php if($userChats != NULL) { ?>
-												<?php foreach ($userChats as $comC => $chats) { ?>
-													<?php if ($chats['sender'] != $userInfo['uniqueid']) { ?>
-														<div class="read-content-body" style="float: left; margin: 10px;" id="you">
-															<?php if ($appSubPlan['status'] == "Paid") { ?>
-																<?php if ($subPlan) { ?>
-																	<?php if ($subPlan['status'] == "Paid") {  ?>
-
-																		<p style="font-size: 12px; color: #0e014a;">
-																			<?php if ($chats['file']) { ?>
-																				<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
-																			<?php } ?>
-																			<?= $chats['details']; ?> <br><i style="font-size: 7px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
-																		</p>
-																		
-																	<?php } else { ?>
-
-																		<p>This Message Is Currently Masked. <a href="javascript:void(0);" data-toggle="modal" data-target="#addBalanceModal" style="color: #7005e3;">Subscribe To Unlock Conversation</a></p>
-																	
-															<?php } } } else { ?>
-
-																<p style="font-size: 12px; color: #0e014a;">
-																	<?php if ($chats['file']) { ?>
-																		<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
-																	<?php } ?>
-																	<?= $chats['details']; ?> <br><i style="font-size: 7px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
-																</p>
+											<div class="read-content-body">
+												<?php if($userChats != NULL) { ?>
+													<?php foreach ($userChats as $comC => $chats) { ?>
+														<?php if ($chats['sender'] != $userInfo['uniqueid']) { ?>
+															<div class="new-user-list" style="align-items: right; margin: 20px;" id="you">
 																
-															<?php } ?>
+																<?php if ($appSubPlan['status'] == "Paid") { ?>
+																	
+																	<?php if ($subPlan) { ?>
+																			
+																			<span class="new-users-pic">
+																				<?php foreach ($userProfiles as $key => $user) { if ($chats['sender'] == $user['uniqueid']) { ?>
+																					<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $chats['sender']; ?>&tab=about" ><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 20px; width: 20px; border-radius: 100%;"></a>
+																				<?php } } ?>
+																			</span>
+																			<span class="new-users-text" style="padding-left: 10px; font-size: 12px;">
+																				<?php if ($chats['file']) { ?>
+																					<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
+																					<br>
+																				<?php } ?>
+																				<span class="new-users-info"><?= $chats['details']; ?> <i style="font-size: 7px; padding-left: 20px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></span>
+																			</span>
+																				
+																			
+																		<?php } else { ?>
+
+																			<span class="new-users-pic">
+																				<?php foreach ($userProfiles as $key => $user) { if ($chats['sender'] == $user['uniqueid']) { ?>
+																					<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $chats['sender']; ?>&tab=about" ><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 20px; width: 20px; border-radius: 100%;"></a>
+																				<?php } } ?>
+																			</span>
+																			<span class="new-users-text" style="padding-left: 10px; font-size: 12px;">
+																				<?php if ($chats['file']) { ?>
+																					<img src="/Images/Body/blur.png" style="width: 200px;" alt="Chat File">
+																					<br>
+																				<?php } ?>
+																				<span class="new-users-info"><?= substr($chats['details'], 0, 7); ?>**********This Message Is Currently Masked. <a href="javascript:void(0);" data-toggle="modal" data-target="#addBalanceModal" style="color: #7005e3;">Subscribe To Unlock Conversation</a> <i style="font-size: 7px; padding-left: 20px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></span>
+																			</span>
+																		
+																<?php } } else { ?>
+
+																	<span class="new-users-pic">
+																		<?php foreach ($userProfiles as $key => $user) { if ($chats['sender'] == $user['uniqueid']) { ?>
+																			<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $chats['sender']; ?>&tab=about" ><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 20px; width: 20px; border-radius: 100%;"></a>
+																		<?php } } ?>
+																	</span>
+																	<span class="new-users-text" style="padding-left: 10px; font-size: 12px;">
+																		<?php if ($chats['file']) { ?>
+																			<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
+																			<br>
+																		<?php } ?>
+																		<span class="new-users-info"><?= $chats['details']; ?> <i style="font-size: 7px; padding-left: 20px;">Received <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></span>
+																	</span>
+																	
+																<?php } ?>
+
+															</div>
+												
+													<?php } else { ?>
+														<div class="new-user-list" style="align-items: left; margin: 20px;" id="me">
+
+															<span class="new-users-pic">
+																<?php foreach ($userProfiles as $key => $user) { if ($chats['sender'] == $user['uniqueid']) { ?>
+																	<a href="<?= baseURL('view-user/'); ?><?= $userInfo['uniqueid']; ?>/?buddy=<?= $chats['receiver']; ?>&tab=about" ><img src="<?= public_asset('/other_assets/Profile/') ?><?= $user['profileimage']; ?>" alt="Buddy-Photo" style="height: 20px; width: 20px; border-radius: 100%;"></a>
+																<?php } } ?>
+															</span>
+															<span class="new-users-text" style="padding-left: 10px; font-size: 12px;">
+																<?php if ($chats['file']) { ?>
+																	<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
+																
+																	<br>
+																<?php } ?>
+																<span class="new-users-info"><?= $chats['details']; ?> <i style="font-size: 7px; padding-left: 20px;">Sent <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i></span>
+															</span>
+
 														</div>
-											
+												<?php } } ?>
+
 												<?php } else { ?>
-													<div class="read-content-body" style="float: right; margin: 10px;" id="me">
-
-														<p style="font-size: 12px; color: #060312;">
-															<?php if ($chats['file']) { ?>
-																<img src="<?= public_asset('/other_assets/Chats/') ?><?= $chats['file']; ?>" style="width: 200px;" alt="Chat File">
-															<?php } ?>
-															<?= $chats['details']; ?> <br><i style="font-size: 7px;">Sent <?php echo(''.timeAgo(date('Y/m/d', strtotime($chats['created']))).''); ?></i>
-														</p>
-
-													</div>
-											<?php } } ?>
-
-											<?php } else { ?>
-												<center><p style="margin: 20px;">Start a Spark! <br> Send Buddy a Message! Say Hello...</p></center>
-											<?php } ?>
+													<center><p style="margin: 20px;">Start a Spark! <br> Send Buddy a Message! Say Hello...</p></center>
+												<?php } ?>
+											</div>
 										</div>
 										
 										<div class="form-group">
 											
-											<div class="col-lg-12"><marquee onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4" width="100%" direction="left"><i style="font-size: 12px; font-weight: 300; margin-top: 10px;"><?= $userInfo['username']; ?>, Be Polite And Respectful. Do Not Use Vulgar Words. Remember You Are Here For a Good Purpose. All Chats On <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Are End to End Secured.</i></marquee></div>
+											<div class="col-lg-12"><marquee onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4" width="100%" direction="left"><i style="font-size: 12px; font-weight: 300; margin-top: 5px;"><?= $userInfo['username']; ?>, Be Polite And Respectful. Do Not Use Vulgar Words. Remember You Are Here For a Good Purpose. All Chats On <?php if(isset($coyInfo['coyname'])) { echo $coyInfo['coyname']; } else { echo getenv('APP_NAME'); } ?> Are End to End Secured.</i></marquee></div>
 											
 											<form method="POST" action="" enctype="multipart/form-data" style="width: 100%;">
 
@@ -177,13 +212,10 @@ include 'Layout/sidebar.php';
 													<input type="hidden" name="chatid" value="">
 												<?php } ?>
 
-												<center><img src="" id="output_postimage" alt="" style="height: 300px; margin: 10px;"></center>
-
 												<textarea class="form-control" name="details" maxlength="500" placeholder="<?= $userInfo['username']; ?>, Share Your Thoughts With Your Buddy. You Can Attach an Image.." required></textarea>
 												
 												<input class="form-control" type="file" id="postimage" name="postimage[]" onchange="validatePostImage(event)" accept="image/*">
-												
-											
+												<!-- <center><img src="" id="output_postimage" alt="" style="height: 300px; margin: 10px;"></center> -->
 												<button class="btn mt-5" name="replychat" type="submit" data-toggle="tooltip" title="send">Send</button>
 											
 											</form>

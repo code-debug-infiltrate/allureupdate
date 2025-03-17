@@ -737,7 +737,11 @@ class UserController extends Controller
                 }
             }
             
-            $a9 = array('uniqueid' => $v->clean($id), 'sender' => $sender, 'receiver' => $receiver, 'username' => $username, 'chatid' => $chatid, 'file' => $allImages[0], 'details' => $details, );
+            if ($allImages) {
+                $a9 = array('uniqueid' => $v->clean($id), 'sender' => $sender, 'receiver' => $receiver, 'username' => $username, 'chatid' => $chatid, 'file' => $allImages[0], 'details' => $details, );
+            } else {
+                $a9 = array('uniqueid' => $v->clean($id), 'sender' => $sender, 'receiver' => $receiver, 'username' => $username, 'chatid' => $chatid, 'file' => "", 'details' => $details, );
+            }
             $buddyInfo = array('uniqueid' => $v->clean($id), 'buddyid' => $v->clean($_GET['buddy']), );
                 
             $newChat = ModelFactory::model('User')->user_chat_reply($a9);
