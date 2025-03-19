@@ -697,11 +697,13 @@ class AdminController extends Controller
             $details = array('postid' => $v->clean($_GET['id']), );
              //Get User Credentials
             $userDetails =$this->user_information($id); 
+            $userProfiles = ModelFactory::model('User')->user_profiles();
             $blogPost = ModelFactory::model('Admin')->blog_post_details($details); 
 
             $data = array(
                 'adminInfo' => $userDetails['admin_info'],
                 'blogPost' => $blogPost['result_message'], 
+                'userProfiles' => $userProfiles['user_profiles'], 
             );
 
             return $this->view('Admin/create-blog-post-page', $data);
@@ -710,13 +712,15 @@ class AdminController extends Controller
 
         $cat = array('status' => $v->clean($_GET['cat']), );
         //Get User Credentials
-        $userDetails =$this->user_information($id); 
+        $userDetails =$this->user_information($id);
+        $userProfiles = ModelFactory::model('User')->user_profiles(); 
         $blogPosts = ModelFactory::model('Admin')->all_blog_posts($cat); 
         $blogPostsAction = ModelFactory::model('User')->get_blog_posts_actions();
 
         $data = array(
             'adminInfo' => $userDetails['admin_info'],
             'blogPosts' => $blogPosts['result_message'], 
+            'userProfiles' => $userProfiles['user_profiles'], 
             'blogPostsAction' => $blogPostsAction,
         );
 

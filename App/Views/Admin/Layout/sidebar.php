@@ -5,8 +5,8 @@
 
   <li class="nav-item">
     <a class="nav-link " href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
+    <img src="<?= public_asset('/other_assets/Profile/') ?><?= $adminInfo['profileimage']; ?>" style="width: 40px; border-radius: 100%;" alt="User Image">
+      <span><?= $adminInfo['profile']; ?> Dashboard</span>
     </a>
   </li><!-- End Dashboard Nav -->
 
@@ -18,12 +18,12 @@
     </a>
     <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="<?= baseURL('ad-users/'); ?><?= $adminInfo['uniqueid']; ?>/">
+        <a href="<?= baseURL('ad-users/')?><?= $adminInfo['uniqueid']; ?>/?cat=User">
           <i class="bi bi-circle"></i><span>Users Data</span>
         </a>
       </li>
       <li>
-        <a href="<?= baseURL('ad-newsletter/'); ?><?= $adminInfo['uniqueid']; ?>/">
+        <a href="<?= baseURL('ad-newsletter/')?><?= $adminInfo['uniqueid']; ?>/?cat=User">
           <i class="bi bi-circle"></i><span>Newsletter Data</span>
         </a>
       </li>
@@ -77,12 +77,12 @@
     </a>
     <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="charts-chartjs.html">
+        <a href="<?= baseURL('ad-create-blog-post/')?><?= $adminInfo['uniqueid']; ?>/?id=">
           <i class="bi bi-circle"></i><span>New Post</span>
         </a>
       </li>
       <li>
-        <a href="charts-chartjs.html">
+        <a href="<?= baseURL('ad-blog-posts/')?><?= $adminInfo['uniqueid']; ?>/?cat=All">
           <i class="bi bi-circle"></i><span>All Posts</span>
         </a>
       </li>
@@ -97,12 +97,17 @@
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
-          <i class="bi bi-circle"></i><span>Coy Details</span>
+        <a href="<?= baseURL('ad-api-settings/')?><?= $adminInfo['uniqueid']; ?>/?cat=">
+          <i class="bi bi-circle"></i><span>API Details</span>
         </a>
       </li>
       <li>
-        <a href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
+        <a href="<?= baseURL('ad-coy-settings/')?><?= $adminInfo['uniqueid']; ?>/?cat=">
+          <i class="bi bi-circle"></i><span>Company Info</span>
+        </a>
+      </li>
+      <li>
+        <a href="<?= baseURL('ad-transactions/')?><?= $adminInfo['uniqueid']; ?>/?cat=All">
           <i class="bi bi-circle"></i><span>Finance Details</span>
         </a>
       </li>
