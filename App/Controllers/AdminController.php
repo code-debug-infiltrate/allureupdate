@@ -91,9 +91,12 @@ class AdminController extends Controller
         //Blog Posts
         $blogPosts = ModelFactory::model('Admin')->all_blog_posts($cat = array('status' => "New")); 
         $blogPostsAction = ModelFactory::model('User')->get_blog_posts_actions();
+
+        $curInfo = ModelFactory::model('Admin')->get_currency_info();
         
         $data = array(
             'adminInfo' => $userDetails['admin_info'],
+            'curInfo' => $curInfo['result_message'],
             'userProfiles' => $userProfiles['user_profiles'], 
             'visitorsCount' => $visitorsCount['result_message'], 
             'newUsersCount' => $newUsersCount['result_message'], 

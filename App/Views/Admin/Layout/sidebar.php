@@ -1,155 +1,130 @@
- <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link" href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
-          <i class="bi bi-grid"></i>
-          <span class="badge bg-success"><?= $adminInfo['profile']?> <?= $adminInfo['username']?></span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link " href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
 
+  <li class="nav-heading">Application Data</li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#component-nav" data-bs-toggle="collapse" href="#">
-          <i class="bx bxs-business"></i><span>Company</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="component-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('coy-gallery/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span> Gallery</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('view-coy/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span> Profile</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('team-member/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span> Team</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>Users Data</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('all-users/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span>All Users</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('all-activities/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span>Activities</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('all-visitors/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span>Visitors</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tranc-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cash-coin"></i><span>Transactions</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tranc-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('ad-transactions/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span>Payments</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#webmail-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-envelope-check"></i><span>Messaging</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="webmail-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('ad-webmail/'); ?><?= $adminInfo['uniqueid']; ?>/">
-              <i class="bi bi-circle"></i><span>Web Mail</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('all-messages/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
-              <i class="bi bi-circle"></i><span>In-app Mails</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#settings-nav" data-bs-toggle="collapse" href="#">
-          <i class="bx bxs-wrench"></i><span>Settings</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="settings-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('application-finance/'); ?><?= $adminInfo['uniqueid']; ?>/">
-              <i class="bi bi-circle"></i><span>Finance</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('application-notifications/'); ?><?= $adminInfo['uniqueid']; ?>/">
-              <i class="bi bi-circle"></i><span>Notifications</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= baseURL('application-programs/'); ?><?= $adminInfo['uniqueid']; ?>/">
-              <i class="bi bi-circle"></i><span>Programs</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#componen-nav" data-bs-toggle="collapse" href="#">
-          <i class="bx bxs-user"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="componen-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= baseURL('profile-settings/'); ?><?= $adminInfo['uniqueid']; ?>/">
-              <i class="bi bi-circle"></i><span>General</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= baseURL('control-panel/'); ?><?= $adminInfo['uniqueid']; ?>/">
-          <i class="bi bi-sliders"></i>
-          <span>Control panel</span>
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-person"></i><span>Membership</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="<?= baseURL('ad-users/'); ?><?= $adminInfo['uniqueid']; ?>/">
+          <i class="bi bi-circle"></i><span>Users Data</span>
         </a>
       </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= baseURL('logout/'); ?><?= $adminInfo['uniqueid']; ?>/">
-          <i class="bi bi-box-arrow-right"></i>
-          <span>Log Out</span>
+      <li>
+        <a href="<?= baseURL('ad-newsletter/'); ?><?= $adminInfo['uniqueid']; ?>/">
+          <i class="bi bi-circle"></i><span>Newsletter Data</span>
         </a>
       </li>
-      <!-- End Blank Page Nav -->
-
-
     </ul>
+  </li><!-- End Forms Nav -->
 
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-layout-text-window-reverse"></i><span>Messaging</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="<?= baseURL('ad-messages/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
+          <i class="bi bi-circle"></i><span>Inbox</span>
+        </a>
+      </li>
+      <li>
+        <a href="<?= baseURL('ad-tickets/'); ?><?= $adminInfo['uniqueid']; ?>/">
+          <i class="bi bi-circle"></i><span>Tickets</span>
+        </a>
+      </li>
+    </ul>
+  </li><!-- End Tables Nav -->
 
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="<?= baseURL('ad-notify/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=General">
+      <i class="bi bi-bell"></i>
+      <span>Notifications</span>
+    </a>
+  </li><!-- End Notifications Page Nav -->
 
-  </aside><!-- End Sidebar-->
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-gem"></i><span>Finance</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      
+      <li>
+        <a href="<?= baseURL('ad-transactions/'); ?><?= $adminInfo['uniqueid']; ?>/?cat=All">
+          <i class="bi bi-circle"></i><span>Transactions</span>
+        </a>
+      </li>
+    </ul>
+  </li><!-- End Icons Nav -->
+
+  <li class="nav-heading">News & Update Setup</li>
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-bar-chart"></i><span>Blogging</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="charts-chartjs.html">
+          <i class="bi bi-circle"></i><span>New Post</span>
+        </a>
+      </li>
+      <li>
+        <a href="charts-chartjs.html">
+          <i class="bi bi-circle"></i><span>All Posts</span>
+        </a>
+      </li>
+    </ul>
+  </li><!-- End Charts Nav -->
+
+  <li class="nav-heading">Application Setup</li>
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-menu-button-wide"></i><span>Company</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
+          <i class="bi bi-circle"></i><span>Coy Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="<?= baseURL('ad-index/'); ?><?= $adminInfo['uniqueid']; ?>/">
+          <i class="bi bi-circle"></i><span>Finance Details</span>
+        </a>
+      </li>
+    </ul>
+  </li><!-- End Components Nav -->
+
+  <li class="nav-heading">Other Settings</li>
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="<?= baseURL('ad-profile/'); ?><?= $adminInfo['uniqueid']; ?>/">
+      <i class="bi bi-person"></i>
+      <span>Profile</span>
+    </a>
+  </li><!-- End Profile Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="<?= baseURL('logout/'); ?><?= $adminInfo['uniqueid']; ?>/">
+      <i class="bi bi-box-arrow-in-right"></i>
+      <span>Logout</span>
+    </a>
+  </li><!-- End Login Page Nav -->
+
+</ul>
+
+</aside><!-- End Sidebar-->

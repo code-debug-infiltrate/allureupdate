@@ -1,7 +1,36 @@
 <script>
+    //Print Page
   function myPrintFunction() {
   window.print();
   }
+
+  //Delete Option
+  function myFunction() {
+    if (confirm("Hey You Clicked Delete? \n\nAre You Sure You Want To Delete This Record?")) {
+       // do stuff
+    } else {
+      return false;
+    }
+}
+</script>
+
+<script type="text/javascript">
+    const date = new Date();
+    const hrs = date.getHours();
+    const grtnMsg = document.getElementById('grtnMsg');
+    const grtnMsg1 = document.getElementById('grtnMsg1');
+    var msg;
+
+    if (hrs > 0) msg = "Mornin', ";
+    if (hrs > 5) msg = "Good Morning, ";
+    if (hrs > 12) msg = "Good Afternoon, ";
+    if (hrs > 17) msg = "Good Evening, ";
+    if (hrs > 22) msg = "Go To Bed, ";
+
+    grtnMsg.textContent = msg
+    grtnMsg1.textContent = msg
+    
+    //console.log(msg);
 </script>
 
   <!-- Vendor JS Files -->
@@ -18,42 +47,8 @@
   <script src="<?= public_asset('/other_assets/Admin/js/main.js') ?>"></script>
 
 
-<script>
-    function validateImage(event){
-        var formData = new FormData();
-
-        var file = document.getElementById("profileimage").files[0];
-        formData.append("FileData", file);
-
-        var t = file.type.split('/').pop().toLowerCase();
-        if (t != "BMP" && t != "PNG" && t != "JPG" && t != "JPEG" && t != "jpeg" && t != "jpg" && t != "png" && t != "bmp") {
-         alert('Please Use a Valid Image File \n e.g. jpeg,jpg,png,bmp formats only.');
-         document.getElementById("profileimage").value = '';
-         return false;
-        }
-        if (file.size > 5120000){
-            alert('Max Upload Size is 5MB Only');
-            document.getElementById("profileimage").value = '';
-            return false;
-        }
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('output_profileimage');
-            output.src = reader.result;
-        }
-    reader.readAsDataURL(event.target.files[0]);
-        return true;
-    }
-
-
-function myFunction() {
-    if (confirm("Hey You Clicked Delete? \n\nAre You Sure You Want To Delete This Record?")) {
-       // do stuff
-    } else {
-      return false;
-    }
-}
-</script>
+<!-- Image Validation -->
+<script src="<?= public_asset('/other_assets/User/js/validateImage.js') ?>"></script> 
 
 
 </body>
